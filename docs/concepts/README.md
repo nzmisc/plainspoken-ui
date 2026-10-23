@@ -7,6 +7,7 @@ Each concept has a status:
 
 | Status | Meaning |
 |---|---|
+| **wanted** | Decided: we want it. Not built yet, and no date |
 | **open** | Being considered; no decision yet |
 | **later** | Liked, but not for the first release |
 | **set aside** | Considered and not wanted for now; kept so the reasoning isn't lost |

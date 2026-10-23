@@ -11,11 +11,11 @@ Written 2026-10-23, from a discussion about setting the library up for public us
 | Concept | Status |
 |---|---|
 | [Use shadcn/ui's token names](#use-shadcnuis-token-names) | open |
-| [Choosable fonts](#choosable-fonts) | open |
-| [Main colour, black and white by default](#main-colour-black-and-white-by-default) | open |
-| [Choosable base gray](#choosable-base-gray) | open |
-| [Link and visited-link colours](#link-and-visited-link-colours) | open |
-| [A small theme builder](#a-small-theme-builder) | open |
+| [Choosable fonts](#choosable-fonts) | wanted |
+| [Main colour, black and white by default](#main-colour-black-and-white-by-default) | wanted |
+| [Choosable base gray](#choosable-base-gray) | wanted |
+| [Link and visited-link colours](#link-and-visited-link-colours) | wanted |
+| [A small theme builder](#a-small-theme-builder) | wanted |
 | [Corner radius](#corner-radius) | later |
 | [Chart colours that stay colour-blind safe](#chart-colours-that-stay-colour-blind-safe) | later |
 | [Density](#density) | later |
@@ -49,7 +49,7 @@ Watch out for:
 
 ## Choosable fonts
 
-**Status: open**
+**Status: wanted**
 
 Two variables, `--font-sans` and `--font-mono`, which every component uses and nothing hard-codes.
 shadcn's registry has a `registry:font` item type, so a font choice can be installed with the
@@ -60,7 +60,7 @@ system font stack, with Geist as an option? The system stack costs nothing to lo
 
 ## Main colour, black and white by default
 
-**Status: open**
+**Status: wanted**
 
 The one colour that marks primary actions, the selected segment, focus rings and so on (`primary`,
 `ring`). By default it is black on white and white on black in dark mode, so a fresh install looks
@@ -68,7 +68,7 @@ like plain, unbranded tooling. People who want a colour pick one.
 
 ## Choosable base gray
 
-**Status: open**
+**Status: wanted**
 
 The grays used for borders, header rows, muted text and backgrounds, chosen from shadcn's base
 colours: neutral, stone, zinc, mauve, olive, mist, taupe. shadcn/ui is MIT licensed, so the exact
@@ -76,7 +76,7 @@ values can be reused, with credit.
 
 ## Link and visited-link colours
 
-**Status: open**
+**Status: wanted**
 
 Variables for links and visited links (`--link`, `--link-visited`). shadcn/ui has neither: its
 links are usually styled as text or buttons. A utilitarian UI wants real links that look like
@@ -84,7 +84,7 @@ links, and that show which ones you have already visited, the way a plain HTML p
 
 ## A small theme builder
 
-**Status: open**
+**Status: wanted**
 
 A page on the docs site, much simpler than shadcn's "create":
 
