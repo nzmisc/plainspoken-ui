@@ -6,15 +6,16 @@
   "description": "Plain, dense, accessible React components, distributed as a shadcn registry.",
   "license": "MIT",
   "engines": {
-    "node": ">=22"
+    "node": ">=22.18"
   },
   "scripts": {
-    "dev": "node scripts/build-registry.mjs --index && next dev",
-    "build": "npm run registry:build && npm run storybook:build && next build",
+    "dev": "node scripts/build-registry.ts --index && next dev",
+    "build": "node scripts/build-theme.ts --check && npm run registry:build && npm run storybook:build && next build",
     "start": "next start",
     "lint": "eslint",
     "typecheck": "tsc --noEmit",
-    "registry:build": "node scripts/build-registry.mjs",
+    "registry:build": "node --env-file-if-exists=.env.production.local scripts/build-registry.ts",
+    "theme:build": "node scripts/build-theme.ts",
     "storybook": "storybook dev -p 6106 --host 127.0.0.1 --no-open",
     "storybook:build": "storybook build -o public/storybook --quiet",
     "icons": "node scripts/copy-lucide.mjs"

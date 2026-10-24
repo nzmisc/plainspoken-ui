@@ -1,9 +1,12 @@
 import { readFileSync } from "node:fs";
 import { join } from "node:path";
 
-/** A file of this repo, e.g. "registry/plainspoken/ui/button.tsx" */
+/**
+ * A file under registry/, e.g. "registry/plainspoken/ui/button.tsx". Scoped to that folder so the
+ * build's file tracing includes registry/ in the server bundle rather than the whole project.
+ */
 export function readSource(path: string): string {
-  return readFileSync(join(process.cwd(), path), "utf8");
+  return readFileSync(join(process.cwd(), "registry", path.replace(/^registry\//, "")), "utf8");
 }
 
 /**
