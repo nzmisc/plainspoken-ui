@@ -1,0 +1,9 @@
+{
+  "name": "copy-button",
+  "type": "registry:ui",
+  "title": "Copy button",
+  "description": "Copies text to the clipboard and shows how it went, in a ghost button small enough for a table row.",
+  "category": "Controls",
+  "files": ["ui/copy-button.tsx"],
+  "examples": ["copy-button-demo"]
+}

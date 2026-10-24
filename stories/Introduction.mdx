@@ -1,0 +1,29 @@
+import { Meta } from "@storybook/addon-docs/blocks";
+
+<Meta title="Introduction" />
+
+# plainspoken-ui
+
+Plain, dense, accessible React components: square corners, gray buttons with borders, tables with lines, and links that are
+blue until you've visited them. Distributed as a [shadcn registry](https://ui.shadcn.com/docs/registry): you copy the
+components into your project with the shadcn CLI and own them from then on.
+
+This Storybook is the workbench: every component, every state, at every size, in light and dark. The docs site (one level up
+from here) is the reference, with install commands and the source of each item.
+
+## How it is organised
+
+| Section | What is in it |
+|---|---|
+| **Foundations** | Colours, the control height scale, icons: what every component is built on |
+| **Components** | One page per registry component, grouped the same way as the docs: Controls, Forms, Feedback, Overlays, Navigation, Data display, Layout, Typography, Charts |
+| **Blocks** | Bigger pieces made of components, mostly from the demos: a mail list, a player bar, a post card |
+| **Demos** | The demo apps, whole |
+
+## Toolbar
+
+- **Theme**: follow the OS, or force light or dark (the `.dark` class on `<html>`, like the site).
+- **Size**: a control size for the whole canvas. Controls that don't set their own size take it, which is how a `ctl-sm`
+  class on a toolbar works in an app.
+
+The **Accessibility** panel runs axe on every story.

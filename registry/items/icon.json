@@ -1,0 +1,9 @@
+{
+  "name": "icon",
+  "type": "registry:ui",
+  "title": "Icon",
+  "description": "Draws an icon from lib/icons the house way: 2px stroke, round caps, current colour, on the text baseline. Decorative unless labelled.",
+  "category": "Foundations",
+  "files": ["ui/icon.tsx"],
+  "examples": ["icon-demo"]
+}

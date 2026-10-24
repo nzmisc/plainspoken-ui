@@ -1,0 +1,462 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry.json",
+  "name": "plainspoken-ui",
+  "homepage": "https://github.com/nzmisc/plainspoken-ui",
+  "items": [
+    {
+      "name": "button",
+      "type": "registry:ui",
+      "title": "Button",
+      "description": "Buttons on the shared height scale in seven variants (default, primary, secondary, outline, destructive, ghost, link), with icons, loading state, icon-only buttons and button groups.",
+      "author": "plainspoken-ui <https://github.com/nzmisc/plainspoken-ui>",
+      "registryDependencies": [
+        "@plainspoken/foundation",
+        "@plainspoken/icon",
+        "@plainspoken/icons",
+        "utils"
+      ],
+      "files": [
+        {
+          "path": "registry/plainspoken/ui/button.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "categories": [
+        "controls"
+      ]
+    },
+    {
+      "name": "checkbox",
+      "type": "registry:ui",
+      "title": "Checkbox",
+      "description": "Native checkbox in the main colour with a clickable label, a description and an indeterminate state; a control tall, so it sits level with buttons.",
+      "author": "plainspoken-ui <https://github.com/nzmisc/plainspoken-ui>",
+      "registryDependencies": [
+        "@plainspoken/foundation",
+        "utils"
+      ],
+      "files": [
+        {
+          "path": "registry/plainspoken/ui/checkbox.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "categories": [
+        "forms"
+      ]
+    },
+    {
+      "name": "chip",
+      "type": "registry:ui",
+      "title": "Chip",
+      "description": "A filter token at control height: a toggle, a removable value, or a plain label.",
+      "author": "plainspoken-ui <https://github.com/nzmisc/plainspoken-ui>",
+      "registryDependencies": [
+        "@plainspoken/foundation",
+        "@plainspoken/icon",
+        "@plainspoken/icons",
+        "utils"
+      ],
+      "files": [
+        {
+          "path": "registry/plainspoken/ui/chip.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "categories": [
+        "controls"
+      ]
+    },
+    {
+      "name": "copy-button",
+      "type": "registry:ui",
+      "title": "Copy button",
+      "description": "Copies text to the clipboard and shows how it went, in a ghost button small enough for a table row.",
+      "author": "plainspoken-ui <https://github.com/nzmisc/plainspoken-ui>",
+      "registryDependencies": [
+        "@plainspoken/button",
+        "@plainspoken/foundation",
+        "@plainspoken/icons"
+      ],
+      "files": [
+        {
+          "path": "registry/plainspoken/ui/copy-button.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "categories": [
+        "controls"
+      ]
+    },
+    {
+      "name": "field",
+      "type": "registry:ui",
+      "title": "Field",
+      "description": "Label, control, hint and error wired together, so the label points at the control and the hint and error are read out with it.",
+      "author": "plainspoken-ui <https://github.com/nzmisc/plainspoken-ui>",
+      "registryDependencies": [
+        "@plainspoken/foundation",
+        "@plainspoken/icon",
+        "@plainspoken/icons",
+        "utils"
+      ],
+      "files": [
+        {
+          "path": "registry/plainspoken/ui/field.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "categories": [
+        "forms"
+      ]
+    },
+    {
+      "name": "foundation",
+      "type": "registry:lib",
+      "title": "Foundation",
+      "description": "The control height scale (ctl-xs to ctl-lg, 20/24/28/36px) and the link, visited-link, success and warning colours every plainspoken-ui component uses. Installed automatically with any component.",
+      "author": "plainspoken-ui <https://github.com/nzmisc/plainspoken-ui>",
+      "files": [
+        {
+          "path": "registry/plainspoken/lib/controls.ts",
+          "type": "registry:lib"
+        }
+      ],
+      "cssVars": {
+        "theme": {
+          "color-link": "var(--link)",
+          "color-link-visited": "var(--link-visited)",
+          "color-success": "var(--success)",
+          "color-warning": "var(--warning)",
+          "spacing-ctl-xs": "20px",
+          "spacing-ctl-sm": "24px",
+          "spacing-ctl-md": "28px",
+          "spacing-ctl-lg": "36px"
+        },
+        "light": {
+          "link": "oklch(0.429 0.297 264.1)",
+          "link-visited": "oklch(0.378 0.172 302.2)",
+          "success": "oklch(0.508 0.153 142.9)",
+          "warning": "oklch(0.542 0.124 62.5)"
+        },
+        "dark": {
+          "link": "oklch(0.766 0.108 259.8)",
+          "link-visited": "oklch(0.735 0.165 307.3)",
+          "success": "oklch(0.724 0.162 143.7)",
+          "warning": "oklch(0.749 0.142 76.5)"
+        }
+      },
+      "css": {
+        "@utility ctl-xs": {
+          "--ctl-h": "20px",
+          "--ctl-px": "6px",
+          "--ctl-inset": "4px",
+          "--ctl-text": "12px",
+          "--ctl-gap": "4px",
+          "--ctl-icon": "12px"
+        },
+        "@utility ctl-sm": {
+          "--ctl-h": "24px",
+          "--ctl-px": "8px",
+          "--ctl-inset": "6px",
+          "--ctl-text": "13px",
+          "--ctl-gap": "6px",
+          "--ctl-icon": "14px"
+        },
+        "@utility ctl-md": {
+          "--ctl-h": "28px",
+          "--ctl-px": "10px",
+          "--ctl-inset": "8px",
+          "--ctl-text": "14px",
+          "--ctl-gap": "6px",
+          "--ctl-icon": "16px"
+        },
+        "@utility ctl-lg": {
+          "--ctl-h": "36px",
+          "--ctl-px": "14px",
+          "--ctl-inset": "10px",
+          "--ctl-text": "16px",
+          "--ctl-gap": "8px",
+          "--ctl-icon": "18px"
+        },
+        "@layer base": {
+          ":root": {
+            "--ctl-h": "28px",
+            "--ctl-px": "10px",
+            "--ctl-inset": "8px",
+            "--ctl-text": "14px",
+            "--ctl-gap": "6px",
+            "--ctl-icon": "16px"
+          }
+        }
+      },
+      "categories": [
+        "foundations"
+      ]
+    },
+    {
+      "name": "icon",
+      "type": "registry:ui",
+      "title": "Icon",
+      "description": "Draws an icon from lib/icons the house way: 2px stroke, round caps, current colour, on the text baseline. Decorative unless labelled.",
+      "author": "plainspoken-ui <https://github.com/nzmisc/plainspoken-ui>",
+      "registryDependencies": [
+        "@plainspoken/foundation",
+        "@plainspoken/icons",
+        "utils"
+      ],
+      "files": [
+        {
+          "path": "registry/plainspoken/ui/icon.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "categories": [
+        "foundations"
+      ]
+    },
+    {
+      "name": "icons",
+      "type": "registry:lib",
+      "title": "Icons",
+      "description": "About 300 Lucide icons copied in as plain data (no icon package), drawn by <Icon>.",
+      "author": "plainspoken-ui <https://github.com/nzmisc/plainspoken-ui>",
+      "files": [
+        {
+          "path": "registry/plainspoken/lib/icons.ts",
+          "type": "registry:lib"
+        },
+        {
+          "path": "registry/plainspoken/lib/LICENSE-lucide.txt",
+          "type": "registry:file",
+          "target": "lib/LICENSE-lucide.txt"
+        }
+      ],
+      "categories": [
+        "foundations"
+      ]
+    },
+    {
+      "name": "input",
+      "type": "registry:ui",
+      "title": "Input",
+      "description": "Single-line text input exactly as tall as a button of the same size, with icon, text or button prefixes and suffixes.",
+      "author": "plainspoken-ui <https://github.com/nzmisc/plainspoken-ui>",
+      "registryDependencies": [
+        "@plainspoken/field",
+        "@plainspoken/foundation",
+        "@plainspoken/icon",
+        "@plainspoken/icons",
+        "utils"
+      ],
+      "files": [
+        {
+          "path": "registry/plainspoken/ui/input.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "categories": [
+        "forms"
+      ]
+    },
+    {
+      "name": "radio-group",
+      "type": "registry:ui",
+      "title": "Radio group",
+      "description": "One choice out of a few, all visible: a real fieldset of native radios with a legend, descriptions and an error.",
+      "author": "plainspoken-ui <https://github.com/nzmisc/plainspoken-ui>",
+      "registryDependencies": [
+        "@plainspoken/foundation",
+        "@plainspoken/icon",
+        "@plainspoken/icons",
+        "utils"
+      ],
+      "files": [
+        {
+          "path": "registry/plainspoken/ui/radio-group.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "categories": [
+        "forms"
+      ]
+    },
+    {
+      "name": "segmented-control",
+      "type": "registry:ui",
+      "title": "Segmented control",
+      "description": "Two to five mutually exclusive views or modes side by side, exactly a button's height, with native radios underneath.",
+      "author": "plainspoken-ui <https://github.com/nzmisc/plainspoken-ui>",
+      "registryDependencies": [
+        "@plainspoken/foundation",
+        "utils"
+      ],
+      "files": [
+        {
+          "path": "registry/plainspoken/ui/segmented-control.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "categories": [
+        "controls"
+      ]
+    },
+    {
+      "name": "select",
+      "type": "registry:ui",
+      "title": "Select",
+      "description": "The browser's own select (system picker on phones, type-to-jump), invisible over a label drawn like a button so it lines up with everything else.",
+      "author": "plainspoken-ui <https://github.com/nzmisc/plainspoken-ui>",
+      "registryDependencies": [
+        "@plainspoken/field",
+        "@plainspoken/foundation",
+        "@plainspoken/icon",
+        "@plainspoken/icons",
+        "utils"
+      ],
+      "files": [
+        {
+          "path": "registry/plainspoken/ui/select.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "categories": [
+        "forms"
+      ]
+    },
+    {
+      "name": "switch",
+      "type": "registry:ui",
+      "title": "Switch",
+      "description": "An on/off setting that takes effect immediately, with the state also in words.",
+      "author": "plainspoken-ui <https://github.com/nzmisc/plainspoken-ui>",
+      "registryDependencies": [
+        "@plainspoken/foundation",
+        "utils"
+      ],
+      "files": [
+        {
+          "path": "registry/plainspoken/ui/switch.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "categories": [
+        "forms"
+      ]
+    },
+    {
+      "name": "textarea",
+      "type": "registry:ui",
+      "title": "Textarea",
+      "description": "Multi-line text that resizes vertically, with an optional character count.",
+      "author": "plainspoken-ui <https://github.com/nzmisc/plainspoken-ui>",
+      "registryDependencies": [
+        "@plainspoken/field",
+        "@plainspoken/foundation",
+        "utils"
+      ],
+      "files": [
+        {
+          "path": "registry/plainspoken/ui/textarea.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "categories": [
+        "forms"
+      ]
+    },
+    {
+      "name": "theme",
+      "type": "registry:theme",
+      "title": "Default theme",
+      "description": "The default plainspoken-ui theme as shadcn/ui CSS variables: white and black, plain HTML grays, classic blue and purple links, Geist, no corner radius. Make your own on the Customize page.",
+      "author": "plainspoken-ui <https://github.com/nzmisc/plainspoken-ui>",
+      "cssVars": {
+        "theme": {
+          "font-sans": "\"Geist\", ui-sans-serif, system-ui, sans-serif",
+          "font-mono": "\"Geist Mono\", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace"
+        },
+        "light": {
+          "radius": "0rem",
+          "background": "oklch(1 0 0)",
+          "foreground": "oklch(0 0 0)",
+          "card": "oklch(1 0 0)",
+          "card-foreground": "oklch(0 0 0)",
+          "popover": "oklch(1 0 0)",
+          "popover-foreground": "oklch(0 0 0)",
+          "primary": "oklch(0.2 0 0)",
+          "primary-foreground": "oklch(1 0 0)",
+          "secondary": "oklch(0.949 0 0)",
+          "secondary-foreground": "oklch(0 0 0)",
+          "muted": "oklch(0.949 0 0)",
+          "muted-foreground": "oklch(0.479 0 0)",
+          "accent": "oklch(0.913 0 0)",
+          "accent-foreground": "oklch(0 0 0)",
+          "destructive": "oklch(0.523 0.203 27)",
+          "destructive-foreground": "oklch(1 0 0)",
+          "success": "oklch(0.508 0.153 142.9)",
+          "warning": "oklch(0.542 0.124 62.5)",
+          "border": "oklch(0.776 0 0)",
+          "input": "oklch(0.649 0 0)",
+          "ring": "oklch(0.2 0 0)",
+          "link": "oklch(0.429 0.297 264.1)",
+          "link-visited": "oklch(0.378 0.172 302.2)",
+          "chart-1": "oklch(0.575 0.163 255.5)",
+          "chart-2": "oklch(0.671 0.175 40.6)",
+          "chart-3": "oklch(0.669 0.141 162.1)",
+          "chart-4": "oklch(0.606 0.219 292.7)",
+          "chart-5": "oklch(0.556 0 0)",
+          "sidebar": "oklch(0.979 0 0)",
+          "sidebar-foreground": "oklch(0 0 0)",
+          "sidebar-primary": "oklch(0.2 0 0)",
+          "sidebar-primary-foreground": "oklch(1 0 0)",
+          "sidebar-accent": "oklch(0.913 0 0)",
+          "sidebar-accent-foreground": "oklch(0 0 0)",
+          "sidebar-border": "oklch(0.776 0 0)",
+          "sidebar-ring": "oklch(0.2 0 0)"
+        },
+        "dark": {
+          "background": "oklch(0.183 0 0)",
+          "foreground": "oklch(0.925 0 0)",
+          "card": "oklch(0.205 0 0)",
+          "card-foreground": "oklch(0.925 0 0)",
+          "popover": "oklch(0.226 0 0)",
+          "popover-foreground": "oklch(0.925 0 0)",
+          "primary": "oklch(0.93 0 0)",
+          "primary-foreground": "oklch(0.183 0 0)",
+          "secondary": "oklch(0.249 0 0)",
+          "secondary-foreground": "oklch(0.925 0 0)",
+          "muted": "oklch(0.249 0 0)",
+          "muted-foreground": "oklch(0.705 0 0)",
+          "accent": "oklch(0.32 0 0)",
+          "accent-foreground": "oklch(0.925 0 0)",
+          "destructive": "oklch(0.712 0.181 22.8)",
+          "destructive-foreground": "oklch(0.183 0 0)",
+          "success": "oklch(0.724 0.162 143.7)",
+          "warning": "oklch(0.749 0.142 76.5)",
+          "border": "oklch(0.399 0 0)",
+          "input": "oklch(0.52 0 0)",
+          "ring": "oklch(0.93 0 0)",
+          "link": "oklch(0.766 0.108 259.8)",
+          "link-visited": "oklch(0.735 0.165 307.3)",
+          "chart-1": "oklch(0.622 0.161 255.1)",
+          "chart-2": "oklch(0.622 0.173 40.1)",
+          "chart-3": "oklch(0.621 0.128 163.1)",
+          "chart-4": "oklch(0.709 0.159 293.5)",
+          "chart-5": "oklch(0.715 0 0)",
+          "sidebar": "oklch(0.205 0 0)",
+          "sidebar-foreground": "oklch(0.925 0 0)",
+          "sidebar-primary": "oklch(0.93 0 0)",
+          "sidebar-primary-foreground": "oklch(0.183 0 0)",
+          "sidebar-accent": "oklch(0.32 0 0)",
+          "sidebar-accent-foreground": "oklch(0.925 0 0)",
+          "sidebar-border": "oklch(0.399 0 0)",
+          "sidebar-ring": "oklch(0.93 0 0)"
+        }
+      },
+      "categories": [
+        "foundations"
+      ]
+    }
+  ]
+}

@@ -1,6 +1,6 @@
 # Theming
 
-How people using austere-ui could make it theirs without it stopping being austere: their own
+How people using plainspoken-ui could make it theirs without it stopping being plain: their own
 fonts, their own main colour, their choice of gray. See [the concepts README](README.md) for what
 the statuses mean.
 
@@ -33,9 +33,9 @@ through a `.dark` class, exposed to Tailwind v4 through `@theme inline`.
 
 Why:
 
-- austere-ui and shadcn/ui components can live in the same app under **one** theme. Useful
+- plainspoken-ui and shadcn/ui components can live in the same app under **one** theme. Useful
   because shadcn/ui is still the right tool for some things.
-- Themes made for shadcn/ui (by hand, or with tools such as tweakcn) would work on austere-ui as
+- Themes made for shadcn/ui (by hand, or with tools such as tweakcn) would work on plainspoken-ui as
   they are.
 - People who know shadcn/ui know where everything is.
 
@@ -118,7 +118,7 @@ need to pass the check against each other.
 **Status: later**
 
 A theme setting such as compact / regular that scales all the control heights, paddings and text
-sizes together, for people who want austere-ui's discipline with a little more room, or even less.
+sizes together, for people who want plainspoken-ui's discipline with a little more room, or even less.
 
 ## Control heights as a theme setting
 

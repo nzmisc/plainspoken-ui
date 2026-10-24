@@ -1,0 +1,9 @@
+{
+  "name": "icons",
+  "type": "registry:lib",
+  "title": "Icons",
+  "description": "About 300 Lucide icons copied in as plain data (no icon package), drawn by <Icon>.",
+  "category": "Foundations",
+  "files": ["lib/icons.ts", "lib/LICENSE-lucide.txt"],
+  "hidden": true
+}

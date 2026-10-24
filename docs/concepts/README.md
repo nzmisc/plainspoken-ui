@@ -1,6 +1,6 @@
 # Concepts
 
-Ideas for austere-ui that are worth writing down but are **not promises**. A concept may be built,
+Ideas for plainspoken-ui that are worth writing down but are **not promises**. A concept may be built,
 changed beyond recognition, or dropped. Nothing here is a roadmap.
 
 Each concept has a status:

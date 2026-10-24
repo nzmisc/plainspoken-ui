@@ -1,0 +1,9 @@
+{
+  "name": "button",
+  "type": "registry:ui",
+  "title": "Button",
+  "description": "Buttons on the shared height scale in seven variants (default, primary, secondary, outline, destructive, ghost, link), with icons, loading state, icon-only buttons and button groups.",
+  "category": "Controls",
+  "files": ["ui/button.tsx"],
+  "examples": ["button-demo", "button-variants", "button-sizes", "button-icons", "button-group", "button-as-link"]
+}

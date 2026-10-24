@@ -1,0 +1,9 @@
+{
+  "name": "field",
+  "type": "registry:ui",
+  "title": "Field",
+  "description": "Label, control, hint and error wired together, so the label points at the control and the hint and error are read out with it.",
+  "category": "Forms",
+  "files": ["ui/field.tsx"],
+  "examples": ["field-demo", "field-inline"]
+}

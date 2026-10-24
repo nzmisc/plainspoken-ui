@@ -1,0 +1,9 @@
+{
+  "name": "checkbox",
+  "type": "registry:ui",
+  "title": "Checkbox",
+  "description": "Native checkbox in the main colour with a clickable label, a description and an indeterminate state; a control tall, so it sits level with buttons.",
+  "category": "Forms",
+  "files": ["ui/checkbox.tsx"],
+  "examples": ["checkbox-demo"]
+}

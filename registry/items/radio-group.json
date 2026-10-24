@@ -1,0 +1,9 @@
+{
+  "name": "radio-group",
+  "type": "registry:ui",
+  "title": "Radio group",
+  "description": "One choice out of a few, all visible: a real fieldset of native radios with a legend, descriptions and an error.",
+  "category": "Forms",
+  "files": ["ui/radio-group.tsx"],
+  "examples": ["radio-group-demo"]
+}

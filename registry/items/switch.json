@@ -1,0 +1,9 @@
+{
+  "name": "switch",
+  "type": "registry:ui",
+  "title": "Switch",
+  "description": "An on/off setting that takes effect immediately, with the state also in words.",
+  "category": "Forms",
+  "files": ["ui/switch.tsx"],
+  "examples": ["switch-demo"]
+}
