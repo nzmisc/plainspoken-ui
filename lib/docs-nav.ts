@@ -43,7 +43,7 @@ export function docsNav(): DocsNavSection[] {
         { href: "/docs/control-sizes", label: "Control sizes" },
         { href: "/docs/icons", label: "Icons" },
         { href: "/docs/components", label: "All components" },
-        ...(blockEntries().length ? [{ href: "/docs/blocks", label: "Blocks" }] : []),
+        { href: "/docs/blocks", label: "Blocks" },
       ],
     },
     ...componentsByCategory().map(({ category, entries }) => ({
