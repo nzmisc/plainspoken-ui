@@ -252,6 +252,8 @@ export interface FontChoice {
   source: string | null;
   /** next/font/google export name, when it's on Google Fonts */
   google?: string;
+  /** Weights to load, for fonts that Google doesn't serve as a variable font */
+  weights?: string[];
 }
 
 const SANS_FALLBACK = "ui-sans-serif, system-ui, sans-serif";
@@ -267,9 +269,22 @@ export const FONTS: FontChoice[] = [
   { id: "system-serif", label: "System serif", kind: "serif", stack: SERIF_FALLBACK, source: null },
   { id: "geist-mono", label: "Geist Mono", kind: "mono", stack: `"Geist Mono", ${MONO_FALLBACK}`, source: "https://vercel.com/font", google: "Geist_Mono" },
   { id: "jetbrains-mono", label: "JetBrains Mono", kind: "mono", stack: `"JetBrains Mono", ${MONO_FALLBACK}`, source: "https://www.jetbrains.com/lp/mono/", google: "JetBrains_Mono" },
-  { id: "ibm-plex-mono", label: "IBM Plex Mono", kind: "mono", stack: `"IBM Plex Mono", ${MONO_FALLBACK}`, source: "https://www.ibm.com/plex/", google: "IBM_Plex_Mono" },
+  { id: "ibm-plex-mono", label: "IBM Plex Mono", kind: "mono", stack: `"IBM Plex Mono", ${MONO_FALLBACK}`, source: "https://www.ibm.com/plex/", google: "IBM_Plex_Mono", weights: ["400", "500", "600", "700"] },
   { id: "system-mono", label: "System monospace", kind: "mono", stack: MONO_FALLBACK, source: null },
 ];
+
+/**
+ * The CSS variable a font loader sets for a font (next/font's `variable` option): --font-inter,
+ * --font-geist-mono. null for the system stacks, which need nothing loaded.
+ */
+export function fontVar(font: FontChoice): string | null {
+  return font.source ? `--font-${font.id}` : null;
+}
+
+/** A font stack that tries a font loader's variable first, falling back to the font's name */
+export function fontStack(stack: string, varName?: string | null): string {
+  return varName ? `var(${varName}, ${stack.split(",")[0].trim()}), ${stack}` : stack;
+}
 
 // ---------------------------------------------------------------------------------------------
 // Fixed colours: not theme settings, but every theme has them.
@@ -328,6 +343,17 @@ export interface Theme {
   theme: Record<string, string>;
 }
 
+/**
+ * The colour, made lighter or darker (away from the background) until it has at least `min`
+ * contrast against it. For colours the theme derives itself; chosen colours are left alone.
+ */
+function ensureContrast(c: Oklch, bg: Oklch, min: number): Oklch {
+  const step = bg.l > 0.5 ? -0.01 : 0.01;
+  let out = c;
+  for (let i = 0; i < 100 && contrast(out, bg) < min; i++) out = { ...out, l: Math.min(1, Math.max(0, out.l + step)) };
+  return out;
+}
+
 /** Text colour for a fill: white or near-black, whichever reads better (WCAG contrast). */
 function onFill(fill: Oklch, base: BaseGray): Oklch {
   const white = gray(base, 1);
@@ -357,7 +383,10 @@ function mode(o: ThemeOptions, m: Mode): Record<string, string> {
     out["link-visited"] = css(links.visited);
   } else if (o.main[m]) {
     out.link = css(primary);
-    out["link-visited"] = css({ ...primary, l: m === "light" ? primary.l * 0.75 : primary.l * 0.85, c: primary.c * 0.6 });
+    // Visited: a darker, duller shade; kept readable on the background (in dark mode the darker
+    // shade of a deep colour such as indigo would drop below 4.5:1)
+    const visited = { ...primary, l: m === "light" ? primary.l * 0.75 : primary.l * 0.85, c: primary.c * 0.6 };
+    out["link-visited"] = css(ensureContrast(visited, gray(o.base, GRAY_STEPS[m].background), 4.5));
   } else {
     out.link = out.foreground;
     out["link-visited"] = out["muted-foreground"];
@@ -394,14 +423,11 @@ const ordered = (vars: Record<string, string>) =>
  * The CSS for a theme: :root and .dark with the values, and the @theme inline block that makes
  * Tailwind utilities of them (bg-background, text-muted-foreground, border-input, text-link...).
  */
-export function themeCss(t: Theme, opts: { fontVars?: { sans?: string; mono?: string } } = {}): string {
+export function themeCss(t: Theme, opts: { fontVars?: { sans?: string | null; mono?: string | null } } = {}): string {
   // A font variable (from next/font) goes first, with a fallback so the stack still works where it isn't set
-  const first = (stack: string) => stack.split(",")[0].trim();
-  const fontSans = opts.fontVars?.sans ? `var(${opts.fontVars.sans}, ${first(t.theme["font-sans"])}), ${t.theme["font-sans"]}` : t.theme["font-sans"];
-  const fontMono = opts.fontVars?.mono ? `var(${opts.fontVars.mono}, ${first(t.theme["font-mono"])}), ${t.theme["font-mono"]}` : t.theme["font-mono"];
   const inline: Record<string, string> = {
-    "font-sans": fontSans,
-    "font-mono": fontMono,
+    "font-sans": fontStack(t.theme["font-sans"], opts.fontVars?.sans),
+    "font-mono": fontStack(t.theme["font-mono"], opts.fontVars?.mono),
     ...Object.fromEntries(COLOR_TOKENS.map((tok) => [`color-${tok}`, `var(--${tok})`])),
     "radius-sm": "max(0px, calc(var(--radius) - 4px))",
     "radius-md": "max(0px, calc(var(--radius) - 2px))",
@@ -415,16 +441,24 @@ export function themeCss(t: Theme, opts: { fontVars?: { sans?: string; mono?: st
   ].join("\n\n");
 }
 
-/** The registry item (shadcn's registry:theme) for a theme, as the CLI wants it */
-export function themeRegistryItem(t: Theme, name = "theme", title = "plainspoken-ui theme") {
+/**
+ * The registry item (shadcn's registry:theme) for a theme, as the CLI wants it. With `fontVars`,
+ * the font stacks try those variables first, as in themeCss.
+ */
+export function themeRegistryItem(
+  t: Theme,
+  name = "theme",
+  title = "plainspoken-ui theme",
+  opts: { description?: string; fontVars?: { sans?: string | null; mono?: string | null } } = {},
+) {
   return {
     $schema: "https://ui.shadcn.com/schema/registry-item.json",
     name,
     type: "registry:theme",
     title,
-    description: "Colours, fonts and (no) radius for plainspoken-ui, as shadcn/ui CSS variables.",
+    description: opts.description ?? "Colours, fonts and (no) radius for plainspoken-ui, as shadcn/ui CSS variables.",
     cssVars: {
-      theme: { "font-sans": t.theme["font-sans"], "font-mono": t.theme["font-mono"] },
+      theme: { "font-sans": fontStack(t.theme["font-sans"], opts.fontVars?.sans), "font-mono": fontStack(t.theme["font-mono"], opts.fontVars?.mono) },
       light: { radius: t.theme.radius, ...ordered(t.light) },
       dark: ordered(t.dark),
     },
@@ -432,35 +466,87 @@ export function themeRegistryItem(t: Theme, name = "theme", title = "plainspoken
 }
 
 // ---------------------------------------------------------------------------------------------
-// Options ⇄ URL search params, so a customized theme is a link (and a registry URL).
+// Options ⇄ URL search params (the customizer's address, so a theme is a link) and ⇄ a slug (the
+// registry URL of a customized theme: /r/themes/base-stone.main-blue.links-classic.sans-inter.mono-geist-mono.json).
 
+const hex6 = (c: Oklch) => oklchToHex(c).slice(1);
+const HEX = /^#?[0-9a-f]{6}$/i;
+const withHash = (h: string) => (h.startsWith("#") ? h : `#${h}`).toLowerCase();
+
+/** Only what differs from the default; custom colours as hex without the # (it would be %23 in a link) */
 export function themeToParams(o: ThemeOptions): URLSearchParams {
   const p = new URLSearchParams();
   if (o.base.id !== DEFAULT_THEME.base.id) p.set("base", o.base.id);
-  if (o.main.id === "custom" && o.main.light) p.set("main", oklchToHex(o.main.light));
+  if (o.main.id === "custom" && o.main.light) p.set("main", hex6(o.main.light));
   else if (o.main.id !== DEFAULT_THEME.main.id) p.set("main", o.main.id);
-  if (o.links.id === "custom" && o.links.light) p.set("links", `${oklchToHex(o.links.light.link)},${oklchToHex(o.links.light.visited)}`);
+  if (o.links.id === "custom" && o.links.light) p.set("links", `${hex6(o.links.light.link)},${hex6(o.links.light.visited)}`);
   else if (o.links.id !== DEFAULT_THEME.links.id) p.set("links", o.links.id);
   if (o.sans.id !== DEFAULT_THEME.sans.id) p.set("sans", o.sans.id);
   if (o.mono.id !== DEFAULT_THEME.mono.id) p.set("mono", o.mono.id);
   return p;
 }
 
-const HEX = /^#?[0-9a-f]{6}$/i;
-
-export function themeFromParams(p: URLSearchParams | Record<string, string | undefined>): ThemeOptions {
-  const get = (k: string) => (p instanceof URLSearchParams ? p.get(k) : p[k]) ?? undefined;
+/** Options from key → value pairs; null when `strict` and any value is unknown, else the default for it */
+function readOptions(get: (key: string) => string | undefined, strict: boolean): ThemeOptions | null {
+  let unknown = false;
+  const pick = <T>(value: string | undefined, found: T | undefined, fallback: T): T => {
+    if (value != null && found === undefined) unknown = true;
+    return found ?? fallback;
+  };
   const main = get("main");
   const links = get("links");
-  const [link, visited] = links?.split(",") ?? [];
-  return {
-    base: BASE_GRAYS.find((b) => b.id === get("base")) ?? DEFAULT_THEME.base,
-    main: main && HEX.test(main) ? customMainColour(main.startsWith("#") ? main : `#${main}`) : (MAIN_COLOURS.find((c) => c.id === main) ?? DEFAULT_THEME.main),
-    links:
-      link && visited && HEX.test(link) && HEX.test(visited)
-        ? customLinkColours(link.startsWith("#") ? link : `#${link}`, visited.startsWith("#") ? visited : `#${visited}`)
-        : (LINK_COLOURS.find((c) => c.id === links) ?? DEFAULT_THEME.links),
-    sans: FONTS.find((f) => f.id === get("sans") && f.kind !== "mono") ?? DEFAULT_THEME.sans,
-    mono: FONTS.find((f) => f.id === get("mono") && f.kind === "mono") ?? DEFAULT_THEME.mono,
+  const [link, visited, extra] = links?.split(",") ?? [];
+  const o: ThemeOptions = {
+    base: pick(get("base"), BASE_GRAYS.find((b) => b.id === get("base")), DEFAULT_THEME.base),
+    main: pick(main, main && HEX.test(main) ? customMainColour(withHash(main)) : MAIN_COLOURS.find((c) => c.id === main), DEFAULT_THEME.main),
+    links: pick(
+      links,
+      link && visited && extra == null && HEX.test(link) && HEX.test(visited)
+        ? customLinkColours(withHash(link), withHash(visited))
+        : LINK_COLOURS.find((c) => c.id === links),
+      DEFAULT_THEME.links,
+    ),
+    sans: pick(get("sans"), FONTS.find((f) => f.id === get("sans") && f.kind !== "mono"), DEFAULT_THEME.sans),
+    mono: pick(get("mono"), FONTS.find((f) => f.id === get("mono") && f.kind === "mono"), DEFAULT_THEME.mono),
   };
+  return strict && unknown ? null : o;
+}
+
+/** Options from the customizer's search params. Anything missing or unknown is the default. */
+export function themeFromParams(p: URLSearchParams | Record<string, string | undefined>): ThemeOptions {
+  return readOptions((k) => (p instanceof URLSearchParams ? p.get(k) : p[k]) ?? undefined, false)!;
+}
+
+const SLUG_KEYS = ["base", "main", "links", "sans", "mono"] as const;
+
+/**
+ * A theme's name in registry URLs: every option as key-value, joined with dots, in a fixed order.
+ * Custom colours are hex without the #, and custom links are two of them: links-0000ee-551a8b.
+ */
+export function themeSlug(o: ThemeOptions): string {
+  const main = o.main.id === "custom" && o.main.light ? hex6(o.main.light) : o.main.id;
+  const links = o.links.id === "custom" && o.links.light ? `${hex6(o.links.light.link)}-${hex6(o.links.light.visited)}` : o.links.id;
+  const value = { base: o.base.id, main, links, sans: o.sans.id, mono: o.mono.id };
+  return SLUG_KEYS.map((k) => `${k}-${value[k]}`).join(".");
+}
+
+/**
+ * Options from a slug. Parts may come in any order and missing ones are the default, but an
+ * unknown key or value, or a repeated key, gives null (a typo shouldn't quietly install the default).
+ */
+export function themeFromSlug(slug: string): ThemeOptions | null {
+  const p: Record<string, string> = {};
+  for (const part of slug.toLowerCase().split(".")) {
+    const dash = part.indexOf("-");
+    const key = part.slice(0, dash);
+    const value = part.slice(dash + 1);
+    if (dash < 1 || !value || !(SLUG_KEYS as readonly string[]).includes(key) || key in p) return null;
+    p[key] = key === "links" && /^[0-9a-f]{6}-[0-9a-f]{6}$/.test(value) ? value.replace("-", ",") : value;
+  }
+  return readOptions((k) => p[k], true);
+}
+
+/** True when the options are the default theme (whose registry item is the static /r/theme.json) */
+export function isDefaultTheme(o: ThemeOptions): boolean {
+  return themeToParams(o).size === 0;
 }

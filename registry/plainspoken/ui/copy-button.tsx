@@ -30,6 +30,11 @@ export interface CopyButtonProps {
   text: string;
   /** Visible words ("Copy URL"); leave out for an icon-only button */
   label?: string;
+  /**
+   * What is being copied, for the accessible name of an icon-only button ("Copy IP address").
+   * Defaults to the text itself when it is short.
+   */
+  name?: string;
   /** xs by default: it fits a plain table row */
   size?: ControlSize;
   /** ghost by default: no border of its own to double up with a table cell's */
@@ -41,7 +46,7 @@ export interface CopyButtonProps {
  * Copies `text` to the clipboard. For 1.2 s after a click the icon shows how it went (a check or
  * an ×), and a live region says it in words for screen readers.
  */
-export function CopyButton({ text, label, size = "xs", variant = "ghost", className }: CopyButtonProps) {
+export function CopyButton({ text, label, name, size = "xs", variant = "ghost", className }: CopyButtonProps) {
   const [state, setState] = useState<keyof typeof STATE>("idle");
   const timer = useRef<ReturnType<typeof setTimeout>>(undefined);
   useEffect(() => () => clearTimeout(timer.current), []);
@@ -57,14 +62,14 @@ export function CopyButton({ text, label, size = "xs", variant = "ghost", classN
         timer.current = setTimeout(() => setState("idle"), 1200);
       });
   const common = { size, variant, icon: st.icon, onClick, className: [st.cls, className].filter(Boolean).join(" ") };
+  // An icon-only button is named after what it copies; a long text (a CSS block) isn't read out whole
+  const what = name ?? (text.length <= 60 ? text : "to clipboard");
   return (
     <>
       {label ? (
-        <Button {...common} aria-label={`${st.word}: ${text}`}>
-          {label}
-        </Button>
+        <Button {...common}>{label}</Button>
       ) : (
-        <IconButton {...common} label={`${st.word}: ${text}`} />
+        <IconButton {...common} label={`${st.word} ${what}`} />
       )}
       <span className="sr-only" aria-live="polite">
         {state === "idle" ? "" : st.word}

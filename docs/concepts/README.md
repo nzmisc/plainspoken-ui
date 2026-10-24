@@ -11,9 +11,11 @@ Each concept has a status:
 | **open** | Being considered; no decision yet |
 | **later** | Liked, but not for the first release |
 | **set aside** | Considered and not wanted for now; kept so the reasoning isn't lost |
+| **built** | Done. The section says what was built and links to it |
 
 When a concept is built, its section links to the work and moves to the bottom under "built".
 
 ## Documents
 
-- [Theming](theming.md): fonts, main colour, base gray, token names, a theme builder
+- [Theming](theming.md): fonts, main colour, base gray, token names, a theme builder (all built), radius,
+  density, chart colours

@@ -6,7 +6,9 @@ import { blockEntries } from "@/lib/docs-nav";
 import { ItemDoc } from "@/components/site/item-doc";
 
 export function generateStaticParams() {
-  return blockEntries().map((e) => ({ name: e.name }));
+  // Cache Components needs at least one; "none" 404s if there are no blocks yet
+  const blocks = blockEntries().map((e) => ({ name: e.name }));
+  return blocks.length ? blocks : [{ name: "none" }];
 }
 
 export async function generateMetadata({ params }: PageProps<"/docs/blocks/[name]">): Promise<Metadata> {
