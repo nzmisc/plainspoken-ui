@@ -78,6 +78,8 @@ export function Input({ size, prefix, suffix, invalid, className, inputClassName
         disabled={disabled}
         className={cn(
           "w-full min-w-0 flex-1 bg-transparent px-(--ctl-inset) placeholder:text-muted-foreground focus-visible:outline-none disabled:cursor-not-allowed",
+          // The browser's up/down arrows sit inside the padding box: without this they float short of the edge
+          "[&[type=number]]:pr-0",
           inputClassName,
         )}
         {...rest}
