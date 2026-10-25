@@ -1,0 +1,9 @@
+{
+  "name": "use-element-width",
+  "type": "registry:hook",
+  "title": "useElementWidth",
+  "description": "An element's width, kept current with a ResizeObserver, and 0 on the server so charts that wait for it can't cause a hydration mismatch.",
+  "category": "Charts",
+  "files": ["hooks/use-element-width.ts"],
+  "hidden": true
+}

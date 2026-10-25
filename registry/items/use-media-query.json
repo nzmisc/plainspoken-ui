@@ -1,0 +1,9 @@
+{
+  "name": "use-media-query",
+  "type": "registry:hook",
+  "title": "useMediaQuery",
+  "description": "Whether a media query matches, kept current as the window changes, with a fixed value on the server so it never causes a hydration mismatch.",
+  "category": "Layout",
+  "files": ["hooks/use-media-query.ts"],
+  "hidden": true
+}

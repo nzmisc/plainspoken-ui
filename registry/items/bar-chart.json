@@ -1,0 +1,9 @@
+{
+  "name": "bar-chart",
+  "type": "registry:ui",
+  "title": "Bar chart",
+  "description": "Vertical or horizontal bars in plain SVG, single or grouped series, with titled axes, values at the bar ends, optional textures, keyboard stepping and the data as a table.",
+  "category": "Charts",
+  "files": ["ui/bar-chart.tsx"],
+  "examples": ["bar-chart-demo", "bar-chart-grouped", "bar-chart-horizontal", "bar-chart-negative"]
+}

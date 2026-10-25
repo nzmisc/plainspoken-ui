@@ -1,0 +1,9 @@
+{
+  "name": "sidebar",
+  "type": "registry:ui",
+  "title": "Sidebar",
+  "description": "Sectioned side navigation with icons, counts read out in words, groups that open in place, a rail of icons, and a modal drawer for phones. Works with any router.",
+  "category": "Navigation",
+  "files": ["ui/sidebar.tsx"],
+  "examples": ["sidebar-demo", "sidebar-rail", "sidebar-drawer"]
+}

@@ -1,0 +1,9 @@
+{
+  "name": "file-upload",
+  "type": "registry:ui",
+  "title": "File upload",
+  "description": "A drop zone and file list with type, size and count checks, progress, cancel and retry through your own upload function, plus a one-line file field for forms.",
+  "category": "Forms",
+  "files": ["ui/file-upload.tsx"],
+  "examples": ["file-upload-demo", "file-upload-field", "file-upload-form"]
+}

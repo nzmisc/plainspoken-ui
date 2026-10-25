@@ -1,0 +1,9 @@
+{
+  "name": "chart-scale",
+  "type": "registry:lib",
+  "title": "Chart scale",
+  "description": "Tick math (round numbers, wall-clock times) and the series styles (colour, dash, marker by slot) the charts share.",
+  "category": "Charts",
+  "files": ["lib/chart-scale.ts"],
+  "hidden": true
+}

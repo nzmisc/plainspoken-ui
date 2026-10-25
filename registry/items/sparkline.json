@@ -1,0 +1,9 @@
+{
+  "name": "sparkline",
+  "type": "registry:ui",
+  "title": "Sparkline",
+  "description": "A word-sized line or bar chart for stats and table cells, with an accessible name that says the first, last, low and high values; renders on the server.",
+  "category": "Charts",
+  "files": ["ui/sparkline.tsx"],
+  "examples": ["sparkline-demo", "sparkline-table"]
+}

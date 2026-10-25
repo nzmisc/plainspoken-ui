@@ -1,0 +1,9 @@
+{
+  "name": "date-picker",
+  "type": "registry:ui",
+  "title": "Date picker",
+  "description": "A text field for an ISO date with a calendar in a native popover, on the shared height scale and wired to Field like Input; typed dates are checked against the same limits.",
+  "category": "Forms",
+  "files": ["ui/date-picker.tsx"],
+  "examples": ["date-picker-demo", "date-picker-limits", "date-picker-from-to"]
+}

@@ -1,0 +1,9 @@
+{
+  "name": "nav",
+  "type": "registry:lib",
+  "title": "Navigation helpers",
+  "description": "What the navbar, sidebar and app shell share: the link component type for routers, click handling, and finding the current link from a pathname.",
+  "category": "Navigation",
+  "files": ["lib/nav.ts"],
+  "hidden": true
+}

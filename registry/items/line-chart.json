@@ -1,0 +1,9 @@
+{
+  "name": "line-chart",
+  "type": "registry:ui",
+  "title": "Line chart",
+  "description": "A time-series line chart in plain SVG: series told apart by colour, line pattern and marker, a crosshair you can step through with the keyboard, gaps for missing data, and the numbers as a table for screen readers.",
+  "category": "Charts",
+  "files": ["ui/line-chart.tsx"],
+  "examples": ["line-chart-demo", "line-chart-gaps", "line-chart-single"]
+}

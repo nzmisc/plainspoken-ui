@@ -1,0 +1,9 @@
+{
+  "name": "data-table",
+  "type": "registry:ui",
+  "title": "Data table",
+  "description": "A table for a few hundred rows: quick and per-column filters, sorting by several columns, a column picker, selection with shift-click ranges, paging and CSV export, each of which can be switched off.",
+  "category": "Data display",
+  "files": ["ui/data-table.tsx", "lib/data-table.ts"],
+  "examples": ["data-table-demo", "data-table-plain", "data-table-bulk-actions"]
+}

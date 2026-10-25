@@ -1,0 +1,9 @@
+{
+  "name": "dates",
+  "type": "registry:lib",
+  "title": "Dates",
+  "description": "Calendar dates as ISO strings (no time zone, no date library): arithmetic, parsing, week numbers and Intl formatting, plus useToday and useDateLocale for hydration-safe rendering.",
+  "category": "Foundations",
+  "files": ["lib/dates.ts", "hooks/use-today.ts"],
+  "hidden": true
+}
