@@ -1,0 +1,13 @@
+{
+  "name": "bible-chapter-pager",
+  "type": "registry:block",
+  "title": "Bible chapter pager",
+  "description": "Previous and next chapter links that cross book boundaries, with ← and → as shortcuts that stay out of the way of controls.",
+  "category": "Bible",
+  "files": [
+    "blocks/bible/chapter-pager.tsx"
+  ],
+  "examples": [
+    "bible-chapter-pager-demo"
+  ]
+}

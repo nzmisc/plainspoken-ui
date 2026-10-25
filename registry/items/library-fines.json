@@ -1,0 +1,13 @@
+{
+  "name": "library-fines",
+  "type": "registry:block",
+  "title": "Fines",
+  "description": "Fines and fees: what is owed against the borrowing limit, the charges with paid or owed, and the total.",
+  "category": "Library",
+  "files": [
+    "blocks/library/fines.tsx"
+  ],
+  "examples": [
+    "library-fines-demo"
+  ]
+}

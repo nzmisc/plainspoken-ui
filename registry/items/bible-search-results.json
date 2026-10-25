@@ -1,0 +1,14 @@
+{
+  "name": "bible-search-results",
+  "type": "registry:block",
+  "title": "Bible search results",
+  "description": "Full-text search over the Bible and its results: counts per testament and per book, matches marked in each verse, references recognised, pages of 50.",
+  "category": "Bible",
+  "files": [
+    "blocks/bible/search-results.tsx",
+    "blocks/bible/search.ts"
+  ],
+  "examples": [
+    "bible-search-results-demo"
+  ]
+}

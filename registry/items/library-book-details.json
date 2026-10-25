@@ -1,0 +1,13 @@
+{
+  "name": "library-book-details",
+  "type": "registry:block",
+  "title": "Book details",
+  "description": "The top of a title's page: large cover, title, author, availability per format, description, actions and the facts as a description list.",
+  "category": "Library",
+  "files": [
+    "blocks/library/book-details.tsx"
+  ],
+  "examples": [
+    "library-book-details-demo"
+  ]
+}

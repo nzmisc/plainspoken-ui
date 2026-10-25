@@ -1,0 +1,13 @@
+{
+  "name": "library-search-form",
+  "type": "registry:block",
+  "title": "Library search form",
+  "description": "A catalogue search box with a field to search in (keyword, title, author, subject), as a GET form that works without script.",
+  "category": "Library",
+  "files": [
+    "blocks/library/search-form.tsx"
+  ],
+  "examples": [
+    "library-search-form-demo"
+  ]
+}

@@ -1,0 +1,13 @@
+{
+  "name": "bible-jump",
+  "type": "registry:block",
+  "title": "Bible jump",
+  "description": "Go to any chapter with a book select grouped by testament, a chapter select and a Go button.",
+  "category": "Bible",
+  "files": [
+    "blocks/bible/jump.tsx"
+  ],
+  "examples": [
+    "bible-jump-demo"
+  ]
+}

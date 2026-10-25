@@ -1,0 +1,13 @@
+{
+  "name": "library-result-list",
+  "type": "registry:block",
+  "title": "Library result list",
+  "description": "Catalogue search results: cover, title, author, and each format with its availability (“2 of 5 available”, “On hold: 3 waiting”), with a Place hold button.",
+  "category": "Library",
+  "files": [
+    "blocks/library/result-list.tsx"
+  ],
+  "examples": [
+    "library-result-list-demo"
+  ]
+}

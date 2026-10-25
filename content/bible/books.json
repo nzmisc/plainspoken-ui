@@ -1,0 +1,662 @@
+[
+  {
+    "slug": "genesis",
+    "name": "Genesis",
+    "title": "The First Book of Moses, called Genesis",
+    "abbreviation": "Gen",
+    "testament": "OT",
+    "section": "Law",
+    "chapters": 50,
+    "verses": 1533
+  },
+  {
+    "slug": "exodus",
+    "name": "Exodus",
+    "title": "The Second Book of Moses, called Exodus",
+    "abbreviation": "Exod",
+    "testament": "OT",
+    "section": "Law",
+    "chapters": 40,
+    "verses": 1213
+  },
+  {
+    "slug": "leviticus",
+    "name": "Leviticus",
+    "title": "The Third Book of Moses, called Leviticus",
+    "abbreviation": "Lev",
+    "testament": "OT",
+    "section": "Law",
+    "chapters": 27,
+    "verses": 859
+  },
+  {
+    "slug": "numbers",
+    "name": "Numbers",
+    "title": "The Fourth Book of Moses, called Numbers",
+    "abbreviation": "Num",
+    "testament": "OT",
+    "section": "Law",
+    "chapters": 36,
+    "verses": 1288
+  },
+  {
+    "slug": "deuteronomy",
+    "name": "Deuteronomy",
+    "title": "The Fifth Book of Moses, called Deuteronomy",
+    "abbreviation": "Deut",
+    "testament": "OT",
+    "section": "Law",
+    "chapters": 34,
+    "verses": 959
+  },
+  {
+    "slug": "joshua",
+    "name": "Joshua",
+    "title": "The Book of Joshua",
+    "abbreviation": "Josh",
+    "testament": "OT",
+    "section": "History",
+    "chapters": 24,
+    "verses": 658
+  },
+  {
+    "slug": "judges",
+    "name": "Judges",
+    "title": "The Book of Judges",
+    "abbreviation": "Judg",
+    "testament": "OT",
+    "section": "History",
+    "chapters": 21,
+    "verses": 618
+  },
+  {
+    "slug": "ruth",
+    "name": "Ruth",
+    "title": "The Book of Ruth",
+    "abbreviation": "Ruth",
+    "testament": "OT",
+    "section": "History",
+    "chapters": 4,
+    "verses": 85
+  },
+  {
+    "slug": "1-samuel",
+    "name": "1 Samuel",
+    "title": "The First Book of Samuel Otherwise Called The First Book of the Kings",
+    "abbreviation": "1 Sam",
+    "testament": "OT",
+    "section": "History",
+    "chapters": 31,
+    "verses": 810
+  },
+  {
+    "slug": "2-samuel",
+    "name": "2 Samuel",
+    "title": "The Second Book of Samuel Otherwise Called The Second Book of the Kings",
+    "abbreviation": "2 Sam",
+    "testament": "OT",
+    "section": "History",
+    "chapters": 24,
+    "verses": 695
+  },
+  {
+    "slug": "1-kings",
+    "name": "1 Kings",
+    "title": "The First Book of the Kings, Commonly Called the Third Book of the Kings",
+    "abbreviation": "1 Kgs",
+    "testament": "OT",
+    "section": "History",
+    "chapters": 22,
+    "verses": 816
+  },
+  {
+    "slug": "2-kings",
+    "name": "2 Kings",
+    "title": "The Second Book of the Kings, Commonly Called the Fourth Book of the Kings",
+    "abbreviation": "2 Kgs",
+    "testament": "OT",
+    "section": "History",
+    "chapters": 25,
+    "verses": 719
+  },
+  {
+    "slug": "1-chronicles",
+    "name": "1 Chronicles",
+    "title": "The First Book of the Chronicles",
+    "abbreviation": "1 Chr",
+    "testament": "OT",
+    "section": "History",
+    "chapters": 29,
+    "verses": 942
+  },
+  {
+    "slug": "2-chronicles",
+    "name": "2 Chronicles",
+    "title": "The Second Book of the Chronicles",
+    "abbreviation": "2 Chr",
+    "testament": "OT",
+    "section": "History",
+    "chapters": 36,
+    "verses": 822
+  },
+  {
+    "slug": "ezra",
+    "name": "Ezra",
+    "title": "Ezra",
+    "abbreviation": "Ezra",
+    "testament": "OT",
+    "section": "History",
+    "chapters": 10,
+    "verses": 280
+  },
+  {
+    "slug": "nehemiah",
+    "name": "Nehemiah",
+    "title": "The Book of Nehemiah",
+    "abbreviation": "Neh",
+    "testament": "OT",
+    "section": "History",
+    "chapters": 13,
+    "verses": 406
+  },
+  {
+    "slug": "esther",
+    "name": "Esther",
+    "title": "The Book of Esther",
+    "abbreviation": "Esth",
+    "testament": "OT",
+    "section": "History",
+    "chapters": 10,
+    "verses": 167
+  },
+  {
+    "slug": "job",
+    "name": "Job",
+    "title": "The Book of Job",
+    "abbreviation": "Job",
+    "testament": "OT",
+    "section": "Poetry",
+    "chapters": 42,
+    "verses": 1070
+  },
+  {
+    "slug": "psalms",
+    "name": "Psalms",
+    "title": "The Book of Psalms",
+    "abbreviation": "Ps",
+    "testament": "OT",
+    "section": "Poetry",
+    "chapters": 150,
+    "verses": 2461
+  },
+  {
+    "slug": "proverbs",
+    "name": "Proverbs",
+    "title": "The Proverbs",
+    "abbreviation": "Prov",
+    "testament": "OT",
+    "section": "Poetry",
+    "chapters": 31,
+    "verses": 915
+  },
+  {
+    "slug": "ecclesiastes",
+    "name": "Ecclesiastes",
+    "title": "Ecclesiastes or, the Preacher",
+    "abbreviation": "Eccl",
+    "testament": "OT",
+    "section": "Poetry",
+    "chapters": 12,
+    "verses": 222
+  },
+  {
+    "slug": "song-of-solomon",
+    "name": "Song of Solomon",
+    "title": "The Song of Solomon",
+    "abbreviation": "Song",
+    "testament": "OT",
+    "section": "Poetry",
+    "chapters": 8,
+    "verses": 117
+  },
+  {
+    "slug": "isaiah",
+    "name": "Isaiah",
+    "title": "The Book of the Prophet Isaiah",
+    "abbreviation": "Isa",
+    "testament": "OT",
+    "section": "Major Prophets",
+    "chapters": 66,
+    "verses": 1292
+  },
+  {
+    "slug": "jeremiah",
+    "name": "Jeremiah",
+    "title": "The Book of the Prophet Jeremiah",
+    "abbreviation": "Jer",
+    "testament": "OT",
+    "section": "Major Prophets",
+    "chapters": 52,
+    "verses": 1364
+  },
+  {
+    "slug": "lamentations",
+    "name": "Lamentations",
+    "title": "The Lamentations of Jeremiah",
+    "abbreviation": "Lam",
+    "testament": "OT",
+    "section": "Major Prophets",
+    "chapters": 5,
+    "verses": 154
+  },
+  {
+    "slug": "ezekiel",
+    "name": "Ezekiel",
+    "title": "The Book of the Prophet Ezekiel",
+    "abbreviation": "Ezek",
+    "testament": "OT",
+    "section": "Major Prophets",
+    "chapters": 48,
+    "verses": 1273
+  },
+  {
+    "slug": "daniel",
+    "name": "Daniel",
+    "title": "The Book of Daniel",
+    "abbreviation": "Dan",
+    "testament": "OT",
+    "section": "Major Prophets",
+    "chapters": 12,
+    "verses": 357
+  },
+  {
+    "slug": "hosea",
+    "name": "Hosea",
+    "title": "Hosea",
+    "abbreviation": "Hos",
+    "testament": "OT",
+    "section": "Minor Prophets",
+    "chapters": 14,
+    "verses": 197
+  },
+  {
+    "slug": "joel",
+    "name": "Joel",
+    "title": "Joel",
+    "abbreviation": "Joel",
+    "testament": "OT",
+    "section": "Minor Prophets",
+    "chapters": 3,
+    "verses": 73
+  },
+  {
+    "slug": "amos",
+    "name": "Amos",
+    "title": "Amos",
+    "abbreviation": "Amos",
+    "testament": "OT",
+    "section": "Minor Prophets",
+    "chapters": 9,
+    "verses": 146
+  },
+  {
+    "slug": "obadiah",
+    "name": "Obadiah",
+    "title": "Obadiah",
+    "abbreviation": "Obad",
+    "testament": "OT",
+    "section": "Minor Prophets",
+    "chapters": 1,
+    "verses": 21
+  },
+  {
+    "slug": "jonah",
+    "name": "Jonah",
+    "title": "Jonah",
+    "abbreviation": "Jonah",
+    "testament": "OT",
+    "section": "Minor Prophets",
+    "chapters": 4,
+    "verses": 48
+  },
+  {
+    "slug": "micah",
+    "name": "Micah",
+    "title": "Micah",
+    "abbreviation": "Mic",
+    "testament": "OT",
+    "section": "Minor Prophets",
+    "chapters": 7,
+    "verses": 105
+  },
+  {
+    "slug": "nahum",
+    "name": "Nahum",
+    "title": "Nahum",
+    "abbreviation": "Nah",
+    "testament": "OT",
+    "section": "Minor Prophets",
+    "chapters": 3,
+    "verses": 47
+  },
+  {
+    "slug": "habakkuk",
+    "name": "Habakkuk",
+    "title": "Habakkuk",
+    "abbreviation": "Hab",
+    "testament": "OT",
+    "section": "Minor Prophets",
+    "chapters": 3,
+    "verses": 56
+  },
+  {
+    "slug": "zephaniah",
+    "name": "Zephaniah",
+    "title": "Zephaniah",
+    "abbreviation": "Zeph",
+    "testament": "OT",
+    "section": "Minor Prophets",
+    "chapters": 3,
+    "verses": 53
+  },
+  {
+    "slug": "haggai",
+    "name": "Haggai",
+    "title": "Haggai",
+    "abbreviation": "Hag",
+    "testament": "OT",
+    "section": "Minor Prophets",
+    "chapters": 2,
+    "verses": 38
+  },
+  {
+    "slug": "zechariah",
+    "name": "Zechariah",
+    "title": "Zechariah",
+    "abbreviation": "Zech",
+    "testament": "OT",
+    "section": "Minor Prophets",
+    "chapters": 14,
+    "verses": 211
+  },
+  {
+    "slug": "malachi",
+    "name": "Malachi",
+    "title": "Malachi",
+    "abbreviation": "Mal",
+    "testament": "OT",
+    "section": "Minor Prophets",
+    "chapters": 4,
+    "verses": 55
+  },
+  {
+    "slug": "matthew",
+    "name": "Matthew",
+    "title": "THE GOSPEL ACCORDING TO ST. MATTHEW",
+    "abbreviation": "Matt",
+    "testament": "NT",
+    "section": "Gospels",
+    "chapters": 28,
+    "verses": 1071
+  },
+  {
+    "slug": "mark",
+    "name": "Mark",
+    "title": "THE GOSPEL ACCORDING TO ST. MARK",
+    "abbreviation": "Mark",
+    "testament": "NT",
+    "section": "Gospels",
+    "chapters": 16,
+    "verses": 678
+  },
+  {
+    "slug": "luke",
+    "name": "Luke",
+    "title": "THE GOSPEL ACCORDING TO ST. LUKE",
+    "abbreviation": "Luke",
+    "testament": "NT",
+    "section": "Gospels",
+    "chapters": 24,
+    "verses": 1151
+  },
+  {
+    "slug": "john",
+    "name": "John",
+    "title": "THE GOSPEL ACCORDING TO ST. JOHN",
+    "abbreviation": "John",
+    "testament": "NT",
+    "section": "Gospels",
+    "chapters": 21,
+    "verses": 879
+  },
+  {
+    "slug": "acts",
+    "name": "Acts",
+    "title": "THE ACTS OF THE APOSTLES",
+    "abbreviation": "Acts",
+    "testament": "NT",
+    "section": "History",
+    "chapters": 28,
+    "verses": 1007
+  },
+  {
+    "slug": "romans",
+    "name": "Romans",
+    "title": "THE EPISTLE OF PAUL THE APOSTLE TO THE ROMANS",
+    "abbreviation": "Rom",
+    "testament": "NT",
+    "section": "Pauline Epistles",
+    "chapters": 16,
+    "verses": 433
+  },
+  {
+    "slug": "1-corinthians",
+    "name": "1 Corinthians",
+    "title": "THE FIRST EPISTLE OF PAUL THE APOSTLE TO THE CORINTHIANS",
+    "abbreviation": "1 Cor",
+    "testament": "NT",
+    "section": "Pauline Epistles",
+    "chapters": 16,
+    "verses": 437
+  },
+  {
+    "slug": "2-corinthians",
+    "name": "2 Corinthians",
+    "title": "THE SECOND EPISTLE OF PAUL THE APOSTLE TO THE CORINTHIANS",
+    "abbreviation": "2 Cor",
+    "testament": "NT",
+    "section": "Pauline Epistles",
+    "chapters": 13,
+    "verses": 257
+  },
+  {
+    "slug": "galatians",
+    "name": "Galatians",
+    "title": "THE EPISTLE OF PAUL THE APOSTLE TO THE GALATIANS",
+    "abbreviation": "Gal",
+    "testament": "NT",
+    "section": "Pauline Epistles",
+    "chapters": 6,
+    "verses": 149
+  },
+  {
+    "slug": "ephesians",
+    "name": "Ephesians",
+    "title": "THE EPISTLE OF PAUL THE APOSTLE TO THE EPHESIANS",
+    "abbreviation": "Eph",
+    "testament": "NT",
+    "section": "Pauline Epistles",
+    "chapters": 6,
+    "verses": 155
+  },
+  {
+    "slug": "philippians",
+    "name": "Philippians",
+    "title": "THE EPISTLE OF PAUL THE APOSTLE TO THE PHILIPPIANS",
+    "abbreviation": "Phil",
+    "testament": "NT",
+    "section": "Pauline Epistles",
+    "chapters": 4,
+    "verses": 104
+  },
+  {
+    "slug": "colossians",
+    "name": "Colossians",
+    "title": "THE EPISTLE OF PAUL THE APOSTLE TO THE COLOSSIANS",
+    "abbreviation": "Col",
+    "testament": "NT",
+    "section": "Pauline Epistles",
+    "chapters": 4,
+    "verses": 95
+  },
+  {
+    "slug": "1-thessalonians",
+    "name": "1 Thessalonians",
+    "title": "THE FIRST EPISTLE OF PAUL THE APOSTLE TO THE THESSALONIANS",
+    "abbreviation": "1 Thess",
+    "testament": "NT",
+    "section": "Pauline Epistles",
+    "chapters": 5,
+    "verses": 89
+  },
+  {
+    "slug": "2-thessalonians",
+    "name": "2 Thessalonians",
+    "title": "THE SECOND EPISTLE OF PAUL THE APOSTLE TO THE THESSALONIANS",
+    "abbreviation": "2 Thess",
+    "testament": "NT",
+    "section": "Pauline Epistles",
+    "chapters": 3,
+    "verses": 47
+  },
+  {
+    "slug": "1-timothy",
+    "name": "1 Timothy",
+    "title": "THE FIRST EPISTLE OF PAUL THE APOSTLE TO TIMOTHY",
+    "abbreviation": "1 Tim",
+    "testament": "NT",
+    "section": "Pauline Epistles",
+    "chapters": 6,
+    "verses": 113
+  },
+  {
+    "slug": "2-timothy",
+    "name": "2 Timothy",
+    "title": "THE SECOND EPISTLE OF PAUL THE APOSTLE TO TIMOTHY",
+    "abbreviation": "2 Tim",
+    "testament": "NT",
+    "section": "Pauline Epistles",
+    "chapters": 4,
+    "verses": 83
+  },
+  {
+    "slug": "titus",
+    "name": "Titus",
+    "title": "THE EPISTLE OF PAUL THE APOSTLE TO TITUS",
+    "abbreviation": "Titus",
+    "testament": "NT",
+    "section": "Pauline Epistles",
+    "chapters": 3,
+    "verses": 46
+  },
+  {
+    "slug": "philemon",
+    "name": "Philemon",
+    "title": "THE EPISTLE OF PAUL THE APOSTLE TO PHILEMON",
+    "abbreviation": "Phlm",
+    "testament": "NT",
+    "section": "Pauline Epistles",
+    "chapters": 1,
+    "verses": 25
+  },
+  {
+    "slug": "hebrews",
+    "name": "Hebrews",
+    "title": "THE EPISTLE OF PAUL THE APOSTLE TO THE HEBREWS",
+    "abbreviation": "Heb",
+    "testament": "NT",
+    "section": "Pauline Epistles",
+    "chapters": 13,
+    "verses": 303
+  },
+  {
+    "slug": "james",
+    "name": "James",
+    "title": "THE GENERAL EPISTLE OF JAMES",
+    "abbreviation": "Jas",
+    "testament": "NT",
+    "section": "General Epistles",
+    "chapters": 5,
+    "verses": 108
+  },
+  {
+    "slug": "1-peter",
+    "name": "1 Peter",
+    "title": "THE FIRST EPISTLE GENERAL OF PETER",
+    "abbreviation": "1 Pet",
+    "testament": "NT",
+    "section": "General Epistles",
+    "chapters": 5,
+    "verses": 105
+  },
+  {
+    "slug": "2-peter",
+    "name": "2 Peter",
+    "title": "THE SECOND EPISTLE GENERAL OF PETER",
+    "abbreviation": "2 Pet",
+    "testament": "NT",
+    "section": "General Epistles",
+    "chapters": 3,
+    "verses": 61
+  },
+  {
+    "slug": "1-john",
+    "name": "1 John",
+    "title": "THE FIRST EPISTLE GENERAL OF JOHN",
+    "abbreviation": "1 John",
+    "testament": "NT",
+    "section": "General Epistles",
+    "chapters": 5,
+    "verses": 105
+  },
+  {
+    "slug": "2-john",
+    "name": "2 John",
+    "title": "THE SECOND EPISTLE OF JOHN",
+    "abbreviation": "2 John",
+    "testament": "NT",
+    "section": "General Epistles",
+    "chapters": 1,
+    "verses": 13
+  },
+  {
+    "slug": "3-john",
+    "name": "3 John",
+    "title": "THE THIRD EPISTLE OF JOHN",
+    "abbreviation": "3 John",
+    "testament": "NT",
+    "section": "General Epistles",
+    "chapters": 1,
+    "verses": 14
+  },
+  {
+    "slug": "jude",
+    "name": "Jude",
+    "title": "THE GENERAL EPISTLE OF JUDE",
+    "abbreviation": "Jude",
+    "testament": "NT",
+    "section": "General Epistles",
+    "chapters": 1,
+    "verses": 25
+  },
+  {
+    "slug": "revelation",
+    "name": "Revelation",
+    "title": "THE REVELATION OF ST. JOHN THE DIVINE",
+    "abbreviation": "Rev",
+    "testament": "NT",
+    "section": "Prophecy",
+    "chapters": 22,
+    "verses": 404
+  }
+]

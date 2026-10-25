@@ -1,0 +1,13 @@
+{
+  "name": "library-staff-picks",
+  "type": "registry:block",
+  "title": "Staff picks",
+  "description": "Librarians' recommendations as cards: cover, title, the note in their own words, and who wrote it.",
+  "category": "Library",
+  "files": [
+    "blocks/library/staff-picks.tsx"
+  ],
+  "examples": [
+    "library-staff-picks-demo"
+  ]
+}

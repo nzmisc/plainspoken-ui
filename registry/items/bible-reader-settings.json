@@ -1,0 +1,13 @@
+{
+  "name": "bible-reader-settings",
+  "type": "registry:block",
+  "title": "Bible reader settings",
+  "description": "A popover of display settings for the reader (text size, typeface, paragraphs or verse per line, verse numbers) that apply at once through data attributes on the page.",
+  "category": "Bible",
+  "files": [
+    "blocks/bible/reader-settings.tsx"
+  ],
+  "examples": [
+    "bible-reader-settings-demo"
+  ]
+}

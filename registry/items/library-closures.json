@@ -1,0 +1,13 @@
+{
+  "name": "library-closures",
+  "type": "registry:block",
+  "title": "Closures",
+  "description": "The days a library is closed beyond its weekly hours, as a month calendar with the closures written in or as a list.",
+  "category": "Library",
+  "files": [
+    "blocks/library/closures.tsx"
+  ],
+  "examples": [
+    "library-closures-demo"
+  ]
+}

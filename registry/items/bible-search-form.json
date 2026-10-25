@@ -1,0 +1,13 @@
+{
+  "name": "bible-search-form",
+  "type": "registry:block",
+  "title": "Bible search form",
+  "description": "A GET search form for words, phrases or a reference, which works without script and fetches results in place with it.",
+  "category": "Bible",
+  "files": [
+    "blocks/bible/search-form.tsx"
+  ],
+  "examples": [
+    "bible-search-form-demo"
+  ]
+}

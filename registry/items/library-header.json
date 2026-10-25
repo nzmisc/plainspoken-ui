@@ -1,0 +1,13 @@
+{
+  "name": "library-header",
+  "type": "registry:block",
+  "title": "Library header",
+  "description": "A library catalogue's top bar: links with the current one marked, a compact search box, and an account menu.",
+  "category": "Library",
+  "files": [
+    "blocks/library/header.tsx"
+  ],
+  "examples": [
+    "library-header-demo"
+  ]
+}

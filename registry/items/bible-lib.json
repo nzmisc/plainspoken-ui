@@ -1,0 +1,11 @@
+{
+  "name": "bible-lib",
+  "type": "registry:block",
+  "title": "Bible helpers",
+  "description": "Types and helpers the Bible blocks share: books and chapters, verse references and links, books grouped by testament and section.",
+  "category": "Bible",
+  "files": [
+    "blocks/bible/lib.ts"
+  ],
+  "hidden": true
+}

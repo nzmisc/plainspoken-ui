@@ -1,0 +1,11 @@
+{
+  "name": "library-lib",
+  "type": "registry:block",
+  "title": "Library helpers",
+  "description": "Types and helpers the Library blocks share: catalogue records, copies, availability in words, formats and branch hours.",
+  "category": "Library",
+  "files": [
+    "blocks/library/lib.ts"
+  ],
+  "hidden": true
+}

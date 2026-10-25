@@ -1,0 +1,13 @@
+{
+  "name": "library-copies-table",
+  "type": "registry:block",
+  "title": "Copies table",
+  "description": "Where every copy of a title is: branch, format, shelf, call number and status with due dates, and e-book licences.",
+  "category": "Library",
+  "files": [
+    "blocks/library/copies-table.tsx"
+  ],
+  "examples": [
+    "library-copies-table-demo"
+  ]
+}

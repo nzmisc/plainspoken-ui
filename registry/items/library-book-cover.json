@@ -1,0 +1,14 @@
+{
+  "name": "library-book-cover",
+  "type": "registry:block",
+  "title": "Book cover",
+  "description": "A cover made of type for catalogues without cover images: title and author on a design and colour that come from the book's id.",
+  "category": "Library",
+  "files": [
+    "blocks/library/book-cover.tsx"
+  ],
+  "examples": [
+    "library-book-cover-demo",
+    "library-book-cover-sizes"
+  ]
+}
