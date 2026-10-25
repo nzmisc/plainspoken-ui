@@ -1,0 +1,9 @@
+{
+  "name": "drawer",
+  "type": "registry:ui",
+  "title": "Drawer",
+  "description": "A modal panel that slides in from any edge, for details, filters and settings; on phones it comes up from the bottom as a sheet. Behaves like Dialog.",
+  "category": "Overlays",
+  "files": ["ui/drawer.tsx"],
+  "examples": ["drawer-demo", "drawer-filters", "drawer-bottom-sheet"]
+}

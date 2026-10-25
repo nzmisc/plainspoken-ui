@@ -1,0 +1,9 @@
+{
+  "name": "resizable",
+  "type": "registry:ui",
+  "title": "Resizable",
+  "description": "Panels split by handles you drag or move with the keyboard, side by side or stacked, nestable: limits in percent, collapsible panels (Enter or a double-click), and layouts remembered in localStorage.",
+  "category": "Layout",
+  "files": ["ui/resizable.tsx"],
+  "examples": ["resizable-demo", "resizable-vertical", "resizable-nested", "resizable-collapsible"]
+}

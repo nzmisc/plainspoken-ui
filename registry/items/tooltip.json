@@ -1,0 +1,9 @@
+{
+  "name": "tooltip",
+  "type": "registry:ui",
+  "title": "Tooltip",
+  "description": "A short hint on hover or keyboard focus, after a delay and then at once for the next one; it can be hovered and dismissed with Escape (WCAG 1.4.13), and never opens from touch.",
+  "category": "Overlays",
+  "files": ["ui/tooltip.tsx"],
+  "examples": ["tooltip-demo", "tooltip-in-text", "tooltip-disabled"]
+}

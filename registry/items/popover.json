@@ -1,0 +1,9 @@
+{
+  "name": "popover",
+  "type": "registry:ui",
+  "title": "Popover",
+  "description": "A click-to-open panel attached to a button, for filters, short forms and details: a native popover, so Escape and a click outside close it, with focus moved in and back, an optional title bar and arrow.",
+  "category": "Overlays",
+  "files": ["ui/popover.tsx"],
+  "examples": ["popover-demo", "popover-info", "popover-share"]
+}

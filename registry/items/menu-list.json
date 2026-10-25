@@ -1,0 +1,9 @@
+{
+  "name": "menu-list",
+  "type": "registry:ui",
+  "title": "Menu list",
+  "description": "The keyboard-driven list inside Dropdown menu and Context menu: actions, links, checkboxes, radio groups, headings, separators and submenus, with typeahead.",
+  "category": "Overlays",
+  "files": ["ui/menu-list.tsx"],
+  "hidden": true
+}

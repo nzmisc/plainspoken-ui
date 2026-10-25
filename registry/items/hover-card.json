@@ -1,0 +1,9 @@
+{
+  "name": "hover-card",
+  "type": "registry:ui",
+  "title": "Hover card",
+  "description": "A rich preview behind a name, a link or an ID, with links and buttons inside: opens on hover or focus, Tab moves into it, and on touch the first tap opens it instead of following the link.",
+  "category": "Overlays",
+  "files": ["ui/hover-card.tsx"],
+  "examples": ["hover-card-demo", "hover-card-in-table"]
+}

@@ -1,0 +1,9 @@
+{
+  "name": "dropdown-menu",
+  "type": "registry:ui",
+  "title": "Dropdown menu",
+  "description": "A menu button: actions with icons, shortcuts and hints, links, checkbox and radio items, and submenus, driven by the keyboard as the ARIA menu pattern says. Items are plain data.",
+  "category": "Overlays",
+  "files": ["ui/dropdown-menu.tsx"],
+  "examples": ["dropdown-menu-demo", "dropdown-menu-checkboxes", "dropdown-menu-row-actions", "dropdown-menu-user"]
+}

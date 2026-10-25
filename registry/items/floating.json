@@ -1,0 +1,9 @@
+{
+  "name": "floating",
+  "type": "registry:ui",
+  "title": "Floating",
+  "description": "The base of every floating layer: a native popover in the top layer, placed by lib/position, with an optional arrow. Used by Popover, Tooltip, Hover card and the menus.",
+  "category": "Overlays",
+  "files": ["ui/floating.tsx"],
+  "hidden": true
+}

@@ -1,0 +1,9 @@
+{
+  "name": "alert-dialog",
+  "type": "registry:ui",
+  "title": "Alert dialog",
+  "description": "A confirmation that interrupts: focus starts on Cancel, the backdrop doesn't close it, an async confirm waits with a spinner and shows its error, and the worst ones can ask for a name to be typed first.",
+  "category": "Overlays",
+  "files": ["ui/alert-dialog.tsx"],
+  "examples": ["alert-dialog-demo", "alert-dialog-type-to-confirm", "alert-dialog-failure"]
+}
