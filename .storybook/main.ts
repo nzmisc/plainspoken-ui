@@ -9,7 +9,8 @@ const config: StorybookConfig = {
     "@storybook/addon-a11y",
   ],
   framework: { name: "@storybook/nextjs-vite", options: {} },
-  core: { disableTelemetry: true },
+  // allowedHosts: the dev Storybook is also previewed over the tailnet (tailscale serve)
+  core: { disableTelemetry: true, allowedHosts: ["dev-box.example.ts.net"] },
   // The built Storybook is served by the site at /storybook/, so every URL in it is relative.
   async viteFinal(cfg) {
     const { default: tailwindcss } = await import("@tailwindcss/vite");

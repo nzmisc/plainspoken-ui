@@ -2,6 +2,8 @@ import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
   cacheComponents: true,
+  // The dev server is also previewed over the tailnet (tailscale serve); only matters in `next dev`
+  allowedDevOrigins: ["dev-box.example.ts.net"],
   partialPrefetching: true,
   turbopack: {
     rules: {

@@ -13,7 +13,7 @@ export async function generateMetadata({ params }: PageProps<"/docs/components/[
   const { name } = await params;
   const entry = registry.find((e) => e.name === name);
   if (!entry) return {};
-  return { title: entry.title, description: entry.description, alternates: { canonical: `/docs/components/${name}` } };
+  return { title: entry.title, description: entry.description.replaceAll("`", ""), alternates: { canonical: `/docs/components/${name}` } };
 }
 
 // The page's content depends on the URL, so it sits in Suspense: the layout (header, sidebar) is the

@@ -4,7 +4,7 @@ import { REGISTRY_NAMESPACE, registryItemUrl } from "@/lib/site";
 import { asInstalled, readSource } from "@/lib/source";
 import { storybookDocsFor } from "@/lib/storybook";
 import { CodeBlock, Command } from "@/components/site/code-block";
-import { A, C, DocsPage, H2, P } from "@/components/site/docs";
+import { A, C, DocsPage, H2, Inline, P } from "@/components/site/docs";
 import { Example } from "@/components/site/example";
 
 /** The docs page of a component or block */
@@ -30,7 +30,7 @@ export function ItemDoc({ entry }: { entry: RegistryEntry }) {
   const deps = entry.registryDependencies.filter((d) => d !== "utils" && d !== "foundation" && d !== "icons" && d !== "icon");
   const byName = new Map(registry.map((e) => [e.name, e]));
   return (
-    <DocsPage title={entry.title} lead={entry.description} eyebrow={entry.category}>
+    <DocsPage title={entry.title} lead={<Inline text={entry.description} />} eyebrow={entry.category}>
       <p className="flex flex-wrap gap-x-4 gap-y-1 text-[14px]">
         <A href={storybookDocsFor(entry)}>Stories in Storybook</A>
         <A href={`/r/${entry.name}.json`}>Registry item (JSON)</A>

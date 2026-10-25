@@ -45,6 +45,11 @@ export function C({ children }: { children: ReactNode }) {
   return <code className="border border-border bg-muted px-1 font-mono text-[13px]">{children}</code>;
 }
 
+/** Plain text from a doc comment or an item description, with `backticked` parts as code */
+export function Inline({ text }: { text: string }) {
+  return text.split(/`([^`]+)`/).map((part, i) => (i % 2 ? <C key={i}>{part}</C> : part));
+}
+
 /** A link in running text: the link colours, underlined, purple once visited */
 export function A({ href, children }: { href: string; children: ReactNode }) {
   return (

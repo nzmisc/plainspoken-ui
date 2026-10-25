@@ -1,7 +1,7 @@
 import { examples } from "@/registry/__examples__";
 import { asInstalled, defaultExportDoc, readSource, withoutDefaultExportDoc } from "@/lib/source";
 import { CodeBlock } from "@/components/site/code-block";
-import { H3, P } from "@/components/site/docs";
+import { H3, Inline, P } from "@/components/site/docs";
 
 /** "button-variants" for the item "button" → "Variants"; "button-demo" → "Overview" */
 export function exampleTitle(example: string, item: string): string {
@@ -20,7 +20,7 @@ export async function Example({ name, item, heading = true }: { name: string; it
   return (
     <section className="flex flex-col gap-2">
       {heading && <H3 id={name}>{exampleTitle(name, item)}</H3>}
-      {doc && <P className="text-muted-foreground">{doc}</P>}
+      {doc && <P className="text-muted-foreground"><Inline text={doc} /></P>}
       <div className="border border-border">
         <div className="overflow-x-auto p-4">
           <Component />
