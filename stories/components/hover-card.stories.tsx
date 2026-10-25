@@ -128,3 +128,6 @@ export const NearEdge: Story = {
   args: { ...Profile.args!, label: "Ada Okonkwo's profile", card: profile },
   decorators: [(Story) => <div className="flex justify-end">{Story()}</div>],
 };
+
+/** disabled: the trigger is an ordinary link and the card never opens. */
+export const Disabled: Story = { args: { ...Closed.args!, label: "Ada Okonkwo's profile", card: profile, disabled: true } };

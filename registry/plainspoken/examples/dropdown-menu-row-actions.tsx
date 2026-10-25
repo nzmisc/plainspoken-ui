@@ -4,13 +4,17 @@ import { useState } from "react";
 import { Copy, Ellipsis, ExternalLink, Pencil, Trash } from "@/registry/plainspoken/lib/icons";
 import { DropdownMenu } from "@/registry/plainspoken/ui/dropdown-menu";
 
-const INITIAL = [
+const INITIAL: { name: string; url: string; updated: string; locked?: boolean }[] = [
   { name: "storefront-2026", url: "storefront-2026.northwind.app", updated: "2 hours ago" },
   { name: "docs", url: "docs.northwind.app", updated: "yesterday" },
   { name: "status-page", url: "status.northwind.app", updated: "12 Oct" },
+  { name: "billing-api", url: "billing.northwind.app", updated: "3 Oct", locked: true },
 ];
 
-/** A ⋯ menu at the end of each table row, aligned to the button's right edge so it stays over the table. */
+/**
+ * A ⋯ menu at the end of each table row, aligned to the button's right edge so it stays over the
+ * table. The last project is managed elsewhere, so its menu is disabled.
+ */
 export default function DropdownMenuRowActions() {
   const [rows, setRows] = useState(INITIAL);
   return (
@@ -38,6 +42,7 @@ export default function DropdownMenuRowActions() {
                 triggerVariant="ghost"
                 size="sm"
                 align="end"
+                disabled={r.locked}
                 items={[
                   { label: "Open", icon: ExternalLink, href: `#${r.url}` },
                   { label: "Rename", icon: Pencil },

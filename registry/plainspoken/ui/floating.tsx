@@ -138,12 +138,16 @@ function FloatingArrow() {
 
 /**
  * Open state that is controlled when `open` is given and kept here otherwise. The setter calls
- * `onOpenChange` either way.
+ * `onOpenChange` either way. While `disabled` it is always closed, whatever `open` says, and
+ * refuses to open.
  */
-export function useOpenState(open: boolean | undefined, defaultOpen: boolean, onOpenChange?: (open: boolean) => void) {
-  const [own, setOwn] = useState(defaultOpen);
-  const current = open ?? own;
+export function useOpenState(open: boolean | undefined, defaultOpen: boolean, onOpenChange?: (open: boolean) => void, disabled = false) {
+  const [own, setOwn] = useState(defaultOpen && !disabled);
+  // Disabling closes it for good: enabling again doesn't bring back an old open state.
+  if (disabled && own) setOwn(false);
+  const current = !disabled && (open ?? own);
   const set = (next: boolean) => {
+    if (disabled && next) return;
     if (open === undefined) setOwn(next);
     if (next !== current) onOpenChange?.(next);
   };
@@ -182,6 +186,8 @@ export interface TriggerRenderProps {
   "aria-haspopup": "dialog" | "menu";
   "aria-expanded": boolean;
   "aria-controls": string;
+  /** The trigger is disabled: draw it so. (popoverTarget is left out then, so it can't open the layer anyway.) */
+  disabled?: boolean;
   onClick?: MouseEventHandler<HTMLButtonElement>;
   onKeyDown?: KeyboardEventHandler<HTMLButtonElement>;
 }
@@ -199,6 +205,12 @@ export interface TriggerProps {
   /** Height of the trigger and of what opens from it. Leave out to take the surrounding size. */
   size?: ControlSize;
   triggerClassName?: string;
+  /**
+   * Disable the trigger: the built-in button is disabled, and the layer never opens (not by click,
+   * keyboard or a controlled `open`; an open one closes). A custom trigger function gets
+   * `disabled` to draw its own.
+   */
+  disabled?: boolean;
 }
 
 /** Draws a custom trigger from `trigger={(props) => …}` (a component, so the props stay props) */
@@ -208,10 +220,10 @@ export function TriggerSlot({ render, ...props }: TriggerRenderProps & { render:
 
 /** Props for the Button that opens a popover or menu: square and labelled for a glyph, else words and an optional chevron. */
 export function triggerButton(
-  { trigger, chevron, triggerVariant, size, triggerClassName }: Omit<TriggerProps, "trigger"> & { trigger: ReactNode | Glyph },
+  { trigger, chevron, triggerVariant, size, triggerClassName, disabled }: Omit<TriggerProps, "trigger"> & { trigger: ReactNode | Glyph },
   label: string | undefined,
 ): ButtonProps {
   if (isGlyph(trigger))
-    return { variant: triggerVariant, size, icon: trigger, "aria-label": label, title: label, className: cn(CONTROL_SQUARE, triggerClassName) };
-  return { variant: triggerVariant, size, iconEnd: chevron ? ChevronDown : undefined, className: triggerClassName, children: trigger };
+    return { variant: triggerVariant, size, disabled, icon: trigger, "aria-label": label, title: label, className: cn(CONTROL_SQUARE, triggerClassName) };
+  return { variant: triggerVariant, size, disabled, iconEnd: chevron ? ChevronDown : undefined, className: triggerClassName, children: trigger };
 }

@@ -21,6 +21,8 @@ export interface ContextMenuProps {
   menuClassName?: string;
   /** Open at this point (viewport px) on load, for stories and screenshots */
   defaultPoint?: { x: number; y: number };
+  /** Turn the menu off: a right-click gets the browser's own menu, and an open one closes */
+  disabled?: boolean;
 }
 
 /**
@@ -28,11 +30,13 @@ export interface ContextMenuProps {
  * (Shift+F10 or the Menu key) at the focused element, and from a long-press on touch screens (the
  * browser fires contextmenu for both). Keyboard and choosing work as in DropdownMenu; Escape or a
  * click outside closes it and focus goes back to where it was. A right-click anywhere outside
- * the area still gets the browser's own menu.
+ * the area still gets the browser's own menu, as does the area itself while `disabled`.
  */
-export function ContextMenu({ children, items, label, className, menuClassName, defaultPoint }: ContextMenuProps) {
-  const [anchor, setAnchor] = useState<Anchor | null>(defaultPoint ? pointAnchor(defaultPoint.x, defaultPoint.y) : null);
+export function ContextMenu({ children, items, label, className, menuClassName, defaultPoint, disabled = false }: ContextMenuProps) {
+  const [anchor, setAnchor] = useState<Anchor | null>(defaultPoint && !disabled ? pointAnchor(defaultPoint.x, defaultPoint.y) : null);
   const [target, setTarget] = useState<Element | null>(null);
+  // Disabling closes an open menu for good.
+  if (disabled && anchor) setAnchor(null);
   // A fresh layer per opening: a right-click elsewhere first light-dismisses the old one, and its
   // late "closed" event must not cancel the new one.
   const [opening, setOpening] = useState(0);
@@ -40,7 +44,7 @@ export function ContextMenu({ children, items, label, className, menuClassName, 
   const menu = useRef<HTMLDivElement>(null);
   const before = useRef<HTMLElement | null>(null);
   const { decide, ...returnFocus } = useReturnFocus(menu, () => before.current);
-  const skipFocus = useRef(!!defaultPoint);
+  const skipFocus = useRef(!!defaultPoint && !disabled);
   /** Opened from the keyboard: highlight the first item. From the pointer: just the menu, as a native one does. */
   const fromKeyboard = useRef(false);
 
@@ -73,6 +77,7 @@ export function ContextMenu({ children, items, label, className, menuClassName, 
       data-slot="context-menu"
       className={className}
       onContextMenu={(e) => {
+        if (disabled) return;
         e.preventDefault();
         // From the keyboard (Shift+F10, the Menu key) the button isn't the right one: Chrome says
         // -1, Firefox 0, and some report the point 0,0. Open at the focused element then.
@@ -87,7 +92,7 @@ export function ContextMenu({ children, items, label, className, menuClassName, 
       <Floating
         key={opening}
         ref={menu}
-        open={anchor != null}
+        open={anchor != null && !disabled}
         onOpenChange={(o) => !o && setAnchor(null)}
         {...returnFocus}
         anchor={() => anchor}

@@ -31,7 +31,8 @@ export interface DropdownMenuProps extends TriggerProps {
  * with the first item highlighted, ↑ opens it on the last; a click opens it with nothing
  * highlighted. Escape closes it and puts focus back on the button. Items are data (see MenuItem):
  * actions with icons, shortcuts and hints, links, checkboxes, radio groups, headings, separators
- * and submenus. The menu takes the trigger's size.
+ * and submenus. The menu takes the trigger's size. With `disabled` the button is disabled and the
+ * menu never opens.
  */
 export function DropdownMenu({
   label,
@@ -46,14 +47,14 @@ export function DropdownMenu({
 }: DropdownMenuProps) {
   const id = useId();
   const buttonId = `${id}-button`;
-  const [open, setOpen] = useOpenState(openProp, defaultOpen, onOpenChange);
+  const [open, setOpen] = useOpenState(openProp, defaultOpen, onOpenChange, triggerProps.disabled);
   const button = useRef<HTMLButtonElement>(null);
   const menu = useRef<HTMLDivElement>(null);
   /** What gets focus when the menu opens: an item for keyboard opens, the list itself for mouse. */
   const focusOnOpen = useRef<"first" | "last" | "list">("list");
   const { decide, ...returnFocus } = useReturnFocus(menu, () => button.current);
   // A menu that starts open (a story, a screenshot) leaves focus where it is.
-  const skipFocus = useRef(defaultOpen);
+  const skipFocus = useRef(defaultOpen && !triggerProps.disabled);
 
   useEffect(() => {
     if (!open) return;
@@ -79,7 +80,8 @@ export function DropdownMenu({
     },
     id: buttonId,
     type: "button",
-    popoverTarget: id,
+    popoverTarget: triggerProps.disabled ? undefined : id,
+    disabled: triggerProps.disabled,
     "aria-haspopup": "menu",
     "aria-expanded": open,
     "aria-controls": id,
@@ -88,7 +90,7 @@ export function DropdownMenu({
       focusOnOpen.current = e.detail === 0 ? "first" : "list";
     },
     onKeyDown: (e) => {
-      if ((e.key === "ArrowDown" || e.key === "ArrowUp") && !open) {
+      if ((e.key === "ArrowDown" || e.key === "ArrowUp") && !open && !triggerProps.disabled) {
         e.preventDefault();
         focusOnOpen.current = e.key === "ArrowDown" ? "first" : "last";
         setOpen(true);

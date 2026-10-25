@@ -36,7 +36,7 @@ export interface PopoverProps extends TriggerProps {
  * and clicking it again closes it. Escape or a click outside closes it. Opening moves focus to
  * the first control inside (or the one with `autoFocus`); closing from inside puts focus back on
  * the button. The panel takes the trigger's size, so a popover from a small toolbar button has
- * small controls in it.
+ * small controls in it. With `disabled` the button is disabled and the panel never opens.
  */
 export function Popover({
   title,
@@ -54,12 +54,12 @@ export function Popover({
 }: PopoverProps) {
   const id = useId();
   const titleId = `${id}-title`;
-  const [open, setOpen] = useOpenState(openProp, defaultOpen, onOpenChange);
+  const [open, setOpen] = useOpenState(openProp, defaultOpen, onOpenChange, triggerProps.disabled);
   const button = useRef<HTMLButtonElement>(null);
   const panel = useRef<HTMLDivElement>(null);
   const returnFocus = useReturnFocus(panel, () => button.current);
   // A popover that starts open (a story, a screenshot) leaves focus where it is.
-  const skipFocus = useRef(defaultOpen);
+  const skipFocus = useRef(defaultOpen && !triggerProps.disabled);
 
   useEffect(() => {
     if (!open) return;
@@ -78,7 +78,8 @@ export function Popover({
       button.current = node;
     },
     type: "button",
-    popoverTarget: id,
+    popoverTarget: triggerProps.disabled ? undefined : id,
+    disabled: triggerProps.disabled,
     "aria-haspopup": "dialog",
     "aria-expanded": open,
     "aria-controls": id,

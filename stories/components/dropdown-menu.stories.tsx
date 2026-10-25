@@ -165,3 +165,22 @@ export const CustomTrigger: Story = {
   },
 };
 
+
+/** disabled: the button is disabled and the menu never opens, even with `open` set. A custom trigger gets `disabled` to draw its own. */
+export const Disabled: Story = {
+  render: () => (
+    <div className="flex items-center gap-3">
+      <DropdownMenu trigger="Actions" chevron items={actions} disabled />
+      <DropdownMenu trigger={Ellipsis} label="More actions" items={actions} disabled open />
+      <DropdownMenu
+        items={actions}
+        disabled
+        trigger={(props) => (
+          <button {...props} className="cursor-pointer text-link underline visited:text-link-visited disabled:cursor-not-allowed disabled:text-muted-foreground disabled:no-underline">
+            Message actions
+          </button>
+        )}
+      />
+    </div>
+  ),
+};

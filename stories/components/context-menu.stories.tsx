@@ -72,3 +72,13 @@ export const Open: Story = {
     children: "Right-click anywhere here",
   },
 };
+
+/** disabled: a right-click gets the browser's own menu. */
+export const Disabled: Story = {
+  args: {
+    items: rowItems("Q3 budget.xlsx"),
+    disabled: true,
+    className: "flex h-48 items-center justify-center border border-dashed border-border text-muted-foreground",
+    children: "Right-click here: the browser's menu",
+  },
+};

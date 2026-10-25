@@ -18,6 +18,8 @@ export interface HoverCardProps {
   defaultOpen?: boolean;
   /** Classes for the card: a width other than w-80 */
   className?: string;
+  /** Never open the card: the trigger stays an ordinary link or button (a first tap follows it) */
+  disabled?: boolean;
 }
 
 /**
@@ -26,10 +28,13 @@ export interface HoverCardProps {
  * travels into it. Keyboard: focusing the trigger opens it, Tab continues into the card, Escape
  * closes it. Touch: the first tap opens the card instead of following the link, a second tap
  * follows it, a tap anywhere else closes it. The card is a span, so it is valid inside a
- * paragraph; it isn't clipped by a table's scroll box either.
+ * paragraph; it isn't clipped by a table's scroll box either. With `disabled` it never opens.
  */
-export function HoverCard({ children, card, label, side = "bottom", openDelay = 350, closeDelay = 250, defaultOpen = false, className }: HoverCardProps) {
-  const [open, setOpen] = useState(defaultOpen);
+export function HoverCard({ children, card, label, side = "bottom", openDelay = 350, closeDelay = 250, defaultOpen = false, className, disabled = false }: HoverCardProps) {
+  const [openState, setOpen] = useState(defaultOpen && !disabled);
+  // Disabling closes it for good: enabling again doesn't bring the card back.
+  if (disabled && openState) setOpen(false);
+  const open = openState && !disabled;
   const wrap = useRef<HTMLSpanElement>(null);
   const trigger = useRef<HTMLSpanElement>(null);
   const timer = useRef(0);
@@ -39,6 +44,7 @@ export function HoverCard({ children, card, label, side = "bottom", openDelay = 
 
   const later = (next: boolean, ms: number) => {
     clearTimeout(timer.current);
+    if (next && disabled) return;
     timer.current = window.setTimeout(() => setOpen(next), ms);
   };
 
@@ -83,7 +89,7 @@ export function HoverCard({ children, card, label, side = "bottom", openDelay = 
         ref={trigger}
         className="contents"
         onPointerDown={(e) => {
-          if (e.pointerType === "touch" && !open) {
+          if (e.pointerType === "touch" && !open && !disabled) {
             swallowClick.current = true;
             later(true, 0);
           }

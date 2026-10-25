@@ -149,3 +149,17 @@ export const NearEdge: Story = {
   args: { trigger: "Details", defaultOpen: true, className: "w-80" },
   decorators: [(Story) => <div className="flex justify-end">{Story()}</div>],
 };
+
+/** disabled: the button is disabled and the panel never opens, even with `open` set. */
+export const Disabled: Story = {
+  render: () => (
+    <div className="flex items-center gap-3">
+      <Popover trigger="Filter" chevron title="Filter orders" disabled>
+        <p>Never shown.</p>
+      </Popover>
+      <Popover trigger={Info} label="About the balance" triggerVariant="ghost" disabled open>
+        <p>Never shown, though open is set.</p>
+      </Popover>
+    </div>
+  ),
+};
