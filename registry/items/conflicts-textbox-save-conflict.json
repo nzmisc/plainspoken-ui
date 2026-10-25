@@ -1,0 +1,13 @@
+{
+  "name": "conflicts-textbox-save-conflict",
+  "type": "registry:block",
+  "title": "Text box: conflict on save",
+  "description": "Optimistic concurrency in a plain form: nothing while you type, then a dialog when the server refuses your save, with both versions marked against the one you started from and Keep mine, Use theirs or Edit merged.",
+  "category": "Edit conflicts",
+  "files": [
+    "blocks/conflicts/textbox-save-conflict.tsx"
+  ],
+  "examples": [
+    "conflicts-textbox-save-conflict-demo"
+  ]
+}

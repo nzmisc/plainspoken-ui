@@ -1,0 +1,13 @@
+{
+  "name": "conflicts-doc-offline-review",
+  "type": "registry:block",
+  "title": "Document: offline review list",
+  "description": "Offline-first editing: on reconnecting, everything that merges is synced at once and a report lists each change with who made it (“5 changes synced, 1 needs you”), the clashes stepped through one by one.",
+  "category": "Edit conflicts",
+  "files": [
+    "blocks/conflicts/doc-offline-review.tsx"
+  ],
+  "examples": [
+    "conflicts-doc-offline-review-demo"
+  ]
+}

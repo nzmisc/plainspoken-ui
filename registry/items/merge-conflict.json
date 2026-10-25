@@ -1,0 +1,15 @@
+{
+  "name": "merge-conflict",
+  "type": "registry:ui",
+  "title": "Merge conflict",
+  "description": "A stretch two people changed differently, with both versions tagged by author and each one's changes marked: keep mine, keep theirs, keep both or edit; as a block, inline in running text, or a whole merge with its clashes in place.",
+  "category": "Feedback",
+  "files": [
+    "ui/merge-conflict.tsx"
+  ],
+  "examples": [
+    "merge-conflict-demo",
+    "merge-conflict-inline",
+    "merge-conflict-merged-text"
+  ]
+}

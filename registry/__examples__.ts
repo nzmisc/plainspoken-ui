@@ -115,6 +115,19 @@ import E_combobox_hints from "@/registry/plainspoken/examples/combobox-hints";
 import E_command_async from "@/registry/plainspoken/examples/command-async";
 import E_command_demo from "@/registry/plainspoken/examples/command-demo";
 import E_command_inline from "@/registry/plainspoken/examples/command-inline";
+import E_conflicts_app_demo from "@/registry/plainspoken/examples/conflicts-app-demo";
+import E_conflicts_doc_compare_dialog_demo from "@/registry/plainspoken/examples/conflicts-doc-compare-dialog-demo";
+import E_conflicts_doc_field_demo from "@/registry/plainspoken/examples/conflicts-doc-field-demo";
+import E_conflicts_doc_history_demo from "@/registry/plainspoken/examples/conflicts-doc-history-demo";
+import E_conflicts_doc_inline_conflicts_demo from "@/registry/plainspoken/examples/conflicts-doc-inline-conflicts-demo";
+import E_conflicts_doc_live_presence_demo from "@/registry/plainspoken/examples/conflicts-doc-live-presence-demo";
+import E_conflicts_doc_offline_review_demo from "@/registry/plainspoken/examples/conflicts-doc-offline-review-demo";
+import E_conflicts_playground_demo from "@/registry/plainspoken/examples/conflicts-playground-demo";
+import E_conflicts_textbox_auto_merge_demo from "@/registry/plainspoken/examples/conflicts-textbox-auto-merge-demo";
+import E_conflicts_textbox_auto_merge_split from "@/registry/plainspoken/examples/conflicts-textbox-auto-merge-split";
+import E_conflicts_textbox_save_conflict_demo from "@/registry/plainspoken/examples/conflicts-textbox-save-conflict-demo";
+import E_conflicts_textbox_soft_lock_demo from "@/registry/plainspoken/examples/conflicts-textbox-soft-lock-demo";
+import E_conflicts_textbox_warn_demo from "@/registry/plainspoken/examples/conflicts-textbox-warn-demo";
 import E_context_menu_demo from "@/registry/plainspoken/examples/context-menu-demo";
 import E_copy_button_demo from "@/registry/plainspoken/examples/copy-button-demo";
 import E_data_table_bulk_actions from "@/registry/plainspoken/examples/data-table-bulk-actions";
@@ -132,6 +145,10 @@ import E_description_list_stacked from "@/registry/plainspoken/examples/descript
 import E_dialog_demo from "@/registry/plainspoken/examples/dialog-demo";
 import E_dialog_form from "@/registry/plainspoken/examples/dialog-form";
 import E_dialog_scrolling from "@/registry/plainspoken/examples/dialog-scrolling";
+import E_diff_demo from "@/registry/plainspoken/examples/diff-demo";
+import E_diff_granularity from "@/registry/plainspoken/examples/diff-granularity";
+import E_diff_merge from "@/registry/plainspoken/examples/diff-merge";
+import E_diff_split from "@/registry/plainspoken/examples/diff-split";
 import E_donut_chart_demo from "@/registry/plainspoken/examples/donut-chart-demo";
 import E_donut_chart_quota from "@/registry/plainspoken/examples/donut-chart-quota";
 import E_drawer_bottom_sheet from "@/registry/plainspoken/examples/drawer-bottom-sheet";
@@ -243,6 +260,9 @@ import E_mail_thread_reply from "@/registry/plainspoken/examples/mail-thread-rep
 import E_mail_thread_spam from "@/registry/plainspoken/examples/mail-thread-spam";
 import E_menu_button_demo from "@/registry/plainspoken/examples/menu-button-demo";
 import E_menu_button_view_options from "@/registry/plainspoken/examples/menu-button-view-options";
+import E_merge_conflict_demo from "@/registry/plainspoken/examples/merge-conflict-demo";
+import E_merge_conflict_inline from "@/registry/plainspoken/examples/merge-conflict-inline";
+import E_merge_conflict_merged_text from "@/registry/plainspoken/examples/merge-conflict-merged-text";
 import E_music_app_shell_demo from "@/registry/plainspoken/examples/music-app-shell-demo";
 import E_music_artist_demo from "@/registry/plainspoken/examples/music-artist-demo";
 import E_music_artist_discography from "@/registry/plainspoken/examples/music-artist-discography";
@@ -273,6 +293,10 @@ import E_panel_flush from "@/registry/plainspoken/examples/panel-flush";
 import E_popover_demo from "@/registry/plainspoken/examples/popover-demo";
 import E_popover_info from "@/registry/plainspoken/examples/popover-info";
 import E_popover_share from "@/registry/plainspoken/examples/popover-share";
+import E_presence_cursors from "@/registry/plainspoken/examples/presence-cursors";
+import E_presence_demo from "@/registry/plainspoken/examples/presence-demo";
+import E_presence_document from "@/registry/plainspoken/examples/presence-document";
+import E_presence_frame from "@/registry/plainspoken/examples/presence-frame";
 import E_progress_demo from "@/registry/plainspoken/examples/progress-demo";
 import E_progress_meter from "@/registry/plainspoken/examples/progress-meter";
 import E_prose_demo from "@/registry/plainspoken/examples/prose-demo";
@@ -452,6 +476,19 @@ export const examples: Record<string, ComponentType> = {
   "command-async": E_command_async,
   "command-demo": E_command_demo,
   "command-inline": E_command_inline,
+  "conflicts-app-demo": E_conflicts_app_demo,
+  "conflicts-doc-compare-dialog-demo": E_conflicts_doc_compare_dialog_demo,
+  "conflicts-doc-field-demo": E_conflicts_doc_field_demo,
+  "conflicts-doc-history-demo": E_conflicts_doc_history_demo,
+  "conflicts-doc-inline-conflicts-demo": E_conflicts_doc_inline_conflicts_demo,
+  "conflicts-doc-live-presence-demo": E_conflicts_doc_live_presence_demo,
+  "conflicts-doc-offline-review-demo": E_conflicts_doc_offline_review_demo,
+  "conflicts-playground-demo": E_conflicts_playground_demo,
+  "conflicts-textbox-auto-merge-demo": E_conflicts_textbox_auto_merge_demo,
+  "conflicts-textbox-auto-merge-split": E_conflicts_textbox_auto_merge_split,
+  "conflicts-textbox-save-conflict-demo": E_conflicts_textbox_save_conflict_demo,
+  "conflicts-textbox-soft-lock-demo": E_conflicts_textbox_soft_lock_demo,
+  "conflicts-textbox-warn-demo": E_conflicts_textbox_warn_demo,
   "context-menu-demo": E_context_menu_demo,
   "copy-button-demo": E_copy_button_demo,
   "data-table-bulk-actions": E_data_table_bulk_actions,
@@ -469,6 +506,10 @@ export const examples: Record<string, ComponentType> = {
   "dialog-demo": E_dialog_demo,
   "dialog-form": E_dialog_form,
   "dialog-scrolling": E_dialog_scrolling,
+  "diff-demo": E_diff_demo,
+  "diff-granularity": E_diff_granularity,
+  "diff-merge": E_diff_merge,
+  "diff-split": E_diff_split,
   "donut-chart-demo": E_donut_chart_demo,
   "donut-chart-quota": E_donut_chart_quota,
   "drawer-bottom-sheet": E_drawer_bottom_sheet,
@@ -580,6 +621,9 @@ export const examples: Record<string, ComponentType> = {
   "mail-thread-spam": E_mail_thread_spam,
   "menu-button-demo": E_menu_button_demo,
   "menu-button-view-options": E_menu_button_view_options,
+  "merge-conflict-demo": E_merge_conflict_demo,
+  "merge-conflict-inline": E_merge_conflict_inline,
+  "merge-conflict-merged-text": E_merge_conflict_merged_text,
   "music-app-shell-demo": E_music_app_shell_demo,
   "music-artist-demo": E_music_artist_demo,
   "music-artist-discography": E_music_artist_discography,
@@ -610,6 +654,10 @@ export const examples: Record<string, ComponentType> = {
   "popover-demo": E_popover_demo,
   "popover-info": E_popover_info,
   "popover-share": E_popover_share,
+  "presence-cursors": E_presence_cursors,
+  "presence-demo": E_presence_demo,
+  "presence-document": E_presence_document,
+  "presence-frame": E_presence_frame,
   "progress-demo": E_progress_demo,
   "progress-meter": E_progress_meter,
   "prose-demo": E_prose_demo,

@@ -1,0 +1,12 @@
+{
+  "name": "conflicts-data",
+  "type": "registry:block",
+  "title": "Edit conflicts data",
+  "description": "The pretend collaboration world behind the prototypes: a server with numbered versions that refuses saves based on old ones, two clients each following one approach's policy, presence, a network that can be slow or cut, scripted edits, and the invented ticket and checklist.",
+  "category": "Edit conflicts",
+  "files": [
+    "blocks/conflicts/content.ts",
+    "blocks/conflicts/sim.ts"
+  ],
+  "hidden": true
+}

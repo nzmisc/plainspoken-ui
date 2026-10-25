@@ -1,0 +1,14 @@
+{
+  "name": "conflicts-textbox-auto-merge",
+  "type": "registry:block",
+  "title": "Text box: automatic merge",
+  "description": "A text box that saves as you type and merges others' changes in by words, keeping your caret: “Merged Jonas's change” with Show and Undo, and only the words you both changed marked inline with a choice.",
+  "category": "Edit conflicts",
+  "files": [
+    "blocks/conflicts/textbox-auto-merge.tsx"
+  ],
+  "examples": [
+    "conflicts-textbox-auto-merge-demo",
+    "conflicts-textbox-auto-merge-split"
+  ]
+}

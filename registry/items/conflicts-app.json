@@ -1,0 +1,13 @@
+{
+  "name": "conflicts-app",
+  "type": "registry:block",
+  "title": "Edit conflicts app",
+  "description": "All the edit-conflict prototypes on one page: four approaches for a text box and five for a rich text document, in tabs, each with its scenarios and both screens, and tables comparing them.",
+  "category": "Edit conflicts",
+  "files": [
+    "blocks/conflicts/conflicts-app.tsx"
+  ],
+  "examples": [
+    "conflicts-app-demo"
+  ]
+}

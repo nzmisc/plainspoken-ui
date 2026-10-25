@@ -2373,6 +2373,423 @@ export const registry: RegistryEntry[] = [
     "hidden": false
   },
   {
+    "name": "conflicts-app",
+    "type": "registry:block",
+    "title": "Edit conflicts app",
+    "description": "All the edit-conflict prototypes on one page: four approaches for a text box and five for a rich text document, in tabs, each with its scenarios and both screens, and tables comparing them.",
+    "category": "Edit conflicts",
+    "files": [
+      {
+        "path": "registry/plainspoken/blocks/conflicts/conflicts-app.tsx",
+        "type": "registry:component",
+        "target": "components/blocks/conflicts/conflicts-app.tsx"
+      }
+    ],
+    "examples": [
+      "conflicts-app-demo"
+    ],
+    "registryDependencies": [
+      "conflicts-data",
+      "conflicts-doc-compare-dialog",
+      "conflicts-doc-history",
+      "conflicts-doc-inline-conflicts",
+      "conflicts-doc-live-presence",
+      "conflicts-doc-offline-review",
+      "conflicts-playground",
+      "conflicts-textbox-auto-merge",
+      "conflicts-textbox-save-conflict",
+      "conflicts-textbox-soft-lock",
+      "conflicts-textbox-warn",
+      "foundation",
+      "presence",
+      "tabs",
+      "utils"
+    ],
+    "dependencies": [],
+    "hidden": false
+  },
+  {
+    "name": "conflicts-data",
+    "type": "registry:block",
+    "title": "Edit conflicts data",
+    "description": "The pretend collaboration world behind the prototypes: a server with numbered versions that refuses saves based on old ones, two clients each following one approach's policy, presence, a network that can be slow or cut, scripted edits, and the invented ticket and checklist.",
+    "category": "Edit conflicts",
+    "files": [
+      {
+        "path": "registry/plainspoken/blocks/conflicts/content.ts",
+        "type": "registry:component",
+        "target": "components/blocks/conflicts/content.ts"
+      },
+      {
+        "path": "registry/plainspoken/blocks/conflicts/sim.ts",
+        "type": "registry:component",
+        "target": "components/blocks/conflicts/sim.ts"
+      }
+    ],
+    "examples": [],
+    "registryDependencies": [
+      "diff",
+      "foundation",
+      "presence"
+    ],
+    "dependencies": [],
+    "hidden": true
+  },
+  {
+    "name": "conflicts-doc-compare-dialog",
+    "type": "registry:block",
+    "title": "Document: compare dialog",
+    "description": "When a document's save is refused: a full-screen dialog with the base, their version and yours side by side for each changed block, a choice per block (preset where only one changed it), and the result rendered underneath.",
+    "category": "Edit conflicts",
+    "files": [
+      {
+        "path": "registry/plainspoken/blocks/conflicts/doc-compare-dialog.tsx",
+        "type": "registry:component",
+        "target": "components/blocks/conflicts/doc-compare-dialog.tsx"
+      }
+    ],
+    "examples": [
+      "conflicts-doc-compare-dialog-demo"
+    ],
+    "registryDependencies": [
+      "badge",
+      "button",
+      "conflicts-data",
+      "conflicts-doc-field",
+      "conflicts-playground",
+      "dialog",
+      "diff",
+      "foundation",
+      "icons",
+      "markdown",
+      "presence",
+      "prose",
+      "relative-time",
+      "segmented-control",
+      "utils"
+    ],
+    "dependencies": [],
+    "hidden": false
+  },
+  {
+    "name": "conflicts-doc-field",
+    "type": "registry:block",
+    "title": "Synced editor",
+    "description": "The rich text editor bound to a simulated collaborator from the outside: your caret kept on your words when text arrives, other people's carets, selections and “is editing” marks over it, plus the block views the document prototypes share.",
+    "category": "Edit conflicts",
+    "files": [
+      {
+        "path": "registry/plainspoken/blocks/conflicts/doc-field.tsx",
+        "type": "registry:component",
+        "target": "components/blocks/conflicts/doc-field.tsx"
+      }
+    ],
+    "examples": [
+      "conflicts-doc-field-demo"
+    ],
+    "registryDependencies": [
+      "button",
+      "conflicts-data",
+      "conflicts-playground",
+      "diff",
+      "foundation",
+      "icon",
+      "icons",
+      "markdown",
+      "presence",
+      "relative-time",
+      "rich-text-editor",
+      "utils"
+    ],
+    "dependencies": [],
+    "hidden": false
+  },
+  {
+    "name": "conflicts-doc-history",
+    "type": "registry:block",
+    "title": "Document: version history",
+    "description": "Live editing with the version history beside it as a safety net: saves grouped by person, any version compared with now, and Restore, which is itself a new version.",
+    "category": "Edit conflicts",
+    "files": [
+      {
+        "path": "registry/plainspoken/blocks/conflicts/doc-history.tsx",
+        "type": "registry:component",
+        "target": "components/blocks/conflicts/doc-history.tsx"
+      }
+    ],
+    "examples": [
+      "conflicts-doc-history-demo"
+    ],
+    "registryDependencies": [
+      "button",
+      "conflicts-data",
+      "conflicts-doc-field",
+      "conflicts-playground",
+      "diff",
+      "foundation",
+      "icons",
+      "presence",
+      "relative-time",
+      "utils"
+    ],
+    "dependencies": [],
+    "hidden": false
+  },
+  {
+    "name": "conflicts-doc-inline-conflicts",
+    "type": "registry:block",
+    "title": "Document: inline conflict blocks",
+    "description": "A document that merges by paragraphs (and words within one), saying where; a real clash shows in place as both versions stacked, tagged by author, with Keep mine, Keep theirs, Keep both or Edit.",
+    "category": "Edit conflicts",
+    "files": [
+      {
+        "path": "registry/plainspoken/blocks/conflicts/doc-inline-conflicts.tsx",
+        "type": "registry:component",
+        "target": "components/blocks/conflicts/doc-inline-conflicts.tsx"
+      }
+    ],
+    "examples": [
+      "conflicts-doc-inline-conflicts-demo"
+    ],
+    "registryDependencies": [
+      "conflicts-data",
+      "conflicts-doc-field",
+      "conflicts-playground",
+      "diff",
+      "foundation",
+      "icon",
+      "icons",
+      "markdown",
+      "merge-conflict",
+      "presence",
+      "prose",
+      "relative-time",
+      "utils"
+    ],
+    "dependencies": [],
+    "hidden": false
+  },
+  {
+    "name": "conflicts-doc-live-presence",
+    "type": "registry:block",
+    "title": "Document: live presence",
+    "description": "The rich text editor with everyone's carets and selections in their colours with names, “is editing” marks beside paragraphs, and changes flowing in a few times a second while your caret stays put.",
+    "category": "Edit conflicts",
+    "files": [
+      {
+        "path": "registry/plainspoken/blocks/conflicts/doc-live-presence.tsx",
+        "type": "registry:component",
+        "target": "components/blocks/conflicts/doc-live-presence.tsx"
+      }
+    ],
+    "examples": [
+      "conflicts-doc-live-presence-demo"
+    ],
+    "registryDependencies": [
+      "conflicts-data",
+      "conflicts-doc-field",
+      "conflicts-playground",
+      "foundation"
+    ],
+    "dependencies": [],
+    "hidden": false
+  },
+  {
+    "name": "conflicts-doc-offline-review",
+    "type": "registry:block",
+    "title": "Document: offline review list",
+    "description": "Offline-first editing: on reconnecting, everything that merges is synced at once and a report lists each change with who made it (“5 changes synced, 1 needs you”), the clashes stepped through one by one.",
+    "category": "Edit conflicts",
+    "files": [
+      {
+        "path": "registry/plainspoken/blocks/conflicts/doc-offline-review.tsx",
+        "type": "registry:component",
+        "target": "components/blocks/conflicts/doc-offline-review.tsx"
+      }
+    ],
+    "examples": [
+      "conflicts-doc-offline-review-demo"
+    ],
+    "registryDependencies": [
+      "alert",
+      "button",
+      "conflicts-data",
+      "conflicts-doc-field",
+      "conflicts-playground",
+      "diff",
+      "foundation",
+      "icon",
+      "icons",
+      "markdown",
+      "merge-conflict",
+      "presence",
+      "prose",
+      "utils"
+    ],
+    "dependencies": [],
+    "hidden": false
+  },
+  {
+    "name": "conflicts-playground",
+    "type": "registry:block",
+    "title": "Conflict playground",
+    "description": "The frame each prototype sits in: the approach's name, fit and trade-offs, Simulate buttons for the scenarios, your screen and Jonas's side by side, a log of saves, refusals and merges; with the synced text box the text box prototypes share.",
+    "category": "Edit conflicts",
+    "files": [
+      {
+        "path": "registry/plainspoken/blocks/conflicts/playground.tsx",
+        "type": "registry:component",
+        "target": "components/blocks/conflicts/playground.tsx"
+      },
+      {
+        "path": "registry/plainspoken/blocks/conflicts/synced-field.tsx",
+        "type": "registry:component",
+        "target": "components/blocks/conflicts/synced-field.tsx"
+      }
+    ],
+    "examples": [
+      "conflicts-playground-demo"
+    ],
+    "registryDependencies": [
+      "badge",
+      "button",
+      "conflicts-data",
+      "diff",
+      "foundation",
+      "icon",
+      "icons",
+      "presence",
+      "switch",
+      "textarea",
+      "utils"
+    ],
+    "dependencies": [],
+    "hidden": false
+  },
+  {
+    "name": "conflicts-textbox-auto-merge",
+    "type": "registry:block",
+    "title": "Text box: automatic merge",
+    "description": "A text box that saves as you type and merges others' changes in by words, keeping your caret: “Merged Jonas's change” with Show and Undo, and only the words you both changed marked inline with a choice.",
+    "category": "Edit conflicts",
+    "files": [
+      {
+        "path": "registry/plainspoken/blocks/conflicts/textbox-auto-merge.tsx",
+        "type": "registry:component",
+        "target": "components/blocks/conflicts/textbox-auto-merge.tsx"
+      }
+    ],
+    "examples": [
+      "conflicts-textbox-auto-merge-demo",
+      "conflicts-textbox-auto-merge-split"
+    ],
+    "registryDependencies": [
+      "button",
+      "conflicts-data",
+      "conflicts-playground",
+      "diff",
+      "foundation",
+      "icon",
+      "icons",
+      "merge-conflict",
+      "presence",
+      "relative-time"
+    ],
+    "dependencies": [],
+    "hidden": false
+  },
+  {
+    "name": "conflicts-textbox-save-conflict",
+    "type": "registry:block",
+    "title": "Text box: conflict on save",
+    "description": "Optimistic concurrency in a plain form: nothing while you type, then a dialog when the server refuses your save, with both versions marked against the one you started from and Keep mine, Use theirs or Edit merged.",
+    "category": "Edit conflicts",
+    "files": [
+      {
+        "path": "registry/plainspoken/blocks/conflicts/textbox-save-conflict.tsx",
+        "type": "registry:component",
+        "target": "components/blocks/conflicts/textbox-save-conflict.tsx"
+      }
+    ],
+    "examples": [
+      "conflicts-textbox-save-conflict-demo"
+    ],
+    "registryDependencies": [
+      "button",
+      "conflicts-data",
+      "conflicts-playground",
+      "dialog",
+      "diff",
+      "foundation",
+      "presence",
+      "relative-time",
+      "segmented-control",
+      "textarea",
+      "utils"
+    ],
+    "dependencies": [],
+    "hidden": false
+  },
+  {
+    "name": "conflicts-textbox-soft-lock",
+    "type": "registry:block",
+    "title": "Text box: soft lock",
+    "description": "A text box with presence: a ring and “Jonas is typing…” around the field, read-only for you while he has it, Edit anyway, and a blunt Keep mine / Use his when two edits meet regardless.",
+    "category": "Edit conflicts",
+    "files": [
+      {
+        "path": "registry/plainspoken/blocks/conflicts/textbox-soft-lock.tsx",
+        "type": "registry:component",
+        "target": "components/blocks/conflicts/textbox-soft-lock.tsx"
+      }
+    ],
+    "examples": [
+      "conflicts-textbox-soft-lock-demo"
+    ],
+    "registryDependencies": [
+      "alert",
+      "button",
+      "conflicts-data",
+      "conflicts-playground",
+      "foundation",
+      "icon",
+      "icons",
+      "presence"
+    ],
+    "dependencies": [],
+    "hidden": false
+  },
+  {
+    "name": "conflicts-textbox-warn",
+    "type": "registry:block",
+    "title": "Text box: warn while typing",
+    "description": "A text box saved by hand that hears about other saves at once: “Jonas changed this 20s ago” under the field, See changes with word diffs, and Use theirs, Keep mine or Merge.",
+    "category": "Edit conflicts",
+    "files": [
+      {
+        "path": "registry/plainspoken/blocks/conflicts/textbox-warn.tsx",
+        "type": "registry:component",
+        "target": "components/blocks/conflicts/textbox-warn.tsx"
+      }
+    ],
+    "examples": [
+      "conflicts-textbox-warn-demo"
+    ],
+    "registryDependencies": [
+      "alert",
+      "button",
+      "conflicts-data",
+      "conflicts-playground",
+      "diff",
+      "foundation",
+      "merge-conflict",
+      "presence",
+      "relative-time"
+    ],
+    "dependencies": [],
+    "hidden": false
+  },
+  {
     "name": "context-menu",
     "type": "registry:ui",
     "title": "Context menu",
@@ -2568,6 +2985,35 @@ export const registry: RegistryEntry[] = [
       "button",
       "foundation",
       "icons",
+      "utils"
+    ],
+    "dependencies": [],
+    "hidden": false
+  },
+  {
+    "name": "diff",
+    "type": "registry:ui",
+    "title": "Diff",
+    "description": "What changed between two texts, inline or side by side, by characters, words or lines: insertions underlined and deletions struck through, said in words to screen readers; with lib/diff's Myers diff, three-way merge, caret mapping and Markdown block merge, no dependencies.",
+    "category": "Data display",
+    "files": [
+      {
+        "path": "registry/plainspoken/ui/diff.tsx",
+        "type": "registry:ui"
+      },
+      {
+        "path": "registry/plainspoken/lib/diff.ts",
+        "type": "registry:lib"
+      }
+    ],
+    "examples": [
+      "diff-demo",
+      "diff-split",
+      "diff-granularity",
+      "diff-merge"
+    ],
+    "registryDependencies": [
+      "foundation",
       "utils"
     ],
     "dependencies": [],
@@ -5051,6 +5497,35 @@ export const registry: RegistryEntry[] = [
     "hidden": true
   },
   {
+    "name": "merge-conflict",
+    "type": "registry:ui",
+    "title": "Merge conflict",
+    "description": "A stretch two people changed differently, with both versions tagged by author and each one's changes marked: keep mine, keep theirs, keep both or edit; as a block, inline in running text, or a whole merge with its clashes in place.",
+    "category": "Feedback",
+    "files": [
+      {
+        "path": "registry/plainspoken/ui/merge-conflict.tsx",
+        "type": "registry:ui"
+      }
+    ],
+    "examples": [
+      "merge-conflict-demo",
+      "merge-conflict-inline",
+      "merge-conflict-merged-text"
+    ],
+    "registryDependencies": [
+      "button",
+      "diff",
+      "foundation",
+      "icon",
+      "icons",
+      "textarea",
+      "utils"
+    ],
+    "dependencies": [],
+    "hidden": false
+  },
+  {
     "name": "music-app-shell",
     "type": "registry:block",
     "title": "Music app frame",
@@ -5691,6 +6166,32 @@ export const registry: RegistryEntry[] = [
     ],
     "dependencies": [],
     "hidden": true
+  },
+  {
+    "name": "presence",
+    "type": "registry:ui",
+    "title": "Presence",
+    "description": "Who else is here and where: round avatars in each person's colour, a ring and tag around a field someone is in, remote carets and selections over a textarea or HTML text, “is editing” marks beside blocks, and polite, throttled announcements.",
+    "category": "Data display",
+    "files": [
+      {
+        "path": "registry/plainspoken/ui/presence.tsx",
+        "type": "registry:ui"
+      }
+    ],
+    "examples": [
+      "presence-demo",
+      "presence-frame",
+      "presence-cursors",
+      "presence-document"
+    ],
+    "registryDependencies": [
+      "avatar",
+      "foundation",
+      "utils"
+    ],
+    "dependencies": [],
+    "hidden": false
   },
   {
     "name": "progress",
