@@ -148,3 +148,52 @@ export const ManyLinks: Story = {
 export const TitleOnly: Story = {
   render: () => <Navbar brand="Invoice generator" actions={<Button variant="primary">Download PDF</Button>} />,
 };
+
+const MUSIC: NavbarLink[] = [
+  { key: "home", label: "Home", href: "/music" },
+  { key: "search", label: "Search", href: "/music/search" },
+  { key: "library", label: "Library", href: "/music/library" },
+];
+
+/**
+ * Matching `currentHref`. Home ("/music") is a root, a prefix of the other links, so it is only
+ * current on its own page: on "/music/artist/nils-frahm", which no link covers, nothing is marked
+ * (not Home). Deeper pages under a non-root link still mark it ("/music/library/playlist/7" marks
+ * Library). `exact: false` on Home makes it the fallback for every page under it; `exact: true`
+ * on any link limits it to its own page.
+ */
+export const CurrentHrefMatching: Story = {
+  render: () => (
+    <div className="flex flex-col gap-3">
+      {(
+        [
+          ["/music", MUSIC],
+          ["/music/library/playlist/7", MUSIC],
+          ["/music/artist/nils-frahm", MUSIC],
+          ["/music/artist/nils-frahm", MUSIC.map((l) => (l.key === "home" ? { ...l, exact: false } : l)), "Home with exact: false"],
+          ["/music/library/playlist/7", MUSIC.map((l) => (l.key === "library" ? { ...l, exact: true } : l)), "Library with exact: true"],
+        ] as [string, NavbarLink[], string?][]
+      ).map(([href, links, note], i) => (
+        <div key={i}>
+          <p className="px-3 pb-1 text-[13px] text-muted-foreground">
+            currentHref <code>{href}</code>
+            {note && `, ${note}`}
+          </p>
+          <Navbar brand="Tunes" brandHref="/music" links={links} currentHref={href} phone="hide" />
+        </div>
+      ))}
+    </div>
+  ),
+};
+
+/** `contentClassName` on the row inside the bar: here centred at max-w-3xl, like the page under it, while the bar's background and border stay full width. */
+export const CentredContent: Story = {
+  render: () => (
+    <div>
+      <Navbar brand="Ines Moreau" brandHref="#home" links={LINKS} current="servers" contentClassName="mx-auto max-w-3xl" />
+      <main className="mx-auto max-w-3xl px-2 py-4 sm:px-3">
+        <p>The brand lines up with this text, and the actions end where it ends.</p>
+      </main>
+    </div>
+  ),
+};

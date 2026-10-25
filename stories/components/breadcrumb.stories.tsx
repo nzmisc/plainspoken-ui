@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/nextjs-vite";
-import Link from "next/link";
+import { NextLink } from "@/registry/plainspoken/lib/next-link";
 import { ChevronRight } from "@/registry/plainspoken/lib/icons";
 import { Breadcrumb } from "@/registry/plainspoken/ui/breadcrumb";
 import { Icon } from "@/registry/plainspoken/ui/icon";
@@ -39,8 +39,8 @@ export const WithoutLinks: Story = {
   args: { items: [{ label: "Workspace", href: "#ws" }, { label: "Archive" }, { label: "2024" }, { label: "Q3 report" }] },
 };
 
-/** linkAs={Link}: next/link draws the links, for client-side navigation. */
-export const RouterLinks: Story = { args: { items: LONG.slice(0, 3), linkAs: Link } };
+/** linkAs={NextLink} (the next-link item): next/link draws the links, for client-side navigation. */
+export const RouterLinks: Story = { args: { items: LONG.slice(0, 3), linkAs: NextLink } };
 
 /** Long labels truncate; at phone width the trail wraps. */
 export const Narrow: Story = {

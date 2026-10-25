@@ -128,3 +128,37 @@ export const PhoneWidth: Story = {
     ),
   ],
 };
+
+/**
+ * Ticks you choose: `xTicks` takes the times to mark (here every 2 minutes), or a number for about
+ * that many; `xTickFormat` writes their labels. Labels that would collide are thinned out evenly,
+ * whatever the width.
+ */
+export const CustomTicks: Story = {
+  args: {
+    xTicks: Array.from({ length: 6 }, (_, i) => NOW - 10 * MIN + i * 2 * MIN),
+    xTickFormat: (t: number) => (t === NOW ? "now" : `−${Math.round((NOW - t) / MIN)} min`),
+  },
+};
+
+/** A month of days at phone width: the day labels thin out to every n-th so none collide. */
+export const PhoneMonth: Story = {
+  args: {
+    label: "Sign-ups per day, last 31 days",
+    xDomain: undefined,
+    yDomain: undefined,
+    yTicks: undefined,
+    gapMs: undefined,
+    xTicks: 31,
+    yFormat: (v: number) => String(v),
+    valueFormat: (v: number) => String(v),
+    series: [{ key: "s", label: "Sign-ups", points: wave(31, 1440 * MIN, (i) => Math.round(40 + 12 * Math.sin(i / 3))) }],
+  },
+  decorators: [
+    (S) => (
+      <div className="w-[343px]">
+        <S />
+      </div>
+    ),
+  ],
+};

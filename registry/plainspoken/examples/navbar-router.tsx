@@ -31,7 +31,7 @@ function FakeLink({ href, onClick, ...rest }: NavLinkProps) {
 
 /**
  * With a router: pass its link component as linkAs and the pathname as currentHref (in Next.js,
- * linkAs={Link} and currentHref={usePathname()}). The link with the longest matching path is
+ * linkAs={NextLink} from the next-link item and currentHref={usePathname()}). The link with the longest matching path is
  * marked, so "/blog/plain-html-in-2026" marks Writing.
  */
 export default function NavbarRouter() {

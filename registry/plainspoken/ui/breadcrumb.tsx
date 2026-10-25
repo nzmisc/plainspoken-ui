@@ -19,8 +19,10 @@ export interface BreadcrumbProps {
   /** Between items. Default "/". */
   separator?: ReactNode;
   /**
-   * The component to draw links with, for client-side navigation: `linkAs={Link}` with next/link.
-   * Default: a plain <a>.
+   * The component to draw links with, for client-side navigation. Default: a plain <a>. With
+   * Next.js pass `NextLink` from `@/lib/next-link` (the next-link item), which works from server
+   * and client components alike; next/link's own `Link` only works when the caller is a client
+   * component.
    */
   linkAs?: LinkComponent;
   /** Accessible name of the navigation landmark. Default "Breadcrumb". */

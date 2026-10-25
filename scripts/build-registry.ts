@@ -104,6 +104,11 @@ for (const item of sources) {
 // Dependencies from imports
 
 const IMPLICIT_NPM = new Set(["react", "react-dom", "next"]);
+/**
+ * next/* is for blocks and pages, which are made for a Next.js app. Components stay framework-free;
+ * the one exception is lib/next-link.tsx, which exists to hand next/link to them (see its comment).
+ */
+const NEXT_ALLOWED: Record<string, string[]> = { [`${STYLE_DIR}/lib/next-link.tsx`]: ["next/link"] };
 const IMPORT_RE = /(?:import|export)\s[^'"]*?from\s*["']([^"']+)["']|import\(\s*["']([^"']+)["']\s*\)|^\s*import\s*["']([^"']+)["']/gm;
 
 function scanImports(item: ItemSource) {
@@ -124,6 +129,10 @@ function scanImports(item: ItemSource) {
         registry.add("utils");
       } else if (spec.startsWith("@/")) {
         fail(`${item.name}: ${f.path} imports ${spec}; registry files may only import @/registry/plainspoken/… and @/lib/utils`);
+      } else if (spec === "next" || spec.startsWith("next/")) {
+        const block = item.type === "registry:block" || item.type === "registry:page" || f.path.startsWith(`${STYLE_DIR}/blocks/`);
+        if (!block && !NEXT_ALLOWED[f.path]?.includes(spec))
+          fail(`${item.name}: ${f.path} imports ${spec}; next/* is only for blocks (components take a linkAs instead; see lib/next-link.tsx)`);
       } else if (!spec.startsWith(".") && !spec.startsWith("node:")) {
         const pkg = spec.startsWith("@") ? spec.split("/").slice(0, 2).join("/") : spec.split("/")[0];
         if (!IMPLICIT_NPM.has(pkg)) npm.add(pkg);

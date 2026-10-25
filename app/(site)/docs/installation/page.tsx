@@ -57,6 +57,36 @@ export default function Installation() {
         ]}
       />
 
+      <H2>With Next.js</H2>
+      <P>
+        The navigation components (Navbar, Sidebar, App shell, Breadcrumb, Pagination) draw plain <C>&lt;a&gt;</C> links
+        unless you pass your router&apos;s link component as <C>linkAs</C>. In Next.js, add the next-link item and pass{" "}
+        <C>NextLink</C>: it is next/link&apos;s <C>Link</C> re-exported from a <C>&quot;use client&quot;</C> file, so it
+        works from server components as well as client ones. next/link&apos;s own <C>Link</C> only works when the component
+        passing it is already a client component; from a server component React stops with &quot;Functions cannot be passed
+        directly to Client Components&quot;.
+      </P>
+      <Command>{`npx shadcn@latest add ${registryItemUrl("next-link")}`}</Command>
+      <CodeBlock
+        title="app/layout.tsx"
+        code={`import { NextLink } from "@/lib/next-link";
+import { Navbar } from "@/components/ui/navbar";
+
+<Navbar
+  brand="Acme"
+  brandHref="/"
+  linkAs={NextLink}
+  links={[
+    { key: "home", label: "Home", href: "/" },
+    { key: "docs", label: "Docs", href: "/docs" },
+  ]}
+/>`}
+      />
+      <P>
+        To mark the current page, pass the pathname as <C>currentHref</C>: <C>usePathname()</C> in a client component, or
+        the route you are rendering in a server page.
+      </P>
+
       <H2>Dark mode</H2>
       <P>
         Like shadcn/ui: put the <C>dark</C> class on <C>&lt;html&gt;</C> (next-themes does this, or a few lines of script).

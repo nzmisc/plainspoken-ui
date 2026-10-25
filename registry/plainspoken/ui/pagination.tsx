@@ -29,7 +29,11 @@ export interface PaginationProps {
   onChange?: (page: number) => void;
   /** ... or links to each page's URL (for pages a search engine should find): `(p) => "?page=" + p` */
   href?: (page: number) => string;
-  /** The component to draw `href` links with: `linkAs={Link}` with next/link. Default: a plain <a>. */
+  /**
+   * The component to draw `href` links with. Default: a plain <a>. With Next.js pass `NextLink`
+   * from `@/lib/next-link` (the next-link item), which works from server and client components
+   * alike; next/link's own `Link` only works when the caller is a client component.
+   */
   linkAs?: LinkComponent;
   /** Total rows and rows per page: adds "26–50 of 340" */
   total?: number;

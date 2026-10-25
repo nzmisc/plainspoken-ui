@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useMemo, useRef, useState, type ReactNode } from "react";
+import { useEffect, useMemo, useRef, useState, type MouseEvent as ReactMouseEvent, type ReactNode } from "react";
 import {
   ArrowDown,
   ArrowLeft,
@@ -17,6 +17,7 @@ import {
   X,
 } from "@/registry/plainspoken/lib/icons";
 import { FOCUS_RING } from "@/registry/plainspoken/lib/controls";
+import type { LinkComponent } from "@/registry/plainspoken/lib/nav";
 import {
   applyFilters,
   applySort,
@@ -84,6 +85,20 @@ export interface DataTableProps<T> {
   actions?: ReactNode;
   /** What the body says when there are no rows at all (not when filters hide them) */
   empty?: ReactNode;
+  /**
+   * Each row's page: the first visible cell becomes a link to it (the keyboard way in), and a
+   * click anywhere else on the row follows it; Ctrl/Cmd-click opens it in a new tab. Don't render
+   * a link of your own in that first column.
+   */
+  rowHref?: (row: T) => string;
+  /**
+   * Called when a row is clicked: the first visible cell becomes a button (the keyboard way in:
+   * Tab to it, Enter), and a click anywhere else on the row does the same. With rowHref, it is
+   * called as the link is followed.
+   */
+  onRowClick?: (row: T) => void;
+  /** Draws the rowHref links: with Next.js, `NextLink` from `@/lib/next-link`. Default: a plain <a>. */
+  linkAs?: LinkComponent;
   className?: string;
 }
 
@@ -100,6 +115,10 @@ const TD = "border-r border-b border-border px-2 align-top last:border-r-0";
  * Sorting: click a header to sort by it alone (ascending, descending, off). Shift-click adds it as
  * the next sort key. Without a mouse, the "Sorted by" line does the same: add a key, flip it, move
  * it earlier or later, remove it. All state lives in React; nothing is written to the URL.
+ *
+ * Clickable rows (`rowHref`, `onRowClick`) stay a plain table: the first cell holds a real link or
+ * button, which is what the keyboard and screen readers use; the rest of the row is a bigger target
+ * for the mouse, and clicks on the row's own controls (checkbox, links, buttons) are left alone.
  *
  * The toolbar and paging controls are sm (24px) and the filter row xs (20px), from the height scale.
  */
@@ -128,6 +147,9 @@ export function DataTable<T>({
   sortBar = true,
   actions,
   empty,
+  rowHref,
+  onRowClick,
+  linkAs,
   className,
 }: DataTableProps<T>) {
   const [sort, setSort] = useState<SortKey[]>(initialSort);
@@ -216,6 +238,35 @@ export function DataTable<T>({
   const pad = density === "comfortable" ? "py-1.5" : "py-0.5";
   const filtersShown = columnFilters && showFilters;
   const colCount = visibleCols.length + (selectable ? 1 : 0);
+
+  // Clickable rows: the first cell's link or button is the real target; the row passes clicks on.
+  const clickable = rowHref != null || onRowClick != null;
+  const RowLink = linkAs ?? "a";
+  const targetLook = cn(
+    "text-left text-foreground underline decoration-border underline-offset-2 visited:text-foreground hover:decoration-current",
+    FOCUS_RING,
+  );
+  const rowTarget = (r: T, content: ReactNode) =>
+    rowHref ? (
+      <RowLink href={rowHref(r)} onClick={() => onRowClick?.(r)} className={targetLook}>
+        {content}
+      </RowLink>
+    ) : (
+      <button type="button" onClick={() => onRowClick?.(r)} className={cn("cursor-pointer", targetLook)}>
+        {content}
+      </button>
+    );
+  const onRowMouse = (e: ReactMouseEvent<HTMLTableRowElement>, r: T) => {
+    // The row's own controls handle their clicks, and dragging to select text isn't a click.
+    if ((e.target as Element).closest("a, button, input, select, textarea, label, summary, [role=button]")) return;
+    if (window.getSelection()?.toString()) return;
+    if (rowHref && (e.metaKey || e.ctrlKey)) {
+      window.open(rowHref(r), "_blank", "noopener");
+      return;
+    }
+    // Through the first cell's link or button, so a router's Link handles it as its own click
+    e.currentTarget.cells[selectable ? 1 : 0]?.querySelector<HTMLElement>("a[href], button")?.click();
+  };
   const toolbar = quickFilter || columnFilters || columnPicker || densityToggle || exportable || actions != null;
 
   return (
@@ -387,7 +438,7 @@ export function DataTable<T>({
               const k = rowKey(r);
               const on = selected.has(k);
               return (
-                <tr key={k} className={on ? "bg-accent" : "hover:bg-muted"}>
+                <tr key={k} className={cn(on ? "bg-accent" : "hover:bg-muted", clickable && "cursor-pointer")} onClick={clickable ? (e) => onRowMouse(e, r) : undefined}>
                   {selectable && (
                     <td className={cn(TD, pad, "w-0")}>
                       <input
@@ -399,9 +450,9 @@ export function DataTable<T>({
                       />
                     </td>
                   )}
-                  {visibleCols.map((c) => (
+                  {visibleCols.map((c, ci) => (
                     <td key={c.key} className={cn(TD, pad, c.type === "number" && "text-right tabular-nums", c.className)}>
-                      {c.render ? c.render(r) : formatCell(c, r)}
+                      {ci === 0 && clickable ? rowTarget(r, c.render ? c.render(r) : formatCell(c, r)) : c.render ? c.render(r) : formatCell(c, r)}
                     </td>
                   ))}
                 </tr>

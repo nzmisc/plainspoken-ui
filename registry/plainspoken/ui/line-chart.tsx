@@ -45,6 +45,13 @@ export interface LineChartProps {
   yFormat?: (v: number) => string;
   /** Values in the tooltip, table and summary. Defaults to yFormat. */
   valueFormat?: (v: number) => string;
+  /**
+   * Time axis ticks: the times to mark (epoch ms), or about how many to have. Default: round wall-
+   * clock times about every 72px. Labels that would collide are thinned out either way.
+   */
+  xTicks?: number[] | number;
+  /** Time axis tick labels. Default "14:30" within a day, "Oct 19" for days. */
+  xTickFormat?: (t: number) => string;
   /** Times in the tooltip, table and summary. Defaults to a date, a time, or both, from the sample spacing. */
   timeFormat?: (t: number) => string;
   /** Axis titles, shown above the value axis and under the time axis: "Requests per second", "Time (UTC)" */
@@ -96,6 +103,8 @@ export function LineChart({
   includeZero = true,
   yFormat = defaultFormat,
   valueFormat = yFormat,
+  xTicks: xTicksProp,
+  xTickFormat,
   timeFormat,
   yLabel,
   xLabel,
@@ -172,7 +181,12 @@ export function LineChart({
   const plotH = height - M.top - M.bottom;
   const sx = (t: number) => left + ((t - x0) / span) * plotW;
   const sy = (v: number) => M.top + plotH - ((v - y0) / (y1 - y0 || 1)) * plotH;
-  const { ticks: xTicks, step } = timeTicks(x0, x1, Math.max(1, Math.floor(plotW / 72)));
+  const auto = timeTicks(x0, x1, typeof xTicksProp === "number" ? xTicksProp : Math.max(1, Math.floor(plotW / 72)));
+  const xTicks = Array.isArray(xTicksProp) ? xTicksProp.filter((t) => t >= x0 && t <= x1) : auto.ticks;
+  const xLabels = thinLabels(
+    xTicks.map((t) => ({ t, x: sx(t), text: xTickFormat ? xTickFormat(t) : timeTickLabel(t, auto.step, locale) })),
+    width,
+  );
   const markerMode = markers ?? (times.length <= 24 ? "all" : "end");
 
   const paths = visible.map((s) => {
@@ -283,12 +297,12 @@ export function LineChart({
             ))}
             <line x1={left} x2={left + plotW} y1={M.top + plotH} y2={M.top + plotH} className="stroke-border" />
             {xTicks.map((t) => (
-              <g key={t}>
-                <line x1={sx(t)} x2={sx(t)} y1={M.top + plotH} y2={M.top + plotH + 4} className="stroke-border" />
-                <text x={sx(t)} y={height - 4} textAnchor="middle" className="fill-muted-foreground tabular-nums">
-                  {timeTickLabel(t, step, locale)}
-                </text>
-              </g>
+              <line key={t} x1={sx(t)} x2={sx(t)} y1={M.top + plotH} y2={M.top + plotH + 4} className="stroke-border" />
+            ))}
+            {xLabels.map((l) => (
+              <text key={l.t} x={l.x} y={height - 4} textAnchor={l.anchor} className="fill-muted-foreground tabular-nums">
+                {l.text}
+              </text>
             ))}
             <g clipPath={`url(#${clipId})`}>
               {paths.map(({ s, d }) => (
@@ -388,4 +402,23 @@ export function LineChart({
       )}
     </figure>
   );
+}
+
+/**
+ * The time labels that fit: every label, else every 2nd, 3rd… (evenly, so the rhythm stays), whichever
+ * is the first with 8px between neighbours. Widths are estimated from the 11px tabular figures. A
+ * label that would stick out past either end of the chart is aligned to that end instead.
+ */
+function thinLabels(labels: { t: number; x: number; text: string }[], width: number) {
+  const placed = labels.map((l) => {
+    const w = l.text.length * 6.4;
+    if (l.x - w / 2 < 0) return { ...l, anchor: "start" as const, from: l.x, to: l.x + w };
+    if (l.x + w / 2 > width) return { ...l, anchor: "end" as const, from: l.x - w, to: l.x };
+    return { ...l, anchor: "middle" as const, from: l.x - w / 2, to: l.x + w / 2 };
+  });
+  for (let k = 1; k <= placed.length; k++) {
+    const kept = placed.filter((_, i) => i % k === 0);
+    if (kept.every((l, i) => i === 0 || l.from >= kept[i - 1].to + 8)) return kept;
+  }
+  return placed.slice(0, 1);
 }

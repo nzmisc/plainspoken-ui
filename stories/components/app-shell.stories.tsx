@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/nextjs-vite";
-import Link from "next/link";
+import { NextLink } from "@/registry/plainspoken/lib/next-link";
 import { useState } from "react";
 import {
   Activity,
@@ -233,15 +233,16 @@ export const Panes: Story = {
 };
 
 /**
- * With next/link: `linkAs={Link}` and the pathname as `currentHref` (from usePathname() in a real
- * app). "/servers/atlas/disks" marks Disks, the longest matching link.
+ * With Next.js: `linkAs={NextLink}` (next/link's Link from the next-link item, which also works
+ * from a server component) and the pathname as `currentHref` (from usePathname() in a real app).
+ * "/servers/atlas/disks" marks Disks, the longest matching link.
  */
 export const WithNextLink: Story = {
   render: () => (
     <AppShell
       brand="atlas"
       brandHref="/"
-      linkAs={Link}
+      linkAs={NextLink}
       currentHref="/servers/atlas/disks"
       links={[
         { key: "dashboard", label: "Dashboard", href: "/" },

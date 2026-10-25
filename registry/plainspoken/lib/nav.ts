@@ -16,9 +16,13 @@ export interface NavLinkProps {
 }
 
 /**
- * Draws a link through your router instead of a plain <a>: pass next/link's `Link` (it takes these
- * props as they are), or a small wrapper for a router that wants `to` instead of `href`. Being a
- * component (not a render function), it can be passed from a server component.
+ * Draws a link through your router instead of a plain <a>: any component that takes these props,
+ * or a small wrapper for a router that wants `to` instead of `href`.
+ *
+ * With Next.js, pass `NextLink` from `@/lib/next-link` (the next-link item): it works from server
+ * and client components alike. next/link's own `Link` only works when the component passing it is
+ * already a client component, because on the server it is a plain function, and functions can't
+ * be passed to client components; NextLink is the same Link re-exported from a "use client" file.
  */
 export type LinkComponent = ComponentType<NavLinkProps>;
 
@@ -45,23 +49,38 @@ export function navClick(key: string, href: string, onNavigate?: (key: string, h
 
 const pathOf = (u: string) => u.split(/[?#]/)[0].replace(/(.)\/+$/, "$1");
 
+/** What currentKeyFor needs of a link. `exact` forces how it matches (see there). */
+export interface NavMatchable {
+  key: string;
+  href?: string;
+  exact?: boolean;
+}
+
 /**
  * The key of the link that is the current page for `currentHref` (a pathname from your router).
  * An exact match wins; otherwise the link whose path is the longest whole-segment prefix, so
- * "/mail/inbox/4821" marks "/mail/inbox". "/" only matches itself. Hash and relative hrefs only
- * match exactly.
+ * "/mail/inbox/4821" marks "/mail/inbox".
+ *
+ * A root, a link whose path is a prefix of another link's in the same nav ("/" or "/music" next
+ * to "/music/library"), only matches exactly: otherwise "Home" would be marked on every deeper
+ * page the nav has no link for ("/music/artist/x"). Set `exact` on a link to force it either way:
+ * `exact: true` for exact matches only, `exact: false` to let a root match the pages under it.
+ * Hash and relative hrefs only match exactly.
  */
-export function currentKeyFor(links: { key: string; href?: string }[], currentHref?: string): string | undefined {
+export function currentKeyFor(links: NavMatchable[], currentHref?: string): string | undefined {
   if (currentHref == null) return undefined;
   const exact = links.find((l) => l.href === currentHref);
   if (exact) return exact.key;
   if (!currentHref.startsWith("/")) return undefined;
   const here = pathOf(currentHref);
+  const paths = links.flatMap((l) => (l.href?.startsWith("/") ? [pathOf(l.href)] : []));
   let best: { key: string; len: number } | undefined;
   for (const l of links) {
     if (!l.href?.startsWith("/")) continue;
     const p = pathOf(l.href);
-    const hit = p === here || (p !== "/" && here.startsWith(p + "/"));
+    const under = (q: string) => q !== p && (p === "/" || q.startsWith(p + "/"));
+    const exactOnly = l.exact ?? paths.some(under);
+    const hit = p === here || (!exactOnly && under(here));
     if (hit && (!best || p.length > best.len)) best = { key: l.key, len: p.length };
   }
   return best?.key;

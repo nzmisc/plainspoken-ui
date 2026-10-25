@@ -20,6 +20,12 @@ export interface SidebarItem {
   badge?: ReactNode;
   /** What the badge means, read out instead of it: "12 unread". Without it the badge is read as it is. */
   badgeLabel?: string;
+  /**
+   * How `currentHref` matches this item: true for its own page only, false for the pages under it
+   * too. Default: under it too, except for a root (an item whose path starts another item's, such
+   * as Home), which only matches exactly.
+   */
+  exact?: boolean;
   children?: SidebarItem[];
 }
 
@@ -37,11 +43,18 @@ export interface SidebarNavProps {
   sections: SidebarSection[];
   /** Key of the item for the current page */
   current?: string;
-  /** Or the current pathname (from your router); the best-matching item is marked. `current` wins. */
+  /**
+   * Or the current pathname (from your router): the item with the longest matching path is
+   * marked, and a root such as Home only on its own page (see `exact`). `current` wins.
+   */
   currentHref?: string;
   /** Plain left clicks on items go here instead of the browser, e.g. `(key) => setFolder(key)` */
   onNavigate?: (key: string, href: string) => void;
-  /** Draw links with your router's link component, e.g. next/link's `Link`. Default: a plain <a>. */
+  /**
+   * Draw links with your router's link component. Default: a plain <a>. With Next.js pass
+   * `NextLink` from `@/lib/next-link` (the next-link item), which works from server and client
+   * components alike; next/link's own `Link` only works when the caller is a client component.
+   */
   linkAs?: LinkComponent;
 }
 
@@ -247,8 +260,8 @@ export interface SidebarProps extends SidebarNavProps {
  * counts, and groups that open in place (the ones holding the current page start open). The
  * current page is bold on a gray row with a dark bar on its left edge. Navigation links are in the
  * text colour, not blue. Narrows to a rail of icons. Below md, use SidebarDrawer (AppShell does).
- * Links are plain <a> unless you pass `linkAs`; mark the current item with `current` or
- * `currentHref`.
+ * Links are plain <a> unless you pass `linkAs` (with Next.js, `NextLink` from the next-link
+ * item); mark the current item with `current` or `currentHref`.
  */
 export function Sidebar({ rail = false, onRailChange, header, footer, label = "Sections", className, ...nav }: SidebarProps) {
   const top = slot(header, rail);

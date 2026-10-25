@@ -56,8 +56,9 @@ export interface AppShellProps extends SidebarNavProps {
  * same button opens the sidebar as a drawer, which also lists the bar's links. What shows on first
  * paint is decided by CSS breakpoints, so there is no flash while the page hydrates.
  *
- * Router-agnostic like Navbar and Sidebar: pass `linkAs` (next/link's Link works, also from a
- * server component) and `currentHref` (the pathname), or `current` and `onNavigate` to drive it
+ * Router-agnostic like Navbar and Sidebar: pass `linkAs` (with Next.js, `NextLink` from the
+ * next-link item, which works from server and client components; next/link's own Link only from a
+ * client component) and `currentHref` (the pathname), or `current` and `onNavigate` to drive it
  * from state.
  */
 export function AppShell({

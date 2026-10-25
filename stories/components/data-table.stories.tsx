@@ -177,3 +177,34 @@ export const PhoneWidth: Story = {
     ),
   ],
 };
+
+/**
+ * `onRowClick`: the first cell (PID) becomes a button, the keyboard way in (Tab to it, Enter), and
+ * a click anywhere else on the row does the same; the checkbox and other controls keep their own
+ * clicks. The last row opened shows under the table.
+ */
+export const ClickableRows: Story = {
+  args: { initialShowFilters: false, pageSizes: [10] },
+  render: function Render(args) {
+    const [opened, setOpened] = useState<ProcRow | null>(null);
+    return (
+      <div className="flex flex-col gap-2">
+        <DataTable {...args} onRowClick={setOpened} />
+        <p role="status" className="text-[14px]">
+          {opened ? (
+            <>
+              Opened <code>{opened.command}</code> (PID {opened.pid})
+            </>
+          ) : (
+            "Click a row."
+          )}
+        </p>
+      </div>
+    );
+  },
+};
+
+/** `rowHref`: the first cell is a real link to the row's page (Ctrl/Cmd-click a row for a new tab). With Next.js add `linkAs={NextLink}`. */
+export const RowLinks: Story = {
+  args: { initialShowFilters: false, pageSizes: [10], selectable: false, rowHref: (r: ProcRow) => `#process-${r.pid}` },
+};

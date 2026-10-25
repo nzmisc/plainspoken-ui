@@ -13,6 +13,12 @@ export interface NavbarLink {
   key: string;
   label: string;
   href: string;
+  /**
+   * How `currentHref` matches this link: true for its own page only, false for the pages under it
+   * too. Default: under it too, except for a root (a link whose path starts another link's, such as
+   * Home), which only matches exactly.
+   */
+  exact?: boolean;
 }
 
 export interface NavbarProps {
@@ -23,7 +29,11 @@ export interface NavbarProps {
   currentHref?: string;
   /** Plain left clicks on links go here instead of the browser, e.g. `(key) => setPage(key)` */
   onNavigate?: (key: string, href: string) => void;
-  /** Draw links with your router's link component, e.g. next/link's `Link`. Default: a plain <a>. */
+  /**
+   * Draw links with your router's link component. Default: a plain <a>. With Next.js pass
+   * `NextLink` from `@/lib/next-link` (the next-link item), which works from server and client
+   * components alike; next/link's own `Link` only works when the caller is a client component.
+   */
   linkAs?: LinkComponent;
   /** The site or app name, left of the links. Plain text or a logo element. */
   brand?: ReactNode;
@@ -41,7 +51,13 @@ export interface NavbarProps {
   phone?: "menu" | "hide";
   /** Accessible name of the links' <nav> */
   label?: string;
+  /** The bar: border, background, position (`sticky top-0`). They span the full width. */
   className?: string;
+  /**
+   * The row inside the bar that holds the brand, links and actions, e.g. `mx-auto max-w-5xl` to
+   * line it up with a centred page while the bar's background and border stay full width.
+   */
+  contentClassName?: string;
 }
 
 /** The label twice, stacked, the hidden copy bold: making the current link bold doesn't change its width. */
@@ -61,10 +77,11 @@ function SteadyLabel({ children, bold }: { children: string; bold: boolean }) {
  * are in the text colour, underlined on hover, and the current one is bold with a bar under it
  * (aria-current="page"), the way a plain page marks "you are here".
  *
- * Router-agnostic: links are plain <a> elements unless you pass `linkAs` (next/link's Link works
- * as it is, also from a server component), and the current link comes from `current` (a key) or
- * `currentHref` (a pathname). On phones the links fold into a Menu button; Escape closes the panel
- * and puts focus back on the button.
+ * Router-agnostic: links are plain <a> elements unless you pass `linkAs` (with Next.js, `NextLink`
+ * from the next-link item, which works from server components too), and the current link comes
+ * from `current` (a key) or `currentHref` (a pathname; see currentKeyFor in lib/nav for how roots
+ * match). `contentClassName` sets the width of the row inside the bar. On phones the links fold
+ * into a Menu button; Escape closes the panel and puts focus back on the button.
  */
 export function Navbar({
   links = [],
@@ -79,6 +96,7 @@ export function Navbar({
   phone = "menu",
   label = "Main",
   className,
+  contentClassName,
 }: NavbarProps) {
   const [open, setOpen] = useState(false);
   const desktop = useMediaQuery(MD_UP);
@@ -115,7 +133,7 @@ export function Navbar({
   const linkLook = "text-foreground no-underline visited:text-foreground hover:underline underline-offset-4";
   return (
     <header data-slot="navbar" className={cn("border-b border-border bg-muted", className)}>
-      <div className="flex min-h-10 items-center gap-x-4 px-2 sm:px-3">
+      <div className={cn("flex min-h-10 items-center gap-x-4 px-2 sm:px-3", contentClassName)}>
         {leading && <div className="-mr-2 flex shrink-0 items-center">{leading}</div>}
         {brand != null &&
           (brandHref ? (

@@ -2,8 +2,8 @@ import Link from "next/link";
 import type { ReactNode } from "react";
 import { CalendarDays, Clock, Tag } from "@/registry/plainspoken/lib/icons";
 import { formatDate } from "@/registry/plainspoken/lib/dates";
-import type { Crumb } from "@/registry/plainspoken/ui/breadcrumb";
-import { BlogPostCrumbs } from "@/registry/plainspoken/blocks/blog/post-crumbs";
+import { NextLink } from "@/registry/plainspoken/lib/next-link";
+import { Breadcrumb, type Crumb } from "@/registry/plainspoken/ui/breadcrumb";
 import { Icon } from "@/registry/plainspoken/ui/icon";
 import { linkVariants } from "@/registry/plainspoken/ui/text-link";
 import { cn } from "@/lib/utils";
@@ -34,7 +34,7 @@ const long = (d: string) => formatDate(d, { day: "numeric", month: "long", year:
 export function BlogPostHeader({ title, date, updated, minutes, tags, summary, crumbs, className }: BlogPostHeaderProps) {
   return (
     <header data-slot="blog-post-header" className={cn("flex flex-col gap-3 border-b border-border pb-5", className)}>
-      {crumbs && crumbs.length > 0 && <BlogPostCrumbs items={crumbs} className="text-[13px]" />}
+      {crumbs && crumbs.length > 0 && <Breadcrumb items={crumbs} linkAs={NextLink} className="text-[13px]" />}
       <h1 className="text-[28px] leading-tight font-bold text-balance sm:text-[32px]">{title}</h1>
       {summary != null && <p className="max-w-[60ch] text-[17px] leading-normal text-muted-foreground">{summary}</p>}
       <ul className="flex flex-wrap gap-x-4 gap-y-1 text-[13px] text-muted-foreground">
