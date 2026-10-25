@@ -1,0 +1,9 @@
+{
+  "name": "blog-now",
+  "type": "registry:block",
+  "title": "Now box",
+  "description": "A \"now\" box: what the author is up to at the moment, with the date it was last true, in a Panel.",
+  "category": "Blog",
+  "files": ["blocks/blog/now.tsx"],
+  "examples": ["blog-now-demo"]
+}

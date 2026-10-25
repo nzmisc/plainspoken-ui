@@ -1,0 +1,9 @@
+{
+  "name": "blog-layout",
+  "type": "registry:block",
+  "title": "Blog layout",
+  "description": "The frame of a personal site (skip link, header, one main landmark, footer) plus a page header, titled sections and a main column with a side column.",
+  "category": "Blog",
+  "files": ["blocks/blog/layout.tsx"],
+  "examples": ["blog-layout-demo"]
+}

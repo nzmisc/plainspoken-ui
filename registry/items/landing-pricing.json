@@ -1,0 +1,9 @@
+{
+  "name": "landing-pricing",
+  "type": "registry:block",
+  "title": "Pricing plans",
+  "description": "Plans side by side in cards with a Monthly / Yearly segmented control that changes every price; the recommended plan badged.",
+  "category": "Landing page",
+  "files": ["blocks/landing/pricing.tsx"],
+  "examples": ["landing-pricing-demo"]
+}

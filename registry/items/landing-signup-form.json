@@ -1,0 +1,9 @@
+{
+  "name": "landing-signup-form",
+  "type": "registry:block",
+  "title": "Sign-up form",
+  "description": "A sign-up form in a card: name, email, password, team size, plan radios with a billing switch, terms; an error summary and a success state.",
+  "category": "Landing page",
+  "files": ["blocks/landing/signup-form.tsx"],
+  "examples": ["landing-signup-form-demo", "landing-signup-form-states"]
+}

@@ -1,0 +1,9 @@
+{
+  "name": "landing-footer",
+  "type": "registry:block",
+  "title": "Landing footer",
+  "description": "A marketing site's footer: brand and tagline, columns of links under small headings, and the small print.",
+  "category": "Landing page",
+  "files": ["blocks/landing/footer.tsx"],
+  "examples": ["landing-footer-demo"]
+}

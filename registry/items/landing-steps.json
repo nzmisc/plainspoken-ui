@@ -1,0 +1,9 @@
+{
+  "name": "landing-steps",
+  "type": "registry:block",
+  "title": "Steps",
+  "description": "How it works in three numbered steps on one rule, as a real ordered list.",
+  "category": "Landing page",
+  "files": ["blocks/landing/steps.tsx"],
+  "examples": ["landing-steps-demo"]
+}

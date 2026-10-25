@@ -1,0 +1,9 @@
+{
+  "name": "blog-post-footer",
+  "type": "registry:block",
+  "title": "Post footer",
+  "description": "After a post: a reply-by-email box with the subject filled in, and the older and newer posts side by side.",
+  "category": "Blog",
+  "files": ["blocks/blog/post-footer.tsx"],
+  "examples": ["blog-post-footer-demo"]
+}

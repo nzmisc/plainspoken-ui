@@ -1,0 +1,9 @@
+{
+  "name": "landing-plan-comparison",
+  "type": "registry:block",
+  "title": "Plan comparison",
+  "description": "Every plan's features in one grouped table, with checks and dashes that screen readers hear as included or not.",
+  "category": "Landing page",
+  "files": ["blocks/landing/plan-comparison.tsx"],
+  "examples": ["landing-plan-comparison-demo"]
+}

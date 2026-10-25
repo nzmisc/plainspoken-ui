@@ -1,0 +1,9 @@
+{
+  "name": "blog-profile",
+  "type": "registry:block",
+  "title": "Profile",
+  "description": "The top of an About page: a drawn portrait in theme colours, name and role, the bio, and where else to find the author as a description list.",
+  "category": "Blog",
+  "files": ["blocks/blog/profile.tsx", "blocks/blog/portrait.tsx"],
+  "examples": ["blog-profile-demo"]
+}

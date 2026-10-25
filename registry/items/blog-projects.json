@@ -1,0 +1,9 @@
+{
+  "name": "blog-projects",
+  "type": "registry:block",
+  "title": "Projects",
+  "description": "Side projects, one per row: name as a link, a status badge (active, maintained, archived), a sentence and small print.",
+  "category": "Blog",
+  "files": ["blocks/blog/projects.tsx"],
+  "examples": ["blog-projects-demo"]
+}

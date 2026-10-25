@@ -1,0 +1,9 @@
+{
+  "name": "blog-article",
+  "type": "registry:block",
+  "title": "Article",
+  "description": "A whole post in one article: header, text in Prose with self-linking headings, code blocks with copy buttons, figures, footnotes, and a table of contents.",
+  "category": "Blog",
+  "files": ["blocks/blog/article.tsx", "blocks/blog/article-parts.tsx"],
+  "examples": ["blog-article-demo", "blog-article-parts"]
+}

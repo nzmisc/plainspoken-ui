@@ -1,0 +1,9 @@
+{
+  "name": "blog-toc",
+  "type": "registry:block",
+  "title": "Table of contents",
+  "description": "A post's sections as links: a side-column list that marks the section being read as you scroll, or a collapsible box for phones.",
+  "category": "Blog",
+  "files": ["blocks/blog/toc.tsx"],
+  "examples": ["blog-toc-demo"]
+}

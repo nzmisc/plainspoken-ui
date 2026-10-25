@@ -1,0 +1,9 @@
+{
+  "name": "blog-footer",
+  "type": "registry:block",
+  "title": "Blog footer",
+  "description": "The bottom of a personal site: name, a line about it, gray links to writing, about, feed and email, and the small print.",
+  "category": "Blog",
+  "files": ["blocks/blog/footer.tsx"],
+  "examples": ["blog-footer-demo"]
+}

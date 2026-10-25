@@ -1,0 +1,9 @@
+{
+  "name": "blog-tags",
+  "type": "registry:block",
+  "title": "Tag links",
+  "description": "Every tag as a link with its post count, in chip-like boxes at control height; the current tag filled.",
+  "category": "Blog",
+  "files": ["blocks/blog/tags.tsx"],
+  "examples": ["blog-tags-demo"]
+}

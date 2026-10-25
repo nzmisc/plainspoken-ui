@@ -1,0 +1,9 @@
+{
+  "name": "landing-feature-split",
+  "type": "registry:block",
+  "title": "Feature split",
+  "description": "One feature told at length: heading, paragraph and checked points beside a picture of that part of the product; alternate with reverse.",
+  "category": "Landing page",
+  "files": ["blocks/landing/feature-split.tsx"],
+  "examples": ["landing-feature-split-demo"]
+}

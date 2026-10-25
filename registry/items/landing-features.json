@@ -1,0 +1,9 @@
+{
+  "name": "landing-features",
+  "type": "registry:block",
+  "title": "Features grid",
+  "description": "What the product does, as a ruled grid of icon, title and two lines; three columns on wide screens.",
+  "category": "Landing page",
+  "files": ["blocks/landing/features.tsx"],
+  "examples": ["landing-features-demo"]
+}
