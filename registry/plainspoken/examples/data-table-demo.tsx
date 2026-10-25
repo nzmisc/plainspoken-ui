@@ -67,7 +67,7 @@ const COLUMNS: DataColumn<Order>[] = [
   { key: "country", header: "Country", type: "enum", value: (o) => o.country, defaultHidden: true },
   { key: "placed", header: "Placed", type: "date", value: (o) => o.placed, format: (v) => day(v as number), className: "whitespace-nowrap tabular-nums" },
   { key: "items", header: "Items", type: "number", value: (o) => o.items },
-  { key: "total", header: "Total", type: "number", value: (o) => o.total, format: (v) => money.format(v as number) },
+  { key: "total", header: "Total", type: "number", value: (o) => o.total, format: (v) => money.format(v as number), xlsxFormat: '"$"#,##0.00', summary: "sum" },
   { key: "status", header: "Status", type: "enum", value: (o) => o.status, options: ["Pending", "Paid", "Shipped", "Refunded"] },
 ];
 
@@ -80,7 +80,6 @@ export default function DataTableDemo() {
       rowKey={(o) => o.id}
       selectable
       initialSort={[{ key: "placed", dir: "desc" }]}
-      initialShowFilters={false}
       pageSizes={[10, 25, 0]}
       maxHeight="none"
     />

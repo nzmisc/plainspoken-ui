@@ -36,8 +36,8 @@ const COLUMNS: DataColumn<Loan>[] = [
 ];
 
 /**
- * Everything switched off: a plain table whose headers sort. Cells can render anything, here a
- * link to the book. Paging is off too (pageSizes={[0]}).
+ * Everything switched off: a plain table whose headers sort. No filters, column menu, resizing
+ * or export, and no paging (pageSizes={[0]}). Cells can render anything, here a link to the book.
  */
 export default function DataTablePlain() {
   return (
@@ -53,6 +53,7 @@ export default function DataTablePlain() {
       densityToggle={false}
       exportable={false}
       sortBar={false}
+      resizableColumns={false}
       pageSizes={[0]}
       maxHeight="none"
     />

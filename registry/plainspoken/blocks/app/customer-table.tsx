@@ -73,7 +73,6 @@ export function AppCustomerTable({ customers = CUSTOMERS, defaultSelected = [], 
         )}
         actions={<NewCustomerButton />}
         initialSort={[{ key: "name", dir: "asc" }]}
-        initialShowFilters={false}
         pageSizes={[25, 50, 0]}
         maxHeight="none"
         className={className}

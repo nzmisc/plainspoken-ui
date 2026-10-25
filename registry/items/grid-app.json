@@ -1,0 +1,9 @@
+{
+  "name": "grid-app",
+  "type": "registry:block",
+  "title": "Data grid app",
+  "description": "The whole demo: three thousand orders filling the page with saved views over them, totals, windowed rows, and an order drawer on click.",
+  "category": "Data grid",
+  "files": ["blocks/grid/grid-app.tsx"],
+  "examples": ["grid-app-demo"]
+}

@@ -2276,11 +2276,15 @@ export const registry: RegistryEntry[] = [
     "name": "data-table",
     "type": "registry:ui",
     "title": "Data table",
-    "description": "A table for a few hundred rows: quick and per-column filters, sorting by several columns, a column picker, selection with shift-click ranges, paging and CSV export, each of which can be switched off.",
+    "description": "A table for up to thousands of rows: Excel-style column filters (values with counts, or conditions), sorting by several columns, columns to show, hide, reorder and resize, selection, totals, windowed rendering, and export to the clipboard, Excel and CSV, each of which can be switched off.",
     "category": "Data display",
     "files": [
       {
         "path": "registry/plainspoken/ui/data-table.tsx",
+        "type": "registry:ui"
+      },
+      {
+        "path": "registry/plainspoken/ui/data-table-filter.tsx",
         "type": "registry:ui"
       },
       {
@@ -2290,21 +2294,30 @@ export const registry: RegistryEntry[] = [
     ],
     "examples": [
       "data-table-demo",
+      "data-table-filters",
+      "data-table-resizing",
+      "data-table-export",
+      "data-table-windowed",
       "data-table-plain",
       "data-table-bulk-actions"
     ],
     "registryDependencies": [
       "button",
       "checkbox",
-      "chip",
+      "drawer",
+      "floating",
       "foundation",
       "icon",
       "icons",
       "input",
       "menu-button",
       "nav",
+      "radio-group",
+      "segmented-control",
       "select",
-      "utils"
+      "use-media-query",
+      "utils",
+      "xlsx"
     ],
     "dependencies": [],
     "hidden": false
@@ -2608,6 +2621,154 @@ export const registry: RegistryEntry[] = [
     "registryDependencies": [],
     "dependencies": [],
     "hidden": true
+  },
+  {
+    "name": "grid-app",
+    "type": "registry:block",
+    "title": "Data grid app",
+    "description": "The whole demo: three thousand orders filling the page with saved views over them, totals, windowed rows, and an order drawer on click.",
+    "category": "Data grid",
+    "files": [
+      {
+        "path": "registry/plainspoken/blocks/grid/grid-app.tsx",
+        "type": "registry:component",
+        "target": "components/blocks/grid/grid-app.tsx"
+      }
+    ],
+    "examples": [
+      "grid-app-demo"
+    ],
+    "registryDependencies": [
+      "data-table",
+      "foundation",
+      "grid-data",
+      "grid-order-drawer",
+      "grid-orders-table",
+      "grid-views",
+      "icon",
+      "icons",
+      "utils"
+    ],
+    "dependencies": [],
+    "hidden": false
+  },
+  {
+    "name": "grid-data",
+    "type": "registry:block",
+    "title": "Grid data",
+    "description": "The demo's three thousand invented orders from a seeded generator (customers, lines, money, statuses, delivery dates, tracking), with the helpers that format money and dates for the grid blocks.",
+    "category": "Data grid",
+    "files": [
+      {
+        "path": "registry/plainspoken/blocks/grid/data.ts",
+        "type": "registry:component",
+        "target": "components/blocks/grid/data.ts"
+      },
+      {
+        "path": "registry/plainspoken/blocks/grid/format.ts",
+        "type": "registry:component",
+        "target": "components/blocks/grid/format.ts"
+      }
+    ],
+    "examples": [],
+    "registryDependencies": [
+      "foundation",
+      "icons",
+      "status"
+    ],
+    "dependencies": [],
+    "hidden": true
+  },
+  {
+    "name": "grid-order-drawer",
+    "type": "registry:block",
+    "title": "Order drawer",
+    "description": "An order in a drawer: its state and lateness, the lines with subtotal, coupon, shipping and total, the address, delivery and tracking, with Previous and Next through the table's rows.",
+    "category": "Data grid",
+    "files": [
+      {
+        "path": "registry/plainspoken/blocks/grid/order-drawer.tsx",
+        "type": "registry:component",
+        "target": "components/blocks/grid/order-drawer.tsx"
+      }
+    ],
+    "examples": [
+      "grid-order-drawer-demo"
+    ],
+    "registryDependencies": [
+      "button",
+      "description-list",
+      "drawer",
+      "foundation",
+      "grid-data",
+      "icon",
+      "icons",
+      "status",
+      "table",
+      "text-link"
+    ],
+    "dependencies": [],
+    "hidden": false
+  },
+  {
+    "name": "grid-orders-table",
+    "type": "registry:block",
+    "title": "Orders table",
+    "description": "Three thousand orders in a DataTable with everything on: Excel-style column filters, multi-column sort, resizable columns, totals, selection, and export to the clipboard, Excel and CSV.",
+    "category": "Data grid",
+    "files": [
+      {
+        "path": "registry/plainspoken/blocks/grid/orders-table.tsx",
+        "type": "registry:component",
+        "target": "components/blocks/grid/orders-table.tsx"
+      }
+    ],
+    "examples": [
+      "grid-orders-table-demo",
+      "grid-orders-table-filtered"
+    ],
+    "registryDependencies": [
+      "data-table",
+      "foundation",
+      "grid-data",
+      "icon",
+      "icons",
+      "status",
+      "text-link"
+    ],
+    "dependencies": [],
+    "hidden": false
+  },
+  {
+    "name": "grid-views",
+    "type": "registry:block",
+    "title": "Saved views",
+    "description": "Tabs of saved table views (presets of sort, filters and columns) with their row counts, an \"edited\" mark once the table changes, Revert, and Save as view.",
+    "category": "Data grid",
+    "files": [
+      {
+        "path": "registry/plainspoken/blocks/grid/views.tsx",
+        "type": "registry:component",
+        "target": "components/blocks/grid/views.tsx"
+      }
+    ],
+    "examples": [
+      "grid-views-demo",
+      "grid-views-edited"
+    ],
+    "registryDependencies": [
+      "button",
+      "data-table",
+      "foundation",
+      "grid-data",
+      "grid-orders-table",
+      "icons",
+      "input",
+      "menu-button",
+      "utils"
+    ],
+    "dependencies": [],
+    "hidden": false
   },
   {
     "name": "hover-card",
@@ -6234,6 +6395,25 @@ export const registry: RegistryEntry[] = [
       {
         "path": "registry/plainspoken/hooks/use-stored-state.ts",
         "type": "registry:hook"
+      }
+    ],
+    "examples": [],
+    "registryDependencies": [
+      "foundation"
+    ],
+    "dependencies": [],
+    "hidden": true
+  },
+  {
+    "name": "xlsx",
+    "type": "registry:lib",
+    "title": "Excel writer",
+    "description": "Writes .xlsx files with no dependencies: a stored ZIP with CRC-32 around the spreadsheet XML, with numbers, dates, a bold frozen header row, column widths and an autofilter.",
+    "category": "Data display",
+    "files": [
+      {
+        "path": "registry/plainspoken/lib/xlsx.ts",
+        "type": "registry:lib"
       }
     ],
     "examples": [],

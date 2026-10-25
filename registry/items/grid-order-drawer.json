@@ -1,0 +1,9 @@
+{
+  "name": "grid-order-drawer",
+  "type": "registry:block",
+  "title": "Order drawer",
+  "description": "An order in a drawer: its state and lateness, the lines with subtotal, coupon, shipping and total, the address, delivery and tracking, with Previous and Next through the table's rows.",
+  "category": "Data grid",
+  "files": ["blocks/grid/order-drawer.tsx"],
+  "examples": ["grid-order-drawer-demo"]
+}

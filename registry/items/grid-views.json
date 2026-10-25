@@ -1,0 +1,9 @@
+{
+  "name": "grid-views",
+  "type": "registry:block",
+  "title": "Saved views",
+  "description": "Tabs of saved table views (presets of sort, filters and columns) with their row counts, an \"edited\" mark once the table changes, Revert, and Save as view.",
+  "category": "Data grid",
+  "files": ["blocks/grid/views.tsx"],
+  "examples": ["grid-views-demo", "grid-views-edited"]
+}

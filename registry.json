@@ -2082,24 +2082,33 @@
       "name": "data-table",
       "type": "registry:ui",
       "title": "Data table",
-      "description": "A table for a few hundred rows: quick and per-column filters, sorting by several columns, a column picker, selection with shift-click ranges, paging and CSV export, each of which can be switched off.",
+      "description": "A table for up to thousands of rows: Excel-style column filters (values with counts, or conditions), sorting by several columns, columns to show, hide, reorder and resize, selection, totals, windowed rendering, and export to the clipboard, Excel and CSV, each of which can be switched off.",
       "author": "plainspoken-ui <https://github.com/nzmisc/plainspoken-ui>",
       "registryDependencies": [
         "@plainspoken/button",
         "@plainspoken/checkbox",
-        "@plainspoken/chip",
+        "@plainspoken/drawer",
+        "@plainspoken/floating",
         "@plainspoken/foundation",
         "@plainspoken/icon",
         "@plainspoken/icons",
         "@plainspoken/input",
         "@plainspoken/menu-button",
         "@plainspoken/nav",
+        "@plainspoken/radio-group",
+        "@plainspoken/segmented-control",
         "@plainspoken/select",
-        "utils"
+        "@plainspoken/use-media-query",
+        "utils",
+        "@plainspoken/xlsx"
       ],
       "files": [
         {
           "path": "registry/plainspoken/ui/data-table.tsx",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/plainspoken/ui/data-table-filter.tsx",
           "type": "registry:ui"
         },
         {
@@ -2443,6 +2452,144 @@
       },
       "categories": [
         "foundations"
+      ]
+    },
+    {
+      "name": "grid-app",
+      "type": "registry:block",
+      "title": "Data grid app",
+      "description": "The whole demo: three thousand orders filling the page with saved views over them, totals, windowed rows, and an order drawer on click.",
+      "author": "plainspoken-ui <https://github.com/nzmisc/plainspoken-ui>",
+      "registryDependencies": [
+        "@plainspoken/data-table",
+        "@plainspoken/foundation",
+        "@plainspoken/grid-data",
+        "@plainspoken/grid-order-drawer",
+        "@plainspoken/grid-orders-table",
+        "@plainspoken/grid-views",
+        "@plainspoken/icon",
+        "@plainspoken/icons",
+        "utils"
+      ],
+      "files": [
+        {
+          "path": "registry/plainspoken/blocks/grid/grid-app.tsx",
+          "type": "registry:component",
+          "target": "components/blocks/grid/grid-app.tsx"
+        }
+      ],
+      "categories": [
+        "data-grid"
+      ]
+    },
+    {
+      "name": "grid-data",
+      "type": "registry:block",
+      "title": "Grid data",
+      "description": "The demo's three thousand invented orders from a seeded generator (customers, lines, money, statuses, delivery dates, tracking), with the helpers that format money and dates for the grid blocks.",
+      "author": "plainspoken-ui <https://github.com/nzmisc/plainspoken-ui>",
+      "registryDependencies": [
+        "@plainspoken/foundation",
+        "@plainspoken/icons",
+        "@plainspoken/status"
+      ],
+      "files": [
+        {
+          "path": "registry/plainspoken/blocks/grid/data.ts",
+          "type": "registry:component",
+          "target": "components/blocks/grid/data.ts"
+        },
+        {
+          "path": "registry/plainspoken/blocks/grid/format.ts",
+          "type": "registry:component",
+          "target": "components/blocks/grid/format.ts"
+        }
+      ],
+      "categories": [
+        "data-grid"
+      ]
+    },
+    {
+      "name": "grid-order-drawer",
+      "type": "registry:block",
+      "title": "Order drawer",
+      "description": "An order in a drawer: its state and lateness, the lines with subtotal, coupon, shipping and total, the address, delivery and tracking, with Previous and Next through the table's rows.",
+      "author": "plainspoken-ui <https://github.com/nzmisc/plainspoken-ui>",
+      "registryDependencies": [
+        "@plainspoken/button",
+        "@plainspoken/description-list",
+        "@plainspoken/drawer",
+        "@plainspoken/foundation",
+        "@plainspoken/grid-data",
+        "@plainspoken/icon",
+        "@plainspoken/icons",
+        "@plainspoken/status",
+        "@plainspoken/table",
+        "@plainspoken/text-link"
+      ],
+      "files": [
+        {
+          "path": "registry/plainspoken/blocks/grid/order-drawer.tsx",
+          "type": "registry:component",
+          "target": "components/blocks/grid/order-drawer.tsx"
+        }
+      ],
+      "categories": [
+        "data-grid"
+      ]
+    },
+    {
+      "name": "grid-orders-table",
+      "type": "registry:block",
+      "title": "Orders table",
+      "description": "Three thousand orders in a DataTable with everything on: Excel-style column filters, multi-column sort, resizable columns, totals, selection, and export to the clipboard, Excel and CSV.",
+      "author": "plainspoken-ui <https://github.com/nzmisc/plainspoken-ui>",
+      "registryDependencies": [
+        "@plainspoken/data-table",
+        "@plainspoken/foundation",
+        "@plainspoken/grid-data",
+        "@plainspoken/icon",
+        "@plainspoken/icons",
+        "@plainspoken/status",
+        "@plainspoken/text-link"
+      ],
+      "files": [
+        {
+          "path": "registry/plainspoken/blocks/grid/orders-table.tsx",
+          "type": "registry:component",
+          "target": "components/blocks/grid/orders-table.tsx"
+        }
+      ],
+      "categories": [
+        "data-grid"
+      ]
+    },
+    {
+      "name": "grid-views",
+      "type": "registry:block",
+      "title": "Saved views",
+      "description": "Tabs of saved table views (presets of sort, filters and columns) with their row counts, an \"edited\" mark once the table changes, Revert, and Save as view.",
+      "author": "plainspoken-ui <https://github.com/nzmisc/plainspoken-ui>",
+      "registryDependencies": [
+        "@plainspoken/button",
+        "@plainspoken/data-table",
+        "@plainspoken/foundation",
+        "@plainspoken/grid-data",
+        "@plainspoken/grid-orders-table",
+        "@plainspoken/icons",
+        "@plainspoken/input",
+        "@plainspoken/menu-button",
+        "utils"
+      ],
+      "files": [
+        {
+          "path": "registry/plainspoken/blocks/grid/views.tsx",
+          "type": "registry:component",
+          "target": "components/blocks/grid/views.tsx"
+        }
+      ],
+      "categories": [
+        "data-grid"
       ]
     },
     {
@@ -5870,6 +6017,25 @@
       ],
       "categories": [
         "layout"
+      ]
+    },
+    {
+      "name": "xlsx",
+      "type": "registry:lib",
+      "title": "Excel writer",
+      "description": "Writes .xlsx files with no dependencies: a stored ZIP with CRC-32 around the spreadsheet XML, with numbers, dates, a bold frozen header row, column widths and an autofilter.",
+      "author": "plainspoken-ui <https://github.com/nzmisc/plainspoken-ui>",
+      "registryDependencies": [
+        "@plainspoken/foundation"
+      ],
+      "files": [
+        {
+          "path": "registry/plainspoken/lib/xlsx.ts",
+          "type": "registry:lib"
+        }
+      ],
+      "categories": [
+        "data-display"
       ]
     }
   ]

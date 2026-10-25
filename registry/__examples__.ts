@@ -114,7 +114,11 @@ import E_context_menu_demo from "@/registry/plainspoken/examples/context-menu-de
 import E_copy_button_demo from "@/registry/plainspoken/examples/copy-button-demo";
 import E_data_table_bulk_actions from "@/registry/plainspoken/examples/data-table-bulk-actions";
 import E_data_table_demo from "@/registry/plainspoken/examples/data-table-demo";
+import E_data_table_export from "@/registry/plainspoken/examples/data-table-export";
+import E_data_table_filters from "@/registry/plainspoken/examples/data-table-filters";
 import E_data_table_plain from "@/registry/plainspoken/examples/data-table-plain";
+import E_data_table_resizing from "@/registry/plainspoken/examples/data-table-resizing";
+import E_data_table_windowed from "@/registry/plainspoken/examples/data-table-windowed";
 import E_date_picker_demo from "@/registry/plainspoken/examples/date-picker-demo";
 import E_date_picker_from_to from "@/registry/plainspoken/examples/date-picker-from-to";
 import E_date_picker_limits from "@/registry/plainspoken/examples/date-picker-limits";
@@ -139,6 +143,12 @@ import E_field_inline from "@/registry/plainspoken/examples/field-inline";
 import E_file_upload_demo from "@/registry/plainspoken/examples/file-upload-demo";
 import E_file_upload_field from "@/registry/plainspoken/examples/file-upload-field";
 import E_file_upload_form from "@/registry/plainspoken/examples/file-upload-form";
+import E_grid_app_demo from "@/registry/plainspoken/examples/grid-app-demo";
+import E_grid_order_drawer_demo from "@/registry/plainspoken/examples/grid-order-drawer-demo";
+import E_grid_orders_table_demo from "@/registry/plainspoken/examples/grid-orders-table-demo";
+import E_grid_orders_table_filtered from "@/registry/plainspoken/examples/grid-orders-table-filtered";
+import E_grid_views_demo from "@/registry/plainspoken/examples/grid-views-demo";
+import E_grid_views_edited from "@/registry/plainspoken/examples/grid-views-edited";
 import E_hover_card_demo from "@/registry/plainspoken/examples/hover-card-demo";
 import E_hover_card_in_table from "@/registry/plainspoken/examples/hover-card-in-table";
 import E_icon_demo from "@/registry/plainspoken/examples/icon-demo";
@@ -423,7 +433,11 @@ export const examples: Record<string, ComponentType> = {
   "copy-button-demo": E_copy_button_demo,
   "data-table-bulk-actions": E_data_table_bulk_actions,
   "data-table-demo": E_data_table_demo,
+  "data-table-export": E_data_table_export,
+  "data-table-filters": E_data_table_filters,
   "data-table-plain": E_data_table_plain,
+  "data-table-resizing": E_data_table_resizing,
+  "data-table-windowed": E_data_table_windowed,
   "date-picker-demo": E_date_picker_demo,
   "date-picker-from-to": E_date_picker_from_to,
   "date-picker-limits": E_date_picker_limits,
@@ -448,6 +462,12 @@ export const examples: Record<string, ComponentType> = {
   "file-upload-demo": E_file_upload_demo,
   "file-upload-field": E_file_upload_field,
   "file-upload-form": E_file_upload_form,
+  "grid-app-demo": E_grid_app_demo,
+  "grid-order-drawer-demo": E_grid_order_drawer_demo,
+  "grid-orders-table-demo": E_grid_orders_table_demo,
+  "grid-orders-table-filtered": E_grid_orders_table_filtered,
+  "grid-views-demo": E_grid_views_demo,
+  "grid-views-edited": E_grid_views_edited,
   "hover-card-demo": E_hover_card_demo,
   "hover-card-in-table": E_hover_card_in_table,
   "icon-demo": E_icon_demo,

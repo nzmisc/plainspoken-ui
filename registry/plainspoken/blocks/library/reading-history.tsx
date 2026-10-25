@@ -57,7 +57,6 @@ export function LibraryReadingHistory({ rows, basePath = "/library", linkAs, cla
         rows={rows}
         rowKey={(r) => `${r.book.id}/${r.format}/${r.borrowed}`}
         initialSort={[{ key: "borrowed", dir: "desc" }]}
-        initialShowFilters={false}
         pageSizes={[10, 25, 0]}
         maxHeight="none"
       />

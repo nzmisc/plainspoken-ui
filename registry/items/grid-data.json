@@ -1,0 +1,9 @@
+{
+  "name": "grid-data",
+  "type": "registry:block",
+  "title": "Grid data",
+  "description": "The demo's three thousand invented orders from a seeded generator (customers, lines, money, statuses, delivery dates, tracking), with the helpers that format money and dates for the grid blocks.",
+  "category": "Data grid",
+  "files": ["blocks/grid/data.ts", "blocks/grid/format.ts"],
+  "hidden": true
+}

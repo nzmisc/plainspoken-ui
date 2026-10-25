@@ -46,10 +46,11 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 /**
- * 200 processes. Try: click "CPU %", then shift-click "User" to add a second key; filter State to
- * running; type `^node` in Command with `.*` on; shift-click two checkboxes to select the range.
- * Without a mouse: Tab to a header and press Enter to sort; the "Sorted by" line adds, flips,
- * moves and removes keys.
+ * 200 processes. Try: click "CPU %", then shift-click "User" to add a second level; open State's
+ * funnel and untick "idle"; drag the edge of Command to widen it; shift-click two checkboxes to
+ * select the range, then Export. Without a mouse: Tab to a header and press Enter to sort, Alt+↓
+ * for its filter, Tab once more to its edge and ← → to resize; the "Sorted by" line adds, flips,
+ * moves and removes levels.
  */
 export const Processes: Story = {};
 
@@ -63,7 +64,10 @@ export const MultiSort: Story = {
   },
 };
 
-/** Several filters at once, listed in the "Filtered by" line as removable chips. */
+/**
+ * Filters in the table's earlier shapes (an enum list, a number minimum, a regular expression),
+ * which still work: they show as chips in the toolbar, and open in the Excel-style filter.
+ */
 export const Filtered: Story = {
   args: {
     initialFilters: {
@@ -75,7 +79,7 @@ export const Filtered: Story = {
   },
 };
 
-/** A regular expression that doesn't compile: the input turns red, explains on hover, and filters nothing. */
+/** A regular expression that doesn't compile filters nothing; opening Command's filter shows the error under the condition. */
 export const BadRegex: Story = {
   args: { initialFilters: { command: { kind: "text", q: "node(", regex: true } } },
 };
@@ -86,7 +90,74 @@ export const NoMatches: Story = { args: { initialQuick: "mysqld" } };
 /** No rows at all, with the empty-state slot. */
 export const Empty: Story = { args: { rows: [], empty: "No processes yet. Start a service to see it here." } };
 
-export const Comfortable: Story = { args: { initialDensity: "comfortable", initialShowFilters: false } };
+export const Comfortable: Story = { args: { initialDensity: "comfortable" } };
+
+/**
+ * Excel-style filters, as plain data: a list of values (State), two conditions joined by "or"
+ * (CPU % under 1 or over 30: the idle and the busy), a rank (Memory in the top 50) and a date
+ * period (Started this week). Each shows as a chip; click it to edit, × to remove, "Clear all
+ * filters" for all of them.
+ */
+export const ExcelFilters: Story = {
+  args: {
+    now: Date.UTC(2026, 9, 19, 12, 0),
+    initialFilters: {
+      state: { kind: "values", values: ["running", "sleeping", "idle"] },
+      cpu: {
+        kind: "conditions",
+        conditions: [
+          { op: "lt", value: "1" },
+          { op: "gt", value: "30" },
+        ],
+        join: "or",
+      },
+      mem: { kind: "conditions", conditions: [{ op: "top", count: 50 }] },
+      started: { kind: "conditions", conditions: [{ op: "period", period: "thisWeek" }] },
+    },
+    initialSort: [{ key: "cpu", dir: "desc" }],
+  },
+};
+
+/**
+ * Columns with widths from the start (`width`, with `minWidth` and `maxWidth`), and the widths
+ * the table reports through `onWidthsChange` shown under it. Drag an edge, double-click it to fit,
+ * or use the keys; "Reset widths" is in the Columns menu.
+ */
+export const Resizing: Story = {
+  args: {
+    columns: columns.map((c) => ({ ...c, width: c.type === "number" ? 96 : c.key === "args" ? 220 : 140, minWidth: 64, maxWidth: 480 })),
+    pageSizes: [10],
+  },
+  render: function Render(args) {
+    const [widths, setWidths] = useState<Record<string, number> | null>(null);
+    return (
+      <div className="flex flex-col gap-2">
+        <DataTable {...args} onWidthsChange={setWidths} />
+        <p className="font-mono text-[12px] text-muted-foreground">{widths ? JSON.stringify(widths) : "Resize a column to see its widths here."}</p>
+      </div>
+    );
+  },
+};
+
+/** A totals row under the table, over every row the filters leave: `summary: "sum"` or `"average"`, or a function. */
+export const Totals: Story = {
+  args: {
+    columns: columns.map((c) =>
+      c.key === "cpu" ? { ...c, summary: "average" as const } : c.key === "mem" || c.key === "threads" ? { ...c, summary: "sum" as const } : c.key === "port" ? { ...c, summary: (r: ProcRow[]) => `${r.filter((x) => x.port != null).length} listening` } : c,
+    ),
+    initialFilters: { user: { kind: "values", values: ["ana"] } },
+  },
+};
+
+/**
+ * 5,000 rows on one page with `windowed`: only the rows in view are drawn. Measured in a
+ * production build, a sort takes about as long as with 50 rows on a page (70–120 ms) instead of
+ * two seconds with every row drawn.
+ */
+export const Windowed: Story = { args: { rows: makeProcRows(5000, 3), windowed: true, pageSizes: [0], maxHeight: "30rem" } };
+
+/** Only some exports: `exportFormats={["xlsx", "copy"]}`. With rows ticked, the menu offers "only the selected" or the whole view. */
+export const ExportFormats: Story = { args: { exportFormats: ["xlsx", "copy"] } };
 
 /** Just the listeners, in a short scroll box, without selection or paging. */
 export const Listeners: Story = {
@@ -96,7 +167,6 @@ export const Listeners: Story = {
     initialSort: [{ key: "port", dir: "asc" }],
     pageSizes: [0],
     maxHeight: "16rem",
-    initialShowFilters: false,
   },
 };
 
@@ -111,6 +181,7 @@ export const Plain: Story = {
     densityToggle: false,
     exportable: false,
     sortBar: false,
+    resizableColumns: false,
     pageSizes: [0],
     maxHeight: "none",
   },
@@ -148,7 +219,7 @@ export const BulkActions: Story = {
   },
 };
 
-/** The toolbar, sort bar and paging are sm (24px), the filter row xs (20px). */
+/** The toolbar, sort bar and paging are sm (24px), the filter buttons in the headers 20px. */
 export const ControlHeights: Story = {
   args: {
     rows: rows.slice(0, 8),
@@ -168,7 +239,6 @@ export const ControlHeights: Story = {
 
 /** At phone width the table scrolls sideways inside its box, and the toolbar wraps. */
 export const PhoneWidth: Story = {
-  args: { initialShowFilters: false },
   decorators: [
     (S) => (
       <div className="w-[343px]">
@@ -184,7 +254,7 @@ export const PhoneWidth: Story = {
  * clicks. The last row opened shows under the table.
  */
 export const ClickableRows: Story = {
-  args: { initialShowFilters: false, pageSizes: [10] },
+  args: { pageSizes: [10] },
   render: function Render(args) {
     const [opened, setOpened] = useState<ProcRow | null>(null);
     return (
@@ -206,5 +276,5 @@ export const ClickableRows: Story = {
 
 /** `rowHref`: the first cell is a real link to the row's page (Ctrl/Cmd-click a row for a new tab). With Next.js add `linkAs={NextLink}`. */
 export const RowLinks: Story = {
-  args: { initialShowFilters: false, pageSizes: [10], selectable: false, rowHref: (r: ProcRow) => `#process-${r.pid}` },
+  args: { pageSizes: [10], selectable: false, rowHref: (r: ProcRow) => `#process-${r.pid}` },
 };

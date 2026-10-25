@@ -1,0 +1,9 @@
+{
+  "name": "xlsx",
+  "type": "registry:lib",
+  "title": "Excel writer",
+  "description": "Writes .xlsx files with no dependencies: a stored ZIP with CRC-32 around the spreadsheet XML, with numbers, dates, a bold frozen header row, column widths and an autofilter.",
+  "category": "Data display",
+  "files": ["lib/xlsx.ts"],
+  "hidden": true
+}
