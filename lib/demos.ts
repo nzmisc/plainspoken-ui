@@ -10,12 +10,12 @@ export interface Demo {
 }
 
 export const DEMOS: Demo[] = [
-  { slug: "mail", title: "Mail", summary: "An email client: folders, a message list, reading pane and compose.", shows: "Resizable panes, lists, toolbars, menus, dialogs" },
-  { slug: "app", title: "App skeleton", summary: "The frame for a web app: sidebar, header, settings, a dashboard and a command palette.", shows: "App shell, sidebar, forms, data table, charts" },
-  { slug: "music", title: "Music", summary: "A music player in the style of Spotify: library, playlists, albums and a player bar.", shows: "Player controls, sliders, track tables, artwork grids" },
-  { slug: "social", title: "Social", summary: "A microblog in the style of Twitter: timeline, composer, profiles and threads.", shows: "Feeds, avatars, tabs, composer, counters" },
-  { slug: "blog", title: "Blog", summary: "A personal website with a blog: posts, tags, an about page and an archive.", shows: "Prose typography, navigation, lists of writing" },
-  { slug: "landing", title: "Landing page", summary: "A startup's marketing page: hero, features, pricing, testimonials, FAQ.", shows: "Marketing sections, pricing tables, accordions, calls to action" },
-  { slug: "library", title: "Library", summary: "A public library catalogue: search with facets, book pages, holds and loans.", shows: "Search, filters, result lists, detail pages, account tables" },
+  { slug: "mail", title: "Mail", summary: "An email client: folders and labels, a message list with search and filters, threads in a reading pane, and compose.", shows: "Resizable panes, app shell, lists, chips, menus, hover cards, dialogs" },
+  { slug: "app", title: "App skeleton", summary: "The frame for a web app, as an invoicing tool: dashboard, customers, projects, invoices and settings, with a ⌘K palette.", shows: "App shell, command palette, charts, data table, drawer, tabs, forms" },
+  { slug: "music", title: "Music", summary: "Turntable, a music player: home, search, your library, albums, playlists and artists, with a player bar that keeps playing across pages.", shows: "Player controls, sliders, toggles, track tables, cards and shelves, drawers, context menus" },
+  { slug: "social", title: "Social", summary: "Murmur, a microblog: timeline, composer, threads, profiles, explore and notifications.", shows: "Feeds, hover cards, avatars, tabs, polls, menus, a composer with a character count" },
+  { slug: "blog", title: "Blog", summary: "A developer's personal site: eleven posts with code, figures and footnotes, an archive by year, tags, an about page and a feed.", shows: "Prose, tables of contents, highlighted code, post lists, breadcrumbs" },
+  { slug: "landing", title: "Landing page", summary: "The marketing site of an uptime monitor: hero, features, pricing with a comparison table, FAQ and sign-up.", shows: "A product shot made of components, pricing cards, tables, accordions, forms" },
+  { slug: "library", title: "Library", summary: "A public library catalogue: search with facets, book pages, holds and loans.", shows: "Search with facets, result lists, a hold dialog, account tables, calendars" },
   { slug: "bible", title: "Bible", summary: "A Bible reader: every book and chapter of the King James Version, with search.", shows: "Long-form reading, verse navigation, reader settings, search" },
 ];

@@ -2,46 +2,556 @@
 // Every docs example, imported statically so the docs pages prerender. Server-side only: importing
 // this from a client component would bundle every example.
 import type { ComponentType } from "react";
+import E_accordion_demo from "@/registry/plainspoken/examples/accordion-demo";
+import E_accordion_exclusive from "@/registry/plainspoken/examples/accordion-exclusive";
+import E_agenda_demo from "@/registry/plainspoken/examples/agenda-demo";
+import E_agenda_with_calendar from "@/registry/plainspoken/examples/agenda-with-calendar";
+import E_alert_actions from "@/registry/plainspoken/examples/alert-actions";
+import E_alert_demo from "@/registry/plainspoken/examples/alert-demo";
+import E_alert_dialog_demo from "@/registry/plainspoken/examples/alert-dialog-demo";
+import E_alert_dialog_failure from "@/registry/plainspoken/examples/alert-dialog-failure";
+import E_alert_dialog_type_to_confirm from "@/registry/plainspoken/examples/alert-dialog-type-to-confirm";
+import E_app_activity_feed_demo from "@/registry/plainspoken/examples/app-activity-feed-demo";
+import E_app_billing_demo from "@/registry/plainspoken/examples/app-billing-demo";
+import E_app_command_menu_demo from "@/registry/plainspoken/examples/app-command-menu-demo";
+import E_app_customer_detail_demo from "@/registry/plainspoken/examples/app-customer-detail-demo";
+import E_app_customer_drawer_demo from "@/registry/plainspoken/examples/app-customer-drawer-demo";
+import E_app_customer_table_demo from "@/registry/plainspoken/examples/app-customer-table-demo";
+import E_app_due_projects_demo from "@/registry/plainspoken/examples/app-due-projects-demo";
+import E_app_frame_demo from "@/registry/plainspoken/examples/app-frame-demo";
+import E_app_hours_chart_demo from "@/registry/plainspoken/examples/app-hours-chart-demo";
+import E_app_invoice_status_chart_demo from "@/registry/plainspoken/examples/app-invoice-status-chart-demo";
+import E_app_invoice_table_demo from "@/registry/plainspoken/examples/app-invoice-table-demo";
+import E_app_invoice_tabs_demo from "@/registry/plainspoken/examples/app-invoice-tabs-demo";
+import E_app_new_customer_demo from "@/registry/plainspoken/examples/app-new-customer-demo";
+import E_app_new_invoice_demo from "@/registry/plainspoken/examples/app-new-invoice-demo";
+import E_app_notification_settings_demo from "@/registry/plainspoken/examples/app-notification-settings-demo";
+import E_app_notifications_demo from "@/registry/plainspoken/examples/app-notifications-demo";
+import E_app_page_header_demo from "@/registry/plainspoken/examples/app-page-header-demo";
+import E_app_profile_form_demo from "@/registry/plainspoken/examples/app-profile-form-demo";
+import E_app_project_board_demo from "@/registry/plainspoken/examples/app-project-board-demo";
+import E_app_project_card_demo from "@/registry/plainspoken/examples/app-project-card-demo";
+import E_app_revenue_chart_demo from "@/registry/plainspoken/examples/app-revenue-chart-demo";
+import E_app_shell_demo from "@/registry/plainspoken/examples/app-shell-demo";
+import E_app_shell_panes from "@/registry/plainspoken/examples/app-shell-panes";
+import E_app_stats_demo from "@/registry/plainspoken/examples/app-stats-demo";
+import E_app_team_table_demo from "@/registry/plainspoken/examples/app-team-table-demo";
+import E_app_user_menu_demo from "@/registry/plainspoken/examples/app-user-menu-demo";
+import E_app_workspace_settings_demo from "@/registry/plainspoken/examples/app-workspace-settings-demo";
+import E_avatar_demo from "@/registry/plainspoken/examples/avatar-demo";
+import E_avatar_group from "@/registry/plainspoken/examples/avatar-group";
+import E_badge_demo from "@/registry/plainspoken/examples/badge-demo";
+import E_badge_solid from "@/registry/plainspoken/examples/badge-solid";
+import E_bar_chart_demo from "@/registry/plainspoken/examples/bar-chart-demo";
+import E_bar_chart_grouped from "@/registry/plainspoken/examples/bar-chart-grouped";
+import E_bar_chart_horizontal from "@/registry/plainspoken/examples/bar-chart-horizontal";
+import E_bar_chart_negative from "@/registry/plainspoken/examples/bar-chart-negative";
+import E_bible_book_intro_demo from "@/registry/plainspoken/examples/bible-book-intro-demo";
+import E_bible_book_list_demo from "@/registry/plainspoken/examples/bible-book-list-demo";
+import E_bible_chapter_demo from "@/registry/plainspoken/examples/bible-chapter-demo";
+import E_bible_chapter_grid_demo from "@/registry/plainspoken/examples/bible-chapter-grid-demo";
+import E_bible_chapter_pager_demo from "@/registry/plainspoken/examples/bible-chapter-pager-demo";
+import E_bible_chapter_psalm from "@/registry/plainspoken/examples/bible-chapter-psalm";
+import E_bible_header_demo from "@/registry/plainspoken/examples/bible-header-demo";
+import E_bible_jump_demo from "@/registry/plainspoken/examples/bible-jump-demo";
+import E_bible_reader_settings_demo from "@/registry/plainspoken/examples/bible-reader-settings-demo";
+import E_bible_search_form_demo from "@/registry/plainspoken/examples/bible-search-form-demo";
+import E_bible_search_results_demo from "@/registry/plainspoken/examples/bible-search-results-demo";
+import E_blog_article_demo from "@/registry/plainspoken/examples/blog-article-demo";
+import E_blog_article_parts from "@/registry/plainspoken/examples/blog-article-parts";
+import E_blog_footer_demo from "@/registry/plainspoken/examples/blog-footer-demo";
+import E_blog_header_demo from "@/registry/plainspoken/examples/blog-header-demo";
+import E_blog_intro_demo from "@/registry/plainspoken/examples/blog-intro-demo";
+import E_blog_layout_demo from "@/registry/plainspoken/examples/blog-layout-demo";
+import E_blog_now_demo from "@/registry/plainspoken/examples/blog-now-demo";
+import E_blog_post_footer_demo from "@/registry/plainspoken/examples/blog-post-footer-demo";
+import E_blog_post_header_demo from "@/registry/plainspoken/examples/blog-post-header-demo";
+import E_blog_post_list_archive from "@/registry/plainspoken/examples/blog-post-list-archive";
+import E_blog_post_list_demo from "@/registry/plainspoken/examples/blog-post-list-demo";
+import E_blog_profile_demo from "@/registry/plainspoken/examples/blog-profile-demo";
+import E_blog_projects_demo from "@/registry/plainspoken/examples/blog-projects-demo";
+import E_blog_tags_demo from "@/registry/plainspoken/examples/blog-tags-demo";
+import E_blog_toc_demo from "@/registry/plainspoken/examples/blog-toc-demo";
+import E_breadcrumb_demo from "@/registry/plainspoken/examples/breadcrumb-demo";
+import E_breadcrumb_long from "@/registry/plainspoken/examples/breadcrumb-long";
 import E_button_as_link from "@/registry/plainspoken/examples/button-as-link";
 import E_button_demo from "@/registry/plainspoken/examples/button-demo";
 import E_button_group from "@/registry/plainspoken/examples/button-group";
 import E_button_icons from "@/registry/plainspoken/examples/button-icons";
 import E_button_sizes from "@/registry/plainspoken/examples/button-sizes";
 import E_button_variants from "@/registry/plainspoken/examples/button-variants";
+import E_calendar_availability from "@/registry/plainspoken/examples/calendar-availability";
+import E_calendar_demo from "@/registry/plainspoken/examples/calendar-demo";
+import E_calendar_large from "@/registry/plainspoken/examples/calendar-large";
+import E_calendar_range from "@/registry/plainspoken/examples/calendar-range";
+import E_card_demo from "@/registry/plainspoken/examples/card-demo";
+import E_card_grid from "@/registry/plainspoken/examples/card-grid";
 import E_checkbox_demo from "@/registry/plainspoken/examples/checkbox-demo";
 import E_chip_demo from "@/registry/plainspoken/examples/chip-demo";
+import E_combobox_demo from "@/registry/plainspoken/examples/combobox-demo";
+import E_combobox_hints from "@/registry/plainspoken/examples/combobox-hints";
+import E_command_async from "@/registry/plainspoken/examples/command-async";
+import E_command_demo from "@/registry/plainspoken/examples/command-demo";
+import E_command_inline from "@/registry/plainspoken/examples/command-inline";
+import E_context_menu_demo from "@/registry/plainspoken/examples/context-menu-demo";
 import E_copy_button_demo from "@/registry/plainspoken/examples/copy-button-demo";
+import E_data_table_bulk_actions from "@/registry/plainspoken/examples/data-table-bulk-actions";
+import E_data_table_demo from "@/registry/plainspoken/examples/data-table-demo";
+import E_data_table_plain from "@/registry/plainspoken/examples/data-table-plain";
+import E_date_picker_demo from "@/registry/plainspoken/examples/date-picker-demo";
+import E_date_picker_from_to from "@/registry/plainspoken/examples/date-picker-from-to";
+import E_date_picker_limits from "@/registry/plainspoken/examples/date-picker-limits";
+import E_description_list_demo from "@/registry/plainspoken/examples/description-list-demo";
+import E_description_list_stacked from "@/registry/plainspoken/examples/description-list-stacked";
+import E_dialog_demo from "@/registry/plainspoken/examples/dialog-demo";
+import E_dialog_form from "@/registry/plainspoken/examples/dialog-form";
+import E_dialog_scrolling from "@/registry/plainspoken/examples/dialog-scrolling";
+import E_donut_chart_demo from "@/registry/plainspoken/examples/donut-chart-demo";
+import E_donut_chart_quota from "@/registry/plainspoken/examples/donut-chart-quota";
+import E_drawer_bottom_sheet from "@/registry/plainspoken/examples/drawer-bottom-sheet";
+import E_drawer_demo from "@/registry/plainspoken/examples/drawer-demo";
+import E_drawer_filters from "@/registry/plainspoken/examples/drawer-filters";
+import E_dropdown_menu_checkboxes from "@/registry/plainspoken/examples/dropdown-menu-checkboxes";
+import E_dropdown_menu_demo from "@/registry/plainspoken/examples/dropdown-menu-demo";
+import E_dropdown_menu_row_actions from "@/registry/plainspoken/examples/dropdown-menu-row-actions";
+import E_dropdown_menu_user from "@/registry/plainspoken/examples/dropdown-menu-user";
+import E_empty_state_demo from "@/registry/plainspoken/examples/empty-state-demo";
+import E_empty_state_search from "@/registry/plainspoken/examples/empty-state-search";
 import E_field_demo from "@/registry/plainspoken/examples/field-demo";
 import E_field_inline from "@/registry/plainspoken/examples/field-inline";
+import E_file_upload_demo from "@/registry/plainspoken/examples/file-upload-demo";
+import E_file_upload_field from "@/registry/plainspoken/examples/file-upload-field";
+import E_file_upload_form from "@/registry/plainspoken/examples/file-upload-form";
+import E_hover_card_demo from "@/registry/plainspoken/examples/hover-card-demo";
+import E_hover_card_in_table from "@/registry/plainspoken/examples/hover-card-in-table";
 import E_icon_demo from "@/registry/plainspoken/examples/icon-demo";
 import E_input_affixes from "@/registry/plainspoken/examples/input-affixes";
 import E_input_demo from "@/registry/plainspoken/examples/input-demo";
 import E_input_sizes from "@/registry/plainspoken/examples/input-sizes";
+import E_kbd_demo from "@/registry/plainspoken/examples/kbd-demo";
+import E_landing_cta_demo from "@/registry/plainspoken/examples/landing-cta-demo";
+import E_landing_cta_states from "@/registry/plainspoken/examples/landing-cta-states";
+import E_landing_faq_demo from "@/registry/plainspoken/examples/landing-faq-demo";
+import E_landing_feature_split_demo from "@/registry/plainspoken/examples/landing-feature-split-demo";
+import E_landing_features_demo from "@/registry/plainspoken/examples/landing-features-demo";
+import E_landing_footer_demo from "@/registry/plainspoken/examples/landing-footer-demo";
+import E_landing_hero_demo from "@/registry/plainspoken/examples/landing-hero-demo";
+import E_landing_logos_demo from "@/registry/plainspoken/examples/landing-logos-demo";
+import E_landing_nav_demo from "@/registry/plainspoken/examples/landing-nav-demo";
+import E_landing_plan_comparison_demo from "@/registry/plainspoken/examples/landing-plan-comparison-demo";
+import E_landing_pricing_demo from "@/registry/plainspoken/examples/landing-pricing-demo";
+import E_landing_product_shot_demo from "@/registry/plainspoken/examples/landing-product-shot-demo";
+import E_landing_section_demo from "@/registry/plainspoken/examples/landing-section-demo";
+import E_landing_section_page_header from "@/registry/plainspoken/examples/landing-section-page-header";
+import E_landing_signup_form_demo from "@/registry/plainspoken/examples/landing-signup-form-demo";
+import E_landing_signup_form_states from "@/registry/plainspoken/examples/landing-signup-form-states";
+import E_landing_steps_demo from "@/registry/plainspoken/examples/landing-steps-demo";
+import E_landing_testimonials_demo from "@/registry/plainspoken/examples/landing-testimonials-demo";
+import E_landing_visuals_demo from "@/registry/plainspoken/examples/landing-visuals-demo";
+import E_legend_demo from "@/registry/plainspoken/examples/legend-demo";
+import E_library_book_cover_demo from "@/registry/plainspoken/examples/library-book-cover-demo";
+import E_library_book_cover_sizes from "@/registry/plainspoken/examples/library-book-cover-sizes";
+import E_library_book_details_demo from "@/registry/plainspoken/examples/library-book-details-demo";
+import E_library_branch_card_demo from "@/registry/plainspoken/examples/library-branch-card-demo";
+import E_library_closures_demo from "@/registry/plainspoken/examples/library-closures-demo";
+import E_library_copies_table_demo from "@/registry/plainspoken/examples/library-copies-table-demo";
+import E_library_facets_demo from "@/registry/plainspoken/examples/library-facets-demo";
+import E_library_fines_demo from "@/registry/plainspoken/examples/library-fines-demo";
+import E_library_header_demo from "@/registry/plainspoken/examples/library-header-demo";
+import E_library_hold_dialog_demo from "@/registry/plainspoken/examples/library-hold-dialog-demo";
+import E_library_holds_demo from "@/registry/plainspoken/examples/library-holds-demo";
+import E_library_hours_today_demo from "@/registry/plainspoken/examples/library-hours-today-demo";
+import E_library_loans_demo from "@/registry/plainspoken/examples/library-loans-demo";
+import E_library_reading_history_demo from "@/registry/plainspoken/examples/library-reading-history-demo";
+import E_library_result_list_demo from "@/registry/plainspoken/examples/library-result-list-demo";
+import E_library_results_bar_demo from "@/registry/plainspoken/examples/library-results-bar-demo";
+import E_library_search_form_demo from "@/registry/plainspoken/examples/library-search-form-demo";
+import E_library_shelf_demo from "@/registry/plainspoken/examples/library-shelf-demo";
+import E_library_staff_picks_demo from "@/registry/plainspoken/examples/library-staff-picks-demo";
+import E_line_chart_demo from "@/registry/plainspoken/examples/line-chart-demo";
+import E_line_chart_gaps from "@/registry/plainspoken/examples/line-chart-gaps";
+import E_line_chart_single from "@/registry/plainspoken/examples/line-chart-single";
+import E_mail_actions_demo from "@/registry/plainspoken/examples/mail-actions-demo";
+import E_mail_actions_folders from "@/registry/plainspoken/examples/mail-actions-folders";
+import E_mail_app_demo from "@/registry/plainspoken/examples/mail-app-demo";
+import E_mail_attachments_demo from "@/registry/plainspoken/examples/mail-attachments-demo";
+import E_mail_compose_demo from "@/registry/plainspoken/examples/mail-compose-demo";
+import E_mail_list_toolbar_demo from "@/registry/plainspoken/examples/mail-list-toolbar-demo";
+import E_mail_message_list_demo from "@/registry/plainspoken/examples/mail-message-list-demo";
+import E_mail_message_list_folders from "@/registry/plainspoken/examples/mail-message-list-folders";
+import E_mail_recipient_input_demo from "@/registry/plainspoken/examples/mail-recipient-input-demo";
+import E_mail_reply_box_demo from "@/registry/plainspoken/examples/mail-reply-box-demo";
+import E_mail_search_demo from "@/registry/plainspoken/examples/mail-search-demo";
+import E_mail_search_filtered from "@/registry/plainspoken/examples/mail-search-filtered";
+import E_mail_shortcuts_demo from "@/registry/plainspoken/examples/mail-shortcuts-demo";
+import E_mail_thread_demo from "@/registry/plainspoken/examples/mail-thread-demo";
+import E_mail_thread_reply from "@/registry/plainspoken/examples/mail-thread-reply";
+import E_mail_thread_spam from "@/registry/plainspoken/examples/mail-thread-spam";
+import E_menu_button_demo from "@/registry/plainspoken/examples/menu-button-demo";
+import E_menu_button_view_options from "@/registry/plainspoken/examples/menu-button-view-options";
+import E_music_app_shell_demo from "@/registry/plainspoken/examples/music-app-shell-demo";
+import E_music_artist_demo from "@/registry/plainspoken/examples/music-artist-demo";
+import E_music_artist_discography from "@/registry/plainspoken/examples/music-artist-discography";
+import E_music_artwork_demo from "@/registry/plainspoken/examples/music-artwork-demo";
+import E_music_collection_header_demo from "@/registry/plainspoken/examples/music-collection-header-demo";
+import E_music_library_demo from "@/registry/plainspoken/examples/music-library-demo";
+import E_music_library_grid from "@/registry/plainspoken/examples/music-library-grid";
+import E_music_media_card_demo from "@/registry/plainspoken/examples/music-media-card-demo";
+import E_music_media_card_recent from "@/registry/plainspoken/examples/music-media-card-recent";
+import E_music_nav_demo from "@/registry/plainspoken/examples/music-nav-demo";
+import E_music_now_playing_demo from "@/registry/plainspoken/examples/music-now-playing-demo";
+import E_music_player_bar_demo from "@/registry/plainspoken/examples/music-player-bar-demo";
+import E_music_player_controls_demo from "@/registry/plainspoken/examples/music-player-controls-demo";
+import E_music_player_provider_demo from "@/registry/plainspoken/examples/music-player-provider-demo";
+import E_music_queue_demo from "@/registry/plainspoken/examples/music-queue-demo";
+import E_music_search_demo from "@/registry/plainspoken/examples/music-search-demo";
+import E_music_track_table_demo from "@/registry/plainspoken/examples/music-track-table-demo";
+import E_music_track_table_playlist from "@/registry/plainspoken/examples/music-track-table-playlist";
+import E_navbar_demo from "@/registry/plainspoken/examples/navbar-demo";
+import E_navbar_router from "@/registry/plainspoken/examples/navbar-router";
+import E_number_field_demo from "@/registry/plainspoken/examples/number-field-demo";
+import E_number_field_sizes from "@/registry/plainspoken/examples/number-field-sizes";
+import E_pagination_compact from "@/registry/plainspoken/examples/pagination-compact";
+import E_pagination_demo from "@/registry/plainspoken/examples/pagination-demo";
+import E_pagination_links from "@/registry/plainspoken/examples/pagination-links";
+import E_panel_demo from "@/registry/plainspoken/examples/panel-demo";
+import E_panel_flush from "@/registry/plainspoken/examples/panel-flush";
+import E_popover_demo from "@/registry/plainspoken/examples/popover-demo";
+import E_popover_info from "@/registry/plainspoken/examples/popover-info";
+import E_popover_share from "@/registry/plainspoken/examples/popover-share";
+import E_progress_demo from "@/registry/plainspoken/examples/progress-demo";
+import E_progress_meter from "@/registry/plainspoken/examples/progress-meter";
+import E_prose_demo from "@/registry/plainspoken/examples/prose-demo";
+import E_prose_html from "@/registry/plainspoken/examples/prose-html";
+import E_prose_sizes from "@/registry/plainspoken/examples/prose-sizes";
 import E_radio_group_demo from "@/registry/plainspoken/examples/radio-group-demo";
+import E_relative_time_demo from "@/registry/plainspoken/examples/relative-time-demo";
+import E_relative_time_fixed from "@/registry/plainspoken/examples/relative-time-fixed";
+import E_resizable_collapsible from "@/registry/plainspoken/examples/resizable-collapsible";
+import E_resizable_demo from "@/registry/plainspoken/examples/resizable-demo";
+import E_resizable_nested from "@/registry/plainspoken/examples/resizable-nested";
+import E_resizable_vertical from "@/registry/plainspoken/examples/resizable-vertical";
 import E_segmented_control_demo from "@/registry/plainspoken/examples/segmented-control-demo";
 import E_select_demo from "@/registry/plainspoken/examples/select-demo";
+import E_separator_demo from "@/registry/plainspoken/examples/separator-demo";
+import E_sidebar_demo from "@/registry/plainspoken/examples/sidebar-demo";
+import E_sidebar_drawer from "@/registry/plainspoken/examples/sidebar-drawer";
+import E_sidebar_rail from "@/registry/plainspoken/examples/sidebar-rail";
+import E_skeleton_demo from "@/registry/plainspoken/examples/skeleton-demo";
+import E_slider_demo from "@/registry/plainspoken/examples/slider-demo";
+import E_slider_player from "@/registry/plainspoken/examples/slider-player";
+import E_social_app_shell_demo from "@/registry/plainspoken/examples/social-app-shell-demo";
+import E_social_composer_demo from "@/registry/plainspoken/examples/social-composer-demo";
+import E_social_explore_demo from "@/registry/plainspoken/examples/social-explore-demo";
+import E_social_media_demo from "@/registry/plainspoken/examples/social-media-demo";
+import E_social_nav_demo from "@/registry/plainspoken/examples/social-nav-demo";
+import E_social_notifications_demo from "@/registry/plainspoken/examples/social-notifications-demo";
+import E_social_post_demo from "@/registry/plainspoken/examples/social-post-demo";
+import E_social_post_polls from "@/registry/plainspoken/examples/social-post-polls";
+import E_social_profile_demo from "@/registry/plainspoken/examples/social-profile-demo";
+import E_social_profile_own from "@/registry/plainspoken/examples/social-profile-own";
+import E_social_thread_demo from "@/registry/plainspoken/examples/social-thread-demo";
+import E_social_timeline_demo from "@/registry/plainspoken/examples/social-timeline-demo";
+import E_social_trends_demo from "@/registry/plainspoken/examples/social-trends-demo";
+import E_social_user_demo from "@/registry/plainspoken/examples/social-user-demo";
+import E_sparkline_demo from "@/registry/plainspoken/examples/sparkline-demo";
+import E_sparkline_table from "@/registry/plainspoken/examples/sparkline-table";
+import E_spinner_demo from "@/registry/plainspoken/examples/spinner-demo";
+import E_stat_demo from "@/registry/plainspoken/examples/stat-demo";
+import E_stat_sparkline from "@/registry/plainspoken/examples/stat-sparkline";
+import E_status_demo from "@/registry/plainspoken/examples/status-demo";
+import E_status_error_line from "@/registry/plainspoken/examples/status-error-line";
 import E_switch_demo from "@/registry/plainspoken/examples/switch-demo";
+import E_table_demo from "@/registry/plainspoken/examples/table-demo";
+import E_table_density from "@/registry/plainspoken/examples/table-density";
+import E_table_simple from "@/registry/plainspoken/examples/table-simple";
+import E_tabs_demo from "@/registry/plainspoken/examples/tabs-demo";
+import E_tabs_plain from "@/registry/plainspoken/examples/tabs-plain";
+import E_text_link_demo from "@/registry/plainspoken/examples/text-link-demo";
+import E_text_link_router from "@/registry/plainspoken/examples/text-link-router";
 import E_textarea_demo from "@/registry/plainspoken/examples/textarea-demo";
+import E_toast_demo from "@/registry/plainspoken/examples/toast-demo";
+import E_toggle_demo from "@/registry/plainspoken/examples/toggle-demo";
+import E_toggle_group from "@/registry/plainspoken/examples/toggle-group";
+import E_toggle_player from "@/registry/plainspoken/examples/toggle-player";
+import E_tooltip_demo from "@/registry/plainspoken/examples/tooltip-demo";
+import E_tooltip_disabled from "@/registry/plainspoken/examples/tooltip-disabled";
+import E_tooltip_in_text from "@/registry/plainspoken/examples/tooltip-in-text";
 
 export const examples: Record<string, ComponentType> = {
+  "accordion-demo": E_accordion_demo,
+  "accordion-exclusive": E_accordion_exclusive,
+  "agenda-demo": E_agenda_demo,
+  "agenda-with-calendar": E_agenda_with_calendar,
+  "alert-actions": E_alert_actions,
+  "alert-demo": E_alert_demo,
+  "alert-dialog-demo": E_alert_dialog_demo,
+  "alert-dialog-failure": E_alert_dialog_failure,
+  "alert-dialog-type-to-confirm": E_alert_dialog_type_to_confirm,
+  "app-activity-feed-demo": E_app_activity_feed_demo,
+  "app-billing-demo": E_app_billing_demo,
+  "app-command-menu-demo": E_app_command_menu_demo,
+  "app-customer-detail-demo": E_app_customer_detail_demo,
+  "app-customer-drawer-demo": E_app_customer_drawer_demo,
+  "app-customer-table-demo": E_app_customer_table_demo,
+  "app-due-projects-demo": E_app_due_projects_demo,
+  "app-frame-demo": E_app_frame_demo,
+  "app-hours-chart-demo": E_app_hours_chart_demo,
+  "app-invoice-status-chart-demo": E_app_invoice_status_chart_demo,
+  "app-invoice-table-demo": E_app_invoice_table_demo,
+  "app-invoice-tabs-demo": E_app_invoice_tabs_demo,
+  "app-new-customer-demo": E_app_new_customer_demo,
+  "app-new-invoice-demo": E_app_new_invoice_demo,
+  "app-notification-settings-demo": E_app_notification_settings_demo,
+  "app-notifications-demo": E_app_notifications_demo,
+  "app-page-header-demo": E_app_page_header_demo,
+  "app-profile-form-demo": E_app_profile_form_demo,
+  "app-project-board-demo": E_app_project_board_demo,
+  "app-project-card-demo": E_app_project_card_demo,
+  "app-revenue-chart-demo": E_app_revenue_chart_demo,
+  "app-shell-demo": E_app_shell_demo,
+  "app-shell-panes": E_app_shell_panes,
+  "app-stats-demo": E_app_stats_demo,
+  "app-team-table-demo": E_app_team_table_demo,
+  "app-user-menu-demo": E_app_user_menu_demo,
+  "app-workspace-settings-demo": E_app_workspace_settings_demo,
+  "avatar-demo": E_avatar_demo,
+  "avatar-group": E_avatar_group,
+  "badge-demo": E_badge_demo,
+  "badge-solid": E_badge_solid,
+  "bar-chart-demo": E_bar_chart_demo,
+  "bar-chart-grouped": E_bar_chart_grouped,
+  "bar-chart-horizontal": E_bar_chart_horizontal,
+  "bar-chart-negative": E_bar_chart_negative,
+  "bible-book-intro-demo": E_bible_book_intro_demo,
+  "bible-book-list-demo": E_bible_book_list_demo,
+  "bible-chapter-demo": E_bible_chapter_demo,
+  "bible-chapter-grid-demo": E_bible_chapter_grid_demo,
+  "bible-chapter-pager-demo": E_bible_chapter_pager_demo,
+  "bible-chapter-psalm": E_bible_chapter_psalm,
+  "bible-header-demo": E_bible_header_demo,
+  "bible-jump-demo": E_bible_jump_demo,
+  "bible-reader-settings-demo": E_bible_reader_settings_demo,
+  "bible-search-form-demo": E_bible_search_form_demo,
+  "bible-search-results-demo": E_bible_search_results_demo,
+  "blog-article-demo": E_blog_article_demo,
+  "blog-article-parts": E_blog_article_parts,
+  "blog-footer-demo": E_blog_footer_demo,
+  "blog-header-demo": E_blog_header_demo,
+  "blog-intro-demo": E_blog_intro_demo,
+  "blog-layout-demo": E_blog_layout_demo,
+  "blog-now-demo": E_blog_now_demo,
+  "blog-post-footer-demo": E_blog_post_footer_demo,
+  "blog-post-header-demo": E_blog_post_header_demo,
+  "blog-post-list-archive": E_blog_post_list_archive,
+  "blog-post-list-demo": E_blog_post_list_demo,
+  "blog-profile-demo": E_blog_profile_demo,
+  "blog-projects-demo": E_blog_projects_demo,
+  "blog-tags-demo": E_blog_tags_demo,
+  "blog-toc-demo": E_blog_toc_demo,
+  "breadcrumb-demo": E_breadcrumb_demo,
+  "breadcrumb-long": E_breadcrumb_long,
   "button-as-link": E_button_as_link,
   "button-demo": E_button_demo,
   "button-group": E_button_group,
   "button-icons": E_button_icons,
   "button-sizes": E_button_sizes,
   "button-variants": E_button_variants,
+  "calendar-availability": E_calendar_availability,
+  "calendar-demo": E_calendar_demo,
+  "calendar-large": E_calendar_large,
+  "calendar-range": E_calendar_range,
+  "card-demo": E_card_demo,
+  "card-grid": E_card_grid,
   "checkbox-demo": E_checkbox_demo,
   "chip-demo": E_chip_demo,
+  "combobox-demo": E_combobox_demo,
+  "combobox-hints": E_combobox_hints,
+  "command-async": E_command_async,
+  "command-demo": E_command_demo,
+  "command-inline": E_command_inline,
+  "context-menu-demo": E_context_menu_demo,
   "copy-button-demo": E_copy_button_demo,
+  "data-table-bulk-actions": E_data_table_bulk_actions,
+  "data-table-demo": E_data_table_demo,
+  "data-table-plain": E_data_table_plain,
+  "date-picker-demo": E_date_picker_demo,
+  "date-picker-from-to": E_date_picker_from_to,
+  "date-picker-limits": E_date_picker_limits,
+  "description-list-demo": E_description_list_demo,
+  "description-list-stacked": E_description_list_stacked,
+  "dialog-demo": E_dialog_demo,
+  "dialog-form": E_dialog_form,
+  "dialog-scrolling": E_dialog_scrolling,
+  "donut-chart-demo": E_donut_chart_demo,
+  "donut-chart-quota": E_donut_chart_quota,
+  "drawer-bottom-sheet": E_drawer_bottom_sheet,
+  "drawer-demo": E_drawer_demo,
+  "drawer-filters": E_drawer_filters,
+  "dropdown-menu-checkboxes": E_dropdown_menu_checkboxes,
+  "dropdown-menu-demo": E_dropdown_menu_demo,
+  "dropdown-menu-row-actions": E_dropdown_menu_row_actions,
+  "dropdown-menu-user": E_dropdown_menu_user,
+  "empty-state-demo": E_empty_state_demo,
+  "empty-state-search": E_empty_state_search,
   "field-demo": E_field_demo,
   "field-inline": E_field_inline,
+  "file-upload-demo": E_file_upload_demo,
+  "file-upload-field": E_file_upload_field,
+  "file-upload-form": E_file_upload_form,
+  "hover-card-demo": E_hover_card_demo,
+  "hover-card-in-table": E_hover_card_in_table,
   "icon-demo": E_icon_demo,
   "input-affixes": E_input_affixes,
   "input-demo": E_input_demo,
   "input-sizes": E_input_sizes,
+  "kbd-demo": E_kbd_demo,
+  "landing-cta-demo": E_landing_cta_demo,
+  "landing-cta-states": E_landing_cta_states,
+  "landing-faq-demo": E_landing_faq_demo,
+  "landing-feature-split-demo": E_landing_feature_split_demo,
+  "landing-features-demo": E_landing_features_demo,
+  "landing-footer-demo": E_landing_footer_demo,
+  "landing-hero-demo": E_landing_hero_demo,
+  "landing-logos-demo": E_landing_logos_demo,
+  "landing-nav-demo": E_landing_nav_demo,
+  "landing-plan-comparison-demo": E_landing_plan_comparison_demo,
+  "landing-pricing-demo": E_landing_pricing_demo,
+  "landing-product-shot-demo": E_landing_product_shot_demo,
+  "landing-section-demo": E_landing_section_demo,
+  "landing-section-page-header": E_landing_section_page_header,
+  "landing-signup-form-demo": E_landing_signup_form_demo,
+  "landing-signup-form-states": E_landing_signup_form_states,
+  "landing-steps-demo": E_landing_steps_demo,
+  "landing-testimonials-demo": E_landing_testimonials_demo,
+  "landing-visuals-demo": E_landing_visuals_demo,
+  "legend-demo": E_legend_demo,
+  "library-book-cover-demo": E_library_book_cover_demo,
+  "library-book-cover-sizes": E_library_book_cover_sizes,
+  "library-book-details-demo": E_library_book_details_demo,
+  "library-branch-card-demo": E_library_branch_card_demo,
+  "library-closures-demo": E_library_closures_demo,
+  "library-copies-table-demo": E_library_copies_table_demo,
+  "library-facets-demo": E_library_facets_demo,
+  "library-fines-demo": E_library_fines_demo,
+  "library-header-demo": E_library_header_demo,
+  "library-hold-dialog-demo": E_library_hold_dialog_demo,
+  "library-holds-demo": E_library_holds_demo,
+  "library-hours-today-demo": E_library_hours_today_demo,
+  "library-loans-demo": E_library_loans_demo,
+  "library-reading-history-demo": E_library_reading_history_demo,
+  "library-result-list-demo": E_library_result_list_demo,
+  "library-results-bar-demo": E_library_results_bar_demo,
+  "library-search-form-demo": E_library_search_form_demo,
+  "library-shelf-demo": E_library_shelf_demo,
+  "library-staff-picks-demo": E_library_staff_picks_demo,
+  "line-chart-demo": E_line_chart_demo,
+  "line-chart-gaps": E_line_chart_gaps,
+  "line-chart-single": E_line_chart_single,
+  "mail-actions-demo": E_mail_actions_demo,
+  "mail-actions-folders": E_mail_actions_folders,
+  "mail-app-demo": E_mail_app_demo,
+  "mail-attachments-demo": E_mail_attachments_demo,
+  "mail-compose-demo": E_mail_compose_demo,
+  "mail-list-toolbar-demo": E_mail_list_toolbar_demo,
+  "mail-message-list-demo": E_mail_message_list_demo,
+  "mail-message-list-folders": E_mail_message_list_folders,
+  "mail-recipient-input-demo": E_mail_recipient_input_demo,
+  "mail-reply-box-demo": E_mail_reply_box_demo,
+  "mail-search-demo": E_mail_search_demo,
+  "mail-search-filtered": E_mail_search_filtered,
+  "mail-shortcuts-demo": E_mail_shortcuts_demo,
+  "mail-thread-demo": E_mail_thread_demo,
+  "mail-thread-reply": E_mail_thread_reply,
+  "mail-thread-spam": E_mail_thread_spam,
+  "menu-button-demo": E_menu_button_demo,
+  "menu-button-view-options": E_menu_button_view_options,
+  "music-app-shell-demo": E_music_app_shell_demo,
+  "music-artist-demo": E_music_artist_demo,
+  "music-artist-discography": E_music_artist_discography,
+  "music-artwork-demo": E_music_artwork_demo,
+  "music-collection-header-demo": E_music_collection_header_demo,
+  "music-library-demo": E_music_library_demo,
+  "music-library-grid": E_music_library_grid,
+  "music-media-card-demo": E_music_media_card_demo,
+  "music-media-card-recent": E_music_media_card_recent,
+  "music-nav-demo": E_music_nav_demo,
+  "music-now-playing-demo": E_music_now_playing_demo,
+  "music-player-bar-demo": E_music_player_bar_demo,
+  "music-player-controls-demo": E_music_player_controls_demo,
+  "music-player-provider-demo": E_music_player_provider_demo,
+  "music-queue-demo": E_music_queue_demo,
+  "music-search-demo": E_music_search_demo,
+  "music-track-table-demo": E_music_track_table_demo,
+  "music-track-table-playlist": E_music_track_table_playlist,
+  "navbar-demo": E_navbar_demo,
+  "navbar-router": E_navbar_router,
+  "number-field-demo": E_number_field_demo,
+  "number-field-sizes": E_number_field_sizes,
+  "pagination-compact": E_pagination_compact,
+  "pagination-demo": E_pagination_demo,
+  "pagination-links": E_pagination_links,
+  "panel-demo": E_panel_demo,
+  "panel-flush": E_panel_flush,
+  "popover-demo": E_popover_demo,
+  "popover-info": E_popover_info,
+  "popover-share": E_popover_share,
+  "progress-demo": E_progress_demo,
+  "progress-meter": E_progress_meter,
+  "prose-demo": E_prose_demo,
+  "prose-html": E_prose_html,
+  "prose-sizes": E_prose_sizes,
   "radio-group-demo": E_radio_group_demo,
+  "relative-time-demo": E_relative_time_demo,
+  "relative-time-fixed": E_relative_time_fixed,
+  "resizable-collapsible": E_resizable_collapsible,
+  "resizable-demo": E_resizable_demo,
+  "resizable-nested": E_resizable_nested,
+  "resizable-vertical": E_resizable_vertical,
   "segmented-control-demo": E_segmented_control_demo,
   "select-demo": E_select_demo,
+  "separator-demo": E_separator_demo,
+  "sidebar-demo": E_sidebar_demo,
+  "sidebar-drawer": E_sidebar_drawer,
+  "sidebar-rail": E_sidebar_rail,
+  "skeleton-demo": E_skeleton_demo,
+  "slider-demo": E_slider_demo,
+  "slider-player": E_slider_player,
+  "social-app-shell-demo": E_social_app_shell_demo,
+  "social-composer-demo": E_social_composer_demo,
+  "social-explore-demo": E_social_explore_demo,
+  "social-media-demo": E_social_media_demo,
+  "social-nav-demo": E_social_nav_demo,
+  "social-notifications-demo": E_social_notifications_demo,
+  "social-post-demo": E_social_post_demo,
+  "social-post-polls": E_social_post_polls,
+  "social-profile-demo": E_social_profile_demo,
+  "social-profile-own": E_social_profile_own,
+  "social-thread-demo": E_social_thread_demo,
+  "social-timeline-demo": E_social_timeline_demo,
+  "social-trends-demo": E_social_trends_demo,
+  "social-user-demo": E_social_user_demo,
+  "sparkline-demo": E_sparkline_demo,
+  "sparkline-table": E_sparkline_table,
+  "spinner-demo": E_spinner_demo,
+  "stat-demo": E_stat_demo,
+  "stat-sparkline": E_stat_sparkline,
+  "status-demo": E_status_demo,
+  "status-error-line": E_status_error_line,
   "switch-demo": E_switch_demo,
+  "table-demo": E_table_demo,
+  "table-density": E_table_density,
+  "table-simple": E_table_simple,
+  "tabs-demo": E_tabs_demo,
+  "tabs-plain": E_tabs_plain,
+  "text-link-demo": E_text_link_demo,
+  "text-link-router": E_text_link_router,
   "textarea-demo": E_textarea_demo,
+  "toast-demo": E_toast_demo,
+  "toggle-demo": E_toggle_demo,
+  "toggle-group": E_toggle_group,
+  "toggle-player": E_toggle_player,
+  "tooltip-demo": E_tooltip_demo,
+  "tooltip-disabled": E_tooltip_disabled,
+  "tooltip-in-text": E_tooltip_in_text,
 };

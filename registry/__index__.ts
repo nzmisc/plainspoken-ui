@@ -17,6 +17,1641 @@ export interface RegistryEntry {
 
 export const registry: RegistryEntry[] = [
   {
+    "name": "accordion",
+    "type": "registry:ui",
+    "title": "Accordion",
+    "description": "Stacked sections that open and close, built on native <details> so keyboard, screen readers and find-in-page work with no script; one-at-a-time with the native name attribute.",
+    "category": "Layout",
+    "files": [
+      {
+        "path": "registry/plainspoken/ui/accordion.tsx",
+        "type": "registry:ui"
+      }
+    ],
+    "examples": [
+      "accordion-demo",
+      "accordion-exclusive"
+    ],
+    "registryDependencies": [
+      "foundation",
+      "icon",
+      "icons",
+      "utils"
+    ],
+    "dependencies": [],
+    "hidden": false
+  },
+  {
+    "name": "agenda",
+    "type": "registry:ui",
+    "title": "Agenda",
+    "description": "Events as a plain table grouped by day, the list view to go with a month calendar, plus the dots and labels that show the same events inside calendar days.",
+    "category": "Data display",
+    "files": [
+      {
+        "path": "registry/plainspoken/ui/agenda.tsx",
+        "type": "registry:ui"
+      }
+    ],
+    "examples": [
+      "agenda-demo",
+      "agenda-with-calendar"
+    ],
+    "registryDependencies": [
+      "dates",
+      "foundation",
+      "legend",
+      "utils"
+    ],
+    "dependencies": [],
+    "hidden": false
+  },
+  {
+    "name": "alert-dialog",
+    "type": "registry:ui",
+    "title": "Alert dialog",
+    "description": "A confirmation that interrupts: focus starts on Cancel, the backdrop doesn't close it, an async confirm waits with a spinner and shows its error, and the worst ones can ask for a name to be typed first.",
+    "category": "Overlays",
+    "files": [
+      {
+        "path": "registry/plainspoken/ui/alert-dialog.tsx",
+        "type": "registry:ui"
+      }
+    ],
+    "examples": [
+      "alert-dialog-demo",
+      "alert-dialog-type-to-confirm",
+      "alert-dialog-failure"
+    ],
+    "registryDependencies": [
+      "button",
+      "dialog",
+      "foundation",
+      "icon",
+      "icons",
+      "input"
+    ],
+    "dependencies": [],
+    "hidden": false
+  },
+  {
+    "name": "alert",
+    "type": "registry:ui",
+    "title": "Alert",
+    "description": "A message box in the page flow with the state in a symbol and words as well as colour, optional actions and a dismiss button.",
+    "category": "Feedback",
+    "files": [
+      {
+        "path": "registry/plainspoken/ui/alert.tsx",
+        "type": "registry:ui"
+      }
+    ],
+    "examples": [
+      "alert-demo",
+      "alert-actions"
+    ],
+    "registryDependencies": [
+      "button",
+      "foundation",
+      "icon",
+      "icons",
+      "utils"
+    ],
+    "dependencies": [],
+    "hidden": false
+  },
+  {
+    "name": "app-activity-feed",
+    "type": "registry:block",
+    "title": "Activity feed",
+    "description": "Who did what to which invoice, project or customer, with links and how long ago, in a panel.",
+    "category": "App skeleton",
+    "files": [
+      {
+        "path": "registry/plainspoken/blocks/app/activity-feed.tsx",
+        "type": "registry:component",
+        "target": "components/blocks/app/activity-feed.tsx"
+      }
+    ],
+    "examples": [
+      "app-activity-feed-demo"
+    ],
+    "registryDependencies": [
+      "app-data",
+      "avatar",
+      "foundation",
+      "panel",
+      "relative-time",
+      "text-link"
+    ],
+    "dependencies": [],
+    "hidden": false
+  },
+  {
+    "name": "app-billing",
+    "type": "registry:block",
+    "title": "Billing",
+    "description": "Plans as cards with the current one marked, usage meters, the card on file and past bills.",
+    "category": "App skeleton",
+    "files": [
+      {
+        "path": "registry/plainspoken/blocks/app/billing.tsx",
+        "type": "registry:component",
+        "target": "components/blocks/app/billing.tsx"
+      }
+    ],
+    "examples": [
+      "app-billing-demo"
+    ],
+    "registryDependencies": [
+      "app-data",
+      "badge",
+      "button",
+      "card",
+      "description-list",
+      "foundation",
+      "icon",
+      "icons",
+      "panel",
+      "progress",
+      "table",
+      "utils"
+    ],
+    "dependencies": [],
+    "hidden": false
+  },
+  {
+    "name": "app-command-menu",
+    "type": "registry:block",
+    "title": "Command menu",
+    "description": "The ⌘K palette of an app: go to a page or a customer, or create an invoice or a customer, in a command dialog.",
+    "category": "App skeleton",
+    "files": [
+      {
+        "path": "registry/plainspoken/blocks/app/command-menu.tsx",
+        "type": "registry:component",
+        "target": "components/blocks/app/command-menu.tsx"
+      }
+    ],
+    "examples": [
+      "app-command-menu-demo"
+    ],
+    "registryDependencies": [
+      "app-data",
+      "command",
+      "foundation",
+      "icons"
+    ],
+    "dependencies": [],
+    "hidden": false
+  },
+  {
+    "name": "app-customer-detail",
+    "type": "registry:block",
+    "title": "Customer detail",
+    "description": "The body of a customer's page: four numbers and tabs for the overview, invoices, projects and activity.",
+    "category": "App skeleton",
+    "files": [
+      {
+        "path": "registry/plainspoken/blocks/app/customer-detail.tsx",
+        "type": "registry:component",
+        "target": "components/blocks/app/customer-detail.tsx"
+      }
+    ],
+    "examples": [
+      "app-customer-detail-demo"
+    ],
+    "registryDependencies": [
+      "app-activity-feed",
+      "app-data",
+      "app-invoice-table",
+      "app-project-card",
+      "avatar",
+      "description-list",
+      "empty-state",
+      "foundation",
+      "icons",
+      "panel",
+      "stat",
+      "tabs",
+      "text-link"
+    ],
+    "dependencies": [],
+    "hidden": false
+  },
+  {
+    "name": "app-customer-drawer",
+    "type": "registry:block",
+    "title": "Customer drawer",
+    "description": "A customer at a glance in a drawer: state, what they owe, contact details, latest invoices and the team's note.",
+    "category": "App skeleton",
+    "files": [
+      {
+        "path": "registry/plainspoken/blocks/app/customer-drawer.tsx",
+        "type": "registry:component",
+        "target": "components/blocks/app/customer-drawer.tsx"
+      }
+    ],
+    "examples": [
+      "app-customer-drawer-demo"
+    ],
+    "registryDependencies": [
+      "app-data",
+      "app-invoice-table",
+      "badge",
+      "button",
+      "description-list",
+      "drawer",
+      "foundation",
+      "icon",
+      "icons",
+      "stat",
+      "text-link"
+    ],
+    "dependencies": [],
+    "hidden": false
+  },
+  {
+    "name": "app-customer-table",
+    "type": "registry:block",
+    "title": "Customer table",
+    "description": "Every customer in a data table with filters, sorting, column picking, selection and export; a name opens the customer's drawer.",
+    "category": "App skeleton",
+    "files": [
+      {
+        "path": "registry/plainspoken/blocks/app/customer-table.tsx",
+        "type": "registry:component",
+        "target": "components/blocks/app/customer-table.tsx"
+      }
+    ],
+    "examples": [
+      "app-customer-table-demo"
+    ],
+    "registryDependencies": [
+      "app-customer-drawer",
+      "app-data",
+      "app-new-customer",
+      "button",
+      "data-table",
+      "foundation",
+      "icons",
+      "status"
+    ],
+    "dependencies": [],
+    "hidden": false
+  },
+  {
+    "name": "app-data",
+    "type": "registry:block",
+    "title": "App data",
+    "description": "The demo data for Tally, an invoicing app: customers, invoices, projects, team, activity and dashboard numbers, with helpers for money, dates and states.",
+    "category": "App skeleton",
+    "files": [
+      {
+        "path": "registry/plainspoken/blocks/app/data.ts",
+        "type": "registry:component",
+        "target": "components/blocks/app/data.ts"
+      },
+      {
+        "path": "registry/plainspoken/blocks/app/format.ts",
+        "type": "registry:component",
+        "target": "components/blocks/app/format.ts"
+      }
+    ],
+    "examples": [],
+    "registryDependencies": [
+      "badge",
+      "dates",
+      "foundation"
+    ],
+    "dependencies": [],
+    "hidden": true
+  },
+  {
+    "name": "app-due-projects",
+    "type": "registry:block",
+    "title": "Due next",
+    "description": "The open projects due soonest, with progress bars and the near ones in amber.",
+    "category": "App skeleton",
+    "files": [
+      {
+        "path": "registry/plainspoken/blocks/app/due-projects.tsx",
+        "type": "registry:component",
+        "target": "components/blocks/app/due-projects.tsx"
+      }
+    ],
+    "examples": [
+      "app-due-projects-demo"
+    ],
+    "registryDependencies": [
+      "app-data",
+      "dates",
+      "foundation",
+      "panel",
+      "progress",
+      "text-link",
+      "utils"
+    ],
+    "dependencies": [],
+    "hidden": false
+  },
+  {
+    "name": "app-frame",
+    "type": "registry:block",
+    "title": "App frame",
+    "description": "The frame of a web app: an app shell with a workspace switcher, pages with counts, a ⌘K search button, notifications, the account menu, and a sidebar that becomes a rail or a drawer.",
+    "category": "App skeleton",
+    "files": [
+      {
+        "path": "registry/plainspoken/blocks/app/frame.tsx",
+        "type": "registry:component",
+        "target": "components/blocks/app/frame.tsx"
+      }
+    ],
+    "examples": [
+      "app-frame-demo"
+    ],
+    "registryDependencies": [
+      "app-command-menu",
+      "app-data",
+      "app-new-customer",
+      "app-new-invoice",
+      "app-notifications",
+      "app-shell",
+      "app-user-menu",
+      "avatar",
+      "button",
+      "command",
+      "dropdown-menu",
+      "foundation",
+      "icon",
+      "icons",
+      "kbd",
+      "progress",
+      "sidebar",
+      "utils"
+    ],
+    "dependencies": [],
+    "hidden": false
+  },
+  {
+    "name": "app-hours-chart",
+    "type": "registry:block",
+    "title": "Hours chart",
+    "description": "Billable and internal hours per person as a horizontal grouped bar chart in a panel.",
+    "category": "App skeleton",
+    "files": [
+      {
+        "path": "registry/plainspoken/blocks/app/hours-chart.tsx",
+        "type": "registry:component",
+        "target": "components/blocks/app/hours-chart.tsx"
+      }
+    ],
+    "examples": [
+      "app-hours-chart-demo"
+    ],
+    "registryDependencies": [
+      "app-data",
+      "bar-chart",
+      "foundation",
+      "panel"
+    ],
+    "dependencies": [],
+    "hidden": false
+  },
+  {
+    "name": "app-invoice-status-chart",
+    "type": "registry:block",
+    "title": "Invoices by state",
+    "description": "A donut of invoice amounts by state, the amount owed in the hole and every part written out in the legend.",
+    "category": "App skeleton",
+    "files": [
+      {
+        "path": "registry/plainspoken/blocks/app/invoice-status-chart.tsx",
+        "type": "registry:component",
+        "target": "components/blocks/app/invoice-status-chart.tsx"
+      }
+    ],
+    "examples": [
+      "app-invoice-status-chart-demo"
+    ],
+    "registryDependencies": [
+      "app-data",
+      "donut-chart",
+      "foundation",
+      "panel"
+    ],
+    "dependencies": [],
+    "hidden": false
+  },
+  {
+    "name": "app-invoice-table",
+    "type": "registry:block",
+    "title": "Invoice table",
+    "description": "Invoices as a plain table: number, customer link, dates, how late, the amount in tabular figures and the state as a badge.",
+    "category": "App skeleton",
+    "files": [
+      {
+        "path": "registry/plainspoken/blocks/app/invoice-table.tsx",
+        "type": "registry:component",
+        "target": "components/blocks/app/invoice-table.tsx"
+      }
+    ],
+    "examples": [
+      "app-invoice-table-demo"
+    ],
+    "registryDependencies": [
+      "app-data",
+      "badge",
+      "foundation",
+      "table",
+      "text-link"
+    ],
+    "dependencies": [],
+    "hidden": false
+  },
+  {
+    "name": "app-invoice-tabs",
+    "type": "registry:block",
+    "title": "Invoice tabs",
+    "description": "Invoices in tabs by state, each with its count and totals, and page links under the table.",
+    "category": "App skeleton",
+    "files": [
+      {
+        "path": "registry/plainspoken/blocks/app/invoice-tabs.tsx",
+        "type": "registry:component",
+        "target": "components/blocks/app/invoice-tabs.tsx"
+      }
+    ],
+    "examples": [
+      "app-invoice-tabs-demo"
+    ],
+    "registryDependencies": [
+      "app-data",
+      "app-invoice-table",
+      "foundation",
+      "pagination",
+      "tabs"
+    ],
+    "dependencies": [],
+    "hidden": false
+  },
+  {
+    "name": "app-new-customer",
+    "type": "registry:block",
+    "title": "New customer dialog",
+    "description": "Adding a customer in a dialog: company or person, contact details, country and currency, with labels beside the fields.",
+    "category": "App skeleton",
+    "files": [
+      {
+        "path": "registry/plainspoken/blocks/app/new-customer.tsx",
+        "type": "registry:component",
+        "target": "components/blocks/app/new-customer.tsx"
+      }
+    ],
+    "examples": [
+      "app-new-customer-demo"
+    ],
+    "registryDependencies": [
+      "button",
+      "dialog",
+      "field",
+      "foundation",
+      "icons",
+      "input",
+      "radio-group",
+      "select",
+      "textarea"
+    ],
+    "dependencies": [],
+    "hidden": false
+  },
+  {
+    "name": "app-new-invoice",
+    "type": "registry:block",
+    "title": "New invoice dialog",
+    "description": "Writing an invoice in a dialog: customer combobox, date picker, terms, lines with quantity and rate that add up, and a note.",
+    "category": "App skeleton",
+    "files": [
+      {
+        "path": "registry/plainspoken/blocks/app/new-invoice.tsx",
+        "type": "registry:component",
+        "target": "components/blocks/app/new-invoice.tsx"
+      }
+    ],
+    "examples": [
+      "app-new-invoice-demo"
+    ],
+    "registryDependencies": [
+      "app-data",
+      "button",
+      "combobox",
+      "date-picker",
+      "dialog",
+      "field",
+      "foundation",
+      "icons",
+      "input",
+      "number-field",
+      "select",
+      "table",
+      "textarea"
+    ],
+    "dependencies": [],
+    "hidden": false
+  },
+  {
+    "name": "app-notification-settings",
+    "type": "registry:block",
+    "title": "Notification settings",
+    "description": "Email switches that apply at once, and customer reminders as checkboxes and a time, saved with a button.",
+    "category": "App skeleton",
+    "files": [
+      {
+        "path": "registry/plainspoken/blocks/app/notification-settings.tsx",
+        "type": "registry:component",
+        "target": "components/blocks/app/notification-settings.tsx"
+      }
+    ],
+    "examples": [
+      "app-notification-settings-demo"
+    ],
+    "registryDependencies": [
+      "button",
+      "checkbox",
+      "field",
+      "foundation",
+      "panel",
+      "select",
+      "switch"
+    ],
+    "dependencies": [],
+    "hidden": false
+  },
+  {
+    "name": "app-notifications",
+    "type": "registry:block",
+    "title": "Notifications",
+    "description": "A bell with an unread mark that opens a popover of payments, overdue invoices, comments and invites, each with how long ago.",
+    "category": "App skeleton",
+    "files": [
+      {
+        "path": "registry/plainspoken/blocks/app/notifications.tsx",
+        "type": "registry:component",
+        "target": "components/blocks/app/notifications.tsx"
+      }
+    ],
+    "examples": [
+      "app-notifications-demo"
+    ],
+    "registryDependencies": [
+      "app-data",
+      "button",
+      "foundation",
+      "icon",
+      "icons",
+      "popover",
+      "relative-time",
+      "utils"
+    ],
+    "dependencies": [],
+    "hidden": false
+  },
+  {
+    "name": "app-page-header",
+    "type": "registry:block",
+    "title": "Page header",
+    "description": "The top of an app page: breadcrumb, a title with a badge, a line of description and the page's buttons; and the padded column pages sit in.",
+    "category": "App skeleton",
+    "files": [
+      {
+        "path": "registry/plainspoken/blocks/app/page-header.tsx",
+        "type": "registry:component",
+        "target": "components/blocks/app/page-header.tsx"
+      }
+    ],
+    "examples": [
+      "app-page-header-demo"
+    ],
+    "registryDependencies": [
+      "breadcrumb",
+      "foundation",
+      "next-link",
+      "utils"
+    ],
+    "dependencies": [],
+    "hidden": false
+  },
+  {
+    "name": "app-profile-form",
+    "type": "registry:block",
+    "title": "Profile form",
+    "description": "Your own settings: photo upload, name, email, job, time zone combobox, language and date style.",
+    "category": "App skeleton",
+    "files": [
+      {
+        "path": "registry/plainspoken/blocks/app/profile-form.tsx",
+        "type": "registry:component",
+        "target": "components/blocks/app/profile-form.tsx"
+      }
+    ],
+    "examples": [
+      "app-profile-form-demo"
+    ],
+    "registryDependencies": [
+      "app-data",
+      "avatar",
+      "button",
+      "combobox",
+      "field",
+      "file-upload",
+      "foundation",
+      "input",
+      "radio-group",
+      "select",
+      "separator"
+    ],
+    "dependencies": [],
+    "hidden": false
+  },
+  {
+    "name": "app-project-board",
+    "type": "registry:block",
+    "title": "Project board",
+    "description": "Projects in columns by stage, or as a list, switched with a segmented control.",
+    "category": "App skeleton",
+    "files": [
+      {
+        "path": "registry/plainspoken/blocks/app/project-board.tsx",
+        "type": "registry:component",
+        "target": "components/blocks/app/project-board.tsx"
+      }
+    ],
+    "examples": [
+      "app-project-board-demo"
+    ],
+    "registryDependencies": [
+      "app-data",
+      "app-project-card",
+      "badge",
+      "foundation",
+      "icon",
+      "icons",
+      "progress",
+      "segmented-control",
+      "table",
+      "utils"
+    ],
+    "dependencies": [],
+    "hidden": false
+  },
+  {
+    "name": "app-project-card",
+    "type": "registry:block",
+    "title": "Project card",
+    "description": "A project as a card: customer, a menu, tasks as a progress bar, budget as a meter that warns, due date, team and priority.",
+    "category": "App skeleton",
+    "files": [
+      {
+        "path": "registry/plainspoken/blocks/app/project-card.tsx",
+        "type": "registry:component",
+        "target": "components/blocks/app/project-card.tsx"
+      }
+    ],
+    "examples": [
+      "app-project-card-demo"
+    ],
+    "registryDependencies": [
+      "app-data",
+      "avatar",
+      "badge",
+      "card",
+      "dates",
+      "dropdown-menu",
+      "foundation",
+      "icon",
+      "icons",
+      "progress",
+      "text-link",
+      "utils"
+    ],
+    "dependencies": [],
+    "hidden": false
+  },
+  {
+    "name": "app-revenue-chart",
+    "type": "registry:block",
+    "title": "Revenue chart",
+    "description": "Invoiced against paid by month for a year: a two-line chart in a panel, with a legend giving the latest month.",
+    "category": "App skeleton",
+    "files": [
+      {
+        "path": "registry/plainspoken/blocks/app/revenue-chart.tsx",
+        "type": "registry:component",
+        "target": "components/blocks/app/revenue-chart.tsx"
+      }
+    ],
+    "examples": [
+      "app-revenue-chart-demo"
+    ],
+    "registryDependencies": [
+      "app-data",
+      "foundation",
+      "line-chart",
+      "panel"
+    ],
+    "dependencies": [],
+    "hidden": false
+  },
+  {
+    "name": "app-shell",
+    "type": "registry:ui",
+    "title": "App shell",
+    "description": "The frame of an app: navbar on top, a sidebar that hides or narrows to a rail (remembered), a drawer on phones, and a page that scrolls on its own.",
+    "category": "Layout",
+    "files": [
+      {
+        "path": "registry/plainspoken/ui/app-shell.tsx",
+        "type": "registry:ui"
+      }
+    ],
+    "examples": [
+      "app-shell-demo",
+      "app-shell-panes"
+    ],
+    "registryDependencies": [
+      "button",
+      "foundation",
+      "icons",
+      "navbar",
+      "sidebar",
+      "use-media-query",
+      "use-stored-state",
+      "utils"
+    ],
+    "dependencies": [],
+    "hidden": false
+  },
+  {
+    "name": "app-stats",
+    "type": "registry:block",
+    "title": "Dashboard stats",
+    "description": "Four headline numbers with their change since last month, in words and colour, and a sparkline each.",
+    "category": "App skeleton",
+    "files": [
+      {
+        "path": "registry/plainspoken/blocks/app/stats.tsx",
+        "type": "registry:component",
+        "target": "components/blocks/app/stats.tsx"
+      }
+    ],
+    "examples": [
+      "app-stats-demo"
+    ],
+    "registryDependencies": [
+      "app-data",
+      "foundation",
+      "sparkline",
+      "stat"
+    ],
+    "dependencies": [],
+    "hidden": false
+  },
+  {
+    "name": "app-team-table",
+    "type": "registry:block",
+    "title": "Team table",
+    "description": "The people in a workspace with roles as selects, last sign-in or Invited, a menu per row and an invite dialog.",
+    "category": "App skeleton",
+    "files": [
+      {
+        "path": "registry/plainspoken/blocks/app/team-table.tsx",
+        "type": "registry:component",
+        "target": "components/blocks/app/team-table.tsx"
+      }
+    ],
+    "examples": [
+      "app-team-table-demo"
+    ],
+    "registryDependencies": [
+      "app-data",
+      "avatar",
+      "badge",
+      "button",
+      "dialog",
+      "dropdown-menu",
+      "field",
+      "foundation",
+      "icons",
+      "radio-group",
+      "relative-time",
+      "select",
+      "table",
+      "textarea"
+    ],
+    "dependencies": [],
+    "hidden": false
+  },
+  {
+    "name": "app-user-menu",
+    "type": "registry:block",
+    "title": "Account menu",
+    "description": "The avatar at the end of the top bar and its menu: who is signed in, profile, team, billing, docs and sign out.",
+    "category": "App skeleton",
+    "files": [
+      {
+        "path": "registry/plainspoken/blocks/app/user-menu.tsx",
+        "type": "registry:component",
+        "target": "components/blocks/app/user-menu.tsx"
+      }
+    ],
+    "examples": [
+      "app-user-menu-demo"
+    ],
+    "registryDependencies": [
+      "app-data",
+      "avatar",
+      "dropdown-menu",
+      "foundation",
+      "icons",
+      "utils"
+    ],
+    "dependencies": [],
+    "hidden": false
+  },
+  {
+    "name": "app-workspace-settings",
+    "type": "registry:block",
+    "title": "Workspace settings",
+    "description": "Workspace name, address, logo, currency and numbering, then a danger zone whose delete asks you to type the name.",
+    "category": "App skeleton",
+    "files": [
+      {
+        "path": "registry/plainspoken/blocks/app/workspace-settings.tsx",
+        "type": "registry:component",
+        "target": "components/blocks/app/workspace-settings.tsx"
+      }
+    ],
+    "examples": [
+      "app-workspace-settings-demo"
+    ],
+    "registryDependencies": [
+      "alert",
+      "alert-dialog",
+      "app-data",
+      "button",
+      "field",
+      "file-upload",
+      "foundation",
+      "icons",
+      "input",
+      "select",
+      "separator"
+    ],
+    "dependencies": [],
+    "hidden": false
+  },
+  {
+    "name": "avatar",
+    "type": "registry:ui",
+    "title": "Avatar",
+    "description": "A square picture or initials on a colour picked from the name, which shows through while the picture loads or if it fails; plus groups ringed in the background colour with a “+3”.",
+    "category": "Data display",
+    "files": [
+      {
+        "path": "registry/plainspoken/ui/avatar.tsx",
+        "type": "registry:ui"
+      }
+    ],
+    "examples": [
+      "avatar-demo",
+      "avatar-group"
+    ],
+    "registryDependencies": [
+      "foundation",
+      "utils"
+    ],
+    "dependencies": [],
+    "hidden": false
+  },
+  {
+    "name": "badge",
+    "type": "registry:ui",
+    "title": "Badge",
+    "description": "A small boxed label for a state or a category, outlined or solid, with a symbol on the coloured variants so colour is never the only signal.",
+    "category": "Feedback",
+    "files": [
+      {
+        "path": "registry/plainspoken/ui/badge.tsx",
+        "type": "registry:ui"
+      }
+    ],
+    "examples": [
+      "badge-demo",
+      "badge-solid"
+    ],
+    "registryDependencies": [
+      "foundation",
+      "icon",
+      "icons",
+      "utils"
+    ],
+    "dependencies": [],
+    "hidden": false
+  },
+  {
+    "name": "bar-chart",
+    "type": "registry:ui",
+    "title": "Bar chart",
+    "description": "Vertical or horizontal bars in plain SVG, single or grouped series, with titled axes, values at the bar ends, optional textures, keyboard stepping and the data as a table.",
+    "category": "Charts",
+    "files": [
+      {
+        "path": "registry/plainspoken/ui/bar-chart.tsx",
+        "type": "registry:ui"
+      }
+    ],
+    "examples": [
+      "bar-chart-demo",
+      "bar-chart-grouped",
+      "bar-chart-horizontal",
+      "bar-chart-negative"
+    ],
+    "registryDependencies": [
+      "chart-data-table",
+      "chart-scale",
+      "foundation",
+      "legend",
+      "use-element-width",
+      "utils"
+    ],
+    "dependencies": [],
+    "hidden": false
+  },
+  {
+    "name": "bible-book-intro",
+    "type": "registry:block",
+    "title": "Bible book intro",
+    "description": "The top of a book's page: its name, its own KJV title, a description, the facts and a link to chapter 1.",
+    "category": "Bible",
+    "files": [
+      {
+        "path": "registry/plainspoken/blocks/bible/book-intro.tsx",
+        "type": "registry:component",
+        "target": "components/blocks/bible/book-intro.tsx"
+      }
+    ],
+    "examples": [
+      "bible-book-intro-demo"
+    ],
+    "registryDependencies": [
+      "bible-lib",
+      "button",
+      "description-list",
+      "foundation",
+      "icon",
+      "icons",
+      "nav",
+      "utils"
+    ],
+    "dependencies": [],
+    "hidden": false
+  },
+  {
+    "name": "bible-book-list",
+    "type": "registry:block",
+    "title": "Bible book list",
+    "description": "A Bible's table of contents: both testaments side by side, each book under its section with its number of chapters.",
+    "category": "Bible",
+    "files": [
+      {
+        "path": "registry/plainspoken/blocks/bible/book-list.tsx",
+        "type": "registry:component",
+        "target": "components/blocks/bible/book-list.tsx"
+      }
+    ],
+    "examples": [
+      "bible-book-list-demo"
+    ],
+    "registryDependencies": [
+      "bible-lib",
+      "foundation",
+      "nav",
+      "text-link",
+      "utils"
+    ],
+    "dependencies": [],
+    "hidden": false
+  },
+  {
+    "name": "bible-chapter-grid",
+    "type": "registry:block",
+    "title": "Bible chapter grid",
+    "description": "Every chapter of a book as a grid of numbered squares, large enough to tap, with the current one marked.",
+    "category": "Bible",
+    "files": [
+      {
+        "path": "registry/plainspoken/blocks/bible/chapter-grid.tsx",
+        "type": "registry:component",
+        "target": "components/blocks/bible/chapter-grid.tsx"
+      }
+    ],
+    "examples": [
+      "bible-chapter-grid-demo"
+    ],
+    "registryDependencies": [
+      "bible-lib",
+      "button",
+      "foundation",
+      "nav",
+      "utils"
+    ],
+    "dependencies": [],
+    "hidden": false
+  },
+  {
+    "name": "bible-chapter-pager",
+    "type": "registry:block",
+    "title": "Bible chapter pager",
+    "description": "Previous and next chapter links that cross book boundaries, with ← and → as shortcuts that stay out of the way of controls.",
+    "category": "Bible",
+    "files": [
+      {
+        "path": "registry/plainspoken/blocks/bible/chapter-pager.tsx",
+        "type": "registry:component",
+        "target": "components/blocks/bible/chapter-pager.tsx"
+      }
+    ],
+    "examples": [
+      "bible-chapter-pager-demo"
+    ],
+    "registryDependencies": [
+      "bible-lib",
+      "button",
+      "foundation",
+      "icon",
+      "icons",
+      "kbd",
+      "nav",
+      "utils"
+    ],
+    "dependencies": [],
+    "hidden": false
+  },
+  {
+    "name": "bible-chapter",
+    "type": "registry:block",
+    "title": "Bible chapter",
+    "description": "One chapter set for reading: raised verse numbers that link to each verse, paragraphs or a verse per line, italics for supplied words, psalm titles, all following the reader settings without a flash.",
+    "category": "Bible",
+    "files": [
+      {
+        "path": "registry/plainspoken/blocks/bible/chapter.tsx",
+        "type": "registry:component",
+        "target": "components/blocks/bible/chapter.tsx"
+      }
+    ],
+    "examples": [
+      "bible-chapter-demo",
+      "bible-chapter-psalm"
+    ],
+    "registryDependencies": [
+      "bible-lib",
+      "foundation",
+      "prose",
+      "utils"
+    ],
+    "dependencies": [],
+    "hidden": false
+  },
+  {
+    "name": "bible-header",
+    "type": "registry:block",
+    "title": "Bible header",
+    "description": "The reader's top bar: name, links to the books and search with the current one marked, and a search box that folds into the menu on phones.",
+    "category": "Bible",
+    "files": [
+      {
+        "path": "registry/plainspoken/blocks/bible/header.tsx",
+        "type": "registry:component",
+        "target": "components/blocks/bible/header.tsx"
+      }
+    ],
+    "examples": [
+      "bible-header-demo"
+    ],
+    "registryDependencies": [
+      "bible-search-form",
+      "foundation",
+      "icon",
+      "icons",
+      "nav",
+      "navbar"
+    ],
+    "dependencies": [],
+    "hidden": false
+  },
+  {
+    "name": "bible-jump",
+    "type": "registry:block",
+    "title": "Bible jump",
+    "description": "Go to any chapter with a book select grouped by testament, a chapter select and a Go button.",
+    "category": "Bible",
+    "files": [
+      {
+        "path": "registry/plainspoken/blocks/bible/jump.tsx",
+        "type": "registry:component",
+        "target": "components/blocks/bible/jump.tsx"
+      }
+    ],
+    "examples": [
+      "bible-jump-demo"
+    ],
+    "registryDependencies": [
+      "bible-lib",
+      "button",
+      "foundation",
+      "select",
+      "utils"
+    ],
+    "dependencies": [],
+    "hidden": false
+  },
+  {
+    "name": "bible-lib",
+    "type": "registry:block",
+    "title": "Bible helpers",
+    "description": "Types and helpers the Bible blocks share: books and chapters, verse references and links, books grouped by testament and section.",
+    "category": "Bible",
+    "files": [
+      {
+        "path": "registry/plainspoken/blocks/bible/lib.ts",
+        "type": "registry:component",
+        "target": "components/blocks/bible/lib.ts"
+      }
+    ],
+    "examples": [],
+    "registryDependencies": [
+      "foundation"
+    ],
+    "dependencies": [],
+    "hidden": true
+  },
+  {
+    "name": "bible-reader-settings",
+    "type": "registry:block",
+    "title": "Bible reader settings",
+    "description": "A popover of display settings for the reader (text size, typeface, paragraphs or verse per line, verse numbers) that apply at once through data attributes on the page.",
+    "category": "Bible",
+    "files": [
+      {
+        "path": "registry/plainspoken/blocks/bible/reader-settings.tsx",
+        "type": "registry:component",
+        "target": "components/blocks/bible/reader-settings.tsx"
+      }
+    ],
+    "examples": [
+      "bible-reader-settings-demo"
+    ],
+    "registryDependencies": [
+      "button",
+      "foundation",
+      "icons",
+      "popover",
+      "segmented-control",
+      "switch"
+    ],
+    "dependencies": [],
+    "hidden": false
+  },
+  {
+    "name": "bible-search-form",
+    "type": "registry:block",
+    "title": "Bible search form",
+    "description": "A GET search form for words, phrases or a reference, which works without script and fetches results in place with it.",
+    "category": "Bible",
+    "files": [
+      {
+        "path": "registry/plainspoken/blocks/bible/search-form.tsx",
+        "type": "registry:component",
+        "target": "components/blocks/bible/search-form.tsx"
+      }
+    ],
+    "examples": [
+      "bible-search-form-demo"
+    ],
+    "registryDependencies": [
+      "button",
+      "foundation",
+      "icons",
+      "input",
+      "utils"
+    ],
+    "dependencies": [],
+    "hidden": false
+  },
+  {
+    "name": "bible-search-results",
+    "type": "registry:block",
+    "title": "Bible search results",
+    "description": "Full-text search over the Bible and its results: counts per testament and per book, matches marked in each verse, references recognised, pages of 50.",
+    "category": "Bible",
+    "files": [
+      {
+        "path": "registry/plainspoken/blocks/bible/search-results.tsx",
+        "type": "registry:component",
+        "target": "components/blocks/bible/search-results.tsx"
+      },
+      {
+        "path": "registry/plainspoken/blocks/bible/search.ts",
+        "type": "registry:component",
+        "target": "components/blocks/bible/search.ts"
+      }
+    ],
+    "examples": [
+      "bible-search-results-demo"
+    ],
+    "registryDependencies": [
+      "bible-lib",
+      "button",
+      "empty-state",
+      "foundation",
+      "icon",
+      "icons",
+      "nav",
+      "pagination",
+      "text-link",
+      "utils"
+    ],
+    "dependencies": [],
+    "hidden": false
+  },
+  {
+    "name": "blog-article",
+    "type": "registry:block",
+    "title": "Article",
+    "description": "A whole post in one article: header, text in Prose with self-linking headings, code blocks with copy buttons, figures, footnotes, and a table of contents.",
+    "category": "Blog",
+    "files": [
+      {
+        "path": "registry/plainspoken/blocks/blog/article.tsx",
+        "type": "registry:component",
+        "target": "components/blocks/blog/article.tsx"
+      },
+      {
+        "path": "registry/plainspoken/blocks/blog/article-parts.tsx",
+        "type": "registry:component",
+        "target": "components/blocks/blog/article-parts.tsx"
+      }
+    ],
+    "examples": [
+      "blog-article-demo",
+      "blog-article-parts"
+    ],
+    "registryDependencies": [
+      "blog-toc",
+      "copy-button",
+      "foundation",
+      "prose",
+      "utils"
+    ],
+    "dependencies": [],
+    "hidden": false
+  },
+  {
+    "name": "blog-footer",
+    "type": "registry:block",
+    "title": "Blog footer",
+    "description": "The bottom of a personal site: name, a line about it, gray links to writing, about, feed and email, and the small print.",
+    "category": "Blog",
+    "files": [
+      {
+        "path": "registry/plainspoken/blocks/blog/footer.tsx",
+        "type": "registry:component",
+        "target": "components/blocks/blog/footer.tsx"
+      }
+    ],
+    "examples": [
+      "blog-footer-demo"
+    ],
+    "registryDependencies": [
+      "foundation",
+      "text-link",
+      "utils"
+    ],
+    "dependencies": [],
+    "hidden": false
+  },
+  {
+    "name": "blog-header",
+    "type": "registry:block",
+    "title": "Blog header",
+    "description": "A personal site's top bar: the author's name, Home, Writing and About with the current section in bold (posts and tag pages count as Writing), and the RSS feed.",
+    "category": "Blog",
+    "files": [
+      {
+        "path": "registry/plainspoken/blocks/blog/header.tsx",
+        "type": "registry:component",
+        "target": "components/blocks/blog/header.tsx"
+      }
+    ],
+    "examples": [
+      "blog-header-demo"
+    ],
+    "registryDependencies": [
+      "button",
+      "foundation",
+      "icon",
+      "icons",
+      "navbar"
+    ],
+    "dependencies": [],
+    "hidden": false
+  },
+  {
+    "name": "blog-intro",
+    "type": "registry:block",
+    "title": "Blog intro",
+    "description": "The top of a personal home page: a greeting as the h1, a paragraph or two, a portrait and a row of contact buttons.",
+    "category": "Blog",
+    "files": [
+      {
+        "path": "registry/plainspoken/blocks/blog/intro.tsx",
+        "type": "registry:component",
+        "target": "components/blocks/blog/intro.tsx"
+      }
+    ],
+    "examples": [
+      "blog-intro-demo"
+    ],
+    "registryDependencies": [
+      "button",
+      "foundation",
+      "icon",
+      "icons",
+      "utils"
+    ],
+    "dependencies": [],
+    "hidden": false
+  },
+  {
+    "name": "blog-layout",
+    "type": "registry:block",
+    "title": "Blog layout",
+    "description": "The frame of a personal site (skip link, header, one main landmark, footer) plus a page header, titled sections and a main column with a side column.",
+    "category": "Blog",
+    "files": [
+      {
+        "path": "registry/plainspoken/blocks/blog/layout.tsx",
+        "type": "registry:component",
+        "target": "components/blocks/blog/layout.tsx"
+      }
+    ],
+    "examples": [
+      "blog-layout-demo"
+    ],
+    "registryDependencies": [
+      "foundation",
+      "icon",
+      "icons",
+      "text-link",
+      "utils"
+    ],
+    "dependencies": [],
+    "hidden": false
+  },
+  {
+    "name": "blog-now",
+    "type": "registry:block",
+    "title": "Now box",
+    "description": "A \"now\" box: what the author is up to at the moment, with the date it was last true, in a Panel.",
+    "category": "Blog",
+    "files": [
+      {
+        "path": "registry/plainspoken/blocks/blog/now.tsx",
+        "type": "registry:component",
+        "target": "components/blocks/blog/now.tsx"
+      }
+    ],
+    "examples": [
+      "blog-now-demo"
+    ],
+    "registryDependencies": [
+      "dates",
+      "foundation",
+      "panel"
+    ],
+    "dependencies": [],
+    "hidden": false
+  },
+  {
+    "name": "blog-post-footer",
+    "type": "registry:block",
+    "title": "Post footer",
+    "description": "After a post: a reply-by-email box with the subject filled in, and the older and newer posts side by side.",
+    "category": "Blog",
+    "files": [
+      {
+        "path": "registry/plainspoken/blocks/blog/post-footer.tsx",
+        "type": "registry:component",
+        "target": "components/blocks/blog/post-footer.tsx"
+      }
+    ],
+    "examples": [
+      "blog-post-footer-demo"
+    ],
+    "registryDependencies": [
+      "foundation",
+      "icon",
+      "icons",
+      "utils"
+    ],
+    "dependencies": [],
+    "hidden": false
+  },
+  {
+    "name": "blog-post-header",
+    "type": "registry:block",
+    "title": "Post header",
+    "description": "The head of a post: breadcrumb, title as h1, standfirst, and date, reading time and tags as time elements and links.",
+    "category": "Blog",
+    "files": [
+      {
+        "path": "registry/plainspoken/blocks/blog/post-header.tsx",
+        "type": "registry:component",
+        "target": "components/blocks/blog/post-header.tsx"
+      }
+    ],
+    "examples": [
+      "blog-post-header-demo"
+    ],
+    "registryDependencies": [
+      "breadcrumb",
+      "dates",
+      "foundation",
+      "icon",
+      "icons",
+      "next-link",
+      "text-link",
+      "utils"
+    ],
+    "dependencies": [],
+    "hidden": false
+  },
+  {
+    "name": "blog-post-list",
+    "type": "registry:block",
+    "title": "Post list",
+    "description": "Posts newest first with date, title link, summary, reading time and tags; or the whole archive grouped under a heading per year.",
+    "category": "Blog",
+    "files": [
+      {
+        "path": "registry/plainspoken/blocks/blog/post-list.tsx",
+        "type": "registry:component",
+        "target": "components/blocks/blog/post-list.tsx"
+      }
+    ],
+    "examples": [
+      "blog-post-list-demo",
+      "blog-post-list-archive"
+    ],
+    "registryDependencies": [
+      "dates",
+      "foundation",
+      "text-link",
+      "utils"
+    ],
+    "dependencies": [],
+    "hidden": false
+  },
+  {
+    "name": "blog-profile",
+    "type": "registry:block",
+    "title": "Profile",
+    "description": "The top of an About page: a drawn portrait in theme colours, name and role, the bio, and where else to find the author as a description list.",
+    "category": "Blog",
+    "files": [
+      {
+        "path": "registry/plainspoken/blocks/blog/profile.tsx",
+        "type": "registry:component",
+        "target": "components/blocks/blog/profile.tsx"
+      },
+      {
+        "path": "registry/plainspoken/blocks/blog/portrait.tsx",
+        "type": "registry:component",
+        "target": "components/blocks/blog/portrait.tsx"
+      }
+    ],
+    "examples": [
+      "blog-profile-demo"
+    ],
+    "registryDependencies": [
+      "description-list",
+      "foundation",
+      "icon",
+      "icons",
+      "utils"
+    ],
+    "dependencies": [],
+    "hidden": false
+  },
+  {
+    "name": "blog-projects",
+    "type": "registry:block",
+    "title": "Projects",
+    "description": "Side projects, one per row: name as a link, a status badge (active, maintained, archived), a sentence and small print.",
+    "category": "Blog",
+    "files": [
+      {
+        "path": "registry/plainspoken/blocks/blog/projects.tsx",
+        "type": "registry:component",
+        "target": "components/blocks/blog/projects.tsx"
+      }
+    ],
+    "examples": [
+      "blog-projects-demo"
+    ],
+    "registryDependencies": [
+      "badge",
+      "foundation",
+      "text-link",
+      "utils"
+    ],
+    "dependencies": [],
+    "hidden": false
+  },
+  {
+    "name": "blog-tags",
+    "type": "registry:block",
+    "title": "Tag links",
+    "description": "Every tag as a link with its post count, in chip-like boxes at control height; the current tag filled.",
+    "category": "Blog",
+    "files": [
+      {
+        "path": "registry/plainspoken/blocks/blog/tags.tsx",
+        "type": "registry:component",
+        "target": "components/blocks/blog/tags.tsx"
+      }
+    ],
+    "examples": [
+      "blog-tags-demo"
+    ],
+    "registryDependencies": [
+      "foundation",
+      "utils"
+    ],
+    "dependencies": [],
+    "hidden": false
+  },
+  {
+    "name": "blog-toc",
+    "type": "registry:block",
+    "title": "Table of contents",
+    "description": "A post's sections as links: a side-column list that marks the section being read as you scroll, or a collapsible box for phones.",
+    "category": "Blog",
+    "files": [
+      {
+        "path": "registry/plainspoken/blocks/blog/toc.tsx",
+        "type": "registry:component",
+        "target": "components/blocks/blog/toc.tsx"
+      }
+    ],
+    "examples": [
+      "blog-toc-demo"
+    ],
+    "registryDependencies": [
+      "accordion",
+      "foundation",
+      "utils"
+    ],
+    "dependencies": [],
+    "hidden": false
+  },
+  {
+    "name": "breadcrumb",
+    "type": "registry:ui",
+    "title": "Breadcrumb",
+    "description": "Where the page sits in a hierarchy, with long trails folding into a “…” button and links drawn by your router's link component if you like.",
+    "category": "Navigation",
+    "files": [
+      {
+        "path": "registry/plainspoken/ui/breadcrumb.tsx",
+        "type": "registry:ui"
+      }
+    ],
+    "examples": [
+      "breadcrumb-demo",
+      "breadcrumb-long"
+    ],
+    "registryDependencies": [
+      "foundation",
+      "nav",
+      "utils"
+    ],
+    "dependencies": [],
+    "hidden": false
+  },
+  {
     "name": "button",
     "type": "registry:ui",
     "title": "Button",
@@ -44,6 +1679,97 @@ export const registry: RegistryEntry[] = [
     ],
     "dependencies": [],
     "hidden": false
+  },
+  {
+    "name": "calendar",
+    "type": "registry:ui",
+    "title": "Calendar",
+    "description": "A month grid for picking a day or a range, or showing what happens when: the ARIA date grid keyboard, several months, week numbers, limits and unavailable days, and a large size with room for content.",
+    "category": "Data display",
+    "files": [
+      {
+        "path": "registry/plainspoken/ui/calendar.tsx",
+        "type": "registry:ui"
+      }
+    ],
+    "examples": [
+      "calendar-demo",
+      "calendar-range",
+      "calendar-availability",
+      "calendar-large"
+    ],
+    "registryDependencies": [
+      "button",
+      "dates",
+      "foundation",
+      "icons",
+      "select",
+      "utils"
+    ],
+    "dependencies": [],
+    "hidden": false
+  },
+  {
+    "name": "card",
+    "type": "registry:ui",
+    "title": "Card",
+    "description": "A square bordered box for one piece of content, with header, title, description, action, content and a ruled-off footer.",
+    "category": "Layout",
+    "files": [
+      {
+        "path": "registry/plainspoken/ui/card.tsx",
+        "type": "registry:ui"
+      }
+    ],
+    "examples": [
+      "card-demo",
+      "card-grid"
+    ],
+    "registryDependencies": [
+      "foundation",
+      "utils"
+    ],
+    "dependencies": [],
+    "hidden": false
+  },
+  {
+    "name": "chart-data-table",
+    "type": "registry:ui",
+    "title": "Chart data table",
+    "description": "The numbers behind a chart as a plain table, hidden for screen readers or under a Data disclosure, so no value is only in a picture.",
+    "category": "Charts",
+    "files": [
+      {
+        "path": "registry/plainspoken/ui/chart-data-table.tsx",
+        "type": "registry:ui"
+      }
+    ],
+    "examples": [],
+    "registryDependencies": [
+      "foundation",
+      "utils"
+    ],
+    "dependencies": [],
+    "hidden": true
+  },
+  {
+    "name": "chart-scale",
+    "type": "registry:lib",
+    "title": "Chart scale",
+    "description": "Tick math (round numbers, wall-clock times) and the series styles (colour, dash, marker by slot) the charts share.",
+    "category": "Charts",
+    "files": [
+      {
+        "path": "registry/plainspoken/lib/chart-scale.ts",
+        "type": "registry:lib"
+      }
+    ],
+    "examples": [],
+    "registryDependencies": [
+      "foundation"
+    ],
+    "dependencies": [],
+    "hidden": true
   },
   {
     "name": "checkbox",
@@ -92,6 +1818,86 @@ export const registry: RegistryEntry[] = [
     "hidden": false
   },
   {
+    "name": "combobox",
+    "type": "registry:ui",
+    "title": "Combobox",
+    "description": "Pick one option from a long list by typing to filter it, following the ARIA combobox pattern, on the shared height scale and wired to Field.",
+    "category": "Forms",
+    "files": [
+      {
+        "path": "registry/plainspoken/ui/combobox.tsx",
+        "type": "registry:ui"
+      }
+    ],
+    "examples": [
+      "combobox-demo",
+      "combobox-hints"
+    ],
+    "registryDependencies": [
+      "field",
+      "foundation",
+      "icon",
+      "icons",
+      "utils"
+    ],
+    "dependencies": [],
+    "hidden": false
+  },
+  {
+    "name": "command",
+    "type": "registry:ui",
+    "title": "Command",
+    "description": "A command palette: a search box over a filtered, grouped list of commands with icons and shortcuts, inline or in a modal opened with ⌘K or Ctrl+K. Keyboard as the ARIA combobox pattern says.",
+    "category": "Overlays",
+    "files": [
+      {
+        "path": "registry/plainspoken/ui/command.tsx",
+        "type": "registry:ui"
+      }
+    ],
+    "examples": [
+      "command-demo",
+      "command-inline",
+      "command-async"
+    ],
+    "registryDependencies": [
+      "button",
+      "dialog",
+      "foundation",
+      "icon",
+      "icons",
+      "kbd",
+      "utils"
+    ],
+    "dependencies": [],
+    "hidden": false
+  },
+  {
+    "name": "context-menu",
+    "type": "registry:ui",
+    "title": "Context menu",
+    "description": "The right-click menu of an area, which also opens from Shift+F10, the Menu key and a long-press, at the pointer or the focused element. Items can depend on what was clicked.",
+    "category": "Overlays",
+    "files": [
+      {
+        "path": "registry/plainspoken/ui/context-menu.tsx",
+        "type": "registry:ui"
+      }
+    ],
+    "examples": [
+      "context-menu-demo"
+    ],
+    "registryDependencies": [
+      "floating",
+      "foundation",
+      "menu-list",
+      "position",
+      "utils"
+    ],
+    "dependencies": [],
+    "hidden": false
+  },
+  {
     "name": "copy-button",
     "type": "registry:ui",
     "title": "Copy button",
@@ -110,6 +1916,250 @@ export const registry: RegistryEntry[] = [
       "button",
       "foundation",
       "icons"
+    ],
+    "dependencies": [],
+    "hidden": false
+  },
+  {
+    "name": "data-table",
+    "type": "registry:ui",
+    "title": "Data table",
+    "description": "A table for a few hundred rows: quick and per-column filters, sorting by several columns, a column picker, selection with shift-click ranges, paging and CSV export, each of which can be switched off.",
+    "category": "Data display",
+    "files": [
+      {
+        "path": "registry/plainspoken/ui/data-table.tsx",
+        "type": "registry:ui"
+      },
+      {
+        "path": "registry/plainspoken/lib/data-table.ts",
+        "type": "registry:lib"
+      }
+    ],
+    "examples": [
+      "data-table-demo",
+      "data-table-plain",
+      "data-table-bulk-actions"
+    ],
+    "registryDependencies": [
+      "button",
+      "checkbox",
+      "chip",
+      "foundation",
+      "icon",
+      "icons",
+      "input",
+      "menu-button",
+      "nav",
+      "select",
+      "utils"
+    ],
+    "dependencies": [],
+    "hidden": false
+  },
+  {
+    "name": "date-picker",
+    "type": "registry:ui",
+    "title": "Date picker",
+    "description": "A text field for an ISO date with a calendar in a native popover, on the shared height scale and wired to Field like Input; typed dates are checked against the same limits.",
+    "category": "Forms",
+    "files": [
+      {
+        "path": "registry/plainspoken/ui/date-picker.tsx",
+        "type": "registry:ui"
+      }
+    ],
+    "examples": [
+      "date-picker-demo",
+      "date-picker-limits",
+      "date-picker-from-to"
+    ],
+    "registryDependencies": [
+      "button",
+      "calendar",
+      "dates",
+      "field",
+      "floating",
+      "foundation",
+      "icons",
+      "input",
+      "utils"
+    ],
+    "dependencies": [],
+    "hidden": false
+  },
+  {
+    "name": "dates",
+    "type": "registry:lib",
+    "title": "Dates",
+    "description": "Calendar dates as ISO strings (no time zone, no date library): arithmetic, parsing, week numbers and Intl formatting, plus useToday and useDateLocale for hydration-safe rendering.",
+    "category": "Foundations",
+    "files": [
+      {
+        "path": "registry/plainspoken/lib/dates.ts",
+        "type": "registry:lib"
+      },
+      {
+        "path": "registry/plainspoken/hooks/use-today.ts",
+        "type": "registry:hook"
+      }
+    ],
+    "examples": [],
+    "registryDependencies": [
+      "foundation"
+    ],
+    "dependencies": [],
+    "hidden": true
+  },
+  {
+    "name": "description-list",
+    "type": "registry:ui",
+    "title": "Description list",
+    "description": "Term and description pairs in a real <dl>, side by side or stacked, optionally ruled off.",
+    "category": "Data display",
+    "files": [
+      {
+        "path": "registry/plainspoken/ui/description-list.tsx",
+        "type": "registry:ui"
+      }
+    ],
+    "examples": [
+      "description-list-demo",
+      "description-list-stacked"
+    ],
+    "registryDependencies": [
+      "foundation",
+      "utils"
+    ],
+    "dependencies": [],
+    "hidden": false
+  },
+  {
+    "name": "dialog",
+    "type": "registry:ui",
+    "title": "Dialog",
+    "description": "A modal on the native <dialog>: title bar, a body that scrolls on its own, a footer of buttons that stays put. Focus trap, Escape, backdrop click, scroll lock, stacking and a busy state that can't be closed; full screen on phones.",
+    "category": "Overlays",
+    "files": [
+      {
+        "path": "registry/plainspoken/ui/dialog.tsx",
+        "type": "registry:ui"
+      }
+    ],
+    "examples": [
+      "dialog-demo",
+      "dialog-form",
+      "dialog-scrolling"
+    ],
+    "registryDependencies": [
+      "button",
+      "foundation",
+      "icons",
+      "utils"
+    ],
+    "dependencies": [],
+    "hidden": false
+  },
+  {
+    "name": "donut-chart",
+    "type": "registry:ui",
+    "title": "Donut chart",
+    "description": "A ring of parts of a whole with a gap between parts, a number in the hole, and a legend of values and shares; renders on the server.",
+    "category": "Charts",
+    "files": [
+      {
+        "path": "registry/plainspoken/ui/donut-chart.tsx",
+        "type": "registry:ui"
+      }
+    ],
+    "examples": [
+      "donut-chart-demo",
+      "donut-chart-quota"
+    ],
+    "registryDependencies": [
+      "chart-scale",
+      "foundation",
+      "legend",
+      "utils"
+    ],
+    "dependencies": [],
+    "hidden": false
+  },
+  {
+    "name": "drawer",
+    "type": "registry:ui",
+    "title": "Drawer",
+    "description": "A modal panel that slides in from any edge, for details, filters and settings; on phones it comes up from the bottom as a sheet. Behaves like Dialog.",
+    "category": "Overlays",
+    "files": [
+      {
+        "path": "registry/plainspoken/ui/drawer.tsx",
+        "type": "registry:ui"
+      }
+    ],
+    "examples": [
+      "drawer-demo",
+      "drawer-filters",
+      "drawer-bottom-sheet"
+    ],
+    "registryDependencies": [
+      "dialog",
+      "foundation",
+      "utils"
+    ],
+    "dependencies": [],
+    "hidden": false
+  },
+  {
+    "name": "dropdown-menu",
+    "type": "registry:ui",
+    "title": "Dropdown menu",
+    "description": "A menu button: actions with icons, shortcuts and hints, links, checkbox and radio items, and submenus, driven by the keyboard as the ARIA menu pattern says. Items are plain data.",
+    "category": "Overlays",
+    "files": [
+      {
+        "path": "registry/plainspoken/ui/dropdown-menu.tsx",
+        "type": "registry:ui"
+      }
+    ],
+    "examples": [
+      "dropdown-menu-demo",
+      "dropdown-menu-checkboxes",
+      "dropdown-menu-row-actions",
+      "dropdown-menu-user"
+    ],
+    "registryDependencies": [
+      "button",
+      "floating",
+      "foundation",
+      "menu-list",
+      "position",
+      "utils"
+    ],
+    "dependencies": [],
+    "hidden": false
+  },
+  {
+    "name": "empty-state",
+    "type": "registry:ui",
+    "title": "Empty state",
+    "description": "What to show where there is nothing yet: a muted symbol, a short title, a sentence, and the next step.",
+    "category": "Feedback",
+    "files": [
+      {
+        "path": "registry/plainspoken/ui/empty-state.tsx",
+        "type": "registry:ui"
+      }
+    ],
+    "examples": [
+      "empty-state-demo",
+      "empty-state-search"
+    ],
+    "registryDependencies": [
+      "foundation",
+      "icon",
+      "icons",
+      "utils"
     ],
     "dependencies": [],
     "hidden": false
@@ -140,6 +2190,57 @@ export const registry: RegistryEntry[] = [
     "hidden": false
   },
   {
+    "name": "file-upload",
+    "type": "registry:ui",
+    "title": "File upload",
+    "description": "A drop zone and file list with type, size and count checks, progress, cancel and retry through your own upload function, plus a one-line file field for forms.",
+    "category": "Forms",
+    "files": [
+      {
+        "path": "registry/plainspoken/ui/file-upload.tsx",
+        "type": "registry:ui"
+      }
+    ],
+    "examples": [
+      "file-upload-demo",
+      "file-upload-field",
+      "file-upload-form"
+    ],
+    "registryDependencies": [
+      "button",
+      "field",
+      "foundation",
+      "icon",
+      "icons",
+      "utils"
+    ],
+    "dependencies": [],
+    "hidden": false
+  },
+  {
+    "name": "floating",
+    "type": "registry:ui",
+    "title": "Floating",
+    "description": "The base of every floating layer: a native popover in the top layer, placed by lib/position, with an optional arrow. Used by Popover, Tooltip, Hover card and the menus.",
+    "category": "Overlays",
+    "files": [
+      {
+        "path": "registry/plainspoken/ui/floating.tsx",
+        "type": "registry:ui"
+      }
+    ],
+    "examples": [],
+    "registryDependencies": [
+      "button",
+      "foundation",
+      "icons",
+      "position",
+      "utils"
+    ],
+    "dependencies": [],
+    "hidden": true
+  },
+  {
     "name": "foundation",
     "type": "registry:lib",
     "title": "Foundation",
@@ -155,6 +2256,31 @@ export const registry: RegistryEntry[] = [
     "registryDependencies": [],
     "dependencies": [],
     "hidden": true
+  },
+  {
+    "name": "hover-card",
+    "type": "registry:ui",
+    "title": "Hover card",
+    "description": "A rich preview behind a name, a link or an ID, with links and buttons inside: opens on hover or focus, Tab moves into it, and on touch the first tap opens it instead of following the link.",
+    "category": "Overlays",
+    "files": [
+      {
+        "path": "registry/plainspoken/ui/hover-card.tsx",
+        "type": "registry:ui"
+      }
+    ],
+    "examples": [
+      "hover-card-demo",
+      "hover-card-in-table"
+    ],
+    "registryDependencies": [
+      "floating",
+      "foundation",
+      "position",
+      "utils"
+    ],
+    "dependencies": [],
+    "hidden": false
   },
   {
     "name": "icon",
@@ -229,6 +2355,2170 @@ export const registry: RegistryEntry[] = [
     "hidden": false
   },
   {
+    "name": "kbd",
+    "type": "registry:ui",
+    "title": "Kbd",
+    "description": "A key or key combination drawn as keycaps, as nested <kbd> elements the way HTML marks up shortcuts.",
+    "category": "Typography",
+    "files": [
+      {
+        "path": "registry/plainspoken/ui/kbd.tsx",
+        "type": "registry:ui"
+      }
+    ],
+    "examples": [
+      "kbd-demo"
+    ],
+    "registryDependencies": [
+      "foundation",
+      "utils"
+    ],
+    "dependencies": [],
+    "hidden": false
+  },
+  {
+    "name": "landing-cta",
+    "type": "registry:block",
+    "title": "Call to action",
+    "description": "The closing band of a marketing page: heading, sentence and an email signup (Field, Input, Button), with error and success states.",
+    "category": "Landing page",
+    "files": [
+      {
+        "path": "registry/plainspoken/blocks/landing/cta.tsx",
+        "type": "registry:component",
+        "target": "components/blocks/landing/cta.tsx"
+      }
+    ],
+    "examples": [
+      "landing-cta-demo",
+      "landing-cta-states"
+    ],
+    "registryDependencies": [
+      "alert",
+      "button",
+      "field",
+      "foundation",
+      "icons",
+      "input",
+      "utils"
+    ],
+    "dependencies": [],
+    "hidden": false
+  },
+  {
+    "name": "landing-faq",
+    "type": "registry:block",
+    "title": "FAQ",
+    "description": "Questions and answers as an Accordion of native details elements, plus the same list as FAQPage structured data.",
+    "category": "Landing page",
+    "files": [
+      {
+        "path": "registry/plainspoken/blocks/landing/faq.tsx",
+        "type": "registry:component",
+        "target": "components/blocks/landing/faq.tsx"
+      }
+    ],
+    "examples": [
+      "landing-faq-demo"
+    ],
+    "registryDependencies": [
+      "accordion",
+      "foundation",
+      "utils"
+    ],
+    "dependencies": [],
+    "hidden": false
+  },
+  {
+    "name": "landing-feature-split",
+    "type": "registry:block",
+    "title": "Feature split",
+    "description": "One feature told at length: heading, paragraph and checked points beside a picture of that part of the product; alternate with reverse.",
+    "category": "Landing page",
+    "files": [
+      {
+        "path": "registry/plainspoken/blocks/landing/feature-split.tsx",
+        "type": "registry:component",
+        "target": "components/blocks/landing/feature-split.tsx"
+      }
+    ],
+    "examples": [
+      "landing-feature-split-demo"
+    ],
+    "registryDependencies": [
+      "foundation",
+      "icon",
+      "icons",
+      "landing-section",
+      "text-link",
+      "utils"
+    ],
+    "dependencies": [],
+    "hidden": false
+  },
+  {
+    "name": "landing-features",
+    "type": "registry:block",
+    "title": "Features grid",
+    "description": "What the product does, as a ruled grid of icon, title and two lines; three columns on wide screens.",
+    "category": "Landing page",
+    "files": [
+      {
+        "path": "registry/plainspoken/blocks/landing/features.tsx",
+        "type": "registry:component",
+        "target": "components/blocks/landing/features.tsx"
+      }
+    ],
+    "examples": [
+      "landing-features-demo"
+    ],
+    "registryDependencies": [
+      "foundation",
+      "icon",
+      "icons",
+      "utils"
+    ],
+    "dependencies": [],
+    "hidden": false
+  },
+  {
+    "name": "landing-footer",
+    "type": "registry:block",
+    "title": "Landing footer",
+    "description": "A marketing site's footer: brand and tagline, columns of links under small headings, and the small print.",
+    "category": "Landing page",
+    "files": [
+      {
+        "path": "registry/plainspoken/blocks/landing/footer.tsx",
+        "type": "registry:component",
+        "target": "components/blocks/landing/footer.tsx"
+      }
+    ],
+    "examples": [
+      "landing-footer-demo"
+    ],
+    "registryDependencies": [
+      "foundation",
+      "text-link",
+      "utils"
+    ],
+    "dependencies": [],
+    "hidden": false
+  },
+  {
+    "name": "landing-hero",
+    "type": "registry:block",
+    "title": "Hero",
+    "description": "The opening of a marketing page: a news badge, the headline as h1, two sentences, two large calls to action, small print, and the product underneath.",
+    "category": "Landing page",
+    "files": [
+      {
+        "path": "registry/plainspoken/blocks/landing/hero.tsx",
+        "type": "registry:component",
+        "target": "components/blocks/landing/hero.tsx"
+      }
+    ],
+    "examples": [
+      "landing-hero-demo"
+    ],
+    "registryDependencies": [
+      "badge",
+      "button",
+      "foundation",
+      "icon",
+      "icons",
+      "utils"
+    ],
+    "dependencies": [],
+    "hidden": false
+  },
+  {
+    "name": "landing-logos",
+    "type": "registry:block",
+    "title": "Customer names",
+    "description": "A strip of customer names set in type, in a few weights and cases, instead of logo images.",
+    "category": "Landing page",
+    "files": [
+      {
+        "path": "registry/plainspoken/blocks/landing/logos.tsx",
+        "type": "registry:component",
+        "target": "components/blocks/landing/logos.tsx"
+      }
+    ],
+    "examples": [
+      "landing-logos-demo"
+    ],
+    "registryDependencies": [
+      "foundation",
+      "utils"
+    ],
+    "dependencies": [],
+    "hidden": false
+  },
+  {
+    "name": "landing-nav",
+    "type": "registry:block",
+    "title": "Landing nav",
+    "description": "A marketing site's sticky top bar: product name, links to sections and pages, and the sign-up button; a Menu panel on phones.",
+    "category": "Landing page",
+    "files": [
+      {
+        "path": "registry/plainspoken/blocks/landing/nav.tsx",
+        "type": "registry:component",
+        "target": "components/blocks/landing/nav.tsx"
+      }
+    ],
+    "examples": [
+      "landing-nav-demo"
+    ],
+    "registryDependencies": [
+      "button",
+      "foundation",
+      "navbar",
+      "utils"
+    ],
+    "dependencies": [],
+    "hidden": false
+  },
+  {
+    "name": "landing-plan-comparison",
+    "type": "registry:block",
+    "title": "Plan comparison",
+    "description": "Every plan's features in one grouped table, with checks and dashes that screen readers hear as included or not.",
+    "category": "Landing page",
+    "files": [
+      {
+        "path": "registry/plainspoken/blocks/landing/plan-comparison.tsx",
+        "type": "registry:component",
+        "target": "components/blocks/landing/plan-comparison.tsx"
+      }
+    ],
+    "examples": [
+      "landing-plan-comparison-demo"
+    ],
+    "registryDependencies": [
+      "foundation",
+      "icon",
+      "icons",
+      "table",
+      "utils"
+    ],
+    "dependencies": [],
+    "hidden": false
+  },
+  {
+    "name": "landing-pricing",
+    "type": "registry:block",
+    "title": "Pricing plans",
+    "description": "Plans side by side in cards with a Monthly / Yearly segmented control that changes every price; the recommended plan badged.",
+    "category": "Landing page",
+    "files": [
+      {
+        "path": "registry/plainspoken/blocks/landing/pricing.tsx",
+        "type": "registry:component",
+        "target": "components/blocks/landing/pricing.tsx"
+      }
+    ],
+    "examples": [
+      "landing-pricing-demo"
+    ],
+    "registryDependencies": [
+      "badge",
+      "button",
+      "card",
+      "foundation",
+      "landing-section",
+      "segmented-control",
+      "utils"
+    ],
+    "dependencies": [],
+    "hidden": false
+  },
+  {
+    "name": "landing-product-shot",
+    "type": "registry:block",
+    "title": "Product screenshot",
+    "description": "A product screenshot made of the library's own components (navbar, stats, line chart, table with sparklines), inert and described in one sentence.",
+    "category": "Landing page",
+    "files": [
+      {
+        "path": "registry/plainspoken/blocks/landing/product-shot.tsx",
+        "type": "registry:component",
+        "target": "components/blocks/landing/product-shot.tsx"
+      }
+    ],
+    "examples": [
+      "landing-product-shot-demo"
+    ],
+    "registryDependencies": [
+      "avatar",
+      "badge",
+      "foundation",
+      "line-chart",
+      "navbar",
+      "panel",
+      "sparkline",
+      "stat",
+      "status",
+      "table",
+      "utils"
+    ],
+    "dependencies": [],
+    "hidden": false
+  },
+  {
+    "name": "landing-section",
+    "type": "registry:block",
+    "title": "Section",
+    "description": "A band of a marketing page (eyebrow, h2, lead, content) in plain or gray, plus the h1 header of an inner page and a list of checked claims.",
+    "category": "Landing page",
+    "files": [
+      {
+        "path": "registry/plainspoken/blocks/landing/section.tsx",
+        "type": "registry:component",
+        "target": "components/blocks/landing/section.tsx"
+      }
+    ],
+    "examples": [
+      "landing-section-demo",
+      "landing-section-page-header"
+    ],
+    "registryDependencies": [
+      "foundation",
+      "icon",
+      "icons",
+      "utils"
+    ],
+    "dependencies": [],
+    "hidden": false
+  },
+  {
+    "name": "landing-signup-form",
+    "type": "registry:block",
+    "title": "Sign-up form",
+    "description": "A sign-up form in a card: name, email, password, team size, plan radios with a billing switch, terms; an error summary and a success state.",
+    "category": "Landing page",
+    "files": [
+      {
+        "path": "registry/plainspoken/blocks/landing/signup-form.tsx",
+        "type": "registry:component",
+        "target": "components/blocks/landing/signup-form.tsx"
+      }
+    ],
+    "examples": [
+      "landing-signup-form-demo",
+      "landing-signup-form-states"
+    ],
+    "registryDependencies": [
+      "alert",
+      "button",
+      "card",
+      "checkbox",
+      "description-list",
+      "field",
+      "foundation",
+      "icon",
+      "icons",
+      "input",
+      "radio-group",
+      "segmented-control",
+      "select"
+    ],
+    "dependencies": [],
+    "hidden": false
+  },
+  {
+    "name": "landing-steps",
+    "type": "registry:block",
+    "title": "Steps",
+    "description": "How it works in three numbered steps on one rule, as a real ordered list.",
+    "category": "Landing page",
+    "files": [
+      {
+        "path": "registry/plainspoken/blocks/landing/steps.tsx",
+        "type": "registry:component",
+        "target": "components/blocks/landing/steps.tsx"
+      }
+    ],
+    "examples": [
+      "landing-steps-demo"
+    ],
+    "registryDependencies": [
+      "foundation",
+      "utils"
+    ],
+    "dependencies": [],
+    "hidden": false
+  },
+  {
+    "name": "landing-testimonials",
+    "type": "registry:block",
+    "title": "Testimonials",
+    "description": "Customer quotes in cards, each a figure with a blockquote and an attribution with an avatar.",
+    "category": "Landing page",
+    "files": [
+      {
+        "path": "registry/plainspoken/blocks/landing/testimonials.tsx",
+        "type": "registry:component",
+        "target": "components/blocks/landing/testimonials.tsx"
+      }
+    ],
+    "examples": [
+      "landing-testimonials-demo"
+    ],
+    "registryDependencies": [
+      "avatar",
+      "card",
+      "foundation",
+      "utils"
+    ],
+    "dependencies": [],
+    "hidden": false
+  },
+  {
+    "name": "landing-visuals",
+    "type": "registry:block",
+    "title": "Product pictures",
+    "description": "Small pictures of the product built from components: an incident timeline, a public status page with 90 days of history, and a cron heartbeat table.",
+    "category": "Landing page",
+    "files": [
+      {
+        "path": "registry/plainspoken/blocks/landing/visuals.tsx",
+        "type": "registry:component",
+        "target": "components/blocks/landing/visuals.tsx"
+      }
+    ],
+    "examples": [
+      "landing-visuals-demo"
+    ],
+    "registryDependencies": [
+      "alert",
+      "copy-button",
+      "foundation",
+      "panel",
+      "status",
+      "table",
+      "utils"
+    ],
+    "dependencies": [],
+    "hidden": false
+  },
+  {
+    "name": "legend",
+    "type": "registry:ui",
+    "title": "Legend",
+    "description": "A chart's key: swatches that repeat each series' colour, dash pattern and marker, the label in text colour, and an optional value.",
+    "category": "Charts",
+    "files": [
+      {
+        "path": "registry/plainspoken/ui/legend.tsx",
+        "type": "registry:ui"
+      }
+    ],
+    "examples": [
+      "legend-demo"
+    ],
+    "registryDependencies": [
+      "chart-scale",
+      "foundation",
+      "utils"
+    ],
+    "dependencies": [],
+    "hidden": false
+  },
+  {
+    "name": "library-book-cover",
+    "type": "registry:block",
+    "title": "Book cover",
+    "description": "A cover made of type for catalogues without cover images: title and author on a design and colour that come from the book's id.",
+    "category": "Library",
+    "files": [
+      {
+        "path": "registry/plainspoken/blocks/library/book-cover.tsx",
+        "type": "registry:component",
+        "target": "components/blocks/library/book-cover.tsx"
+      }
+    ],
+    "examples": [
+      "library-book-cover-demo",
+      "library-book-cover-sizes"
+    ],
+    "registryDependencies": [
+      "foundation",
+      "library-lib",
+      "utils"
+    ],
+    "dependencies": [],
+    "hidden": false
+  },
+  {
+    "name": "library-book-details",
+    "type": "registry:block",
+    "title": "Book details",
+    "description": "The top of a title's page: large cover, title, author, availability per format, description, actions and the facts as a description list.",
+    "category": "Library",
+    "files": [
+      {
+        "path": "registry/plainspoken/blocks/library/book-details.tsx",
+        "type": "registry:component",
+        "target": "components/blocks/library/book-details.tsx"
+      }
+    ],
+    "examples": [
+      "library-book-details-demo"
+    ],
+    "registryDependencies": [
+      "badge",
+      "description-list",
+      "foundation",
+      "library-book-cover",
+      "library-lib",
+      "nav",
+      "text-link",
+      "utils"
+    ],
+    "dependencies": [],
+    "hidden": false
+  },
+  {
+    "name": "library-branch-card",
+    "type": "registry:block",
+    "title": "Branch card",
+    "description": "One branch: address, phone, open or closed today, the week's hours with today marked, and its services.",
+    "category": "Library",
+    "files": [
+      {
+        "path": "registry/plainspoken/blocks/library/branch-card.tsx",
+        "type": "registry:component",
+        "target": "components/blocks/library/branch-card.tsx"
+      }
+    ],
+    "examples": [
+      "library-branch-card-demo"
+    ],
+    "registryDependencies": [
+      "badge",
+      "card",
+      "dates",
+      "foundation",
+      "icon",
+      "icons",
+      "library-lib",
+      "status",
+      "table",
+      "text-link",
+      "utils"
+    ],
+    "dependencies": [],
+    "hidden": false
+  },
+  {
+    "name": "library-closures",
+    "type": "registry:block",
+    "title": "Closures",
+    "description": "The days a library is closed beyond its weekly hours, as a month calendar with the closures written in or as a list.",
+    "category": "Library",
+    "files": [
+      {
+        "path": "registry/plainspoken/blocks/library/closures.tsx",
+        "type": "registry:component",
+        "target": "components/blocks/library/closures.tsx"
+      }
+    ],
+    "examples": [
+      "library-closures-demo"
+    ],
+    "registryDependencies": [
+      "agenda",
+      "calendar",
+      "dates",
+      "foundation",
+      "legend",
+      "segmented-control",
+      "utils"
+    ],
+    "dependencies": [],
+    "hidden": false
+  },
+  {
+    "name": "library-copies-table",
+    "type": "registry:block",
+    "title": "Copies table",
+    "description": "Where every copy of a title is: branch, format, shelf, call number and status with due dates, and e-book licences.",
+    "category": "Library",
+    "files": [
+      {
+        "path": "registry/plainspoken/blocks/library/copies-table.tsx",
+        "type": "registry:component",
+        "target": "components/blocks/library/copies-table.tsx"
+      }
+    ],
+    "examples": [
+      "library-copies-table-demo"
+    ],
+    "registryDependencies": [
+      "dates",
+      "foundation",
+      "library-lib",
+      "status",
+      "table"
+    ],
+    "dependencies": [],
+    "hidden": false
+  },
+  {
+    "name": "library-facets",
+    "type": "registry:block",
+    "title": "Library facets",
+    "description": "Search filters with counts in sections that open and close, a year range and a branch, moving into a drawer on phones.",
+    "category": "Library",
+    "files": [
+      {
+        "path": "registry/plainspoken/blocks/library/facets.tsx",
+        "type": "registry:component",
+        "target": "components/blocks/library/facets.tsx"
+      }
+    ],
+    "examples": [
+      "library-facets-demo"
+    ],
+    "registryDependencies": [
+      "accordion",
+      "button",
+      "checkbox",
+      "drawer",
+      "field",
+      "foundation",
+      "icons",
+      "number-field",
+      "select",
+      "switch",
+      "utils"
+    ],
+    "dependencies": [],
+    "hidden": false
+  },
+  {
+    "name": "library-fines",
+    "type": "registry:block",
+    "title": "Fines",
+    "description": "Fines and fees: what is owed against the borrowing limit, the charges with paid or owed, and the total.",
+    "category": "Library",
+    "files": [
+      {
+        "path": "registry/plainspoken/blocks/library/fines.tsx",
+        "type": "registry:component",
+        "target": "components/blocks/library/fines.tsx"
+      }
+    ],
+    "examples": [
+      "library-fines-demo"
+    ],
+    "registryDependencies": [
+      "alert",
+      "button",
+      "dates",
+      "foundation",
+      "icons",
+      "library-lib",
+      "status",
+      "table",
+      "utils"
+    ],
+    "dependencies": [],
+    "hidden": false
+  },
+  {
+    "name": "library-header",
+    "type": "registry:block",
+    "title": "Library header",
+    "description": "A library catalogue's top bar: links with the current one marked, a compact search box, and an account menu.",
+    "category": "Library",
+    "files": [
+      {
+        "path": "registry/plainspoken/blocks/library/header.tsx",
+        "type": "registry:component",
+        "target": "components/blocks/library/header.tsx"
+      }
+    ],
+    "examples": [
+      "library-header-demo"
+    ],
+    "registryDependencies": [
+      "avatar",
+      "button",
+      "dropdown-menu",
+      "foundation",
+      "icon",
+      "icons",
+      "library-search-form",
+      "nav",
+      "navbar"
+    ],
+    "dependencies": [],
+    "hidden": false
+  },
+  {
+    "name": "library-hold-dialog",
+    "type": "registry:block",
+    "title": "Hold dialog",
+    "description": "A Place hold button and its dialog: format with availability, pickup branch, a not-needed-after date, and the place in line once placed.",
+    "category": "Library",
+    "files": [
+      {
+        "path": "registry/plainspoken/blocks/library/hold-dialog.tsx",
+        "type": "registry:component",
+        "target": "components/blocks/library/hold-dialog.tsx"
+      }
+    ],
+    "examples": [
+      "library-hold-dialog-demo"
+    ],
+    "registryDependencies": [
+      "alert",
+      "button",
+      "checkbox",
+      "date-picker",
+      "dates",
+      "dialog",
+      "field",
+      "foundation",
+      "icons",
+      "library-book-cover",
+      "library-lib",
+      "radio-group",
+      "select"
+    ],
+    "dependencies": [],
+    "hidden": false
+  },
+  {
+    "name": "library-holds",
+    "type": "registry:block",
+    "title": "Holds",
+    "description": "A patron's holds: pickup branch, place in line as words and a bar, state, and a menu to pause, move or cancel each.",
+    "category": "Library",
+    "files": [
+      {
+        "path": "registry/plainspoken/blocks/library/holds.tsx",
+        "type": "registry:component",
+        "target": "components/blocks/library/holds.tsx"
+      }
+    ],
+    "examples": [
+      "library-holds-demo"
+    ],
+    "registryDependencies": [
+      "alert-dialog",
+      "dates",
+      "dropdown-menu",
+      "foundation",
+      "icons",
+      "library-book-cover",
+      "library-lib",
+      "nav",
+      "progress",
+      "status",
+      "table",
+      "text-link",
+      "toast",
+      "utils"
+    ],
+    "dependencies": [],
+    "hidden": false
+  },
+  {
+    "name": "library-hours-today",
+    "type": "registry:block",
+    "title": "Hours today",
+    "description": "Every branch's hours for one day in a titled panel, with open or closed said in words and a symbol.",
+    "category": "Library",
+    "files": [
+      {
+        "path": "registry/plainspoken/blocks/library/hours-today.tsx",
+        "type": "registry:component",
+        "target": "components/blocks/library/hours-today.tsx"
+      }
+    ],
+    "examples": [
+      "library-hours-today-demo"
+    ],
+    "registryDependencies": [
+      "dates",
+      "foundation",
+      "library-lib",
+      "nav",
+      "panel",
+      "status",
+      "table",
+      "text-link"
+    ],
+    "dependencies": [],
+    "hidden": false
+  },
+  {
+    "name": "library-lib",
+    "type": "registry:block",
+    "title": "Library helpers",
+    "description": "Types and helpers the Library blocks share: catalogue records, copies, availability in words, formats and branch hours.",
+    "category": "Library",
+    "files": [
+      {
+        "path": "registry/plainspoken/blocks/library/lib.ts",
+        "type": "registry:component",
+        "target": "components/blocks/library/lib.ts"
+      }
+    ],
+    "examples": [],
+    "registryDependencies": [
+      "dates",
+      "foundation",
+      "icons",
+      "status"
+    ],
+    "dependencies": [],
+    "hidden": true
+  },
+  {
+    "name": "library-loans",
+    "type": "registry:block",
+    "title": "Loans",
+    "description": "A patron's loans: due dates with overdue ones marked in words and colour, renewals used, and renewing one or several.",
+    "category": "Library",
+    "files": [
+      {
+        "path": "registry/plainspoken/blocks/library/loans.tsx",
+        "type": "registry:component",
+        "target": "components/blocks/library/loans.tsx"
+      }
+    ],
+    "examples": [
+      "library-loans-demo"
+    ],
+    "registryDependencies": [
+      "button",
+      "checkbox",
+      "dates",
+      "foundation",
+      "icons",
+      "library-book-cover",
+      "library-lib",
+      "nav",
+      "status",
+      "table",
+      "text-link",
+      "toast",
+      "tooltip",
+      "utils"
+    ],
+    "dependencies": [],
+    "hidden": false
+  },
+  {
+    "name": "library-reading-history",
+    "type": "registry:block",
+    "title": "Reading history",
+    "description": "Everything a patron has borrowed in a data table with filters, multi-column sorting and CSV export.",
+    "category": "Library",
+    "files": [
+      {
+        "path": "registry/plainspoken/blocks/library/reading-history.tsx",
+        "type": "registry:component",
+        "target": "components/blocks/library/reading-history.tsx"
+      }
+    ],
+    "examples": [
+      "library-reading-history-demo"
+    ],
+    "registryDependencies": [
+      "data-table",
+      "dates",
+      "foundation",
+      "library-lib",
+      "nav",
+      "text-link"
+    ],
+    "dependencies": [],
+    "hidden": false
+  },
+  {
+    "name": "library-result-list",
+    "type": "registry:block",
+    "title": "Library result list",
+    "description": "Catalogue search results: cover, title, author, and each format with its availability (“2 of 5 available”, “On hold: 3 waiting”), with a Place hold button.",
+    "category": "Library",
+    "files": [
+      {
+        "path": "registry/plainspoken/blocks/library/result-list.tsx",
+        "type": "registry:component",
+        "target": "components/blocks/library/result-list.tsx"
+      }
+    ],
+    "examples": [
+      "library-result-list-demo"
+    ],
+    "registryDependencies": [
+      "badge",
+      "dates",
+      "foundation",
+      "library-book-cover",
+      "library-hold-dialog",
+      "library-lib",
+      "nav",
+      "status",
+      "text-link",
+      "utils"
+    ],
+    "dependencies": [],
+    "hidden": false
+  },
+  {
+    "name": "library-results-bar",
+    "type": "registry:block",
+    "title": "Results bar",
+    "description": "The line over search results: how many matched, the filters in force as removable chips, and the sort order.",
+    "category": "Library",
+    "files": [
+      {
+        "path": "registry/plainspoken/blocks/library/results-bar.tsx",
+        "type": "registry:component",
+        "target": "components/blocks/library/results-bar.tsx"
+      }
+    ],
+    "examples": [
+      "library-results-bar-demo"
+    ],
+    "registryDependencies": [
+      "button",
+      "chip",
+      "foundation",
+      "select",
+      "utils"
+    ],
+    "dependencies": [],
+    "hidden": false
+  },
+  {
+    "name": "library-search-form",
+    "type": "registry:block",
+    "title": "Library search form",
+    "description": "A catalogue search box with a field to search in (keyword, title, author, subject), as a GET form that works without script.",
+    "category": "Library",
+    "files": [
+      {
+        "path": "registry/plainspoken/blocks/library/search-form.tsx",
+        "type": "registry:component",
+        "target": "components/blocks/library/search-form.tsx"
+      }
+    ],
+    "examples": [
+      "library-search-form-demo"
+    ],
+    "registryDependencies": [
+      "button",
+      "foundation",
+      "icons",
+      "input",
+      "select",
+      "utils"
+    ],
+    "dependencies": [],
+    "hidden": false
+  },
+  {
+    "name": "library-shelf",
+    "type": "registry:block",
+    "title": "Library shelf",
+    "description": "A sideways-scrolling row of covers with titles and authors, for new arrivals and similar titles.",
+    "category": "Library",
+    "files": [
+      {
+        "path": "registry/plainspoken/blocks/library/shelf.tsx",
+        "type": "registry:component",
+        "target": "components/blocks/library/shelf.tsx"
+      }
+    ],
+    "examples": [
+      "library-shelf-demo"
+    ],
+    "registryDependencies": [
+      "foundation",
+      "library-book-cover",
+      "library-lib",
+      "nav",
+      "text-link",
+      "utils"
+    ],
+    "dependencies": [],
+    "hidden": false
+  },
+  {
+    "name": "library-staff-picks",
+    "type": "registry:block",
+    "title": "Staff picks",
+    "description": "Librarians' recommendations as cards: cover, title, the note in their own words, and who wrote it.",
+    "category": "Library",
+    "files": [
+      {
+        "path": "registry/plainspoken/blocks/library/staff-picks.tsx",
+        "type": "registry:component",
+        "target": "components/blocks/library/staff-picks.tsx"
+      }
+    ],
+    "examples": [
+      "library-staff-picks-demo"
+    ],
+    "registryDependencies": [
+      "avatar",
+      "card",
+      "foundation",
+      "library-book-cover",
+      "library-lib",
+      "nav",
+      "text-link",
+      "utils"
+    ],
+    "dependencies": [],
+    "hidden": false
+  },
+  {
+    "name": "line-chart",
+    "type": "registry:ui",
+    "title": "Line chart",
+    "description": "A time-series line chart in plain SVG: series told apart by colour, line pattern and marker, a crosshair you can step through with the keyboard, gaps for missing data, and the numbers as a table for screen readers.",
+    "category": "Charts",
+    "files": [
+      {
+        "path": "registry/plainspoken/ui/line-chart.tsx",
+        "type": "registry:ui"
+      }
+    ],
+    "examples": [
+      "line-chart-demo",
+      "line-chart-gaps",
+      "line-chart-single"
+    ],
+    "registryDependencies": [
+      "chart-data-table",
+      "chart-scale",
+      "foundation",
+      "legend",
+      "use-element-width",
+      "utils"
+    ],
+    "dependencies": [],
+    "hidden": false
+  },
+  {
+    "name": "mail-actions",
+    "type": "registry:block",
+    "title": "Conversation actions",
+    "description": "Archive, delete, mark read, and Snooze, Move and Label menus (labels as checkboxes), with words or icons only, changing with the folder.",
+    "category": "Mail",
+    "files": [
+      {
+        "path": "registry/plainspoken/blocks/mail/actions.tsx",
+        "type": "registry:component",
+        "target": "components/blocks/mail/actions.tsx"
+      }
+    ],
+    "examples": [
+      "mail-actions-demo",
+      "mail-actions-folders"
+    ],
+    "registryDependencies": [
+      "button",
+      "dates",
+      "dropdown-menu",
+      "foundation",
+      "icons",
+      "mail-data",
+      "utils"
+    ],
+    "dependencies": [],
+    "hidden": false
+  },
+  {
+    "name": "mail-app",
+    "type": "registry:block",
+    "title": "Mail app",
+    "description": "The whole three-pane mail client: folders and labels in an app shell, a resizable message list and reading pane, compose and shortcuts dialogs, one pane at a time on phones.",
+    "category": "Mail",
+    "files": [
+      {
+        "path": "registry/plainspoken/blocks/mail/mail-app.tsx",
+        "type": "registry:component",
+        "target": "components/blocks/mail/mail-app.tsx"
+      }
+    ],
+    "examples": [
+      "mail-app-demo"
+    ],
+    "registryDependencies": [
+      "app-shell",
+      "avatar",
+      "button",
+      "dates",
+      "dropdown-menu",
+      "empty-state",
+      "foundation",
+      "icons",
+      "legend",
+      "mail-actions",
+      "mail-compose",
+      "mail-data",
+      "mail-list-toolbar",
+      "mail-message-list",
+      "mail-search",
+      "mail-shortcuts",
+      "mail-thread",
+      "progress",
+      "resizable",
+      "sidebar",
+      "utils"
+    ],
+    "dependencies": [],
+    "hidden": false
+  },
+  {
+    "name": "mail-attachments",
+    "type": "registry:block",
+    "title": "Attachments",
+    "description": "A message's files as chips with a thumbnail or a file symbol, name and size, opening a preview dialog; with a × each in the compose box.",
+    "category": "Mail",
+    "files": [
+      {
+        "path": "registry/plainspoken/blocks/mail/attachments.tsx",
+        "type": "registry:component",
+        "target": "components/blocks/mail/attachments.tsx"
+      }
+    ],
+    "examples": [
+      "mail-attachments-demo"
+    ],
+    "registryDependencies": [
+      "button",
+      "dialog",
+      "empty-state",
+      "foundation",
+      "icon",
+      "icons",
+      "mail-data",
+      "utils"
+    ],
+    "dependencies": [],
+    "hidden": false
+  },
+  {
+    "name": "mail-compose",
+    "type": "registry:block",
+    "title": "Compose dialog",
+    "description": "A new message in a dialog (full screen on phones): From, To and Cc chips, Subject, the text, and attached files.",
+    "category": "Mail",
+    "files": [
+      {
+        "path": "registry/plainspoken/blocks/mail/compose.tsx",
+        "type": "registry:component",
+        "target": "components/blocks/mail/compose.tsx"
+      }
+    ],
+    "examples": [
+      "mail-compose-demo"
+    ],
+    "registryDependencies": [
+      "button",
+      "dialog",
+      "foundation",
+      "icons",
+      "input",
+      "mail-attachments",
+      "mail-data",
+      "mail-recipient-input",
+      "textarea"
+    ],
+    "dependencies": [],
+    "hidden": false
+  },
+  {
+    "name": "mail-data",
+    "type": "registry:block",
+    "title": "Mail data",
+    "description": "The demo mailbox (folders, labels, contacts and about 35 conversations) with the helpers that format dates, names and sizes for the mail blocks.",
+    "category": "Mail",
+    "files": [
+      {
+        "path": "registry/plainspoken/blocks/mail/data.ts",
+        "type": "registry:component",
+        "target": "components/blocks/mail/data.ts"
+      },
+      {
+        "path": "registry/plainspoken/blocks/mail/format.ts",
+        "type": "registry:component",
+        "target": "components/blocks/mail/format.ts"
+      }
+    ],
+    "examples": [],
+    "registryDependencies": [
+      "dates",
+      "foundation"
+    ],
+    "dependencies": [],
+    "hidden": true
+  },
+  {
+    "name": "mail-list-toolbar",
+    "type": "registry:block",
+    "title": "List toolbar",
+    "description": "The strip over a message list: a select-all box with its part-ticked state, the count, and the bulk actions once something is ticked.",
+    "category": "Mail",
+    "files": [
+      {
+        "path": "registry/plainspoken/blocks/mail/list-toolbar.tsx",
+        "type": "registry:component",
+        "target": "components/blocks/mail/list-toolbar.tsx"
+      }
+    ],
+    "examples": [
+      "mail-list-toolbar-demo"
+    ],
+    "registryDependencies": [
+      "checkbox",
+      "dates",
+      "foundation",
+      "mail-actions",
+      "mail-data",
+      "utils"
+    ],
+    "dependencies": [],
+    "hidden": false
+  },
+  {
+    "name": "mail-message-list",
+    "type": "registry:block",
+    "title": "Message list",
+    "description": "Conversations with sender, subject, snippet and time, unread in bold, checkboxes, star toggles, attachment and label marks, a roving tab stop and a right-click menu.",
+    "category": "Mail",
+    "files": [
+      {
+        "path": "registry/plainspoken/blocks/mail/message-list.tsx",
+        "type": "registry:component",
+        "target": "components/blocks/mail/message-list.tsx"
+      }
+    ],
+    "examples": [
+      "mail-message-list-demo",
+      "mail-message-list-folders"
+    ],
+    "registryDependencies": [
+      "badge",
+      "context-menu",
+      "dates",
+      "empty-state",
+      "foundation",
+      "icon",
+      "icons",
+      "legend",
+      "mail-data",
+      "nav",
+      "toggle",
+      "utils"
+    ],
+    "dependencies": [],
+    "hidden": false
+  },
+  {
+    "name": "mail-recipient-input",
+    "type": "registry:block",
+    "title": "Recipient input",
+    "description": "To and Cc as removable chips with contact suggestions (the combobox pattern), Backspace to remove, and bad addresses in red.",
+    "category": "Mail",
+    "files": [
+      {
+        "path": "registry/plainspoken/blocks/mail/recipient-input.tsx",
+        "type": "registry:component",
+        "target": "components/blocks/mail/recipient-input.tsx"
+      }
+    ],
+    "examples": [
+      "mail-recipient-input-demo"
+    ],
+    "registryDependencies": [
+      "chip",
+      "foundation",
+      "mail-data",
+      "utils"
+    ],
+    "dependencies": [],
+    "hidden": false
+  },
+  {
+    "name": "mail-reply-box",
+    "type": "registry:block",
+    "title": "Reply box",
+    "description": "The inline reply under a conversation: recipients as chips, a text box, Send and Discard; Reply all adds Cc, Forward lists the files that go along.",
+    "category": "Mail",
+    "files": [
+      {
+        "path": "registry/plainspoken/blocks/mail/reply-box.tsx",
+        "type": "registry:component",
+        "target": "components/blocks/mail/reply-box.tsx"
+      }
+    ],
+    "examples": [
+      "mail-reply-box-demo"
+    ],
+    "registryDependencies": [
+      "button",
+      "foundation",
+      "icon",
+      "icons",
+      "mail-data",
+      "mail-recipient-input",
+      "textarea",
+      "utils"
+    ],
+    "dependencies": [],
+    "hidden": false
+  },
+  {
+    "name": "mail-search",
+    "type": "registry:block",
+    "title": "Mail search",
+    "description": "A search box with a / hint and filter chips under it: Unread, Has attachment, and From picked from a menu, shown as a removable chip.",
+    "category": "Mail",
+    "files": [
+      {
+        "path": "registry/plainspoken/blocks/mail/search.tsx",
+        "type": "registry:component",
+        "target": "components/blocks/mail/search.tsx"
+      }
+    ],
+    "examples": [
+      "mail-search-demo",
+      "mail-search-filtered"
+    ],
+    "registryDependencies": [
+      "button",
+      "chip",
+      "dropdown-menu",
+      "foundation",
+      "icon",
+      "icons",
+      "input",
+      "kbd",
+      "mail-data",
+      "utils"
+    ],
+    "dependencies": [],
+    "hidden": false
+  },
+  {
+    "name": "mail-shortcuts",
+    "type": "registry:block",
+    "title": "Shortcuts dialog",
+    "description": "The keyboard shortcuts of a mail app, grouped, as keycaps in a dialog.",
+    "category": "Mail",
+    "files": [
+      {
+        "path": "registry/plainspoken/blocks/mail/shortcuts.tsx",
+        "type": "registry:component",
+        "target": "components/blocks/mail/shortcuts.tsx"
+      }
+    ],
+    "examples": [
+      "mail-shortcuts-demo"
+    ],
+    "registryDependencies": [
+      "button",
+      "dialog",
+      "foundation",
+      "kbd"
+    ],
+    "dependencies": [],
+    "hidden": false
+  },
+  {
+    "name": "mail-thread",
+    "type": "registry:block",
+    "title": "Reading pane",
+    "description": "A conversation: toolbar, subject and labels, earlier messages folded, quoted text behind a button, attachments, a contact card on hover, and the reply box in place.",
+    "category": "Mail",
+    "files": [
+      {
+        "path": "registry/plainspoken/blocks/mail/thread.tsx",
+        "type": "registry:component",
+        "target": "components/blocks/mail/thread.tsx"
+      }
+    ],
+    "examples": [
+      "mail-thread-demo",
+      "mail-thread-reply",
+      "mail-thread-spam"
+    ],
+    "registryDependencies": [
+      "alert",
+      "avatar",
+      "badge",
+      "button",
+      "copy-button",
+      "dates",
+      "dropdown-menu",
+      "foundation",
+      "hover-card",
+      "icon",
+      "icons",
+      "legend",
+      "mail-actions",
+      "mail-attachments",
+      "mail-data",
+      "mail-reply-box",
+      "toggle",
+      "utils"
+    ],
+    "dependencies": [],
+    "hidden": false
+  },
+  {
+    "name": "menu-button",
+    "type": "registry:ui",
+    "title": "Menu button",
+    "description": "A button that opens a small panel of controls (filters, column choices, view settings) in a native popover that a scroll box can't clip.",
+    "category": "Controls",
+    "files": [
+      {
+        "path": "registry/plainspoken/ui/menu-button.tsx",
+        "type": "registry:ui"
+      }
+    ],
+    "examples": [
+      "menu-button-demo",
+      "menu-button-view-options"
+    ],
+    "registryDependencies": [
+      "button",
+      "floating",
+      "foundation",
+      "icons",
+      "utils"
+    ],
+    "dependencies": [],
+    "hidden": false
+  },
+  {
+    "name": "menu-list",
+    "type": "registry:ui",
+    "title": "Menu list",
+    "description": "The keyboard-driven list inside Dropdown menu and Context menu: actions, links, checkboxes, radio groups, headings, separators and submenus, with typeahead.",
+    "category": "Overlays",
+    "files": [
+      {
+        "path": "registry/plainspoken/ui/menu-list.tsx",
+        "type": "registry:ui"
+      }
+    ],
+    "examples": [],
+    "registryDependencies": [
+      "floating",
+      "foundation",
+      "icon",
+      "icons",
+      "utils"
+    ],
+    "dependencies": [],
+    "hidden": true
+  },
+  {
+    "name": "music-app-shell",
+    "type": "registry:block",
+    "title": "Music app frame",
+    "description": "The music app's frame: sidebar, a page that scrolls on its own, the player bar, a bottom tab bar on phones, keyboard shortcuts and toasts. Holds the player, so music keeps playing across pages.",
+    "category": "Music",
+    "files": [
+      {
+        "path": "registry/plainspoken/blocks/music/app-shell.tsx",
+        "type": "registry:component",
+        "target": "components/blocks/music/app-shell.tsx"
+      }
+    ],
+    "examples": [
+      "music-app-shell-demo"
+    ],
+    "registryDependencies": [
+      "dialog",
+      "foundation",
+      "kbd",
+      "music-nav",
+      "music-player-bar",
+      "music-player-provider",
+      "toast",
+      "utils"
+    ],
+    "dependencies": [],
+    "hidden": false
+  },
+  {
+    "name": "music-artist",
+    "type": "registry:block",
+    "title": "Artist sections",
+    "description": "An artist page's parts: popular tracks with play counts, the discography filtered with chips, and the About box.",
+    "category": "Music",
+    "files": [
+      {
+        "path": "registry/plainspoken/blocks/music/artist.tsx",
+        "type": "registry:component",
+        "target": "components/blocks/music/artist.tsx"
+      }
+    ],
+    "examples": [
+      "music-artist-demo",
+      "music-artist-discography"
+    ],
+    "registryDependencies": [
+      "button",
+      "chip",
+      "foundation",
+      "icon",
+      "icons",
+      "music-data",
+      "music-media-card",
+      "music-track-table",
+      "utils"
+    ],
+    "dependencies": [],
+    "hidden": false
+  },
+  {
+    "name": "music-artwork",
+    "type": "registry:block",
+    "title": "Generated artwork",
+    "description": "Square cover art drawn from a seed: eight geometric patterns in eighteen palettes, the title in small type or an artist's initials big. Flat SVG, renders on the server.",
+    "category": "Music",
+    "files": [
+      {
+        "path": "registry/plainspoken/blocks/music/artwork.tsx",
+        "type": "registry:component",
+        "target": "components/blocks/music/artwork.tsx"
+      }
+    ],
+    "examples": [
+      "music-artwork-demo"
+    ],
+    "registryDependencies": [
+      "foundation",
+      "music-data",
+      "utils"
+    ],
+    "dependencies": [],
+    "hidden": false
+  },
+  {
+    "name": "music-collection-header",
+    "type": "registry:block",
+    "title": "Collection header",
+    "description": "The top of an album, playlist or artist page: big cover, kind, title, facts, and the action row with play, shuffle, save or follow, and a menu.",
+    "category": "Music",
+    "files": [
+      {
+        "path": "registry/plainspoken/blocks/music/collection-header.tsx",
+        "type": "registry:component",
+        "target": "components/blocks/music/collection-header.tsx"
+      }
+    ],
+    "examples": [
+      "music-collection-header-demo"
+    ],
+    "registryDependencies": [
+      "button",
+      "dropdown-menu",
+      "foundation",
+      "icon",
+      "icons",
+      "music-artwork",
+      "music-data",
+      "music-player-provider",
+      "toast",
+      "toggle",
+      "utils"
+    ],
+    "dependencies": [],
+    "hidden": false
+  },
+  {
+    "name": "music-data",
+    "type": "registry:block",
+    "title": "Music data",
+    "description": "The Music demo's catalogue: twelve invented artists, 25 releases, about 200 tracks, a dozen playlists and the listener's library, with seeded randomness and the formatting helpers (times, counts, dates) the music blocks share.",
+    "category": "Music",
+    "files": [
+      {
+        "path": "registry/plainspoken/blocks/music/data.ts",
+        "type": "registry:component",
+        "target": "components/blocks/music/data.ts"
+      }
+    ],
+    "examples": [],
+    "registryDependencies": [
+      "foundation"
+    ],
+    "dependencies": [],
+    "hidden": true
+  },
+  {
+    "name": "music-library",
+    "type": "registry:block",
+    "title": "Your Library",
+    "description": "Saved playlists, albums and artists with filter chips, four sort orders, and a list or grid view.",
+    "category": "Music",
+    "files": [
+      {
+        "path": "registry/plainspoken/blocks/music/library.tsx",
+        "type": "registry:component",
+        "target": "components/blocks/music/library.tsx"
+      }
+    ],
+    "examples": [
+      "music-library-demo",
+      "music-library-grid"
+    ],
+    "registryDependencies": [
+      "chip",
+      "empty-state",
+      "foundation",
+      "icon",
+      "icons",
+      "music-artwork",
+      "music-data",
+      "music-media-card",
+      "music-player-provider",
+      "select",
+      "toggle",
+      "utils"
+    ],
+    "dependencies": [],
+    "hidden": false
+  },
+  {
+    "name": "music-media-card",
+    "type": "registry:block",
+    "title": "Media cards and shelves",
+    "description": "Cards for albums, playlists and artists with a play button over the cover, shelves that scroll sideways, a filling grid, and the wide tiles of \"jump back in\".",
+    "category": "Music",
+    "files": [
+      {
+        "path": "registry/plainspoken/blocks/music/media-card.tsx",
+        "type": "registry:component",
+        "target": "components/blocks/music/media-card.tsx"
+      }
+    ],
+    "examples": [
+      "music-media-card-demo",
+      "music-media-card-recent"
+    ],
+    "registryDependencies": [
+      "foundation",
+      "music-artwork",
+      "music-data",
+      "music-player-provider",
+      "utils"
+    ],
+    "dependencies": [],
+    "hidden": false
+  },
+  {
+    "name": "music-nav",
+    "type": "registry:block",
+    "title": "Music navigation",
+    "description": "The music app's sidebar (Home, Search, Your Library, Liked Songs and your playlists with covers, the playing one marked) and the phone's bottom tab bar.",
+    "category": "Music",
+    "files": [
+      {
+        "path": "registry/plainspoken/blocks/music/nav.tsx",
+        "type": "registry:component",
+        "target": "components/blocks/music/nav.tsx"
+      }
+    ],
+    "examples": [
+      "music-nav-demo"
+    ],
+    "registryDependencies": [
+      "foundation",
+      "icon",
+      "icons",
+      "kbd",
+      "music-artwork",
+      "music-data",
+      "music-player-provider",
+      "sidebar",
+      "utils"
+    ],
+    "dependencies": [],
+    "hidden": false
+  },
+  {
+    "name": "music-now-playing",
+    "type": "registry:block",
+    "title": "Now playing",
+    "description": "The big player: a large cover, title and artists, like, a big seek bar, touch-size transport and volume. A full-screen dialog on phones.",
+    "category": "Music",
+    "files": [
+      {
+        "path": "registry/plainspoken/blocks/music/now-playing.tsx",
+        "type": "registry:component",
+        "target": "components/blocks/music/now-playing.tsx"
+      }
+    ],
+    "examples": [
+      "music-now-playing-demo"
+    ],
+    "registryDependencies": [
+      "button",
+      "dialog",
+      "empty-state",
+      "foundation",
+      "icons",
+      "music-artwork",
+      "music-data",
+      "music-player-controls",
+      "music-player-provider"
+    ],
+    "dependencies": [],
+    "hidden": false
+  },
+  {
+    "name": "music-player-bar",
+    "type": "registry:block",
+    "title": "Player bar",
+    "description": "The bar along the bottom of the music app: now playing with like, transport and seek, queue, big player and volume; a mini player with a progress line on phones.",
+    "category": "Music",
+    "files": [
+      {
+        "path": "registry/plainspoken/blocks/music/player-bar.tsx",
+        "type": "registry:component",
+        "target": "components/blocks/music/player-bar.tsx"
+      }
+    ],
+    "examples": [
+      "music-player-bar-demo"
+    ],
+    "registryDependencies": [
+      "button",
+      "foundation",
+      "icon",
+      "icons",
+      "music-artwork",
+      "music-data",
+      "music-now-playing",
+      "music-player-controls",
+      "music-player-provider",
+      "music-queue",
+      "toggle",
+      "utils"
+    ],
+    "dependencies": [],
+    "hidden": false
+  },
+  {
+    "name": "music-player-controls",
+    "type": "registry:block",
+    "title": "Player controls",
+    "description": "Shuffle, previous, play/pause, next and a three-way repeat as toggles; a seek bar that follows your drag and seeks on release; mute and volume.",
+    "category": "Music",
+    "files": [
+      {
+        "path": "registry/plainspoken/blocks/music/player-controls.tsx",
+        "type": "registry:component",
+        "target": "components/blocks/music/player-controls.tsx"
+      }
+    ],
+    "examples": [
+      "music-player-controls-demo"
+    ],
+    "registryDependencies": [
+      "button",
+      "foundation",
+      "icon",
+      "icons",
+      "music-data",
+      "music-player-provider",
+      "slider",
+      "toggle",
+      "utils"
+    ],
+    "dependencies": [],
+    "hidden": false
+  },
+  {
+    "name": "music-player-provider",
+    "type": "registry:block",
+    "title": "Player state",
+    "description": "The music player and the listener's library in React context: a simulated clock, queue, shuffle, repeat, volume, likes and saves, the page-wide keyboard shortcuts, and the play and like buttons built on them.",
+    "category": "Music",
+    "files": [
+      {
+        "path": "registry/plainspoken/blocks/music/player-provider.tsx",
+        "type": "registry:component",
+        "target": "components/blocks/music/player-provider.tsx"
+      }
+    ],
+    "examples": [
+      "music-player-provider-demo"
+    ],
+    "registryDependencies": [
+      "button",
+      "foundation",
+      "icon",
+      "icons",
+      "music-data",
+      "toast",
+      "toggle",
+      "utils"
+    ],
+    "dependencies": [],
+    "hidden": false
+  },
+  {
+    "name": "music-queue",
+    "type": "registry:block",
+    "title": "Queue",
+    "description": "What plays now and next: the current track, songs added to the queue (removable), and the rest of the album or playlist. In a drawer, or a sheet on phones.",
+    "category": "Music",
+    "files": [
+      {
+        "path": "registry/plainspoken/blocks/music/queue.tsx",
+        "type": "registry:component",
+        "target": "components/blocks/music/queue.tsx"
+      }
+    ],
+    "examples": [
+      "music-queue-demo"
+    ],
+    "registryDependencies": [
+      "button",
+      "drawer",
+      "empty-state",
+      "foundation",
+      "icon",
+      "icons",
+      "music-artwork",
+      "music-data",
+      "music-player-provider",
+      "utils"
+    ],
+    "dependencies": [],
+    "hidden": false
+  },
+  {
+    "name": "music-search",
+    "type": "registry:block",
+    "title": "Music search",
+    "description": "A big search box over browse tiles for genres and moods, a genre's page, and results grouped into a top result, songs, artists, albums and playlists, with the query in the URL.",
+    "category": "Music",
+    "files": [
+      {
+        "path": "registry/plainspoken/blocks/music/search.tsx",
+        "type": "registry:component",
+        "target": "components/blocks/music/search.tsx"
+      }
+    ],
+    "examples": [
+      "music-search-demo"
+    ],
+    "registryDependencies": [
+      "button",
+      "chip",
+      "empty-state",
+      "foundation",
+      "icon",
+      "icons",
+      "input",
+      "music-artwork",
+      "music-data",
+      "music-media-card",
+      "music-player-provider",
+      "music-track-table",
+      "utils"
+    ],
+    "dependencies": [],
+    "hidden": false
+  },
+  {
+    "name": "music-track-table",
+    "type": "registry:block",
+    "title": "Track table",
+    "description": "Tracks as a table with number, title and artists, album, date added, like, length and a menu (also on right-click). Hover to play, double-click or Enter to play from a row, arrow keys between rows.",
+    "category": "Music",
+    "files": [
+      {
+        "path": "registry/plainspoken/blocks/music/track-table.tsx",
+        "type": "registry:component",
+        "target": "components/blocks/music/track-table.tsx"
+      }
+    ],
+    "examples": [
+      "music-track-table-demo",
+      "music-track-table-playlist"
+    ],
+    "registryDependencies": [
+      "badge",
+      "button",
+      "context-menu",
+      "dropdown-menu",
+      "empty-state",
+      "foundation",
+      "icon",
+      "icons",
+      "input",
+      "music-artwork",
+      "music-data",
+      "music-player-provider",
+      "select",
+      "table",
+      "toast",
+      "utils"
+    ],
+    "dependencies": [],
+    "hidden": false
+  },
+  {
+    "name": "nav",
+    "type": "registry:lib",
+    "title": "Navigation helpers",
+    "description": "What the navbar, sidebar and app shell share: the link component type for routers, click handling, and finding the current link from a pathname.",
+    "category": "Navigation",
+    "files": [
+      {
+        "path": "registry/plainspoken/lib/nav.ts",
+        "type": "registry:lib"
+      }
+    ],
+    "examples": [],
+    "registryDependencies": [
+      "foundation"
+    ],
+    "dependencies": [],
+    "hidden": true
+  },
+  {
+    "name": "navbar",
+    "type": "registry:ui",
+    "title": "Navbar",
+    "description": "The bar across the top of a site or app: brand, main links in the text colour with the current one bold, actions, and a Menu panel on phones. Works with any router.",
+    "category": "Navigation",
+    "files": [
+      {
+        "path": "registry/plainspoken/ui/navbar.tsx",
+        "type": "registry:ui"
+      }
+    ],
+    "examples": [
+      "navbar-demo",
+      "navbar-router"
+    ],
+    "registryDependencies": [
+      "button",
+      "foundation",
+      "icons",
+      "nav",
+      "use-media-query",
+      "utils"
+    ],
+    "dependencies": [],
+    "hidden": false
+  },
+  {
+    "name": "next-link",
+    "type": "registry:lib",
+    "title": "NextLink",
+    "description": "next/link's Link re-exported from a \"use client\" file, so server components can pass it as linkAs to Navbar, Sidebar, AppShell, Breadcrumb and Pagination.",
+    "category": "Navigation",
+    "files": [
+      {
+        "path": "registry/plainspoken/lib/next-link.tsx",
+        "type": "registry:lib"
+      }
+    ],
+    "examples": [],
+    "registryDependencies": [
+      "foundation"
+    ],
+    "dependencies": [],
+    "hidden": true
+  },
+  {
+    "name": "number-field",
+    "type": "registry:ui",
+    "title": "Number field",
+    "description": "A number input with square − and + buttons on the shared height scale, arrow-key steps, units and clamping to min and max.",
+    "category": "Forms",
+    "files": [
+      {
+        "path": "registry/plainspoken/ui/number-field.tsx",
+        "type": "registry:ui"
+      }
+    ],
+    "examples": [
+      "number-field-demo",
+      "number-field-sizes"
+    ],
+    "registryDependencies": [
+      "field",
+      "foundation",
+      "icon",
+      "icons",
+      "utils"
+    ],
+    "dependencies": [],
+    "hidden": false
+  },
+  {
+    "name": "pagination",
+    "type": "registry:ui",
+    "title": "Pagination",
+    "description": "Previous, page numbers and Next in one even strip, with row range and rows-per-page, as buttons or as real links; on phones it shrinks to “Page 7 of 14”.",
+    "category": "Navigation",
+    "files": [
+      {
+        "path": "registry/plainspoken/ui/pagination.tsx",
+        "type": "registry:ui"
+      }
+    ],
+    "examples": [
+      "pagination-demo",
+      "pagination-compact",
+      "pagination-links"
+    ],
+    "registryDependencies": [
+      "button",
+      "foundation",
+      "icon",
+      "icons",
+      "nav",
+      "select",
+      "utils"
+    ],
+    "dependencies": [],
+    "hidden": false
+  },
+  {
+    "name": "panel",
+    "type": "registry:ui",
+    "title": "Panel",
+    "description": "A titled, bordered box with a gray title bar for meta text and small controls, the basic unit of a dashboard; panels side by side line up.",
+    "category": "Layout",
+    "files": [
+      {
+        "path": "registry/plainspoken/ui/panel.tsx",
+        "type": "registry:ui"
+      }
+    ],
+    "examples": [
+      "panel-demo",
+      "panel-flush"
+    ],
+    "registryDependencies": [
+      "foundation",
+      "utils"
+    ],
+    "dependencies": [],
+    "hidden": false
+  },
+  {
+    "name": "popover",
+    "type": "registry:ui",
+    "title": "Popover",
+    "description": "A click-to-open panel attached to a button, for filters, short forms and details: a native popover, so Escape and a click outside close it, with focus moved in and back, an optional title bar and arrow.",
+    "category": "Overlays",
+    "files": [
+      {
+        "path": "registry/plainspoken/ui/popover.tsx",
+        "type": "registry:ui"
+      }
+    ],
+    "examples": [
+      "popover-demo",
+      "popover-info",
+      "popover-share"
+    ],
+    "registryDependencies": [
+      "button",
+      "floating",
+      "foundation",
+      "icons",
+      "position",
+      "utils"
+    ],
+    "dependencies": [],
+    "hidden": false
+  },
+  {
+    "name": "position",
+    "type": "registry:lib",
+    "title": "Position",
+    "description": "Places a floating layer next to an anchor (an element or a point): preferred side, flip when it doesn't fit, shift into the viewport, and keep it placed on scroll and resize. No dependencies.",
+    "category": "Overlays",
+    "files": [
+      {
+        "path": "registry/plainspoken/lib/position.ts",
+        "type": "registry:lib"
+      }
+    ],
+    "examples": [],
+    "registryDependencies": [
+      "foundation"
+    ],
+    "dependencies": [],
+    "hidden": true
+  },
+  {
+    "name": "progress",
+    "type": "registry:ui",
+    "title": "Progress",
+    "description": "A task's progress bar, determinate or indeterminate (still with reduced motion), and a Meter for measurements that warns past a threshold in symbol and words.",
+    "category": "Feedback",
+    "files": [
+      {
+        "path": "registry/plainspoken/ui/progress.tsx",
+        "type": "registry:ui"
+      }
+    ],
+    "examples": [
+      "progress-demo",
+      "progress-meter"
+    ],
+    "registryDependencies": [
+      "foundation",
+      "icon",
+      "icons",
+      "utils"
+    ],
+    "dependencies": [],
+    "hidden": false
+  },
+  {
+    "name": "prose",
+    "type": "registry:ui",
+    "title": "Prose",
+    "description": "Typography for long text and rendered Markdown (headings, lists, tables, code, footnotes, GitHub alerts) in three reading sizes, as one file with no CSS.",
+    "category": "Typography",
+    "files": [
+      {
+        "path": "registry/plainspoken/ui/prose.tsx",
+        "type": "registry:ui"
+      }
+    ],
+    "examples": [
+      "prose-demo",
+      "prose-sizes",
+      "prose-html"
+    ],
+    "registryDependencies": [
+      "foundation",
+      "utils"
+    ],
+    "dependencies": [],
+    "hidden": false
+  },
+  {
     "name": "radio-group",
     "type": "registry:ui",
     "title": "Radio group",
@@ -242,6 +4532,60 @@ export const registry: RegistryEntry[] = [
     ],
     "examples": [
       "radio-group-demo"
+    ],
+    "registryDependencies": [
+      "foundation",
+      "icon",
+      "icons",
+      "utils"
+    ],
+    "dependencies": [],
+    "hidden": false
+  },
+  {
+    "name": "relative-time",
+    "type": "registry:ui",
+    "title": "Relative time",
+    "description": "“3h 20m ago” that keeps itself current, hydration-safe: the server sends a fixed UTC date and the browser swaps in the relative text.",
+    "category": "Data display",
+    "files": [
+      {
+        "path": "registry/plainspoken/ui/relative-time.tsx",
+        "type": "registry:ui"
+      },
+      {
+        "path": "registry/plainspoken/lib/relative-time.ts",
+        "type": "registry:lib"
+      }
+    ],
+    "examples": [
+      "relative-time-demo",
+      "relative-time-fixed"
+    ],
+    "registryDependencies": [
+      "foundation",
+      "utils"
+    ],
+    "dependencies": [],
+    "hidden": false
+  },
+  {
+    "name": "resizable",
+    "type": "registry:ui",
+    "title": "Resizable",
+    "description": "Panels split by handles you drag or move with the keyboard, side by side or stacked, nestable: limits in percent, collapsible panels (Enter or a double-click), and layouts remembered in localStorage.",
+    "category": "Layout",
+    "files": [
+      {
+        "path": "registry/plainspoken/ui/resizable.tsx",
+        "type": "registry:ui"
+      }
+    ],
+    "examples": [
+      "resizable-demo",
+      "resizable-vertical",
+      "resizable-nested",
+      "resizable-collapsible"
     ],
     "registryDependencies": [
       "foundation",
@@ -300,6 +4644,602 @@ export const registry: RegistryEntry[] = [
     "hidden": false
   },
   {
+    "name": "separator",
+    "type": "registry:ui",
+    "title": "Separator",
+    "description": "A 1px dividing line: a horizontal rule, a labelled rule (“or”), or a vertical line for toolbars.",
+    "category": "Layout",
+    "files": [
+      {
+        "path": "registry/plainspoken/ui/separator.tsx",
+        "type": "registry:ui"
+      }
+    ],
+    "examples": [
+      "separator-demo"
+    ],
+    "registryDependencies": [
+      "foundation",
+      "utils"
+    ],
+    "dependencies": [],
+    "hidden": false
+  },
+  {
+    "name": "sidebar",
+    "type": "registry:ui",
+    "title": "Sidebar",
+    "description": "Sectioned side navigation with icons, counts read out in words, groups that open in place, a rail of icons, and a modal drawer for phones. Works with any router.",
+    "category": "Navigation",
+    "files": [
+      {
+        "path": "registry/plainspoken/ui/sidebar.tsx",
+        "type": "registry:ui"
+      }
+    ],
+    "examples": [
+      "sidebar-demo",
+      "sidebar-rail",
+      "sidebar-drawer"
+    ],
+    "registryDependencies": [
+      "button",
+      "dialog",
+      "foundation",
+      "icon",
+      "icons",
+      "nav",
+      "utils"
+    ],
+    "dependencies": [],
+    "hidden": false
+  },
+  {
+    "name": "skeleton",
+    "type": "registry:ui",
+    "title": "Skeleton",
+    "description": "Gray placeholder blocks and text lines for content still loading, hidden from screen readers, still with reduced motion.",
+    "category": "Feedback",
+    "files": [
+      {
+        "path": "registry/plainspoken/ui/skeleton.tsx",
+        "type": "registry:ui"
+      }
+    ],
+    "examples": [
+      "skeleton-demo"
+    ],
+    "registryDependencies": [
+      "foundation",
+      "utils"
+    ],
+    "dependencies": [],
+    "hidden": false
+  },
+  {
+    "name": "slider",
+    "type": "registry:ui",
+    "title": "Slider",
+    "description": "A native range input redrawn thin, with a formatted value for screen readers, marks, and a control-height box that lines up with buttons.",
+    "category": "Forms",
+    "files": [
+      {
+        "path": "registry/plainspoken/ui/slider.tsx",
+        "type": "registry:ui"
+      }
+    ],
+    "examples": [
+      "slider-demo",
+      "slider-player"
+    ],
+    "registryDependencies": [
+      "foundation",
+      "utils"
+    ],
+    "dependencies": [],
+    "hidden": false
+  },
+  {
+    "name": "social-app-shell",
+    "type": "registry:block",
+    "title": "Social app frame",
+    "description": "Three columns on wide screens (nav, a 600px page, search with trends and suggestions), one column with a bottom bar and a post button on phones, the compose dialog and toasts.",
+    "category": "Social",
+    "files": [
+      {
+        "path": "registry/plainspoken/blocks/social/app-shell.tsx",
+        "type": "registry:component",
+        "target": "components/blocks/social/app-shell.tsx"
+      }
+    ],
+    "examples": [
+      "social-app-shell-demo"
+    ],
+    "registryDependencies": [
+      "button",
+      "foundation",
+      "icons",
+      "input",
+      "social-composer",
+      "social-data",
+      "social-nav",
+      "social-trends",
+      "social-user",
+      "toast",
+      "utils"
+    ],
+    "dependencies": [],
+    "hidden": false
+  },
+  {
+    "name": "social-composer",
+    "type": "registry:block",
+    "title": "Composer",
+    "description": "Writing a post or a reply: a growing text box with a 280-character count, picture, poll, emoji, schedule and place tools, and Ctrl+Enter to post; also in a dialog, opened from anywhere with useCompose().",
+    "category": "Social",
+    "files": [
+      {
+        "path": "registry/plainspoken/blocks/social/composer.tsx",
+        "type": "registry:component",
+        "target": "components/blocks/social/composer.tsx"
+      }
+    ],
+    "examples": [
+      "social-composer-demo"
+    ],
+    "registryDependencies": [
+      "avatar",
+      "button",
+      "dialog",
+      "foundation",
+      "icons",
+      "input",
+      "popover",
+      "select",
+      "separator",
+      "social-data",
+      "social-media",
+      "social-post",
+      "textarea",
+      "toast",
+      "tooltip",
+      "utils"
+    ],
+    "dependencies": [],
+    "hidden": false
+  },
+  {
+    "name": "social-data",
+    "type": "registry:block",
+    "title": "Social data",
+    "description": "The Social demo's people and posts: about thirty invented accounts, a hundred posts with threads, quotes, polls and pictures, trends and notifications, with the lookups and the time and count formatting the social blocks share.",
+    "category": "Social",
+    "files": [
+      {
+        "path": "registry/plainspoken/blocks/social/data.ts",
+        "type": "registry:component",
+        "target": "components/blocks/social/data.ts"
+      }
+    ],
+    "examples": [],
+    "registryDependencies": [
+      "foundation"
+    ],
+    "dependencies": [],
+    "hidden": true
+  },
+  {
+    "name": "social-explore",
+    "type": "registry:block",
+    "title": "Explore",
+    "description": "A search box over trending topics, popular posts and people to follow, or, with ?q=, the matching posts and people.",
+    "category": "Social",
+    "files": [
+      {
+        "path": "registry/plainspoken/blocks/social/explore.tsx",
+        "type": "registry:component",
+        "target": "components/blocks/social/explore.tsx"
+      }
+    ],
+    "examples": [
+      "social-explore-demo"
+    ],
+    "registryDependencies": [
+      "empty-state",
+      "foundation",
+      "icons",
+      "social-app-shell",
+      "social-composer",
+      "social-data",
+      "social-post",
+      "social-trends",
+      "social-user",
+      "tabs"
+    ],
+    "dependencies": [],
+    "hidden": false
+  },
+  {
+    "name": "social-media",
+    "type": "registry:block",
+    "title": "Generated pictures",
+    "description": "Pictures for posts and profile banners generated from a seed (sky, sun, then hills, a skyline or the sea), each post picture with its alt text and an ALT mark.",
+    "category": "Social",
+    "files": [
+      {
+        "path": "registry/plainspoken/blocks/social/media.tsx",
+        "type": "registry:component",
+        "target": "components/blocks/social/media.tsx"
+      }
+    ],
+    "examples": [
+      "social-media-demo"
+    ],
+    "registryDependencies": [
+      "foundation",
+      "utils"
+    ],
+    "dependencies": [],
+    "hidden": false
+  },
+  {
+    "name": "social-nav",
+    "type": "registry:block",
+    "title": "Social navigation",
+    "description": "The microblog's left column (a rail of icons on medium screens) with a big Post button and your account menu, the phone's bottom bar, and the sticky page header.",
+    "category": "Social",
+    "files": [
+      {
+        "path": "registry/plainspoken/blocks/social/nav.tsx",
+        "type": "registry:component",
+        "target": "components/blocks/social/nav.tsx"
+      }
+    ],
+    "examples": [
+      "social-nav-demo"
+    ],
+    "registryDependencies": [
+      "avatar",
+      "button",
+      "dropdown-menu",
+      "foundation",
+      "icon",
+      "icons",
+      "sidebar",
+      "social-composer",
+      "social-data",
+      "toast",
+      "utils"
+    ],
+    "dependencies": [],
+    "hidden": false
+  },
+  {
+    "name": "social-notifications",
+    "type": "registry:block",
+    "title": "Notifications",
+    "description": "Notifications in All and Mentions tabs, grouped by day: likes and reposts bundled with an avatar group, follows, and mentions and replies as posts.",
+    "category": "Social",
+    "files": [
+      {
+        "path": "registry/plainspoken/blocks/social/notifications.tsx",
+        "type": "registry:component",
+        "target": "components/blocks/social/notifications.tsx"
+      }
+    ],
+    "examples": [
+      "social-notifications-demo"
+    ],
+    "registryDependencies": [
+      "avatar",
+      "button",
+      "empty-state",
+      "foundation",
+      "icon",
+      "icons",
+      "social-composer",
+      "social-data",
+      "social-post",
+      "tabs",
+      "toast",
+      "utils"
+    ],
+    "dependencies": [],
+    "hidden": false
+  },
+  {
+    "name": "social-post",
+    "type": "registry:block",
+    "title": "Post",
+    "description": "A post: avatar, name with hover card, handle and time, text with live #tags, @mentions and links, a picture, poll or quoted post, and reply, repost, like, views, bookmark and share, plus a ⋯ menu. Also the post at full size for its own page.",
+    "category": "Social",
+    "files": [
+      {
+        "path": "registry/plainspoken/blocks/social/post.tsx",
+        "type": "registry:component",
+        "target": "components/blocks/social/post.tsx"
+      }
+    ],
+    "examples": [
+      "social-post-demo",
+      "social-post-polls"
+    ],
+    "registryDependencies": [
+      "avatar",
+      "button",
+      "dropdown-menu",
+      "foundation",
+      "icon",
+      "icons",
+      "progress",
+      "social-data",
+      "social-media",
+      "social-user",
+      "text-link",
+      "toast",
+      "toggle",
+      "tooltip",
+      "utils"
+    ],
+    "dependencies": [],
+    "hidden": false
+  },
+  {
+    "name": "social-profile",
+    "type": "registry:block",
+    "title": "Profile",
+    "description": "A profile's header (banner, picture, name, bio with links, place, website, joined, counts, follow or edit) and its Posts, Replies, Media and Likes tabs.",
+    "category": "Social",
+    "files": [
+      {
+        "path": "registry/plainspoken/blocks/social/profile.tsx",
+        "type": "registry:component",
+        "target": "components/blocks/social/profile.tsx"
+      }
+    ],
+    "examples": [
+      "social-profile-demo",
+      "social-profile-own"
+    ],
+    "registryDependencies": [
+      "avatar",
+      "badge",
+      "button",
+      "dialog",
+      "dropdown-menu",
+      "empty-state",
+      "field",
+      "foundation",
+      "icon",
+      "icons",
+      "input",
+      "social-composer",
+      "social-data",
+      "social-media",
+      "social-post",
+      "social-user",
+      "tabs",
+      "text-link",
+      "textarea",
+      "toast",
+      "toggle"
+    ],
+    "dependencies": [],
+    "hidden": false
+  },
+  {
+    "name": "social-thread",
+    "type": "registry:block",
+    "title": "Thread",
+    "description": "A post's page: the conversation above it joined by a line, the post at full size with its counts, a reply box, and the replies with their first answers.",
+    "category": "Social",
+    "files": [
+      {
+        "path": "registry/plainspoken/blocks/social/thread.tsx",
+        "type": "registry:component",
+        "target": "components/blocks/social/thread.tsx"
+      }
+    ],
+    "examples": [
+      "social-thread-demo"
+    ],
+    "registryDependencies": [
+      "empty-state",
+      "foundation",
+      "icons",
+      "separator",
+      "social-composer",
+      "social-data",
+      "social-post"
+    ],
+    "dependencies": [],
+    "hidden": false
+  },
+  {
+    "name": "social-timeline",
+    "type": "registry:block",
+    "title": "Timeline",
+    "description": "The home timeline: For you and Following tabs that stay at the top, the composer, and the posts.",
+    "category": "Social",
+    "files": [
+      {
+        "path": "registry/plainspoken/blocks/social/timeline.tsx",
+        "type": "registry:component",
+        "target": "components/blocks/social/timeline.tsx"
+      }
+    ],
+    "examples": [
+      "social-timeline-demo"
+    ],
+    "registryDependencies": [
+      "empty-state",
+      "foundation",
+      "icons",
+      "social-composer",
+      "social-data",
+      "social-post",
+      "tabs"
+    ],
+    "dependencies": [],
+    "hidden": false
+  },
+  {
+    "name": "social-trends",
+    "type": "registry:block",
+    "title": "Trends",
+    "description": "What's trending: category, topic linked to a search, and post counts, with a menu to hide each; as a numbered list or a side panel.",
+    "category": "Social",
+    "files": [
+      {
+        "path": "registry/plainspoken/blocks/social/trends.tsx",
+        "type": "registry:component",
+        "target": "components/blocks/social/trends.tsx"
+      }
+    ],
+    "examples": [
+      "social-trends-demo"
+    ],
+    "registryDependencies": [
+      "dropdown-menu",
+      "foundation",
+      "icons",
+      "panel",
+      "social-data",
+      "toast",
+      "utils"
+    ],
+    "dependencies": [],
+    "hidden": false
+  },
+  {
+    "name": "social-user",
+    "type": "registry:block",
+    "title": "People",
+    "description": "A name with the person's profile in a hover card, a follow button that is a toggle, a person row for lists, and the \"Who to follow\" panel.",
+    "category": "Social",
+    "files": [
+      {
+        "path": "registry/plainspoken/blocks/social/user.tsx",
+        "type": "registry:component",
+        "target": "components/blocks/social/user.tsx"
+      }
+    ],
+    "examples": [
+      "social-user-demo"
+    ],
+    "registryDependencies": [
+      "avatar",
+      "badge",
+      "button",
+      "foundation",
+      "hover-card",
+      "icon",
+      "icons",
+      "panel",
+      "social-data",
+      "utils"
+    ],
+    "dependencies": [],
+    "hidden": false
+  },
+  {
+    "name": "sparkline",
+    "type": "registry:ui",
+    "title": "Sparkline",
+    "description": "A word-sized line or bar chart for stats and table cells, with an accessible name that says the first, last, low and high values; renders on the server.",
+    "category": "Charts",
+    "files": [
+      {
+        "path": "registry/plainspoken/ui/sparkline.tsx",
+        "type": "registry:ui"
+      }
+    ],
+    "examples": [
+      "sparkline-demo",
+      "sparkline-table"
+    ],
+    "registryDependencies": [
+      "foundation",
+      "utils"
+    ],
+    "dependencies": [],
+    "hidden": false
+  },
+  {
+    "name": "spinner",
+    "type": "registry:ui",
+    "title": "Spinner",
+    "description": "The turning loading mark a loading Button shows, sized from the text, announced politely, and still with reduced motion.",
+    "category": "Feedback",
+    "files": [
+      {
+        "path": "registry/plainspoken/ui/spinner.tsx",
+        "type": "registry:ui"
+      }
+    ],
+    "examples": [
+      "spinner-demo"
+    ],
+    "registryDependencies": [
+      "foundation",
+      "icon",
+      "icons",
+      "utils"
+    ],
+    "dependencies": [],
+    "hidden": false
+  },
+  {
+    "name": "stat",
+    "type": "registry:ui",
+    "title": "Stat",
+    "description": "A headline number with its label and how it moved, said in words and an arrow as well as colour, with a slot for a sparkline; StatGroup lines them up.",
+    "category": "Data display",
+    "files": [
+      {
+        "path": "registry/plainspoken/ui/stat.tsx",
+        "type": "registry:ui"
+      }
+    ],
+    "examples": [
+      "stat-demo",
+      "stat-sparkline"
+    ],
+    "registryDependencies": [
+      "foundation",
+      "icon",
+      "icons",
+      "utils"
+    ],
+    "dependencies": [],
+    "hidden": false
+  },
+  {
+    "name": "status",
+    "type": "registry:ui",
+    "title": "Status",
+    "description": "A state as coloured words with a symbol, quieter than a badge, for lists and table cells; plus a one-line error box.",
+    "category": "Feedback",
+    "files": [
+      {
+        "path": "registry/plainspoken/ui/status.tsx",
+        "type": "registry:ui"
+      }
+    ],
+    "examples": [
+      "status-demo",
+      "status-error-line"
+    ],
+    "registryDependencies": [
+      "foundation",
+      "icon",
+      "icons",
+      "utils"
+    ],
+    "dependencies": [],
+    "hidden": false
+  },
+  {
     "name": "switch",
     "type": "registry:ui",
     "title": "Switch",
@@ -316,6 +5256,78 @@ export const registry: RegistryEntry[] = [
     ],
     "registryDependencies": [
       "foundation",
+      "utils"
+    ],
+    "dependencies": [],
+    "hidden": false
+  },
+  {
+    "name": "table",
+    "type": "registry:ui",
+    "title": "Table",
+    "description": "Plain HTML tables, styled: bordered cells, a gray header, right-aligned tabular numbers under left-aligned headers, three densities, and a SimpleTable from columns and rows.",
+    "category": "Data display",
+    "files": [
+      {
+        "path": "registry/plainspoken/ui/table.tsx",
+        "type": "registry:ui"
+      }
+    ],
+    "examples": [
+      "table-demo",
+      "table-density",
+      "table-simple"
+    ],
+    "registryDependencies": [
+      "foundation",
+      "utils"
+    ],
+    "dependencies": [],
+    "hidden": false
+  },
+  {
+    "name": "tabs",
+    "type": "registry:ui",
+    "title": "Tabs",
+    "description": "Tabs per the ARIA pattern, boxed or plain, with counts, disabled tabs, a strip that scrolls sideways, and a bold selected label that shifts nothing.",
+    "category": "Navigation",
+    "files": [
+      {
+        "path": "registry/plainspoken/ui/tabs.tsx",
+        "type": "registry:ui"
+      }
+    ],
+    "examples": [
+      "tabs-demo",
+      "tabs-plain"
+    ],
+    "registryDependencies": [
+      "foundation",
+      "utils"
+    ],
+    "dependencies": [],
+    "hidden": false
+  },
+  {
+    "name": "text-link",
+    "type": "registry:ui",
+    "title": "Text link",
+    "description": "A link in running text that looks like one, with an external-link mark option, and linkVariants() for your router's link.",
+    "category": "Typography",
+    "files": [
+      {
+        "path": "registry/plainspoken/ui/text-link.tsx",
+        "type": "registry:ui"
+      }
+    ],
+    "examples": [
+      "text-link-demo",
+      "text-link-router"
+    ],
+    "registryDependencies": [
+      "foundation",
+      "icon",
+      "icons",
       "utils"
     ],
     "dependencies": [],
@@ -353,6 +5365,139 @@ export const registry: RegistryEntry[] = [
     "files": [],
     "examples": [],
     "registryDependencies": [],
+    "dependencies": [],
+    "hidden": true
+  },
+  {
+    "name": "toast",
+    "type": "registry:ui",
+    "title": "Toast",
+    "description": "Short-lived notifications from a toast() call anywhere, with an action such as Undo, timers that pause while you read, and a keyboard shortcut to reach them.",
+    "category": "Feedback",
+    "files": [
+      {
+        "path": "registry/plainspoken/ui/toast.tsx",
+        "type": "registry:ui"
+      }
+    ],
+    "examples": [
+      "toast-demo"
+    ],
+    "registryDependencies": [
+      "button",
+      "foundation",
+      "icon",
+      "icons",
+      "utils"
+    ],
+    "dependencies": [],
+    "hidden": false
+  },
+  {
+    "name": "toggle",
+    "type": "registry:ui",
+    "title": "Toggle",
+    "description": "A button that stays pressed (aria-pressed) on the shared height scale, with Button's variants and an icon per state, plus single and multiple ToggleGroups.",
+    "category": "Controls",
+    "files": [
+      {
+        "path": "registry/plainspoken/ui/toggle.tsx",
+        "type": "registry:ui"
+      }
+    ],
+    "examples": [
+      "toggle-demo",
+      "toggle-group",
+      "toggle-player"
+    ],
+    "registryDependencies": [
+      "button",
+      "foundation",
+      "icon",
+      "utils"
+    ],
+    "dependencies": [],
+    "hidden": false
+  },
+  {
+    "name": "tooltip",
+    "type": "registry:ui",
+    "title": "Tooltip",
+    "description": "A short hint on hover or keyboard focus, after a delay and then at once for the next one; it can be hovered and dismissed with Escape (WCAG 1.4.13), and never opens from touch.",
+    "category": "Overlays",
+    "files": [
+      {
+        "path": "registry/plainspoken/ui/tooltip.tsx",
+        "type": "registry:ui"
+      }
+    ],
+    "examples": [
+      "tooltip-demo",
+      "tooltip-in-text",
+      "tooltip-disabled"
+    ],
+    "registryDependencies": [
+      "floating",
+      "foundation",
+      "position"
+    ],
+    "dependencies": [],
+    "hidden": false
+  },
+  {
+    "name": "use-element-width",
+    "type": "registry:hook",
+    "title": "useElementWidth",
+    "description": "An element's width, kept current with a ResizeObserver, and 0 on the server so charts that wait for it can't cause a hydration mismatch.",
+    "category": "Charts",
+    "files": [
+      {
+        "path": "registry/plainspoken/hooks/use-element-width.ts",
+        "type": "registry:hook"
+      }
+    ],
+    "examples": [],
+    "registryDependencies": [
+      "foundation"
+    ],
+    "dependencies": [],
+    "hidden": true
+  },
+  {
+    "name": "use-media-query",
+    "type": "registry:hook",
+    "title": "useMediaQuery",
+    "description": "Whether a media query matches, kept current as the window changes, with a fixed value on the server so it never causes a hydration mismatch.",
+    "category": "Layout",
+    "files": [
+      {
+        "path": "registry/plainspoken/hooks/use-media-query.ts",
+        "type": "registry:hook"
+      }
+    ],
+    "examples": [],
+    "registryDependencies": [
+      "foundation"
+    ],
+    "dependencies": [],
+    "hidden": true
+  },
+  {
+    "name": "use-stored-state",
+    "type": "registry:hook",
+    "title": "useStoredState",
+    "description": "useState remembered in localStorage, hydration-safe and kept in step across components and tabs.",
+    "category": "Layout",
+    "files": [
+      {
+        "path": "registry/plainspoken/hooks/use-stored-state.ts",
+        "type": "registry:hook"
+      }
+    ],
+    "examples": [],
+    "registryDependencies": [
+      "foundation"
+    ],
     "dependencies": [],
     "hidden": true
   }
