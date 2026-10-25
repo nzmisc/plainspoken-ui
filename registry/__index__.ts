@@ -2064,7 +2064,7 @@ export const registry: RegistryEntry[] = [
     "name": "donut-chart",
     "type": "registry:ui",
     "title": "Donut chart",
-    "description": "A ring of parts of a whole with a gap between parts, a number in the hole, and a legend of values and shares; renders on the server.",
+    "description": "A ring of parts of a whole, edge to edge, with a number in the hole, and a legend of values and shares; renders on the server.",
     "category": "Charts",
     "files": [
       {

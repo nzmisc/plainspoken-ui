@@ -66,7 +66,7 @@ export const WithLegend: Story = {
   },
 };
 
-/** Five parts, a tiny one among them: every part keeps at least a sliver, with 2px gaps between. */
+/** Five parts, a tiny one among them: every part keeps at least a sliver, and the parts meet edge to edge. */
 export const FiveParts: Story = {
   args: {
     label: "Disk use by folder",

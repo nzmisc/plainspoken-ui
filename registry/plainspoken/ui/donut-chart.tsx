@@ -28,11 +28,14 @@ export interface DonutChartProps {
   className?: string;
 }
 
-/** Gap between parts, in px along the ring: the background shows through, so no outline is needed. */
-const GAP = 2;
+/**
+ * How far each part runs on under the next, in px along the ring. Parts meet edge to edge with no
+ * gap; without the overlap, anti-aliasing would leave a hairline of background at every seam.
+ */
+const OVERLAP = 0.75;
 
 /**
- * A ring split into parts of a whole, drawn clockwise from 12 o'clock in segment order. For a
+ * A ring split into parts of a whole, edge to edge, drawn clockwise from 12 o'clock in segment order. For a
  * share at a glance (a quota used, invoices by status) with at most about six parts; to compare
  * close values use a bar chart. With three or more parts the legend writes out each part's value
  * and share for everyone, so no part is told by colour alone; without the legend, screen readers
@@ -45,7 +48,7 @@ export function DonutChart({ segments, label, size = 96, thickness = 14, format 
   const parts = segments.map((s, i) => ({ ...s, color: s.color ?? CHART_COLORS[i % CHART_COLORS.length] }));
   const total = parts.reduce((a, s) => a + Math.max(0, s.value), 0);
   const drawn = parts.filter((s) => s.value > 0);
-  const gap = drawn.length > 1 ? GAP : 0;
+  const overlap = drawn.length > 1 ? OVERLAP : 0;
   const share = (v: number) => {
     if (!total) return "–";
     const pct = (Math.max(0, v) / total) * 100;
@@ -59,27 +62,30 @@ export function DonutChart({ segments, label, size = 96, thickness = 14, format 
         <svg width={size} height={size} aria-hidden className="block -rotate-90">
           <circle cx={size / 2} cy={size / 2} r={r} fill="none" stroke="var(--accent)" strokeWidth={thickness} opacity={total ? 0 : 1} />
           {total > 0 &&
-            drawn.map((s) => {
-              const len = (s.value / total) * c;
-              const el = (
-                <circle
-                  key={s.key}
-                  cx={size / 2}
-                  cy={size / 2}
-                  r={r}
-                  fill="none"
-                  stroke={s.color}
-                  strokeWidth={thickness}
-                  // A tiny part still shows as a sliver, drawn under the next part
-                  strokeDasharray={`${Math.max(1.5, len - gap)} ${c}`}
-                  strokeDashoffset={-offset}
-                >
-                  <title>{`${s.label}: ${format(s.value)} (${share(s.value)})`}</title>
-                </circle>
-              );
-              offset += len;
-              return el;
-            })}
+            drawn
+              .map((s) => {
+                const len = (s.value / total) * c;
+                const el = (
+                  <circle
+                    key={s.key}
+                    cx={size / 2}
+                    cy={size / 2}
+                    r={r}
+                    fill="none"
+                    stroke={s.color}
+                    strokeWidth={thickness}
+                    // A tiny part still shows as a sliver, over the start of the next part
+                    strokeDasharray={`${Math.max(1.5, len) + overlap} ${c}`}
+                    strokeDashoffset={-offset}
+                  >
+                    <title>{`${s.label}: ${format(s.value)} (${share(s.value)})`}</title>
+                  </circle>
+                );
+                offset += len;
+                return el;
+              })
+              // Drawn last part first, so each part lies over the one after it
+              .reverse()}
         </svg>
         {children != null && (
           <div aria-hidden className="absolute inset-0 flex flex-col items-center justify-center text-center leading-tight">
