@@ -1,0 +1,9 @@
+{
+  "name": "relative-time",
+  "type": "registry:ui",
+  "title": "Relative time",
+  "description": "“3h 20m ago” that keeps itself current, hydration-safe: the server sends a fixed UTC date and the browser swaps in the relative text.",
+  "category": "Data display",
+  "files": ["ui/relative-time.tsx", "lib/relative-time.ts"],
+  "examples": ["relative-time-demo", "relative-time-fixed"]
+}

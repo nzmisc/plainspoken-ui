@@ -1,0 +1,9 @@
+{
+  "name": "spinner",
+  "type": "registry:ui",
+  "title": "Spinner",
+  "description": "The turning loading mark a loading Button shows, sized from the text, announced politely, and still with reduced motion.",
+  "category": "Feedback",
+  "files": ["ui/spinner.tsx"],
+  "examples": ["spinner-demo"]
+}

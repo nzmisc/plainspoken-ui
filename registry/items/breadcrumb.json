@@ -1,0 +1,9 @@
+{
+  "name": "breadcrumb",
+  "type": "registry:ui",
+  "title": "Breadcrumb",
+  "description": "Where the page sits in a hierarchy, with long trails folding into a “…” button and links drawn by your router's link component if you like.",
+  "category": "Navigation",
+  "files": ["ui/breadcrumb.tsx"],
+  "examples": ["breadcrumb-demo", "breadcrumb-long"]
+}

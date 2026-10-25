@@ -1,0 +1,9 @@
+{
+  "name": "kbd",
+  "type": "registry:ui",
+  "title": "Kbd",
+  "description": "A key or key combination drawn as keycaps, as nested <kbd> elements the way HTML marks up shortcuts.",
+  "category": "Typography",
+  "files": ["ui/kbd.tsx"],
+  "examples": ["kbd-demo"]
+}

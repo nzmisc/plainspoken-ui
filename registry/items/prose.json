@@ -1,0 +1,9 @@
+{
+  "name": "prose",
+  "type": "registry:ui",
+  "title": "Prose",
+  "description": "Typography for long text and rendered Markdown (headings, lists, tables, code, footnotes, GitHub alerts) in three reading sizes, as one file with no CSS.",
+  "category": "Typography",
+  "files": ["ui/prose.tsx"],
+  "examples": ["prose-demo", "prose-sizes", "prose-html"]
+}

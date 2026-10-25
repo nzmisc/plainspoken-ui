@@ -1,0 +1,9 @@
+{
+  "name": "toggle",
+  "type": "registry:ui",
+  "title": "Toggle",
+  "description": "A button that stays pressed (aria-pressed) on the shared height scale, with Button's variants and an icon per state, plus single and multiple ToggleGroups.",
+  "category": "Controls",
+  "files": ["ui/toggle.tsx"],
+  "examples": ["toggle-demo", "toggle-group", "toggle-player"]
+}

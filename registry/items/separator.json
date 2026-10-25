@@ -1,0 +1,9 @@
+{
+  "name": "separator",
+  "type": "registry:ui",
+  "title": "Separator",
+  "description": "A 1px dividing line: a horizontal rule, a labelled rule (“or”), or a vertical line for toolbars.",
+  "category": "Layout",
+  "files": ["ui/separator.tsx"],
+  "examples": ["separator-demo"]
+}

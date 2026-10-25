@@ -1,0 +1,9 @@
+{
+  "name": "number-field",
+  "type": "registry:ui",
+  "title": "Number field",
+  "description": "A number input with square − and + buttons on the shared height scale, arrow-key steps, units and clamping to min and max.",
+  "category": "Forms",
+  "files": ["ui/number-field.tsx"],
+  "examples": ["number-field-demo", "number-field-sizes"]
+}

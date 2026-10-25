@@ -1,0 +1,9 @@
+{
+  "name": "stat",
+  "type": "registry:ui",
+  "title": "Stat",
+  "description": "A headline number with its label and how it moved, said in words and an arrow as well as colour, with a slot for a sparkline; StatGroup lines them up.",
+  "category": "Data display",
+  "files": ["ui/stat.tsx"],
+  "examples": ["stat-demo", "stat-sparkline"]
+}

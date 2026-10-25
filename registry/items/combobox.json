@@ -1,0 +1,9 @@
+{
+  "name": "combobox",
+  "type": "registry:ui",
+  "title": "Combobox",
+  "description": "Pick one option from a long list by typing to filter it, following the ARIA combobox pattern, on the shared height scale and wired to Field.",
+  "category": "Forms",
+  "files": ["ui/combobox.tsx"],
+  "examples": ["combobox-demo", "combobox-hints"]
+}

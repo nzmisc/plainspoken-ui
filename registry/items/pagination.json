@@ -1,0 +1,9 @@
+{
+  "name": "pagination",
+  "type": "registry:ui",
+  "title": "Pagination",
+  "description": "Previous, page numbers and Next in one even strip, with row range and rows-per-page, as buttons or as real links; on phones it shrinks to “Page 7 of 14”.",
+  "category": "Navigation",
+  "files": ["ui/pagination.tsx"],
+  "examples": ["pagination-demo", "pagination-compact", "pagination-links"]
+}

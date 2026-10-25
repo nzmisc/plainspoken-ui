@@ -1,0 +1,9 @@
+{
+  "name": "card",
+  "type": "registry:ui",
+  "title": "Card",
+  "description": "A square bordered box for one piece of content, with header, title, description, action, content and a ruled-off footer.",
+  "category": "Layout",
+  "files": ["ui/card.tsx"],
+  "examples": ["card-demo", "card-grid"]
+}

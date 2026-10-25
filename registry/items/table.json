@@ -1,0 +1,9 @@
+{
+  "name": "table",
+  "type": "registry:ui",
+  "title": "Table",
+  "description": "Plain HTML tables, styled: bordered cells, a gray header, right-aligned tabular numbers under left-aligned headers, three densities, and a SimpleTable from columns and rows.",
+  "category": "Data display",
+  "files": ["ui/table.tsx"],
+  "examples": ["table-demo", "table-density", "table-simple"]
+}
