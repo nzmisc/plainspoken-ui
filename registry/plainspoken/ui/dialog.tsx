@@ -92,8 +92,11 @@ export function useModal({ open, onClose, busy = false, dismissOnBackdrop = true
     onClose: () => {
       // The browser can force a close (a second Escape with no click in between, a back
       // gesture). While busy, open it again; otherwise let the state follow.
+      // The close event is queued, so the dialog can be open again by the time it arrives: a
+      // dialog mounted open under StrictMode is closed by the effect's cleanup and reopened at
+      // once. That close is stale; ignore it.
       const l = latest.current;
-      if (!l.open) return;
+      if (!l.open || ref.current?.open) return;
       if (l.busy) ref.current?.showModal();
       else l.onClose("escape");
     },
