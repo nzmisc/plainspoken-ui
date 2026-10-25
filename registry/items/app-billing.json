@@ -1,0 +1,13 @@
+{
+  "name": "app-billing",
+  "type": "registry:block",
+  "title": "Billing",
+  "description": "Plans as cards with the current one marked, usage meters, the card on file and past bills.",
+  "category": "App skeleton",
+  "files": [
+    "blocks/app/billing.tsx"
+  ],
+  "examples": [
+    "app-billing-demo"
+  ]
+}

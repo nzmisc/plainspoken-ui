@@ -1,0 +1,13 @@
+{
+  "name": "mail-list-toolbar",
+  "type": "registry:block",
+  "title": "List toolbar",
+  "description": "The strip over a message list: a select-all box with its part-ticked state, the count, and the bulk actions once something is ticked.",
+  "category": "Mail",
+  "files": [
+    "blocks/mail/list-toolbar.tsx"
+  ],
+  "examples": [
+    "mail-list-toolbar-demo"
+  ]
+}

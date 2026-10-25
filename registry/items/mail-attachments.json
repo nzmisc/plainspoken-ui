@@ -1,0 +1,13 @@
+{
+  "name": "mail-attachments",
+  "type": "registry:block",
+  "title": "Attachments",
+  "description": "A message's files as chips with a thumbnail or a file symbol, name and size, opening a preview dialog; with a × each in the compose box.",
+  "category": "Mail",
+  "files": [
+    "blocks/mail/attachments.tsx"
+  ],
+  "examples": [
+    "mail-attachments-demo"
+  ]
+}

@@ -1,0 +1,13 @@
+{
+  "name": "app-notification-settings",
+  "type": "registry:block",
+  "title": "Notification settings",
+  "description": "Email switches that apply at once, and customer reminders as checkboxes and a time, saved with a button.",
+  "category": "App skeleton",
+  "files": [
+    "blocks/app/notification-settings.tsx"
+  ],
+  "examples": [
+    "app-notification-settings-demo"
+  ]
+}

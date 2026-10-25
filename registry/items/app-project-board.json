@@ -1,0 +1,13 @@
+{
+  "name": "app-project-board",
+  "type": "registry:block",
+  "title": "Project board",
+  "description": "Projects in columns by stage, or as a list, switched with a segmented control.",
+  "category": "App skeleton",
+  "files": [
+    "blocks/app/project-board.tsx"
+  ],
+  "examples": [
+    "app-project-board-demo"
+  ]
+}

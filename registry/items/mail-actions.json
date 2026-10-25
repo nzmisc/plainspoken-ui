@@ -1,0 +1,14 @@
+{
+  "name": "mail-actions",
+  "type": "registry:block",
+  "title": "Conversation actions",
+  "description": "Archive, delete, mark read, and Snooze, Move and Label menus (labels as checkboxes), with words or icons only, changing with the folder.",
+  "category": "Mail",
+  "files": [
+    "blocks/mail/actions.tsx"
+  ],
+  "examples": [
+    "mail-actions-demo",
+    "mail-actions-folders"
+  ]
+}

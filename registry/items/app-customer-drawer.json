@@ -1,0 +1,13 @@
+{
+  "name": "app-customer-drawer",
+  "type": "registry:block",
+  "title": "Customer drawer",
+  "description": "A customer at a glance in a drawer: state, what they owe, contact details, latest invoices and the team's note.",
+  "category": "App skeleton",
+  "files": [
+    "blocks/app/customer-drawer.tsx"
+  ],
+  "examples": [
+    "app-customer-drawer-demo"
+  ]
+}

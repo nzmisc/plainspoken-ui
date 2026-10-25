@@ -1,0 +1,13 @@
+{
+  "name": "mail-app",
+  "type": "registry:block",
+  "title": "Mail app",
+  "description": "The whole three-pane mail client: folders and labels in an app shell, a resizable message list and reading pane, compose and shortcuts dialogs, one pane at a time on phones.",
+  "category": "Mail",
+  "files": [
+    "blocks/mail/mail-app.tsx"
+  ],
+  "examples": [
+    "mail-app-demo"
+  ]
+}

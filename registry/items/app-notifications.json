@@ -1,0 +1,13 @@
+{
+  "name": "app-notifications",
+  "type": "registry:block",
+  "title": "Notifications",
+  "description": "A bell with an unread mark that opens a popover of payments, overdue invoices, comments and invites, each with how long ago.",
+  "category": "App skeleton",
+  "files": [
+    "blocks/app/notifications.tsx"
+  ],
+  "examples": [
+    "app-notifications-demo"
+  ]
+}

@@ -1,0 +1,13 @@
+{
+  "name": "app-project-card",
+  "type": "registry:block",
+  "title": "Project card",
+  "description": "A project as a card: customer, a menu, tasks as a progress bar, budget as a meter that warns, due date, team and priority.",
+  "category": "App skeleton",
+  "files": [
+    "blocks/app/project-card.tsx"
+  ],
+  "examples": [
+    "app-project-card-demo"
+  ]
+}

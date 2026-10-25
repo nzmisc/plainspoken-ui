@@ -1,0 +1,13 @@
+{
+  "name": "app-page-header",
+  "type": "registry:block",
+  "title": "Page header",
+  "description": "The top of an app page: breadcrumb, a title with a badge, a line of description and the page's buttons; and the padded column pages sit in.",
+  "category": "App skeleton",
+  "files": [
+    "blocks/app/page-header.tsx"
+  ],
+  "examples": [
+    "app-page-header-demo"
+  ]
+}

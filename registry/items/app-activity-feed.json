@@ -1,0 +1,13 @@
+{
+  "name": "app-activity-feed",
+  "type": "registry:block",
+  "title": "Activity feed",
+  "description": "Who did what to which invoice, project or customer, with links and how long ago, in a panel.",
+  "category": "App skeleton",
+  "files": [
+    "blocks/app/activity-feed.tsx"
+  ],
+  "examples": [
+    "app-activity-feed-demo"
+  ]
+}

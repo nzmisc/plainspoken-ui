@@ -1,0 +1,13 @@
+{
+  "name": "app-revenue-chart",
+  "type": "registry:block",
+  "title": "Revenue chart",
+  "description": "Invoiced against paid by month for a year: a two-line chart in a panel, with a legend giving the latest month.",
+  "category": "App skeleton",
+  "files": [
+    "blocks/app/revenue-chart.tsx"
+  ],
+  "examples": [
+    "app-revenue-chart-demo"
+  ]
+}

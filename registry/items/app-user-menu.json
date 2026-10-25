@@ -1,0 +1,13 @@
+{
+  "name": "app-user-menu",
+  "type": "registry:block",
+  "title": "Account menu",
+  "description": "The avatar at the end of the top bar and its menu: who is signed in, profile, team, billing, docs and sign out.",
+  "category": "App skeleton",
+  "files": [
+    "blocks/app/user-menu.tsx"
+  ],
+  "examples": [
+    "app-user-menu-demo"
+  ]
+}

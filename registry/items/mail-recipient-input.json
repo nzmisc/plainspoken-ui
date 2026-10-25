@@ -1,0 +1,13 @@
+{
+  "name": "mail-recipient-input",
+  "type": "registry:block",
+  "title": "Recipient input",
+  "description": "To and Cc as removable chips with contact suggestions (the combobox pattern), Backspace to remove, and bad addresses in red.",
+  "category": "Mail",
+  "files": [
+    "blocks/mail/recipient-input.tsx"
+  ],
+  "examples": [
+    "mail-recipient-input-demo"
+  ]
+}

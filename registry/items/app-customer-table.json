@@ -1,0 +1,13 @@
+{
+  "name": "app-customer-table",
+  "type": "registry:block",
+  "title": "Customer table",
+  "description": "Every customer in a data table with filters, sorting, column picking, selection and export; a name opens the customer's drawer.",
+  "category": "App skeleton",
+  "files": [
+    "blocks/app/customer-table.tsx"
+  ],
+  "examples": [
+    "app-customer-table-demo"
+  ]
+}

@@ -1,0 +1,13 @@
+{
+  "name": "app-new-customer",
+  "type": "registry:block",
+  "title": "New customer dialog",
+  "description": "Adding a customer in a dialog: company or person, contact details, country and currency, with labels beside the fields.",
+  "category": "App skeleton",
+  "files": [
+    "blocks/app/new-customer.tsx"
+  ],
+  "examples": [
+    "app-new-customer-demo"
+  ]
+}

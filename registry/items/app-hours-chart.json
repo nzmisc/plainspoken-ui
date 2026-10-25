@@ -1,0 +1,13 @@
+{
+  "name": "app-hours-chart",
+  "type": "registry:block",
+  "title": "Hours chart",
+  "description": "Billable and internal hours per person as a horizontal grouped bar chart in a panel.",
+  "category": "App skeleton",
+  "files": [
+    "blocks/app/hours-chart.tsx"
+  ],
+  "examples": [
+    "app-hours-chart-demo"
+  ]
+}

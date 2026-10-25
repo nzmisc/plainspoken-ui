@@ -1,0 +1,13 @@
+{
+  "name": "app-invoice-table",
+  "type": "registry:block",
+  "title": "Invoice table",
+  "description": "Invoices as a plain table: number, customer link, dates, how late, the amount in tabular figures and the state as a badge.",
+  "category": "App skeleton",
+  "files": [
+    "blocks/app/invoice-table.tsx"
+  ],
+  "examples": [
+    "app-invoice-table-demo"
+  ]
+}
