@@ -1,0 +1,9 @@
+{
+  "name": "canvas",
+  "type": "registry:ui",
+  "title": "Canvas",
+  "description": "An endless surface to pan and zoom: drag, wheel, trackpad pinch, two-finger pinch on touch, Space + drag and arrow keys, with zoom buttons, fit to screen, a dotted or lined grid, and a controlled or uncontrolled transform.",
+  "category": "Layout",
+  "files": ["ui/canvas.tsx"],
+  "examples": ["canvas-demo", "canvas-controlled"]
+}

@@ -1,0 +1,13 @@
+{
+  "name": "erd-column-dialog",
+  "type": "registry:block",
+  "title": "Column dialog",
+  "description": "Add or change a column: name with checks, a Postgres type from a list, primary key, NOT NULL, UNIQUE, identity, default and comment.",
+  "category": "ERD",
+  "files": [
+    "blocks/erd/column-dialog.tsx"
+  ],
+  "examples": [
+    "erd-column-dialog-demo"
+  ]
+}

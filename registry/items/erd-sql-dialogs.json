@@ -1,0 +1,14 @@
+{
+  "name": "erd-sql-dialogs",
+  "type": "registry:block",
+  "title": "SQL dialogs",
+  "description": "Export the schema as Postgres DDL to copy or download, and import CREATE TABLE statements with a live check that names each problem and its line.",
+  "category": "ERD",
+  "files": [
+    "blocks/erd/sql-dialogs.tsx"
+  ],
+  "examples": [
+    "erd-sql-dialogs-demo",
+    "erd-sql-dialogs-import"
+  ]
+}

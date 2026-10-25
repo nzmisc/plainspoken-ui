@@ -1697,6 +1697,70 @@
       ]
     },
     {
+      "name": "canvas-minimap",
+      "type": "registry:ui",
+      "title": "Canvas minimap",
+      "description": "The whole Canvas in small, nodes in their own colours and a frame for the part in view: drag the frame or press on the map to move there.",
+      "author": "plainspoken-ui <https://github.com/nzmisc/plainspoken-ui>",
+      "registryDependencies": [
+        "@plainspoken/canvas",
+        "@plainspoken/foundation",
+        "utils"
+      ],
+      "files": [
+        {
+          "path": "registry/plainspoken/ui/canvas-minimap.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "categories": [
+        "layout"
+      ]
+    },
+    {
+      "name": "canvas-node",
+      "type": "registry:ui",
+      "title": "Canvas node",
+      "description": "Draggable, selectable things on a Canvas: snap to the grid, Shift + click and box selection, arrow keys to move (Shift for 10×), the last selected on top, and moves announced to screen readers.",
+      "author": "plainspoken-ui <https://github.com/nzmisc/plainspoken-ui>",
+      "registryDependencies": [
+        "@plainspoken/canvas",
+        "@plainspoken/foundation",
+        "utils"
+      ],
+      "files": [
+        {
+          "path": "registry/plainspoken/ui/canvas-node.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "categories": [
+        "layout"
+      ]
+    },
+    {
+      "name": "canvas",
+      "type": "registry:ui",
+      "title": "Canvas",
+      "description": "An endless surface to pan and zoom: drag, wheel, trackpad pinch, two-finger pinch on touch, Space + drag and arrow keys, with zoom buttons, fit to screen, a dotted or lined grid, and a controlled or uncontrolled transform.",
+      "author": "plainspoken-ui <https://github.com/nzmisc/plainspoken-ui>",
+      "registryDependencies": [
+        "@plainspoken/button",
+        "@plainspoken/foundation",
+        "@plainspoken/icons",
+        "utils"
+      ],
+      "files": [
+        {
+          "path": "registry/plainspoken/ui/canvas.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "categories": [
+        "layout"
+      ]
+    },
+    {
       "name": "card",
       "type": "registry:ui",
       "title": "Card",
@@ -2995,6 +3059,411 @@
       ],
       "categories": [
         "feedback"
+      ]
+    },
+    {
+      "name": "erd-app",
+      "type": "registry:block",
+      "title": "ERD app",
+      "description": "Joinery, a whole ERD editor: table list, diagram and details panes (drawers on phones), editing with undo, layouts remembered, and SQL, SVG, PNG and JSON in and out.",
+      "author": "plainspoken-ui <https://github.com/nzmisc/plainspoken-ui>",
+      "registryDependencies": [
+        "@plainspoken/button",
+        "@plainspoken/canvas",
+        "@plainspoken/canvas-node",
+        "@plainspoken/drawer",
+        "@plainspoken/empty-state",
+        "@plainspoken/erd-data",
+        "@plainspoken/erd-diagram",
+        "@plainspoken/erd-legend",
+        "@plainspoken/erd-model",
+        "@plainspoken/erd-sql-dialogs",
+        "@plainspoken/erd-table-details",
+        "@plainspoken/erd-table-list",
+        "@plainspoken/erd-toolbar",
+        "@plainspoken/foundation",
+        "@plainspoken/icon",
+        "@plainspoken/icons",
+        "@plainspoken/toast",
+        "@plainspoken/use-stored-state",
+        "utils"
+      ],
+      "files": [
+        {
+          "path": "registry/plainspoken/blocks/erd/erd-app.tsx",
+          "type": "registry:component",
+          "target": "components/blocks/erd/erd-app.tsx"
+        }
+      ],
+      "categories": [
+        "erd"
+      ]
+    },
+    {
+      "name": "erd-column-dialog",
+      "type": "registry:block",
+      "title": "Column dialog",
+      "description": "Add or change a column: name with checks, a Postgres type from a list, primary key, NOT NULL, UNIQUE, identity, default and comment.",
+      "author": "plainspoken-ui <https://github.com/nzmisc/plainspoken-ui>",
+      "registryDependencies": [
+        "@plainspoken/button",
+        "@plainspoken/checkbox",
+        "@plainspoken/dialog",
+        "@plainspoken/erd-model",
+        "@plainspoken/field",
+        "@plainspoken/foundation",
+        "@plainspoken/icons",
+        "@plainspoken/input",
+        "@plainspoken/select",
+        "@plainspoken/textarea"
+      ],
+      "files": [
+        {
+          "path": "registry/plainspoken/blocks/erd/column-dialog.tsx",
+          "type": "registry:component",
+          "target": "components/blocks/erd/column-dialog.tsx"
+        }
+      ],
+      "categories": [
+        "erd"
+      ]
+    },
+    {
+      "name": "erd-data",
+      "type": "registry:block",
+      "title": "ERD data",
+      "description": "The demo database, harbour_goods: an invented online shop with 28 tables in four schemas, 39 foreign keys, defaults, indexes and comments.",
+      "author": "plainspoken-ui <https://github.com/nzmisc/plainspoken-ui>",
+      "registryDependencies": [
+        "@plainspoken/erd-model",
+        "@plainspoken/foundation"
+      ],
+      "files": [
+        {
+          "path": "registry/plainspoken/blocks/erd/data.ts",
+          "type": "registry:component",
+          "target": "components/blocks/erd/data.ts"
+        }
+      ],
+      "categories": [
+        "erd"
+      ]
+    },
+    {
+      "name": "erd-diagram",
+      "type": "registry:block",
+      "title": "Diagram",
+      "description": "An ERD on a pannable, zoomable canvas: draggable tables, routed relationship lines, schema frames, a minimap, highlighting on hover and selection, and new foreign keys by dragging between columns.",
+      "author": "plainspoken-ui <https://github.com/nzmisc/plainspoken-ui>",
+      "registryDependencies": [
+        "@plainspoken/button",
+        "@plainspoken/canvas",
+        "@plainspoken/canvas-minimap",
+        "@plainspoken/canvas-node",
+        "@plainspoken/empty-state",
+        "@plainspoken/erd-model",
+        "@plainspoken/erd-relation-lines",
+        "@plainspoken/erd-relation-popover",
+        "@plainspoken/erd-table-node",
+        "@plainspoken/foundation",
+        "@plainspoken/icons",
+        "@plainspoken/position",
+        "utils"
+      ],
+      "files": [
+        {
+          "path": "registry/plainspoken/blocks/erd/diagram.tsx",
+          "type": "registry:component",
+          "target": "components/blocks/erd/diagram.tsx"
+        }
+      ],
+      "categories": [
+        "erd"
+      ]
+    },
+    {
+      "name": "erd-legend",
+      "type": "registry:block",
+      "title": "Legend",
+      "description": "What the marks of a diagram mean: crow's foot ends or 1 and N labels, the column marks, and the schema colours.",
+      "author": "plainspoken-ui <https://github.com/nzmisc/plainspoken-ui>",
+      "registryDependencies": [
+        "@plainspoken/button",
+        "@plainspoken/erd-model",
+        "@plainspoken/erd-relation-lines",
+        "@plainspoken/foundation",
+        "@plainspoken/icon",
+        "@plainspoken/icons",
+        "@plainspoken/legend",
+        "utils"
+      ],
+      "files": [
+        {
+          "path": "registry/plainspoken/blocks/erd/legend.tsx",
+          "type": "registry:component",
+          "target": "components/blocks/erd/legend.tsx"
+        }
+      ],
+      "categories": [
+        "erd"
+      ]
+    },
+    {
+      "name": "erd-model",
+      "type": "registry:block",
+      "title": "ERD model",
+      "description": "The ERD's data and logic: tables, columns, relations and the edits on them, node metrics and line routing, auto-layout, Postgres DDL out and in, and SVG, PNG and JSON export.",
+      "author": "plainspoken-ui <https://github.com/nzmisc/plainspoken-ui>",
+      "registryDependencies": [
+        "@plainspoken/foundation",
+        "@plainspoken/icons"
+      ],
+      "files": [
+        {
+          "path": "registry/plainspoken/blocks/erd/model.ts",
+          "type": "registry:component",
+          "target": "components/blocks/erd/model.ts"
+        },
+        {
+          "path": "registry/plainspoken/blocks/erd/geometry.ts",
+          "type": "registry:component",
+          "target": "components/blocks/erd/geometry.ts"
+        },
+        {
+          "path": "registry/plainspoken/blocks/erd/layout.ts",
+          "type": "registry:component",
+          "target": "components/blocks/erd/layout.ts"
+        },
+        {
+          "path": "registry/plainspoken/blocks/erd/sql.ts",
+          "type": "registry:component",
+          "target": "components/blocks/erd/sql.ts"
+        },
+        {
+          "path": "registry/plainspoken/blocks/erd/export.ts",
+          "type": "registry:component",
+          "target": "components/blocks/erd/export.ts"
+        }
+      ],
+      "categories": [
+        "erd"
+      ]
+    },
+    {
+      "name": "erd-relation-dialog",
+      "type": "registry:block",
+      "title": "Relationship dialog",
+      "description": "Add a foreign key from a form: the column, the table and key it references (keys only), and the actions on delete and update.",
+      "author": "plainspoken-ui <https://github.com/nzmisc/plainspoken-ui>",
+      "registryDependencies": [
+        "@plainspoken/alert",
+        "@plainspoken/button",
+        "@plainspoken/dialog",
+        "@plainspoken/erd-model",
+        "@plainspoken/field",
+        "@plainspoken/foundation",
+        "@plainspoken/select"
+      ],
+      "files": [
+        {
+          "path": "registry/plainspoken/blocks/erd/relation-dialog.tsx",
+          "type": "registry:component",
+          "target": "components/blocks/erd/relation-dialog.tsx"
+        }
+      ],
+      "categories": [
+        "erd"
+      ]
+    },
+    {
+      "name": "erd-relation-lines",
+      "type": "registry:block",
+      "title": "Relationship lines",
+      "description": "Foreign keys as SVG lines from column row to column row, routed round tables at right angles or as curves, with crow's foot marks or 1 and N labels, highlighting and click targets.",
+      "author": "plainspoken-ui <https://github.com/nzmisc/plainspoken-ui>",
+      "registryDependencies": [
+        "@plainspoken/erd-model",
+        "@plainspoken/foundation",
+        "utils"
+      ],
+      "files": [
+        {
+          "path": "registry/plainspoken/blocks/erd/relation-lines.tsx",
+          "type": "registry:component",
+          "target": "components/blocks/erd/relation-lines.tsx"
+        }
+      ],
+      "categories": [
+        "erd"
+      ]
+    },
+    {
+      "name": "erd-relation-popover",
+      "type": "registry:block",
+      "title": "Relationship popover",
+      "description": "A relationship's details where it was clicked: its columns, the cardinality in marks and words, ON DELETE and ON UPDATE to change, and Delete.",
+      "author": "plainspoken-ui <https://github.com/nzmisc/plainspoken-ui>",
+      "registryDependencies": [
+        "@plainspoken/button",
+        "@plainspoken/erd-model",
+        "@plainspoken/erd-relation-lines",
+        "@plainspoken/floating",
+        "@plainspoken/foundation",
+        "@plainspoken/icon",
+        "@plainspoken/icons",
+        "@plainspoken/position",
+        "@plainspoken/select",
+        "utils"
+      ],
+      "files": [
+        {
+          "path": "registry/plainspoken/blocks/erd/relation-popover.tsx",
+          "type": "registry:component",
+          "target": "components/blocks/erd/relation-popover.tsx"
+        }
+      ],
+      "categories": [
+        "erd"
+      ]
+    },
+    {
+      "name": "erd-sql-dialogs",
+      "type": "registry:block",
+      "title": "SQL dialogs",
+      "description": "Export the schema as Postgres DDL to copy or download, and import CREATE TABLE statements with a live check that names each problem and its line.",
+      "author": "plainspoken-ui <https://github.com/nzmisc/plainspoken-ui>",
+      "registryDependencies": [
+        "@plainspoken/alert",
+        "@plainspoken/button",
+        "@plainspoken/copy-button",
+        "@plainspoken/dialog",
+        "@plainspoken/erd-model",
+        "@plainspoken/field",
+        "@plainspoken/foundation",
+        "@plainspoken/icons",
+        "@plainspoken/textarea"
+      ],
+      "files": [
+        {
+          "path": "registry/plainspoken/blocks/erd/sql-dialogs.tsx",
+          "type": "registry:component",
+          "target": "components/blocks/erd/sql-dialogs.tsx"
+        }
+      ],
+      "categories": [
+        "erd"
+      ]
+    },
+    {
+      "name": "erd-table-details",
+      "type": "registry:block",
+      "title": "Table details",
+      "description": "One table in full: name, schema and comment, its columns in a table with a menu each, its indexes, and the relations it makes and receives; editable.",
+      "author": "plainspoken-ui <https://github.com/nzmisc/plainspoken-ui>",
+      "registryDependencies": [
+        "@plainspoken/button",
+        "@plainspoken/dropdown-menu",
+        "@plainspoken/erd-column-dialog",
+        "@plainspoken/erd-model",
+        "@plainspoken/erd-relation-dialog",
+        "@plainspoken/field",
+        "@plainspoken/foundation",
+        "@plainspoken/icon",
+        "@plainspoken/icons",
+        "@plainspoken/input",
+        "@plainspoken/legend",
+        "@plainspoken/select",
+        "@plainspoken/table",
+        "@plainspoken/textarea",
+        "utils"
+      ],
+      "files": [
+        {
+          "path": "registry/plainspoken/blocks/erd/table-details.tsx",
+          "type": "registry:component",
+          "target": "components/blocks/erd/table-details.tsx"
+        }
+      ],
+      "categories": [
+        "erd"
+      ]
+    },
+    {
+      "name": "erd-table-list",
+      "type": "registry:block",
+      "title": "Table list",
+      "description": "Every table by schema, with a search that also finds columns; picking one is for selecting and bringing it into view.",
+      "author": "plainspoken-ui <https://github.com/nzmisc/plainspoken-ui>",
+      "registryDependencies": [
+        "@plainspoken/button",
+        "@plainspoken/erd-model",
+        "@plainspoken/foundation",
+        "@plainspoken/icons",
+        "@plainspoken/input",
+        "@plainspoken/legend",
+        "utils"
+      ],
+      "files": [
+        {
+          "path": "registry/plainspoken/blocks/erd/table-list.tsx",
+          "type": "registry:component",
+          "target": "components/blocks/erd/table-list.tsx"
+        }
+      ],
+      "categories": [
+        "erd"
+      ]
+    },
+    {
+      "name": "erd-table-node",
+      "type": "registry:block",
+      "title": "Table node",
+      "description": "One table of a diagram: a header in its schema's colour, rows with key icons, types and UQ, DEF, ID, IDX and NULL marks, comments on hover, and a fold to show only the keys.",
+      "author": "plainspoken-ui <https://github.com/nzmisc/plainspoken-ui>",
+      "registryDependencies": [
+        "@plainspoken/button",
+        "@plainspoken/erd-model",
+        "@plainspoken/foundation",
+        "@plainspoken/icon",
+        "@plainspoken/icons",
+        "utils"
+      ],
+      "files": [
+        {
+          "path": "registry/plainspoken/blocks/erd/table-node.tsx",
+          "type": "registry:component",
+          "target": "components/blocks/erd/table-node.tsx"
+        }
+      ],
+      "categories": [
+        "erd"
+      ]
+    },
+    {
+      "name": "erd-toolbar",
+      "type": "registry:block",
+      "title": "Toolbar",
+      "description": "The ERD's tools in one row: undo and redo named after what they'd do, add table, pan or select, snap, Layout and View menus, Import and Export.",
+      "author": "plainspoken-ui <https://github.com/nzmisc/plainspoken-ui>",
+      "registryDependencies": [
+        "@plainspoken/button",
+        "@plainspoken/dropdown-menu",
+        "@plainspoken/erd-model",
+        "@plainspoken/foundation",
+        "@plainspoken/icons",
+        "@plainspoken/separator",
+        "@plainspoken/toggle",
+        "utils"
+      ],
+      "files": [
+        {
+          "path": "registry/plainspoken/blocks/erd/toolbar.tsx",
+          "type": "registry:component",
+          "target": "components/blocks/erd/toolbar.tsx"
+        }
+      ],
+      "categories": [
+        "erd"
       ]
     },
     {

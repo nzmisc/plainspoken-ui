@@ -1,0 +1,13 @@
+{
+  "name": "erd-app",
+  "type": "registry:block",
+  "title": "ERD app",
+  "description": "Joinery, a whole ERD editor: table list, diagram and details panes (drawers on phones), editing with undo, layouts remembered, and SQL, SVG, PNG and JSON in and out.",
+  "category": "ERD",
+  "files": [
+    "blocks/erd/erd-app.tsx"
+  ],
+  "examples": [
+    "erd-app-demo"
+  ]
+}

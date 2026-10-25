@@ -1,0 +1,13 @@
+{
+  "name": "erd-relation-dialog",
+  "type": "registry:block",
+  "title": "Relationship dialog",
+  "description": "Add a foreign key from a form: the column, the table and key it references (keys only), and the actions on delete and update.",
+  "category": "ERD",
+  "files": [
+    "blocks/erd/relation-dialog.tsx"
+  ],
+  "examples": [
+    "erd-relation-dialog-demo"
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "name": "erd-diagram",
+  "type": "registry:block",
+  "title": "Diagram",
+  "description": "An ERD on a pannable, zoomable canvas: draggable tables, routed relationship lines, schema frames, a minimap, highlighting on hover and selection, and new foreign keys by dragging between columns.",
+  "category": "ERD",
+  "files": [
+    "blocks/erd/diagram.tsx"
+  ],
+  "examples": [
+    "erd-diagram-demo",
+    "erd-diagram-labels"
+  ]
+}

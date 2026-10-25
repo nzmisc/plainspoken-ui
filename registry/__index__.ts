@@ -1863,6 +1863,77 @@ export const registry: RegistryEntry[] = [
     "hidden": false
   },
   {
+    "name": "canvas-minimap",
+    "type": "registry:ui",
+    "title": "Canvas minimap",
+    "description": "The whole Canvas in small, nodes in their own colours and a frame for the part in view: drag the frame or press on the map to move there.",
+    "category": "Layout",
+    "files": [
+      {
+        "path": "registry/plainspoken/ui/canvas-minimap.tsx",
+        "type": "registry:ui"
+      }
+    ],
+    "examples": [
+      "canvas-minimap-demo"
+    ],
+    "registryDependencies": [
+      "canvas",
+      "foundation",
+      "utils"
+    ],
+    "dependencies": [],
+    "hidden": false
+  },
+  {
+    "name": "canvas-node",
+    "type": "registry:ui",
+    "title": "Canvas node",
+    "description": "Draggable, selectable things on a Canvas: snap to the grid, Shift + click and box selection, arrow keys to move (Shift for 10×), the last selected on top, and moves announced to screen readers.",
+    "category": "Layout",
+    "files": [
+      {
+        "path": "registry/plainspoken/ui/canvas-node.tsx",
+        "type": "registry:ui"
+      }
+    ],
+    "examples": [
+      "canvas-node-demo"
+    ],
+    "registryDependencies": [
+      "canvas",
+      "foundation",
+      "utils"
+    ],
+    "dependencies": [],
+    "hidden": false
+  },
+  {
+    "name": "canvas",
+    "type": "registry:ui",
+    "title": "Canvas",
+    "description": "An endless surface to pan and zoom: drag, wheel, trackpad pinch, two-finger pinch on touch, Space + drag and arrow keys, with zoom buttons, fit to screen, a dotted or lined grid, and a controlled or uncontrolled transform.",
+    "category": "Layout",
+    "files": [
+      {
+        "path": "registry/plainspoken/ui/canvas.tsx",
+        "type": "registry:ui"
+      }
+    ],
+    "examples": [
+      "canvas-demo",
+      "canvas-controlled"
+    ],
+    "registryDependencies": [
+      "button",
+      "foundation",
+      "icons",
+      "utils"
+    ],
+    "dependencies": [],
+    "hidden": false
+  },
+  {
     "name": "card",
     "type": "registry:ui",
     "title": "Card",
@@ -3271,6 +3342,439 @@ export const registry: RegistryEntry[] = [
       "foundation",
       "icon",
       "icons",
+      "utils"
+    ],
+    "dependencies": [],
+    "hidden": false
+  },
+  {
+    "name": "erd-app",
+    "type": "registry:block",
+    "title": "ERD app",
+    "description": "Joinery, a whole ERD editor: table list, diagram and details panes (drawers on phones), editing with undo, layouts remembered, and SQL, SVG, PNG and JSON in and out.",
+    "category": "ERD",
+    "files": [
+      {
+        "path": "registry/plainspoken/blocks/erd/erd-app.tsx",
+        "type": "registry:component",
+        "target": "components/blocks/erd/erd-app.tsx"
+      }
+    ],
+    "examples": [
+      "erd-app-demo"
+    ],
+    "registryDependencies": [
+      "button",
+      "canvas",
+      "canvas-node",
+      "drawer",
+      "empty-state",
+      "erd-data",
+      "erd-diagram",
+      "erd-legend",
+      "erd-model",
+      "erd-sql-dialogs",
+      "erd-table-details",
+      "erd-table-list",
+      "erd-toolbar",
+      "foundation",
+      "icon",
+      "icons",
+      "toast",
+      "use-stored-state",
+      "utils"
+    ],
+    "dependencies": [],
+    "hidden": false
+  },
+  {
+    "name": "erd-column-dialog",
+    "type": "registry:block",
+    "title": "Column dialog",
+    "description": "Add or change a column: name with checks, a Postgres type from a list, primary key, NOT NULL, UNIQUE, identity, default and comment.",
+    "category": "ERD",
+    "files": [
+      {
+        "path": "registry/plainspoken/blocks/erd/column-dialog.tsx",
+        "type": "registry:component",
+        "target": "components/blocks/erd/column-dialog.tsx"
+      }
+    ],
+    "examples": [
+      "erd-column-dialog-demo"
+    ],
+    "registryDependencies": [
+      "button",
+      "checkbox",
+      "dialog",
+      "erd-model",
+      "field",
+      "foundation",
+      "icons",
+      "input",
+      "select",
+      "textarea"
+    ],
+    "dependencies": [],
+    "hidden": false
+  },
+  {
+    "name": "erd-data",
+    "type": "registry:block",
+    "title": "ERD data",
+    "description": "The demo database, harbour_goods: an invented online shop with 28 tables in four schemas, 39 foreign keys, defaults, indexes and comments.",
+    "category": "ERD",
+    "files": [
+      {
+        "path": "registry/plainspoken/blocks/erd/data.ts",
+        "type": "registry:component",
+        "target": "components/blocks/erd/data.ts"
+      }
+    ],
+    "examples": [],
+    "registryDependencies": [
+      "erd-model",
+      "foundation"
+    ],
+    "dependencies": [],
+    "hidden": true
+  },
+  {
+    "name": "erd-diagram",
+    "type": "registry:block",
+    "title": "Diagram",
+    "description": "An ERD on a pannable, zoomable canvas: draggable tables, routed relationship lines, schema frames, a minimap, highlighting on hover and selection, and new foreign keys by dragging between columns.",
+    "category": "ERD",
+    "files": [
+      {
+        "path": "registry/plainspoken/blocks/erd/diagram.tsx",
+        "type": "registry:component",
+        "target": "components/blocks/erd/diagram.tsx"
+      }
+    ],
+    "examples": [
+      "erd-diagram-demo",
+      "erd-diagram-labels"
+    ],
+    "registryDependencies": [
+      "button",
+      "canvas",
+      "canvas-minimap",
+      "canvas-node",
+      "empty-state",
+      "erd-model",
+      "erd-relation-lines",
+      "erd-relation-popover",
+      "erd-table-node",
+      "foundation",
+      "icons",
+      "position",
+      "utils"
+    ],
+    "dependencies": [],
+    "hidden": false
+  },
+  {
+    "name": "erd-legend",
+    "type": "registry:block",
+    "title": "Legend",
+    "description": "What the marks of a diagram mean: crow's foot ends or 1 and N labels, the column marks, and the schema colours.",
+    "category": "ERD",
+    "files": [
+      {
+        "path": "registry/plainspoken/blocks/erd/legend.tsx",
+        "type": "registry:component",
+        "target": "components/blocks/erd/legend.tsx"
+      }
+    ],
+    "examples": [
+      "erd-legend-demo"
+    ],
+    "registryDependencies": [
+      "button",
+      "erd-model",
+      "erd-relation-lines",
+      "foundation",
+      "icon",
+      "icons",
+      "legend",
+      "utils"
+    ],
+    "dependencies": [],
+    "hidden": false
+  },
+  {
+    "name": "erd-model",
+    "type": "registry:block",
+    "title": "ERD model",
+    "description": "The ERD's data and logic: tables, columns, relations and the edits on them, node metrics and line routing, auto-layout, Postgres DDL out and in, and SVG, PNG and JSON export.",
+    "category": "ERD",
+    "files": [
+      {
+        "path": "registry/plainspoken/blocks/erd/model.ts",
+        "type": "registry:component",
+        "target": "components/blocks/erd/model.ts"
+      },
+      {
+        "path": "registry/plainspoken/blocks/erd/geometry.ts",
+        "type": "registry:component",
+        "target": "components/blocks/erd/geometry.ts"
+      },
+      {
+        "path": "registry/plainspoken/blocks/erd/layout.ts",
+        "type": "registry:component",
+        "target": "components/blocks/erd/layout.ts"
+      },
+      {
+        "path": "registry/plainspoken/blocks/erd/sql.ts",
+        "type": "registry:component",
+        "target": "components/blocks/erd/sql.ts"
+      },
+      {
+        "path": "registry/plainspoken/blocks/erd/export.ts",
+        "type": "registry:component",
+        "target": "components/blocks/erd/export.ts"
+      }
+    ],
+    "examples": [],
+    "registryDependencies": [
+      "foundation",
+      "icons"
+    ],
+    "dependencies": [],
+    "hidden": true
+  },
+  {
+    "name": "erd-relation-dialog",
+    "type": "registry:block",
+    "title": "Relationship dialog",
+    "description": "Add a foreign key from a form: the column, the table and key it references (keys only), and the actions on delete and update.",
+    "category": "ERD",
+    "files": [
+      {
+        "path": "registry/plainspoken/blocks/erd/relation-dialog.tsx",
+        "type": "registry:component",
+        "target": "components/blocks/erd/relation-dialog.tsx"
+      }
+    ],
+    "examples": [
+      "erd-relation-dialog-demo"
+    ],
+    "registryDependencies": [
+      "alert",
+      "button",
+      "dialog",
+      "erd-model",
+      "field",
+      "foundation",
+      "select"
+    ],
+    "dependencies": [],
+    "hidden": false
+  },
+  {
+    "name": "erd-relation-lines",
+    "type": "registry:block",
+    "title": "Relationship lines",
+    "description": "Foreign keys as SVG lines from column row to column row, routed round tables at right angles or as curves, with crow's foot marks or 1 and N labels, highlighting and click targets.",
+    "category": "ERD",
+    "files": [
+      {
+        "path": "registry/plainspoken/blocks/erd/relation-lines.tsx",
+        "type": "registry:component",
+        "target": "components/blocks/erd/relation-lines.tsx"
+      }
+    ],
+    "examples": [
+      "erd-relation-lines-demo",
+      "erd-relation-lines-labels"
+    ],
+    "registryDependencies": [
+      "erd-model",
+      "foundation",
+      "utils"
+    ],
+    "dependencies": [],
+    "hidden": false
+  },
+  {
+    "name": "erd-relation-popover",
+    "type": "registry:block",
+    "title": "Relationship popover",
+    "description": "A relationship's details where it was clicked: its columns, the cardinality in marks and words, ON DELETE and ON UPDATE to change, and Delete.",
+    "category": "ERD",
+    "files": [
+      {
+        "path": "registry/plainspoken/blocks/erd/relation-popover.tsx",
+        "type": "registry:component",
+        "target": "components/blocks/erd/relation-popover.tsx"
+      }
+    ],
+    "examples": [
+      "erd-relation-popover-demo"
+    ],
+    "registryDependencies": [
+      "button",
+      "erd-model",
+      "erd-relation-lines",
+      "floating",
+      "foundation",
+      "icon",
+      "icons",
+      "position",
+      "select",
+      "utils"
+    ],
+    "dependencies": [],
+    "hidden": false
+  },
+  {
+    "name": "erd-sql-dialogs",
+    "type": "registry:block",
+    "title": "SQL dialogs",
+    "description": "Export the schema as Postgres DDL to copy or download, and import CREATE TABLE statements with a live check that names each problem and its line.",
+    "category": "ERD",
+    "files": [
+      {
+        "path": "registry/plainspoken/blocks/erd/sql-dialogs.tsx",
+        "type": "registry:component",
+        "target": "components/blocks/erd/sql-dialogs.tsx"
+      }
+    ],
+    "examples": [
+      "erd-sql-dialogs-demo",
+      "erd-sql-dialogs-import"
+    ],
+    "registryDependencies": [
+      "alert",
+      "button",
+      "copy-button",
+      "dialog",
+      "erd-model",
+      "field",
+      "foundation",
+      "icons",
+      "textarea"
+    ],
+    "dependencies": [],
+    "hidden": false
+  },
+  {
+    "name": "erd-table-details",
+    "type": "registry:block",
+    "title": "Table details",
+    "description": "One table in full: name, schema and comment, its columns in a table with a menu each, its indexes, and the relations it makes and receives; editable.",
+    "category": "ERD",
+    "files": [
+      {
+        "path": "registry/plainspoken/blocks/erd/table-details.tsx",
+        "type": "registry:component",
+        "target": "components/blocks/erd/table-details.tsx"
+      }
+    ],
+    "examples": [
+      "erd-table-details-demo"
+    ],
+    "registryDependencies": [
+      "button",
+      "dropdown-menu",
+      "erd-column-dialog",
+      "erd-model",
+      "erd-relation-dialog",
+      "field",
+      "foundation",
+      "icon",
+      "icons",
+      "input",
+      "legend",
+      "select",
+      "table",
+      "textarea",
+      "utils"
+    ],
+    "dependencies": [],
+    "hidden": false
+  },
+  {
+    "name": "erd-table-list",
+    "type": "registry:block",
+    "title": "Table list",
+    "description": "Every table by schema, with a search that also finds columns; picking one is for selecting and bringing it into view.",
+    "category": "ERD",
+    "files": [
+      {
+        "path": "registry/plainspoken/blocks/erd/table-list.tsx",
+        "type": "registry:component",
+        "target": "components/blocks/erd/table-list.tsx"
+      }
+    ],
+    "examples": [
+      "erd-table-list-demo"
+    ],
+    "registryDependencies": [
+      "button",
+      "erd-model",
+      "foundation",
+      "icons",
+      "input",
+      "legend",
+      "utils"
+    ],
+    "dependencies": [],
+    "hidden": false
+  },
+  {
+    "name": "erd-table-node",
+    "type": "registry:block",
+    "title": "Table node",
+    "description": "One table of a diagram: a header in its schema's colour, rows with key icons, types and UQ, DEF, ID, IDX and NULL marks, comments on hover, and a fold to show only the keys.",
+    "category": "ERD",
+    "files": [
+      {
+        "path": "registry/plainspoken/blocks/erd/table-node.tsx",
+        "type": "registry:component",
+        "target": "components/blocks/erd/table-node.tsx"
+      }
+    ],
+    "examples": [
+      "erd-table-node-demo",
+      "erd-table-node-collapsed"
+    ],
+    "registryDependencies": [
+      "button",
+      "erd-model",
+      "foundation",
+      "icon",
+      "icons",
+      "utils"
+    ],
+    "dependencies": [],
+    "hidden": false
+  },
+  {
+    "name": "erd-toolbar",
+    "type": "registry:block",
+    "title": "Toolbar",
+    "description": "The ERD's tools in one row: undo and redo named after what they'd do, add table, pan or select, snap, Layout and View menus, Import and Export.",
+    "category": "ERD",
+    "files": [
+      {
+        "path": "registry/plainspoken/blocks/erd/toolbar.tsx",
+        "type": "registry:component",
+        "target": "components/blocks/erd/toolbar.tsx"
+      }
+    ],
+    "examples": [
+      "erd-toolbar-demo"
+    ],
+    "registryDependencies": [
+      "button",
+      "dropdown-menu",
+      "erd-model",
+      "foundation",
+      "icons",
+      "separator",
+      "toggle",
       "utils"
     ],
     "dependencies": [],

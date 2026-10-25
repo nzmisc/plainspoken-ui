@@ -1,0 +1,9 @@
+{
+  "name": "canvas-minimap",
+  "type": "registry:ui",
+  "title": "Canvas minimap",
+  "description": "The whole Canvas in small, nodes in their own colours and a frame for the part in view: drag the frame or press on the map to move there.",
+  "category": "Layout",
+  "files": ["ui/canvas-minimap.tsx"],
+  "examples": ["canvas-minimap-demo"]
+}

@@ -1,0 +1,13 @@
+{
+  "name": "erd-table-list",
+  "type": "registry:block",
+  "title": "Table list",
+  "description": "Every table by schema, with a search that also finds columns; picking one is for selecting and bringing it into view.",
+  "category": "ERD",
+  "files": [
+    "blocks/erd/table-list.tsx"
+  ],
+  "examples": [
+    "erd-table-list-demo"
+  ]
+}

@@ -1,0 +1,13 @@
+{
+  "name": "erd-relation-popover",
+  "type": "registry:block",
+  "title": "Relationship popover",
+  "description": "A relationship's details where it was clicked: its columns, the cardinality in marks and words, ON DELETE and ON UPDATE to change, and Delete.",
+  "category": "ERD",
+  "files": [
+    "blocks/erd/relation-popover.tsx"
+  ],
+  "examples": [
+    "erd-relation-popover-demo"
+  ]
+}

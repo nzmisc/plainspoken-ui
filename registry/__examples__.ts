@@ -91,6 +91,10 @@ import E_calendar_availability from "@/registry/plainspoken/examples/calendar-av
 import E_calendar_demo from "@/registry/plainspoken/examples/calendar-demo";
 import E_calendar_large from "@/registry/plainspoken/examples/calendar-large";
 import E_calendar_range from "@/registry/plainspoken/examples/calendar-range";
+import E_canvas_controlled from "@/registry/plainspoken/examples/canvas-controlled";
+import E_canvas_demo from "@/registry/plainspoken/examples/canvas-demo";
+import E_canvas_minimap_demo from "@/registry/plainspoken/examples/canvas-minimap-demo";
+import E_canvas_node_demo from "@/registry/plainspoken/examples/canvas-node-demo";
 import E_card_demo from "@/registry/plainspoken/examples/card-demo";
 import E_card_grid from "@/registry/plainspoken/examples/card-grid";
 import E_chat_app_demo from "@/registry/plainspoken/examples/chat-app-demo";
@@ -167,6 +171,22 @@ import E_editor_document_demo from "@/registry/plainspoken/examples/editor-docum
 import E_editor_document_header_demo from "@/registry/plainspoken/examples/editor-document-header-demo";
 import E_empty_state_demo from "@/registry/plainspoken/examples/empty-state-demo";
 import E_empty_state_search from "@/registry/plainspoken/examples/empty-state-search";
+import E_erd_app_demo from "@/registry/plainspoken/examples/erd-app-demo";
+import E_erd_column_dialog_demo from "@/registry/plainspoken/examples/erd-column-dialog-demo";
+import E_erd_diagram_demo from "@/registry/plainspoken/examples/erd-diagram-demo";
+import E_erd_diagram_labels from "@/registry/plainspoken/examples/erd-diagram-labels";
+import E_erd_legend_demo from "@/registry/plainspoken/examples/erd-legend-demo";
+import E_erd_relation_dialog_demo from "@/registry/plainspoken/examples/erd-relation-dialog-demo";
+import E_erd_relation_lines_demo from "@/registry/plainspoken/examples/erd-relation-lines-demo";
+import E_erd_relation_lines_labels from "@/registry/plainspoken/examples/erd-relation-lines-labels";
+import E_erd_relation_popover_demo from "@/registry/plainspoken/examples/erd-relation-popover-demo";
+import E_erd_sql_dialogs_demo from "@/registry/plainspoken/examples/erd-sql-dialogs-demo";
+import E_erd_sql_dialogs_import from "@/registry/plainspoken/examples/erd-sql-dialogs-import";
+import E_erd_table_details_demo from "@/registry/plainspoken/examples/erd-table-details-demo";
+import E_erd_table_list_demo from "@/registry/plainspoken/examples/erd-table-list-demo";
+import E_erd_table_node_collapsed from "@/registry/plainspoken/examples/erd-table-node-collapsed";
+import E_erd_table_node_demo from "@/registry/plainspoken/examples/erd-table-node-demo";
+import E_erd_toolbar_demo from "@/registry/plainspoken/examples/erd-toolbar-demo";
 import E_field_demo from "@/registry/plainspoken/examples/field-demo";
 import E_field_inline from "@/registry/plainspoken/examples/field-inline";
 import E_file_upload_demo from "@/registry/plainspoken/examples/file-upload-demo";
@@ -452,6 +472,10 @@ export const examples: Record<string, ComponentType> = {
   "calendar-demo": E_calendar_demo,
   "calendar-large": E_calendar_large,
   "calendar-range": E_calendar_range,
+  "canvas-controlled": E_canvas_controlled,
+  "canvas-demo": E_canvas_demo,
+  "canvas-minimap-demo": E_canvas_minimap_demo,
+  "canvas-node-demo": E_canvas_node_demo,
   "card-demo": E_card_demo,
   "card-grid": E_card_grid,
   "chat-app-demo": E_chat_app_demo,
@@ -528,6 +552,22 @@ export const examples: Record<string, ComponentType> = {
   "editor-document-header-demo": E_editor_document_header_demo,
   "empty-state-demo": E_empty_state_demo,
   "empty-state-search": E_empty_state_search,
+  "erd-app-demo": E_erd_app_demo,
+  "erd-column-dialog-demo": E_erd_column_dialog_demo,
+  "erd-diagram-demo": E_erd_diagram_demo,
+  "erd-diagram-labels": E_erd_diagram_labels,
+  "erd-legend-demo": E_erd_legend_demo,
+  "erd-relation-dialog-demo": E_erd_relation_dialog_demo,
+  "erd-relation-lines-demo": E_erd_relation_lines_demo,
+  "erd-relation-lines-labels": E_erd_relation_lines_labels,
+  "erd-relation-popover-demo": E_erd_relation_popover_demo,
+  "erd-sql-dialogs-demo": E_erd_sql_dialogs_demo,
+  "erd-sql-dialogs-import": E_erd_sql_dialogs_import,
+  "erd-table-details-demo": E_erd_table_details_demo,
+  "erd-table-list-demo": E_erd_table_list_demo,
+  "erd-table-node-collapsed": E_erd_table_node_collapsed,
+  "erd-table-node-demo": E_erd_table_node_demo,
+  "erd-toolbar-demo": E_erd_toolbar_demo,
   "field-demo": E_field_demo,
   "field-inline": E_field_inline,
   "file-upload-demo": E_file_upload_demo,
