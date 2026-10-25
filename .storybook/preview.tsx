@@ -6,8 +6,7 @@ import "../app/globals.css";
 import "./fonts.css";
 
 /** Toolbar switches, applied to <html> the way the site does: the .dark class, and a control size for the whole canvas. */
-const withLook: Decorator = (Story, ctx) => {
-  const { theme, size } = ctx.globals as { theme?: string; size?: string };
+function Look({ theme, size, children }: PropsWithChildren<{ theme?: string; size?: string }>) {
   useEffect(() => {
     const apply = () => {
       const dark = theme === "dark" || (theme !== "light" && matchMedia("(prefers-color-scheme: dark)").matches);
@@ -19,12 +18,15 @@ const withLook: Decorator = (Story, ctx) => {
     return () => mq.removeEventListener("change", apply);
   }, [theme]);
   const ctl = size && size !== "inherit" ? `ctl-${size}` : undefined;
-  return ctl ? (
-    <div className={ctl}>
+  return ctl ? <div className={ctl}>{children}</div> : children;
+}
+
+const withLook: Decorator = (Story, ctx) => {
+  const { theme, size } = ctx.globals as { theme?: string; size?: string };
+  return (
+    <Look theme={theme} size={size}>
       <Story />
-    </div>
-  ) : (
-    <Story />
+    </Look>
   );
 };
 
