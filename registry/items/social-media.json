@@ -1,0 +1,13 @@
+{
+  "name": "social-media",
+  "type": "registry:block",
+  "title": "Generated pictures",
+  "description": "Pictures for posts and profile banners generated from a seed (sky, sun, then hills, a skyline or the sea), each post picture with its alt text and an ALT mark.",
+  "category": "Social",
+  "files": [
+    "blocks/social/media.tsx"
+  ],
+  "examples": [
+    "social-media-demo"
+  ]
+}

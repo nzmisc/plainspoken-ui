@@ -1,0 +1,13 @@
+{
+  "name": "social-nav",
+  "type": "registry:block",
+  "title": "Social navigation",
+  "description": "The microblog's left column (a rail of icons on medium screens) with a big Post button and your account menu, the phone's bottom bar, and the sticky page header.",
+  "category": "Social",
+  "files": [
+    "blocks/social/nav.tsx"
+  ],
+  "examples": [
+    "social-nav-demo"
+  ]
+}

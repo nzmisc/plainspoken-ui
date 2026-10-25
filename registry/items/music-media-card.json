@@ -1,0 +1,14 @@
+{
+  "name": "music-media-card",
+  "type": "registry:block",
+  "title": "Media cards and shelves",
+  "description": "Cards for albums, playlists and artists with a play button over the cover, shelves that scroll sideways, a filling grid, and the wide tiles of \"jump back in\".",
+  "category": "Music",
+  "files": [
+    "blocks/music/media-card.tsx"
+  ],
+  "examples": [
+    "music-media-card-demo",
+    "music-media-card-recent"
+  ]
+}

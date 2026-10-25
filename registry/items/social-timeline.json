@@ -1,0 +1,13 @@
+{
+  "name": "social-timeline",
+  "type": "registry:block",
+  "title": "Timeline",
+  "description": "The home timeline: For you and Following tabs that stay at the top, the composer, and the posts.",
+  "category": "Social",
+  "files": [
+    "blocks/social/timeline.tsx"
+  ],
+  "examples": [
+    "social-timeline-demo"
+  ]
+}

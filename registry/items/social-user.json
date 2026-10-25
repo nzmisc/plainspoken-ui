@@ -1,0 +1,13 @@
+{
+  "name": "social-user",
+  "type": "registry:block",
+  "title": "People",
+  "description": "A name with the person's profile in a hover card, a follow button that is a toggle, a person row for lists, and the \"Who to follow\" panel.",
+  "category": "Social",
+  "files": [
+    "blocks/social/user.tsx"
+  ],
+  "examples": [
+    "social-user-demo"
+  ]
+}

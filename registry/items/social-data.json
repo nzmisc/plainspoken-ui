@@ -1,0 +1,11 @@
+{
+  "name": "social-data",
+  "type": "registry:block",
+  "title": "Social data",
+  "description": "The Social demo's people and posts: about thirty invented accounts, a hundred posts with threads, quotes, polls and pictures, trends and notifications, with the lookups and the time and count formatting the social blocks share.",
+  "category": "Social",
+  "files": [
+    "blocks/social/data.ts"
+  ],
+  "hidden": true
+}

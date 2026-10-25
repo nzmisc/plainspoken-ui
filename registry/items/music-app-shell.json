@@ -1,0 +1,13 @@
+{
+  "name": "music-app-shell",
+  "type": "registry:block",
+  "title": "Music app frame",
+  "description": "The music app's frame: sidebar, a page that scrolls on its own, the player bar, a bottom tab bar on phones, keyboard shortcuts and toasts. Holds the player, so music keeps playing across pages.",
+  "category": "Music",
+  "files": [
+    "blocks/music/app-shell.tsx"
+  ],
+  "examples": [
+    "music-app-shell-demo"
+  ]
+}

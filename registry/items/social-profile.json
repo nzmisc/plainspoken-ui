@@ -1,0 +1,14 @@
+{
+  "name": "social-profile",
+  "type": "registry:block",
+  "title": "Profile",
+  "description": "A profile's header (banner, picture, name, bio with links, place, website, joined, counts, follow or edit) and its Posts, Replies, Media and Likes tabs.",
+  "category": "Social",
+  "files": [
+    "blocks/social/profile.tsx"
+  ],
+  "examples": [
+    "social-profile-demo",
+    "social-profile-own"
+  ]
+}

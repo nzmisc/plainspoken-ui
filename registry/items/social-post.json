@@ -1,0 +1,14 @@
+{
+  "name": "social-post",
+  "type": "registry:block",
+  "title": "Post",
+  "description": "A post: avatar, name with hover card, handle and time, text with live #tags, @mentions and links, a picture, poll or quoted post, and reply, repost, like, views, bookmark and share, plus a ⋯ menu. Also the post at full size for its own page.",
+  "category": "Social",
+  "files": [
+    "blocks/social/post.tsx"
+  ],
+  "examples": [
+    "social-post-demo",
+    "social-post-polls"
+  ]
+}

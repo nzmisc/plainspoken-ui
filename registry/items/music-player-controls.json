@@ -1,0 +1,13 @@
+{
+  "name": "music-player-controls",
+  "type": "registry:block",
+  "title": "Player controls",
+  "description": "Shuffle, previous, play/pause, next and a three-way repeat as toggles; a seek bar that follows your drag and seeks on release; mute and volume.",
+  "category": "Music",
+  "files": [
+    "blocks/music/player-controls.tsx"
+  ],
+  "examples": [
+    "music-player-controls-demo"
+  ]
+}

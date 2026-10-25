@@ -1,0 +1,13 @@
+{
+  "name": "music-search",
+  "type": "registry:block",
+  "title": "Music search",
+  "description": "A big search box over browse tiles for genres and moods, a genre's page, and results grouped into a top result, songs, artists, albums and playlists, with the query in the URL.",
+  "category": "Music",
+  "files": [
+    "blocks/music/search.tsx"
+  ],
+  "examples": [
+    "music-search-demo"
+  ]
+}

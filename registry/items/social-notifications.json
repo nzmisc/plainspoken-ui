@@ -1,0 +1,13 @@
+{
+  "name": "social-notifications",
+  "type": "registry:block",
+  "title": "Notifications",
+  "description": "Notifications in All and Mentions tabs, grouped by day: likes and reposts bundled with an avatar group, follows, and mentions and replies as posts.",
+  "category": "Social",
+  "files": [
+    "blocks/social/notifications.tsx"
+  ],
+  "examples": [
+    "social-notifications-demo"
+  ]
+}
