@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 320" width="640" height="320" role="img" aria-label="Map: the studio at 4 Ropewalk Lane, two streets from Harbour Station" font-family="Helvetica, Arial, sans-serif" font-size="15">
+<rect width="640" height="320" fill="#ebeee6"/>
+<path d="M0 250 C160 230 260 290 640 260 V320 H0Z" fill="#c4dbe3"/>
+<g stroke="#fff" stroke-width="18" fill="none" stroke-linecap="square"><path d="M0 120H640M210 0V320M450 0V240"/><path d="M210 190L450 60" stroke-width="12"/></g>
+<g fill="#5b6770"><text x="20" y="110">Ropewalk Lane</text><text x="222" y="30">Mill Street</text><text x="462" y="30">Quay Road</text><text x="470" y="295">Harbour</text></g>
+<rect x="400" y="150" width="90" height="34" fill="#55606a"/><text x="445" y="172" fill="#fff" text-anchor="middle" font-size="13">Station</text>
+<path d="M320 70c-14 0-24 10-24 23 0 18 24 39 24 39s24-21 24-39c0-13-10-23-24-23z" fill="#b5653f"/><circle cx="320" cy="93" r="8" fill="#fff"/>
+<text x="352" y="98" fill="#2b3238" font-weight="bold">No. 4</text>
+</svg>

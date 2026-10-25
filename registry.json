@@ -2456,6 +2456,110 @@
       ]
     },
     {
+      "name": "editor-app",
+      "type": "registry:block",
+      "title": "Editor app",
+      "description": "Quire, a team handbook: pages by part in an app shell's sidebar, drafts marked, and the open page in the rich text editor with its title, status, word count and last save.",
+      "author": "plainspoken-ui <https://github.com/nzmisc/plainspoken-ui>",
+      "registryDependencies": [
+        "@plainspoken/app-shell",
+        "@plainspoken/avatar",
+        "@plainspoken/button",
+        "@plainspoken/dropdown-menu",
+        "@plainspoken/editor-data",
+        "@plainspoken/editor-document",
+        "@plainspoken/empty-state",
+        "@plainspoken/foundation",
+        "@plainspoken/icons",
+        "@plainspoken/rich-text-editor",
+        "@plainspoken/sidebar",
+        "utils"
+      ],
+      "files": [
+        {
+          "path": "registry/plainspoken/blocks/editor/editor-app.tsx",
+          "type": "registry:component",
+          "target": "components/blocks/editor/editor-app.tsx"
+        }
+      ],
+      "categories": [
+        "editor"
+      ]
+    },
+    {
+      "name": "editor-data",
+      "type": "registry:block",
+      "title": "Editor data",
+      "description": "The demo handbook (Ropewalk Studio's: nine pages with pictures, tables, tasks and code, and a Markdown kitchen sink), its people, and a pretend picture upload with progress.",
+      "author": "plainspoken-ui <https://github.com/nzmisc/plainspoken-ui>",
+      "registryDependencies": [
+        "@plainspoken/foundation",
+        "@plainspoken/rich-text-editor"
+      ],
+      "files": [
+        {
+          "path": "registry/plainspoken/blocks/editor/data.ts",
+          "type": "registry:component",
+          "target": "components/blocks/editor/data.ts"
+        }
+      ],
+      "categories": [
+        "editor"
+      ]
+    },
+    {
+      "name": "editor-document-header",
+      "type": "registry:block",
+      "title": "Document header",
+      "description": "The top of a page being edited: its part of the handbook, the title as an input drawn like a heading, Publish or Unpublish, a menu, and a line with status, words, reading time and the last save.",
+      "author": "plainspoken-ui <https://github.com/nzmisc/plainspoken-ui>",
+      "registryDependencies": [
+        "@plainspoken/badge",
+        "@plainspoken/button",
+        "@plainspoken/dropdown-menu",
+        "@plainspoken/editor-data",
+        "@plainspoken/foundation",
+        "@plainspoken/icons",
+        "@plainspoken/relative-time",
+        "utils"
+      ],
+      "files": [
+        {
+          "path": "registry/plainspoken/blocks/editor/document-header.tsx",
+          "type": "registry:component",
+          "target": "components/blocks/editor/document-header.tsx"
+        }
+      ],
+      "categories": [
+        "editor"
+      ]
+    },
+    {
+      "name": "editor-document",
+      "type": "registry:block",
+      "title": "Document",
+      "description": "One handbook page being edited: the document header over the rich text editor, filling its container, with a pretend autosave and pretend picture uploads.",
+      "author": "plainspoken-ui <https://github.com/nzmisc/plainspoken-ui>",
+      "registryDependencies": [
+        "@plainspoken/editor-data",
+        "@plainspoken/editor-document-header",
+        "@plainspoken/foundation",
+        "@plainspoken/markdown",
+        "@plainspoken/rich-text-editor",
+        "utils"
+      ],
+      "files": [
+        {
+          "path": "registry/plainspoken/blocks/editor/document.tsx",
+          "type": "registry:component",
+          "target": "components/blocks/editor/document.tsx"
+        }
+      ],
+      "categories": [
+        "editor"
+      ]
+    },
+    {
       "name": "empty-state",
       "type": "registry:ui",
       "title": "Empty state",
@@ -4537,6 +4641,25 @@
       ]
     },
     {
+      "name": "markdown",
+      "type": "registry:lib",
+      "title": "Markdown",
+      "description": "Markdown without dependencies: a CommonMark and GFM parser, an HTML renderer that is safe for untrusted text (no raw HTML, only safe URLs), an HTML reader for pasted or edited HTML, and a writer that reads back the same.",
+      "author": "plainspoken-ui <https://github.com/nzmisc/plainspoken-ui>",
+      "registryDependencies": [
+        "@plainspoken/foundation"
+      ],
+      "files": [
+        {
+          "path": "registry/plainspoken/lib/markdown.ts",
+          "type": "registry:lib"
+        }
+      ],
+      "categories": [
+        "typography"
+      ]
+    },
+    {
       "name": "menu-button",
       "type": "registry:ui",
       "title": "Menu button",
@@ -5283,6 +5406,46 @@
       ],
       "categories": [
         "layout"
+      ]
+    },
+    {
+      "name": "rich-text-editor",
+      "type": "registry:ui",
+      "title": "Rich text editor",
+      "description": "A Markdown editor in three modes (formatted, raw Markdown, preview) with a keyboard-friendly toolbar, Markdown typing shortcuts, pictures by upload, paste or drop, and paste cleaned down to what Markdown can say. No editor library.",
+      "author": "plainspoken-ui <https://github.com/nzmisc/plainspoken-ui>",
+      "registryDependencies": [
+        "@plainspoken/button",
+        "@plainspoken/dialog",
+        "@plainspoken/field",
+        "@plainspoken/file-upload",
+        "@plainspoken/floating",
+        "@plainspoken/foundation",
+        "@plainspoken/icon",
+        "@plainspoken/icons",
+        "@plainspoken/input",
+        "@plainspoken/markdown",
+        "@plainspoken/progress",
+        "@plainspoken/prose",
+        "@plainspoken/segmented-control",
+        "@plainspoken/select",
+        "@plainspoken/separator",
+        "@plainspoken/toggle",
+        "@plainspoken/tooltip",
+        "utils"
+      ],
+      "files": [
+        {
+          "path": "registry/plainspoken/ui/rich-text-editor.tsx",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/plainspoken/lib/rich-text.ts",
+          "type": "registry:lib"
+        }
+      ],
+      "categories": [
+        "forms"
       ]
     },
     {

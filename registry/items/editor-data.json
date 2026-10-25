@@ -1,0 +1,9 @@
+{
+  "name": "editor-data",
+  "type": "registry:block",
+  "title": "Editor data",
+  "description": "The demo handbook (Ropewalk Studio's: nine pages with pictures, tables, tasks and code, and a Markdown kitchen sink), its people, and a pretend picture upload with progress.",
+  "category": "Editor",
+  "files": ["blocks/editor/data.ts"],
+  "hidden": true
+}

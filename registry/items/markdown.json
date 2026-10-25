@@ -1,0 +1,9 @@
+{
+  "name": "markdown",
+  "type": "registry:lib",
+  "title": "Markdown",
+  "description": "Markdown without dependencies: a CommonMark and GFM parser, an HTML renderer that is safe for untrusted text (no raw HTML, only safe URLs), an HTML reader for pasted or edited HTML, and a writer that reads back the same.",
+  "category": "Typography",
+  "files": ["lib/markdown.ts"],
+  "hidden": true
+}

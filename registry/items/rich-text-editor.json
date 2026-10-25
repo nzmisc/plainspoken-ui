@@ -1,0 +1,18 @@
+{
+  "name": "rich-text-editor",
+  "type": "registry:ui",
+  "title": "Rich text editor",
+  "description": "A Markdown editor in three modes (formatted, raw Markdown, preview) with a keyboard-friendly toolbar, Markdown typing shortcuts, pictures by upload, paste or drop, and paste cleaned down to what Markdown can say. No editor library.",
+  "category": "Forms",
+  "files": [
+    "ui/rich-text-editor.tsx",
+    "lib/rich-text.ts"
+  ],
+  "examples": [
+    "rich-text-editor-demo",
+    "rich-text-editor-modes",
+    "rich-text-editor-images",
+    "rich-text-editor-field",
+    "rich-text-editor-kitchen-sink"
+  ]
+}

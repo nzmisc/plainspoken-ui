@@ -145,6 +145,9 @@ import E_editable_table_demo from "@/registry/plainspoken/examples/editable-tabl
 import E_editable_table_paste from "@/registry/plainspoken/examples/editable-table-paste";
 import E_editable_table_save_bar from "@/registry/plainspoken/examples/editable-table-save-bar";
 import E_editable_table_validation from "@/registry/plainspoken/examples/editable-table-validation";
+import E_editor_app_demo from "@/registry/plainspoken/examples/editor-app-demo";
+import E_editor_document_demo from "@/registry/plainspoken/examples/editor-document-demo";
+import E_editor_document_header_demo from "@/registry/plainspoken/examples/editor-document-header-demo";
 import E_empty_state_demo from "@/registry/plainspoken/examples/empty-state-demo";
 import E_empty_state_search from "@/registry/plainspoken/examples/empty-state-search";
 import E_field_demo from "@/registry/plainspoken/examples/field-demo";
@@ -274,6 +277,7 @@ import E_progress_demo from "@/registry/plainspoken/examples/progress-demo";
 import E_progress_meter from "@/registry/plainspoken/examples/progress-meter";
 import E_prose_demo from "@/registry/plainspoken/examples/prose-demo";
 import E_prose_html from "@/registry/plainspoken/examples/prose-html";
+import E_prose_kitchen_sink from "@/registry/plainspoken/examples/prose-kitchen-sink";
 import E_prose_sizes from "@/registry/plainspoken/examples/prose-sizes";
 import E_radio_group_demo from "@/registry/plainspoken/examples/radio-group-demo";
 import E_relative_time_demo from "@/registry/plainspoken/examples/relative-time-demo";
@@ -282,6 +286,11 @@ import E_resizable_collapsible from "@/registry/plainspoken/examples/resizable-c
 import E_resizable_demo from "@/registry/plainspoken/examples/resizable-demo";
 import E_resizable_nested from "@/registry/plainspoken/examples/resizable-nested";
 import E_resizable_vertical from "@/registry/plainspoken/examples/resizable-vertical";
+import E_rich_text_editor_demo from "@/registry/plainspoken/examples/rich-text-editor-demo";
+import E_rich_text_editor_field from "@/registry/plainspoken/examples/rich-text-editor-field";
+import E_rich_text_editor_images from "@/registry/plainspoken/examples/rich-text-editor-images";
+import E_rich_text_editor_kitchen_sink from "@/registry/plainspoken/examples/rich-text-editor-kitchen-sink";
+import E_rich_text_editor_modes from "@/registry/plainspoken/examples/rich-text-editor-modes";
 import E_segmented_control_demo from "@/registry/plainspoken/examples/segmented-control-demo";
 import E_select_demo from "@/registry/plainspoken/examples/select-demo";
 import E_separator_demo from "@/registry/plainspoken/examples/separator-demo";
@@ -473,6 +482,9 @@ export const examples: Record<string, ComponentType> = {
   "editable-table-paste": E_editable_table_paste,
   "editable-table-save-bar": E_editable_table_save_bar,
   "editable-table-validation": E_editable_table_validation,
+  "editor-app-demo": E_editor_app_demo,
+  "editor-document-demo": E_editor_document_demo,
+  "editor-document-header-demo": E_editor_document_header_demo,
   "empty-state-demo": E_empty_state_demo,
   "empty-state-search": E_empty_state_search,
   "field-demo": E_field_demo,
@@ -602,6 +614,7 @@ export const examples: Record<string, ComponentType> = {
   "progress-meter": E_progress_meter,
   "prose-demo": E_prose_demo,
   "prose-html": E_prose_html,
+  "prose-kitchen-sink": E_prose_kitchen_sink,
   "prose-sizes": E_prose_sizes,
   "radio-group-demo": E_radio_group_demo,
   "relative-time-demo": E_relative_time_demo,
@@ -610,6 +623,11 @@ export const examples: Record<string, ComponentType> = {
   "resizable-demo": E_resizable_demo,
   "resizable-nested": E_resizable_nested,
   "resizable-vertical": E_resizable_vertical,
+  "rich-text-editor-demo": E_rich_text_editor_demo,
+  "rich-text-editor-field": E_rich_text_editor_field,
+  "rich-text-editor-images": E_rich_text_editor_images,
+  "rich-text-editor-kitchen-sink": E_rich_text_editor_kitchen_sink,
+  "rich-text-editor-modes": E_rich_text_editor_modes,
   "segmented-control-demo": E_segmented_control_demo,
   "select-demo": E_select_demo,
   "separator-demo": E_separator_demo,

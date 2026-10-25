@@ -8,6 +8,7 @@ import { post as drainPostgres } from "./posts/drain-postgres-primary";
 import { post as familyWireguard } from "./posts/family-wireguard";
 import { post as flameGraphs } from "./posts/flame-graphs";
 import { post as howBuildingsLearn } from "./posts/how-buildings-learn";
+import { post as markdownElements } from "./posts/markdown-elements";
 import { post as parenzana } from "./posts/parenzana";
 import { post as plainPages } from "./posts/plain-pages";
 import { post as smallTools } from "./posts/small-tools";
@@ -18,6 +19,7 @@ import { post as year2025 } from "./posts/year-2025";
 export type { Post } from "./types";
 
 export const POSTS: Post[] = [
+  markdownElements,
   parenzana,
   drainPostgres,
   howBuildingsLearn,

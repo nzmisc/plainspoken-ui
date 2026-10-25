@@ -2696,6 +2696,116 @@ export const registry: RegistryEntry[] = [
     "hidden": false
   },
   {
+    "name": "editor-app",
+    "type": "registry:block",
+    "title": "Editor app",
+    "description": "Quire, a team handbook: pages by part in an app shell's sidebar, drafts marked, and the open page in the rich text editor with its title, status, word count and last save.",
+    "category": "Editor",
+    "files": [
+      {
+        "path": "registry/plainspoken/blocks/editor/editor-app.tsx",
+        "type": "registry:component",
+        "target": "components/blocks/editor/editor-app.tsx"
+      }
+    ],
+    "examples": [
+      "editor-app-demo"
+    ],
+    "registryDependencies": [
+      "app-shell",
+      "avatar",
+      "button",
+      "dropdown-menu",
+      "editor-data",
+      "editor-document",
+      "empty-state",
+      "foundation",
+      "icons",
+      "rich-text-editor",
+      "sidebar",
+      "utils"
+    ],
+    "dependencies": [],
+    "hidden": false
+  },
+  {
+    "name": "editor-data",
+    "type": "registry:block",
+    "title": "Editor data",
+    "description": "The demo handbook (Ropewalk Studio's: nine pages with pictures, tables, tasks and code, and a Markdown kitchen sink), its people, and a pretend picture upload with progress.",
+    "category": "Editor",
+    "files": [
+      {
+        "path": "registry/plainspoken/blocks/editor/data.ts",
+        "type": "registry:component",
+        "target": "components/blocks/editor/data.ts"
+      }
+    ],
+    "examples": [],
+    "registryDependencies": [
+      "foundation",
+      "rich-text-editor"
+    ],
+    "dependencies": [],
+    "hidden": true
+  },
+  {
+    "name": "editor-document-header",
+    "type": "registry:block",
+    "title": "Document header",
+    "description": "The top of a page being edited: its part of the handbook, the title as an input drawn like a heading, Publish or Unpublish, a menu, and a line with status, words, reading time and the last save.",
+    "category": "Editor",
+    "files": [
+      {
+        "path": "registry/plainspoken/blocks/editor/document-header.tsx",
+        "type": "registry:component",
+        "target": "components/blocks/editor/document-header.tsx"
+      }
+    ],
+    "examples": [
+      "editor-document-header-demo"
+    ],
+    "registryDependencies": [
+      "badge",
+      "button",
+      "dropdown-menu",
+      "editor-data",
+      "foundation",
+      "icons",
+      "relative-time",
+      "utils"
+    ],
+    "dependencies": [],
+    "hidden": false
+  },
+  {
+    "name": "editor-document",
+    "type": "registry:block",
+    "title": "Document",
+    "description": "One handbook page being edited: the document header over the rich text editor, filling its container, with a pretend autosave and pretend picture uploads.",
+    "category": "Editor",
+    "files": [
+      {
+        "path": "registry/plainspoken/blocks/editor/document.tsx",
+        "type": "registry:component",
+        "target": "components/blocks/editor/document.tsx"
+      }
+    ],
+    "examples": [
+      "editor-document-demo"
+    ],
+    "registryDependencies": [
+      "editor-data",
+      "editor-document-header",
+      "foundation",
+      "markdown",
+      "rich-text-editor",
+      "utils"
+    ],
+    "dependencies": [],
+    "hidden": false
+  },
+  {
     "name": "empty-state",
     "type": "registry:ui",
     "title": "Empty state",
@@ -4873,6 +4983,25 @@ export const registry: RegistryEntry[] = [
     "hidden": false
   },
   {
+    "name": "markdown",
+    "type": "registry:lib",
+    "title": "Markdown",
+    "description": "Markdown without dependencies: a CommonMark and GFM parser, an HTML renderer that is safe for untrusted text (no raw HTML, only safe URLs), an HTML reader for pasted or edited HTML, and a writer that reads back the same.",
+    "category": "Typography",
+    "files": [
+      {
+        "path": "registry/plainspoken/lib/markdown.ts",
+        "type": "registry:lib"
+      }
+    ],
+    "examples": [],
+    "registryDependencies": [
+      "foundation"
+    ],
+    "dependencies": [],
+    "hidden": true
+  },
+  {
     "name": "menu-button",
     "type": "registry:ui",
     "title": "Menu button",
@@ -5603,7 +5732,8 @@ export const registry: RegistryEntry[] = [
     "examples": [
       "prose-demo",
       "prose-sizes",
-      "prose-html"
+      "prose-html",
+      "prose-kitchen-sink"
     ],
     "registryDependencies": [
       "foundation",
@@ -5685,6 +5815,52 @@ export const registry: RegistryEntry[] = [
       "foundation",
       "icon",
       "icons",
+      "utils"
+    ],
+    "dependencies": [],
+    "hidden": false
+  },
+  {
+    "name": "rich-text-editor",
+    "type": "registry:ui",
+    "title": "Rich text editor",
+    "description": "A Markdown editor in three modes (formatted, raw Markdown, preview) with a keyboard-friendly toolbar, Markdown typing shortcuts, pictures by upload, paste or drop, and paste cleaned down to what Markdown can say. No editor library.",
+    "category": "Forms",
+    "files": [
+      {
+        "path": "registry/plainspoken/ui/rich-text-editor.tsx",
+        "type": "registry:ui"
+      },
+      {
+        "path": "registry/plainspoken/lib/rich-text.ts",
+        "type": "registry:lib"
+      }
+    ],
+    "examples": [
+      "rich-text-editor-demo",
+      "rich-text-editor-modes",
+      "rich-text-editor-images",
+      "rich-text-editor-field",
+      "rich-text-editor-kitchen-sink"
+    ],
+    "registryDependencies": [
+      "button",
+      "dialog",
+      "field",
+      "file-upload",
+      "floating",
+      "foundation",
+      "icon",
+      "icons",
+      "input",
+      "markdown",
+      "progress",
+      "prose",
+      "segmented-control",
+      "select",
+      "separator",
+      "toggle",
+      "tooltip",
       "utils"
     ],
     "dependencies": [],

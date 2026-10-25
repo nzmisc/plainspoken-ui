@@ -1,4 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/nextjs-vite";
+import ProseKitchenSink from "@/registry/plainspoken/examples/prose-kitchen-sink";
 import { Prose } from "@/registry/plainspoken/ui/prose";
 
 /*
@@ -412,6 +413,13 @@ type Story = StoryObj<typeof meta>;
 
 /** Every element CommonMark and GFM produce, plus the inline HTML people use in Markdown. */
 export const KitchenSink: Story = { render: (args) => <Prose {...args}><KitchenSinkDoc /></Prose> };
+
+/**
+ * Everything Markdown can say, rendered by the markdown item's renderer (raw HTML in it shows as
+ * text), then the HTML-only elements Prose styles: keys, marks, figures, definition lists, details,
+ * GitHub alerts and footnotes. A list mixing tasks and plain items keeps the plain items' bullets.
+ */
+export const MarkdownKitchenSink: Story = { render: () => <ProseKitchenSink /> };
 
 /** A README. */
 export const Readme: Story = { render: (args) => <Prose {...args}><ReadmeDoc /></Prose> };

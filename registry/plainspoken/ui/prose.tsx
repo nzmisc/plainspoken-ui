@@ -25,9 +25,10 @@ const PROSE = [
   "[&_ul]:list-disc [&_ul]:pl-[1.6em] [&_ol]:list-decimal [&_ol]:pl-[1.9em]",
   "[&_ul_ul]:list-[circle] [&_ul_ul_ul]:list-[square] [&_ol_ol]:list-[lower-alpha] [&_ol_ol_ol]:list-[lower-roman]",
   "[&_li+li]:mt-[0.25em] [&_li>:where(ul,ol)]:mt-[0.25em] [&_li>:where(ul,ol)]:mb-0 [&_li>p]:mb-[0.4em] [&_::marker]:text-muted-foreground",
-  // GFM task lists
-  "[&_ul.contains-task-list]:list-none [&_ul.contains-task-list]:pl-[0.3em] [&_.contains-task-list_.contains-task-list]:pl-[1.4em]",
-  "[&_.task-list-item_input]:mr-[0.4em] [&_.task-list-item_input]:align-[-0.1em] [&_.task-list-item_input]:accent-primary",
+  // GFM task lists: a task's checkbox takes the place of its bullet, in the list's own indent, so
+  // plain items in the same list keep their bullets and every item's text lines up
+  "[&_li.task-list-item]:list-none",
+  "[&_.task-list-item_input]:-ml-[1.3em] [&_.task-list-item_input]:mr-[0.35em] [&_.task-list-item_input]:align-[-0.1em] [&_.task-list-item_input]:accent-primary",
 
   // Inline: real links, code, keys, marks
   "[&_a]:text-link [&_a]:underline [&_a]:underline-offset-2 [&_a:hover]:decoration-2 [&_a:visited]:text-link-visited",

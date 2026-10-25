@@ -1,0 +1,9 @@
+{
+  "name": "editor-document",
+  "type": "registry:block",
+  "title": "Document",
+  "description": "One handbook page being edited: the document header over the rich text editor, filling its container, with a pretend autosave and pretend picture uploads.",
+  "category": "Editor",
+  "files": ["blocks/editor/document.tsx"],
+  "examples": ["editor-document-demo"]
+}

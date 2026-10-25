@@ -42,6 +42,9 @@ export const Post: Story = { args: { page: "post" } };
 /** The trip report, with an elevation profile. */
 export const TripReport: Story = { args: { page: "post", slug: "parenzana" } };
 
+/** The style test: every element a post can contain, once. */
+export const EveryElement: Story = { args: { page: "post", slug: "markdown-elements" } };
+
 export const Tag: Story = { args: { page: "tag", tag: "ops" } };
 
 export const About: Story = { args: { page: "about" } };
