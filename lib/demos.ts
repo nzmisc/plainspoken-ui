@@ -18,4 +18,5 @@ export const DEMOS: Demo[] = [
   { slug: "landing", title: "Landing page", summary: "The marketing site of an uptime monitor: hero, features, pricing with a comparison table, FAQ and sign-up.", shows: "A product shot made of components, pricing cards, tables, accordions, forms" },
   { slug: "library", title: "Library", summary: "A public library catalogue: search with facets, book pages, holds and loans.", shows: "Search with facets, result lists, a hold dialog, account tables, calendars" },
   { slug: "bible", title: "Bible", summary: "A Bible reader: every book and chapter of the King James Version, with search.", shows: "Long-form reading, verse navigation, reader settings, search" },
+  { slug: "kanban", title: "Kanban", summary: "Corkboard, a team's task board: drag cards between columns with a mouse, a finger or the keyboard, filter them, and open one for its checklist, files, comments and activity.", shows: "Drag and drop, work-in-progress limits, round avatars and facepiles, a card dialog, file upload, @mentions" },
 ];

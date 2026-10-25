@@ -1,0 +1,13 @@
+{
+  "name": "kanban-toolbar",
+  "type": "registry:block",
+  "title": "Board toolbar",
+  "description": "Search, Assignee and Label filters as checkbox panels with round avatars and colour squares, a My cards toggle, a removable chip per person filtered by, Clear filters and a live count of the cards shown.",
+  "category": "Kanban",
+  "files": [
+    "blocks/kanban/toolbar.tsx"
+  ],
+  "examples": [
+    "kanban-toolbar-demo"
+  ]
+}

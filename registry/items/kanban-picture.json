@@ -1,0 +1,13 @@
+{
+  "name": "kanban-picture",
+  "type": "registry:block",
+  "title": "Stand-in pictures",
+  "description": "Seat maps, phone screens, forms, sea maps, app icons and charts drawn as SVG in the chart colours, for the board's covers and image files: never fail to load, follow dark mode.",
+  "category": "Kanban",
+  "files": [
+    "blocks/kanban/picture.tsx"
+  ],
+  "examples": [
+    "kanban-picture-demo"
+  ]
+}

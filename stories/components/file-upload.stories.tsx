@@ -1,6 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/nextjs-vite";
+import { useState } from "react";
 import { Field } from "@/registry/plainspoken/ui/field";
-import { FileField, FileUpload, type UploadFunction, type UploadItem } from "@/registry/plainspoken/ui/file-upload";
+import { FileField, FileUpload, formatSize, type UploadFunction, type UploadItem } from "@/registry/plainspoken/ui/file-upload";
 
 const MiB = 1024 * 1024;
 
@@ -127,3 +128,34 @@ export const CompactField: StoryObj = {
     </div>
   ),
 };
+
+/** A page that lists the files itself: uploaded files are handed over by onUploaded and leave the upload's own list. */
+function HandOverDemo() {
+  const [files, setFiles] = useState<UploadItem[]>([]);
+  return (
+    <div className="flex max-w-xl flex-col gap-3">
+      <div>
+        <h3 className="font-bold">Attached to the card</h3>
+        {files.length ? (
+          <ul className="list-disc pl-5">
+            {files.map((f) => (
+              <li key={f.id}>
+                {f.name}, <span className="tabular-nums">{formatSize(f.size)}</span>
+              </li>
+            ))}
+          </ul>
+        ) : (
+          <p className="text-muted-foreground">Nothing yet.</p>
+        )}
+      </div>
+      <FileUpload label="Add files" upload={fakeUpload()} clearOnDone onUploaded={(item) => setFiles((l) => [...l, item])} />
+    </div>
+  );
+}
+
+/**
+ * `clearOnDone` with `onUploaded`: while a file uploads it is in the table with its progress;
+ * once it is up, onUploaded hands it over and it leaves the table, to be listed where it now
+ * belongs. The Kanban card's attachments work this way. Failed and refused files stay, with Retry.
+ */
+export const HandOver: StoryObj = { render: () => <HandOverDemo /> };

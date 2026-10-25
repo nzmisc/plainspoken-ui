@@ -1,0 +1,13 @@
+{
+  "name": "kanban-app",
+  "type": "registry:block",
+  "title": "Kanban app",
+  "description": "The whole task board: the app bar, board header with the most recently active members and a list of all forty, filters with removable chips, the columns with drag and drop and menus, and the card dialog, all working in the page's own state.",
+  "category": "Kanban",
+  "files": [
+    "blocks/kanban/kanban-app.tsx"
+  ],
+  "examples": [
+    "kanban-app-demo"
+  ]
+}

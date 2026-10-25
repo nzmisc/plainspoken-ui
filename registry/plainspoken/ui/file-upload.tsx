@@ -86,9 +86,19 @@ function checkFile(file: File, rules: Rules, canUpload: boolean): UploadItem {
  * The list of files and the uploads running for them. Each upload gets its own AbortController;
  * cancel and remove abort it, retry starts a new one. Progress never goes backwards.
  */
-function useUploads(initial: UploadItem[], upload: UploadFunction | undefined, onItemsChange: ((items: UploadItem[]) => void) | undefined) {
+function useUploads(
+  initial: UploadItem[],
+  upload: UploadFunction | undefined,
+  onItemsChange: ((items: UploadItem[]) => void) | undefined,
+  handOver?: { onUploaded?: (item: UploadItem) => void; clearOnDone?: boolean },
+) {
   const [items, setItems] = useState(initial);
   const running = useRef(new Map<string, AbortController>());
+  // Read when an upload finishes, which can be many renders after it started
+  const latest = useRef(handOver);
+  useEffect(() => {
+    latest.current = handOver;
+  });
   const update = (id: string, f: (i: UploadItem) => UploadItem) => setItems((l) => l.map((i) => (i.id === id ? f(i) : i)));
 
   const start = (item: UploadItem) => {
@@ -100,7 +110,14 @@ function useUploads(initial: UploadItem[], upload: UploadFunction | undefined, o
       if (!ctl.signal.aborted) update(item.id, (i) => (i.status === "uploading" ? f(i) : i));
     };
     upload(item.file, { signal: ctl.signal, onProgress: (fr) => live((i) => ({ ...i, progress: Math.max(i.progress, Math.min(1, Math.max(0, fr))) })) }).then(
-      () => live((i) => ({ ...i, status: "done", progress: 1 })),
+      () => {
+        if (ctl.signal.aborted) return;
+        const h = latest.current;
+        running.current.delete(item.id);
+        if (h?.clearOnDone) setItems((l) => l.filter((i) => i.id !== item.id));
+        else live((i) => ({ ...i, status: "done", progress: 1 }));
+        h?.onUploaded?.({ ...item, status: "done", progress: 1, error: undefined });
+      },
       (e: unknown) => live((i) => ({ ...i, status: "failed", error: e instanceof Error && e.message ? e.message : "Upload failed" })),
     );
   };
@@ -296,6 +313,13 @@ export interface FileUploadProps extends Rules {
   defaultItems?: UploadItem[];
   /** Called with the whole list whenever it changes (added, progress, done, removed) */
   onItemsChange?: (items: UploadItem[]) => void;
+  /** Called once for each file whose upload has finished, with the file in `item.file` */
+  onUploaded?: (item: UploadItem) => void;
+  /**
+   * Take each file off the list as soon as it is uploaded, for when the page shows it somewhere
+   * else from then on (a card's attachments, a gallery). Pair it with onUploaded.
+   */
+  clearOnDone?: boolean;
   /** Replaces the line that lists the rules (types, size, count) */
   hint?: ReactNode;
   className?: string;
@@ -320,12 +344,14 @@ export function FileUpload({
   disabled = false,
   defaultItems = [],
   onItemsChange,
+  onUploaded,
+  clearOnDone = false,
   hint,
   className,
 }: FileUploadProps) {
   const id = useId();
   const input = useRef<HTMLInputElement>(null);
-  const { items, add, cancel, retry, remove, clearFinished } = useUploads(defaultItems, upload, onItemsChange);
+  const { items, add, cancel, retry, remove, clearFinished } = useUploads(defaultItems, upload, onItemsChange, { onUploaded, clearOnDone });
   const [announce, setAnnounce] = useState("");
   const formPost = !upload && !!name;
   useEffect(() => {

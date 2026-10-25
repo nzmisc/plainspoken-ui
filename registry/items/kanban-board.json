@@ -1,0 +1,14 @@
+{
+  "name": "kanban-board",
+  "type": "registry:block",
+  "title": "Board",
+  "description": "Columns of cards that move by drag and drop with mouse, pen or touch (hold to lift, a line where it lands, edge scrolling), from the keyboard (Space, arrows, Space or Escape, read out live) and with Move to.",
+  "category": "Kanban",
+  "files": [
+    "blocks/kanban/board.tsx"
+  ],
+  "examples": [
+    "kanban-board-demo",
+    "kanban-board-filtered"
+  ]
+}

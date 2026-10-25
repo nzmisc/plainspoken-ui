@@ -915,7 +915,7 @@ export const registry: RegistryEntry[] = [
     "name": "avatar",
     "type": "registry:ui",
     "title": "Avatar",
-    "description": "A square or round picture, or initials on a colour picked from the name, which shows through while the picture loads or if it fails; plus groups ringed in the background colour with a “+3”.",
+    "description": "A square or round picture, or initials on a colour picked from the name, which shows through while the picture loads or if it fails; plus groups ringed in the background colour with a “+3” that names the rest, or opens a searchable list of everyone.",
     "category": "Data display",
     "files": [
       {
@@ -926,10 +926,14 @@ export const registry: RegistryEntry[] = [
     "examples": [
       "avatar-demo",
       "avatar-shapes",
-      "avatar-group"
+      "avatar-group",
+      "avatar-group-list"
     ],
     "registryDependencies": [
       "foundation",
+      "icons",
+      "input",
+      "popover",
       "utils"
     ],
     "dependencies": [],
@@ -2352,6 +2356,395 @@ export const registry: RegistryEntry[] = [
       "foundation",
       "icon",
       "icons",
+      "utils"
+    ],
+    "dependencies": [],
+    "hidden": false
+  },
+  {
+    "name": "kanban-activity",
+    "type": "registry:block",
+    "title": "Activity",
+    "description": "What happened to a card, newest first, as sentences: moved from To do to In progress, attached a file, ticked off an item, with who and how long ago.",
+    "category": "Kanban",
+    "files": [
+      {
+        "path": "registry/plainspoken/blocks/kanban/activity.tsx",
+        "type": "registry:component",
+        "target": "components/blocks/kanban/activity.tsx"
+      }
+    ],
+    "examples": [
+      "kanban-activity-demo"
+    ],
+    "registryDependencies": [
+      "avatar",
+      "foundation",
+      "kanban-data",
+      "relative-time",
+      "utils"
+    ],
+    "dependencies": [],
+    "hidden": false
+  },
+  {
+    "name": "kanban-app",
+    "type": "registry:block",
+    "title": "Kanban app",
+    "description": "The whole task board: the app bar, board header with the most recently active members and a list of all forty, filters with removable chips, the columns with drag and drop and menus, and the card dialog, all working in the page's own state.",
+    "category": "Kanban",
+    "files": [
+      {
+        "path": "registry/plainspoken/blocks/kanban/kanban-app.tsx",
+        "type": "registry:component",
+        "target": "components/blocks/kanban/kanban-app.tsx"
+      }
+    ],
+    "examples": [
+      "kanban-app-demo"
+    ],
+    "registryDependencies": [
+      "avatar",
+      "dates",
+      "dropdown-menu",
+      "foundation",
+      "icon",
+      "icons",
+      "kanban-board",
+      "kanban-card-detail",
+      "kanban-column",
+      "kanban-data",
+      "kanban-toolbar",
+      "kbd",
+      "navbar",
+      "popover",
+      "relative-time",
+      "toast",
+      "utils"
+    ],
+    "dependencies": [],
+    "hidden": false
+  },
+  {
+    "name": "kanban-attachments",
+    "type": "registry:block",
+    "title": "Attachments",
+    "description": "A card's files with thumbnails or file-type symbols, size, who added them and when, a preview dialog, a menu to make a picture the cover, download or remove (with a confirmation), and an upload that adds files with progress.",
+    "category": "Kanban",
+    "files": [
+      {
+        "path": "registry/plainspoken/blocks/kanban/attachments.tsx",
+        "type": "registry:component",
+        "target": "components/blocks/kanban/attachments.tsx"
+      }
+    ],
+    "examples": [
+      "kanban-attachments-demo"
+    ],
+    "registryDependencies": [
+      "alert-dialog",
+      "badge",
+      "button",
+      "dialog",
+      "dropdown-menu",
+      "empty-state",
+      "file-upload",
+      "foundation",
+      "icon",
+      "icons",
+      "kanban-data",
+      "kanban-picture",
+      "relative-time",
+      "utils"
+    ],
+    "dependencies": [],
+    "hidden": false
+  },
+  {
+    "name": "kanban-board",
+    "type": "registry:block",
+    "title": "Board",
+    "description": "Columns of cards that move by drag and drop with mouse, pen or touch (hold to lift, a line where it lands, edge scrolling), from the keyboard (Space, arrows, Space or Escape, read out live) and with Move to.",
+    "category": "Kanban",
+    "files": [
+      {
+        "path": "registry/plainspoken/blocks/kanban/board.tsx",
+        "type": "registry:component",
+        "target": "components/blocks/kanban/board.tsx"
+      }
+    ],
+    "examples": [
+      "kanban-board-demo",
+      "kanban-board-filtered"
+    ],
+    "registryDependencies": [
+      "context-menu",
+      "dates",
+      "dropdown-menu",
+      "foundation",
+      "icons",
+      "kanban-card",
+      "kanban-column",
+      "kanban-data",
+      "utils"
+    ],
+    "dependencies": [],
+    "hidden": false
+  },
+  {
+    "name": "kanban-card-detail",
+    "type": "registry:block",
+    "title": "Card dialog",
+    "description": "Everything on a card in a dialog (a full-height drawer on phones): status, priority, due date, assignees by name, participants as a facepile whose “+N” lists everyone, labels, description, checklist, attachments, and comments and activity in tabs, every change recorded.",
+    "category": "Kanban",
+    "files": [
+      {
+        "path": "registry/plainspoken/blocks/kanban/card-detail.tsx",
+        "type": "registry:component",
+        "target": "components/blocks/kanban/card-detail.tsx"
+      }
+    ],
+    "examples": [
+      "kanban-card-detail-demo"
+    ],
+    "registryDependencies": [
+      "avatar",
+      "button",
+      "chip",
+      "copy-button",
+      "date-picker",
+      "dates",
+      "dialog",
+      "drawer",
+      "dropdown-menu",
+      "field",
+      "foundation",
+      "icon",
+      "icons",
+      "kanban-activity",
+      "kanban-attachments",
+      "kanban-checklist",
+      "kanban-comments",
+      "kanban-data",
+      "legend",
+      "relative-time",
+      "select",
+      "tabs",
+      "textarea",
+      "toggle",
+      "use-media-query",
+      "utils"
+    ],
+    "dependencies": [],
+    "hidden": false
+  },
+  {
+    "name": "kanban-card",
+    "type": "registry:block",
+    "title": "Card",
+    "description": "A board card: cover picture, labels, title, key, priority, due date marked when overdue or due soon, checklist, file and comment counts and round avatars, all in words for screen readers too, with a ⋯ menu beside it.",
+    "category": "Kanban",
+    "files": [
+      {
+        "path": "registry/plainspoken/blocks/kanban/card.tsx",
+        "type": "registry:component",
+        "target": "components/blocks/kanban/card.tsx"
+      }
+    ],
+    "examples": [
+      "kanban-card-demo",
+      "kanban-card-states"
+    ],
+    "registryDependencies": [
+      "avatar",
+      "button",
+      "dates",
+      "dropdown-menu",
+      "foundation",
+      "icon",
+      "icons",
+      "kanban-data",
+      "kanban-picture",
+      "legend",
+      "utils"
+    ],
+    "dependencies": [],
+    "hidden": false
+  },
+  {
+    "name": "kanban-checklist",
+    "type": "registry:block",
+    "title": "Checklist",
+    "description": "A card's checklist: done count and progress bar, items as checkboxes struck through when ticked, remove buttons that keep focus, and a box to add items.",
+    "category": "Kanban",
+    "files": [
+      {
+        "path": "registry/plainspoken/blocks/kanban/checklist.tsx",
+        "type": "registry:component",
+        "target": "components/blocks/kanban/checklist.tsx"
+      }
+    ],
+    "examples": [
+      "kanban-checklist-demo"
+    ],
+    "registryDependencies": [
+      "button",
+      "checkbox",
+      "foundation",
+      "icon",
+      "icons",
+      "input",
+      "kanban-data",
+      "progress",
+      "utils"
+    ],
+    "dependencies": [],
+    "hidden": false
+  },
+  {
+    "name": "kanban-column",
+    "type": "registry:block",
+    "title": "Column",
+    "description": "A board column: name, card count, an amber work-in-progress badge and line when over the limit, a ⋯ menu, a list that scrolls on its own, an empty state and an inline box to add a card.",
+    "category": "Kanban",
+    "files": [
+      {
+        "path": "registry/plainspoken/blocks/kanban/column.tsx",
+        "type": "registry:component",
+        "target": "components/blocks/kanban/column.tsx"
+      }
+    ],
+    "examples": [
+      "kanban-column-demo",
+      "kanban-column-limits"
+    ],
+    "registryDependencies": [
+      "badge",
+      "button",
+      "dropdown-menu",
+      "empty-state",
+      "foundation",
+      "icon",
+      "icons",
+      "kanban-data",
+      "textarea",
+      "utils"
+    ],
+    "dependencies": [],
+    "hidden": false
+  },
+  {
+    "name": "kanban-comments",
+    "type": "registry:block",
+    "title": "Comments",
+    "description": "A comment thread with round avatars, relative times and @mentions, long threads folded to the latest five, your own comments edited in place or deleted from a menu, and a box that suggests people as you type @.",
+    "category": "Kanban",
+    "files": [
+      {
+        "path": "registry/plainspoken/blocks/kanban/comments.tsx",
+        "type": "registry:component",
+        "target": "components/blocks/kanban/comments.tsx"
+      }
+    ],
+    "examples": [
+      "kanban-comments-demo",
+      "kanban-comments-mention"
+    ],
+    "registryDependencies": [
+      "alert-dialog",
+      "avatar",
+      "button",
+      "dropdown-menu",
+      "floating",
+      "foundation",
+      "icons",
+      "kanban-data",
+      "relative-time",
+      "textarea",
+      "utils"
+    ],
+    "dependencies": [],
+    "hidden": false
+  },
+  {
+    "name": "kanban-data",
+    "type": "registry:block",
+    "title": "Kanban data",
+    "description": "The demo board (a ferry company's app team and the forty people around it, some with drawn portraits; five labels, five columns, 28 cards with checklists, files, comments, watchers and activity) with the helpers that format dates, files and priorities, move cards and filter them.",
+    "category": "Kanban",
+    "files": [
+      {
+        "path": "registry/plainspoken/blocks/kanban/data.ts",
+        "type": "registry:component",
+        "target": "components/blocks/kanban/data.ts"
+      },
+      {
+        "path": "registry/plainspoken/blocks/kanban/format.ts",
+        "type": "registry:component",
+        "target": "components/blocks/kanban/format.ts"
+      }
+    ],
+    "examples": [],
+    "registryDependencies": [
+      "dates",
+      "foundation",
+      "icons"
+    ],
+    "dependencies": [],
+    "hidden": true
+  },
+  {
+    "name": "kanban-picture",
+    "type": "registry:block",
+    "title": "Stand-in pictures",
+    "description": "Seat maps, phone screens, forms, sea maps, app icons and charts drawn as SVG in the chart colours, for the board's covers and image files: never fail to load, follow dark mode.",
+    "category": "Kanban",
+    "files": [
+      {
+        "path": "registry/plainspoken/blocks/kanban/picture.tsx",
+        "type": "registry:component",
+        "target": "components/blocks/kanban/picture.tsx"
+      }
+    ],
+    "examples": [
+      "kanban-picture-demo"
+    ],
+    "registryDependencies": [
+      "foundation",
+      "kanban-data",
+      "utils"
+    ],
+    "dependencies": [],
+    "hidden": false
+  },
+  {
+    "name": "kanban-toolbar",
+    "type": "registry:block",
+    "title": "Board toolbar",
+    "description": "Search, Assignee and Label filters as checkbox panels with round avatars and colour squares, a My cards toggle, a removable chip per person filtered by, Clear filters and a live count of the cards shown.",
+    "category": "Kanban",
+    "files": [
+      {
+        "path": "registry/plainspoken/blocks/kanban/toolbar.tsx",
+        "type": "registry:component",
+        "target": "components/blocks/kanban/toolbar.tsx"
+      }
+    ],
+    "examples": [
+      "kanban-toolbar-demo"
+    ],
+    "registryDependencies": [
+      "avatar",
+      "button",
+      "checkbox",
+      "chip",
+      "foundation",
+      "icons",
+      "input",
+      "kanban-data",
+      "kbd",
+      "legend",
+      "menu-button",
       "utils"
     ],
     "dependencies": [],

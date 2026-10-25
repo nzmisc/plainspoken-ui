@@ -40,6 +40,7 @@ import E_app_user_menu_demo from "@/registry/plainspoken/examples/app-user-menu-
 import E_app_workspace_settings_demo from "@/registry/plainspoken/examples/app-workspace-settings-demo";
 import E_avatar_demo from "@/registry/plainspoken/examples/avatar-demo";
 import E_avatar_group from "@/registry/plainspoken/examples/avatar-group";
+import E_avatar_group_list from "@/registry/plainspoken/examples/avatar-group-list";
 import E_avatar_shapes from "@/registry/plainspoken/examples/avatar-shapes";
 import E_badge_demo from "@/registry/plainspoken/examples/badge-demo";
 import E_badge_solid from "@/registry/plainspoken/examples/badge-solid";
@@ -129,6 +130,21 @@ import E_icon_demo from "@/registry/plainspoken/examples/icon-demo";
 import E_input_affixes from "@/registry/plainspoken/examples/input-affixes";
 import E_input_demo from "@/registry/plainspoken/examples/input-demo";
 import E_input_sizes from "@/registry/plainspoken/examples/input-sizes";
+import E_kanban_activity_demo from "@/registry/plainspoken/examples/kanban-activity-demo";
+import E_kanban_app_demo from "@/registry/plainspoken/examples/kanban-app-demo";
+import E_kanban_attachments_demo from "@/registry/plainspoken/examples/kanban-attachments-demo";
+import E_kanban_board_demo from "@/registry/plainspoken/examples/kanban-board-demo";
+import E_kanban_board_filtered from "@/registry/plainspoken/examples/kanban-board-filtered";
+import E_kanban_card_demo from "@/registry/plainspoken/examples/kanban-card-demo";
+import E_kanban_card_detail_demo from "@/registry/plainspoken/examples/kanban-card-detail-demo";
+import E_kanban_card_states from "@/registry/plainspoken/examples/kanban-card-states";
+import E_kanban_checklist_demo from "@/registry/plainspoken/examples/kanban-checklist-demo";
+import E_kanban_column_demo from "@/registry/plainspoken/examples/kanban-column-demo";
+import E_kanban_column_limits from "@/registry/plainspoken/examples/kanban-column-limits";
+import E_kanban_comments_demo from "@/registry/plainspoken/examples/kanban-comments-demo";
+import E_kanban_comments_mention from "@/registry/plainspoken/examples/kanban-comments-mention";
+import E_kanban_picture_demo from "@/registry/plainspoken/examples/kanban-picture-demo";
+import E_kanban_toolbar_demo from "@/registry/plainspoken/examples/kanban-toolbar-demo";
 import E_kbd_demo from "@/registry/plainspoken/examples/kbd-demo";
 import E_landing_cta_demo from "@/registry/plainspoken/examples/landing-cta-demo";
 import E_landing_cta_states from "@/registry/plainspoken/examples/landing-cta-states";
@@ -318,6 +334,7 @@ export const examples: Record<string, ComponentType> = {
   "app-workspace-settings-demo": E_app_workspace_settings_demo,
   "avatar-demo": E_avatar_demo,
   "avatar-group": E_avatar_group,
+  "avatar-group-list": E_avatar_group_list,
   "avatar-shapes": E_avatar_shapes,
   "badge-demo": E_badge_demo,
   "badge-solid": E_badge_solid,
@@ -407,6 +424,21 @@ export const examples: Record<string, ComponentType> = {
   "input-affixes": E_input_affixes,
   "input-demo": E_input_demo,
   "input-sizes": E_input_sizes,
+  "kanban-activity-demo": E_kanban_activity_demo,
+  "kanban-app-demo": E_kanban_app_demo,
+  "kanban-attachments-demo": E_kanban_attachments_demo,
+  "kanban-board-demo": E_kanban_board_demo,
+  "kanban-board-filtered": E_kanban_board_filtered,
+  "kanban-card-demo": E_kanban_card_demo,
+  "kanban-card-detail-demo": E_kanban_card_detail_demo,
+  "kanban-card-states": E_kanban_card_states,
+  "kanban-checklist-demo": E_kanban_checklist_demo,
+  "kanban-column-demo": E_kanban_column_demo,
+  "kanban-column-limits": E_kanban_column_limits,
+  "kanban-comments-demo": E_kanban_comments_demo,
+  "kanban-comments-mention": E_kanban_comments_mention,
+  "kanban-picture-demo": E_kanban_picture_demo,
+  "kanban-toolbar-demo": E_kanban_toolbar_demo,
   "kbd-demo": E_kbd_demo,
   "landing-cta-demo": E_landing_cta_demo,
   "landing-cta-states": E_landing_cta_states,

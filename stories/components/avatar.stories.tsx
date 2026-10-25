@@ -108,3 +108,60 @@ export const Group: Story = {
     </div>
   ),
 };
+
+const CREW: [name: string, role: string][] = [
+  ["Amara Okafor", "Editor"], ["Jonas Weber", "Photographer"], ["Li Wei", "Reporter"], ["María González", "Reporter"], ["Noah Fischer", "Sub-editor"],
+  ["Sofia Rossi", "Designer"], ["Kenji Watanabe", "Data journalist"], ["Aisha Bello", "Reporter"], ["Lukas Novák", "Video producer"], ["Fatou Diop", "Fact-checker"],
+  ["Mateo Silva", "Reporter"], ["Ingrid Berg", "Copy editor"], ["Rahim Chowdhury", "Developer"], ["Elena Popa", "Audience editor"], ["Tomasz Zieliński", "Photographer"],
+  ["Nadia Haddad", "Reporter"], ["Oscar Lindgren", "Graphics"], ["Priya Iyer", "Podcast producer"], ["Samuel Mensah", "Reporter"], ["Yuki Hayashi", "Translator"],
+  ["Chloé Martin", "Reporter"], ["Diego Herrera", "Sports desk"], ["Hanna Virtanen", "Night editor"], ["Ibrahim Kanté", "Reporter"], ["Jasmine Wong", "Social media"],
+  ["Kofi Boateng", "Photographer"], ["Leila Rahimi", "Researcher"], ["Marek Dvořák", "Developer"], ["Nora Ahmed", "Reporter"], ["Olga Ivanova", "Graphics"],
+  ["Pedro Alves", "Video producer"], ["Qiu Lan", "Reporter"], ["Rosa Delgado", "Archivist"], ["Sven Holm", "Sub-editor"], ["Tendai Moyo", "Reporter"],
+  ["Ulla Schmidt", "Legal"], ["Vikram Rao", "Data journalist"], ["Wiebke Jansen", "Copy editor"], ["Ximena Torres", "Reporter"], ["Zainab Musa", "Intern"],
+];
+
+const crew = (n: number) => CREW.slice(0, n).map(([name, role], i) => <Avatar key={name} name={name} detail={role} src={i % 7 === 2 ? PHOTO : undefined} />);
+
+/**
+ * Round facepiles of 1, 3, 5 and 40 people, the last two with `max={4}` and `overflow="list"`:
+ * the "+N" is a button ("Show all 40 people") that opens a list of everyone, with a box to find
+ * someone once there are more than eight.
+ */
+export const GroupSizes: Story = {
+  render: () => (
+    <div className="flex flex-col gap-3">
+      {[1, 3, 5, 40].map((n) => (
+        <div key={n} className="flex items-center gap-2">
+          <AvatarGroup label={`${n} on this story`} shape="circle" size={24} overflow="list">
+            {crew(n)}
+          </AvatarGroup>
+          <span className="text-[13px] text-muted-foreground">{n === 1 ? "1 person" : `${n} people`}</span>
+        </div>
+      ))}
+    </div>
+  ),
+};
+
+/**
+ * The list open: forty people, each with a detail line, scrolling past about ten, with the search
+ * box focused when opened from the keyboard. Escape closes it and puts focus back on the "+N".
+ */
+export const GroupListOpen: Story = {
+  parameters: { docs: { story: { inline: false, height: "520px" } } },
+  render: () => (
+    <div className="flex min-h-[480px] justify-end">
+      <AvatarGroup label="Newsroom" listTitle="Newsroom: 40 people" shape="circle" size={28} max={5} overflow="list" defaultListOpen>
+        {crew(40)}
+      </AvatarGroup>
+    </div>
+  ),
+};
+
+/** With `onPersonSelect` everyone is a button, in the row and in the list: here, to message them. */
+export const GroupSelectable: Story = {
+  render: () => (
+    <AvatarGroup label="Newsroom" shape="circle" max={5} overflow="list" onPersonSelect={() => {}} personLabel={(name) => `Message ${name}`}>
+      {crew(12)}
+    </AvatarGroup>
+  ),
+};
