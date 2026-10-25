@@ -18,6 +18,9 @@ function colorFor(name: string) {
   return COLORS[h % COLORS.length];
 }
 
+/** Square (the default, like everything else here) or a circle */
+export type AvatarShape = "square" | "circle";
+
 export interface AvatarProps extends Omit<HTMLAttributes<HTMLSpanElement>, "children"> {
   /** Who or what it stands for. The accessible name and the hover text, and where the initials come from. */
   name: string;
@@ -25,15 +28,17 @@ export interface AvatarProps extends Omit<HTMLAttributes<HTMLSpanElement>, "chil
   src?: string;
   /** Width and height in px. Default 28, a control's height, so it lines up with buttons in a row. */
   size?: number;
+  /** "circle" is the one round thing in the library, for apps where people are round by custom. Default "square". */
+  shape?: AvatarShape;
 }
 
 /**
- * A square picture, or initials on a colour, standing for a person or a machine. The colour comes
- * from the name (the same name always gets the same one), from the chart colours. The picture
- * sits over the initials, so there is never an empty box: while it loads or if it fails to load,
- * the initials show.
+ * A square or round picture, or initials on a colour, standing for a person or a machine. The
+ * colour comes from the name (the same name always gets the same one), from the chart colours.
+ * The picture sits over the initials, so there is never an empty box: while it loads or if it
+ * fails to load, the initials show.
  */
-export function Avatar({ name, src, size = 28, className, style, ...rest }: AvatarProps) {
+export function Avatar({ name, src, size = 28, shape = "square", className, style, ...rest }: AvatarProps) {
   const [failed, setFailed] = useState(false);
   return (
     <span
@@ -43,6 +48,7 @@ export function Avatar({ name, src, size = 28, className, style, ...rest }: Avat
       title={name}
       className={cn(
         "relative inline-flex shrink-0 items-center justify-center overflow-hidden border border-border align-middle leading-none font-bold text-background select-none",
+        shape === "circle" && "rounded-full",
         colorFor(name),
         className,
       )}
@@ -77,6 +83,8 @@ export interface AvatarGroupProps extends HTMLAttributes<HTMLSpanElement> {
   max?: number;
   /** Size for every avatar in the group, in px */
   size?: number;
+  /** Shape for every avatar in the group and the "+3" box, unless an avatar sets its own */
+  shape?: AvatarShape;
   /** Accessible name of the group: "Shared with". Each avatar already says its own name. */
   label?: string;
 }
@@ -86,7 +94,7 @@ export interface AvatarGroupProps extends HTMLAttributes<HTMLSpanElement> {
  * one before it (no further overlap: it would hide the second initial). A "+3" box stands for the
  * rest past `max` and names them on hover.
  */
-export function AvatarGroup({ children, max = 4, size = 28, label, className, ...rest }: AvatarGroupProps) {
+export function AvatarGroup({ children, max = 4, size = 28, shape = "square", label, className, ...rest }: AvatarGroupProps) {
   const all = Children.toArray(children).filter((c): c is ReactElement<AvatarProps> => isValidElement(c));
   const names = all.map((c) => c.props.name);
   const shown = all.slice(0, max);
@@ -99,13 +107,16 @@ export function AvatarGroup({ children, max = 4, size = 28, label, className, ..
       className={cn("inline-flex items-center align-middle [&>*]:outline-2 [&>*]:outline-background", className)}
       {...rest}
     >
-      {shown.map((c) => cloneElement(c, { size: c.props.size ?? size }))}
+      {shown.map((c) => cloneElement(c, { size: c.props.size ?? size, shape: c.props.shape ?? shape }))}
       {more.length > 0 && (
         <span
           title={more.join(", ")}
           aria-label={`and ${more.length} more`}
           role="img"
-          className="relative inline-flex shrink-0 items-center justify-center border border-border bg-muted leading-none text-foreground tabular-nums"
+          className={cn(
+            "relative inline-flex shrink-0 items-center justify-center border border-border bg-muted leading-none text-foreground tabular-nums",
+            shape === "circle" && "rounded-full",
+          )}
           style={{ width: size, height: size, fontSize: Math.max(9, Math.round(size * 0.4)) }}
         >
           <span aria-hidden>+{more.length}</span>

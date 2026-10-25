@@ -38,7 +38,8 @@ apps with the shadcn CLI. Read this before changing anything; it is the contract
 
 Plain HTML, made consistent. When unsure, ask "what would a well-made page from 2005 do, with today's accessibility?"
 
-- **No corner radius anywhere.** Never `rounded-*`. (Avatars too: square.)
+- **No corner radius anywhere.** Never `rounded-*`. The one exception: `<Avatar shape="circle">` (`rounded-full`), which
+  the owner asked for. Avatars are square by default.
 - **No shadows** except on floating layers (menus, popovers, dialogs, toasts), and there only `shadow-md` or lighter.
   Borders separate things.
 - **Borders**: `border-border` for structure (tables, panels, dividers), `border-input` for the edges of controls.

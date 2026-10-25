@@ -40,6 +40,7 @@ import E_app_user_menu_demo from "@/registry/plainspoken/examples/app-user-menu-
 import E_app_workspace_settings_demo from "@/registry/plainspoken/examples/app-workspace-settings-demo";
 import E_avatar_demo from "@/registry/plainspoken/examples/avatar-demo";
 import E_avatar_group from "@/registry/plainspoken/examples/avatar-group";
+import E_avatar_shapes from "@/registry/plainspoken/examples/avatar-shapes";
 import E_badge_demo from "@/registry/plainspoken/examples/badge-demo";
 import E_badge_solid from "@/registry/plainspoken/examples/badge-solid";
 import E_bar_chart_demo from "@/registry/plainspoken/examples/bar-chart-demo";
@@ -317,6 +318,7 @@ export const examples: Record<string, ComponentType> = {
   "app-workspace-settings-demo": E_app_workspace_settings_demo,
   "avatar-demo": E_avatar_demo,
   "avatar-group": E_avatar_group,
+  "avatar-shapes": E_avatar_shapes,
   "badge-demo": E_badge_demo,
   "badge-solid": E_badge_solid,
   "bar-chart-demo": E_bar_chart_demo,

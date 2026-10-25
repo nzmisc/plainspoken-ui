@@ -12,7 +12,8 @@ const PHOTO =
 const meta = {
   title: "Components/Data display/Avatar",
   component: Avatar,
-  args: { name: "Amara Okafor", size: 28 },
+  args: { name: "Amara Okafor", size: 28, shape: "square" },
+  argTypes: { shape: { control: "inline-radio", options: ["square", "circle"] } },
 } satisfies Meta<typeof Avatar>;
 export default meta;
 type Story = StoryObj<typeof meta>;
@@ -40,6 +41,24 @@ export const Pictures: Story = {
   ),
 };
 
+/** Square by default, or `shape="circle"`: the one round thing in the library. Pictures and initials work the same in both. */
+export const Shapes: Story = {
+  render: () => (
+    <div className="flex flex-col gap-2">
+      {(["square", "circle"] as const).map((shape) => (
+        <p key={shape} className="flex items-center gap-2">
+          <Avatar name="Amara Okafor" shape={shape} size={20} />
+          <Avatar name="Jonas Weber" shape={shape} size={24} />
+          <Avatar name="Li Wei" shape={shape} />
+          <Avatar name="María González" shape={shape} size={36} />
+          <Avatar name="Noah Fischer" shape={shape} size={48} src={PHOTO} />
+          <Avatar name="Sofia Rossi" shape={shape} size={48} src="/does-not-exist.png" />
+        </p>
+      ))}
+    </div>
+  ),
+};
+
 /** Size in px. 20, 24, 28 and 36 match the control heights, so an avatar lines up with buttons. */
 export const Sizes: Story = {
   render: () => (
@@ -63,6 +82,7 @@ export const Sizes: Story = {
   ),
 };
 
+/** Side by side, each ringed in the background colour; past `max`, a "+N" box names the rest on hover. A group's `shape` reaches every avatar in it. */
 export const Group: Story = {
   render: () => (
     <div className="flex flex-col gap-3">
@@ -77,6 +97,13 @@ export const Group: Story = {
       <AvatarGroup size={20}>
         <Avatar name="Amara Okafor" />
         <Avatar name="Jonas Weber" />
+      </AvatarGroup>
+      <AvatarGroup label="Assigned" shape="circle" max={3}>
+        <Avatar name="Amara Okafor" />
+        <Avatar name="Jonas Weber" />
+        <Avatar name="Li Wei" src={PHOTO} />
+        <Avatar name="María González" />
+        <Avatar name="Noah Fischer" />
       </AvatarGroup>
     </div>
   ),

@@ -915,7 +915,7 @@ export const registry: RegistryEntry[] = [
     "name": "avatar",
     "type": "registry:ui",
     "title": "Avatar",
-    "description": "A square picture or initials on a colour picked from the name, which shows through while the picture loads or if it fails; plus groups ringed in the background colour with a “+3”.",
+    "description": "A square or round picture, or initials on a colour picked from the name, which shows through while the picture loads or if it fails; plus groups ringed in the background colour with a “+3”.",
     "category": "Data display",
     "files": [
       {
@@ -925,6 +925,7 @@ export const registry: RegistryEntry[] = [
     ],
     "examples": [
       "avatar-demo",
+      "avatar-shapes",
       "avatar-group"
     ],
     "registryDependencies": [
