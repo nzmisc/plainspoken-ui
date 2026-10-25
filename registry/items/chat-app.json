@@ -1,0 +1,19 @@
+{
+  "name": "chat-app",
+  "type": "registry:block",
+  "title": "Chat app",
+  "description": "A working chat with language models through OpenRouter: conversations kept in the browser, a model picker, streamed Markdown answers, Stop, Regenerate and Edit. Installs the route that holds the key, too.",
+  "category": "AI chat",
+  "files": [
+    "blocks/chat/chat-app.tsx"
+  ],
+  "examples": [
+    "chat-app-demo"
+  ],
+  "registryDependencies": [
+    "chat-route"
+  ],
+  "dependencies": [
+    "zod"
+  ]
+}

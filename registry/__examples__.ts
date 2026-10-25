@@ -88,6 +88,21 @@ import E_calendar_large from "@/registry/plainspoken/examples/calendar-large";
 import E_calendar_range from "@/registry/plainspoken/examples/calendar-range";
 import E_card_demo from "@/registry/plainspoken/examples/card-demo";
 import E_card_grid from "@/registry/plainspoken/examples/card-grid";
+import E_chat_app_demo from "@/registry/plainspoken/examples/chat-app-demo";
+import E_chat_composer_demo from "@/registry/plainspoken/examples/chat-composer-demo";
+import E_chat_composer_streaming from "@/registry/plainspoken/examples/chat-composer-streaming";
+import E_chat_conversations_demo from "@/registry/plainspoken/examples/chat-conversations-demo";
+import E_chat_markdown_demo from "@/registry/plainspoken/examples/chat-markdown-demo";
+import E_chat_markdown_diagram from "@/registry/plainspoken/examples/chat-markdown-diagram";
+import E_chat_markdown_math from "@/registry/plainspoken/examples/chat-markdown-math";
+import E_chat_markdown_streaming from "@/registry/plainspoken/examples/chat-markdown-streaming";
+import E_chat_message_demo from "@/registry/plainspoken/examples/chat-message-demo";
+import E_chat_message_notes from "@/registry/plainspoken/examples/chat-message-notes";
+import E_chat_model_picker_demo from "@/registry/plainspoken/examples/chat-model-picker-demo";
+import E_chat_reasoning_demo from "@/registry/plainspoken/examples/chat-reasoning-demo";
+import E_chat_thread_demo from "@/registry/plainspoken/examples/chat-thread-demo";
+import E_chat_thread_empty from "@/registry/plainspoken/examples/chat-thread-empty";
+import E_chat_thread_error from "@/registry/plainspoken/examples/chat-thread-error";
 import E_checkbox_demo from "@/registry/plainspoken/examples/checkbox-demo";
 import E_chip_demo from "@/registry/plainspoken/examples/chip-demo";
 import E_combobox_demo from "@/registry/plainspoken/examples/combobox-demo";
@@ -382,6 +397,21 @@ export const examples: Record<string, ComponentType> = {
   "calendar-range": E_calendar_range,
   "card-demo": E_card_demo,
   "card-grid": E_card_grid,
+  "chat-app-demo": E_chat_app_demo,
+  "chat-composer-demo": E_chat_composer_demo,
+  "chat-composer-streaming": E_chat_composer_streaming,
+  "chat-conversations-demo": E_chat_conversations_demo,
+  "chat-markdown-demo": E_chat_markdown_demo,
+  "chat-markdown-diagram": E_chat_markdown_diagram,
+  "chat-markdown-math": E_chat_markdown_math,
+  "chat-markdown-streaming": E_chat_markdown_streaming,
+  "chat-message-demo": E_chat_message_demo,
+  "chat-message-notes": E_chat_message_notes,
+  "chat-model-picker-demo": E_chat_model_picker_demo,
+  "chat-reasoning-demo": E_chat_reasoning_demo,
+  "chat-thread-demo": E_chat_thread_demo,
+  "chat-thread-empty": E_chat_thread_empty,
+  "chat-thread-error": E_chat_thread_error,
   "checkbox-demo": E_checkbox_demo,
   "chip-demo": E_chip_demo,
   "combobox-demo": E_combobox_demo,

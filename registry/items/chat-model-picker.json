@@ -1,0 +1,13 @@
+{
+  "name": "chat-model-picker",
+  "type": "registry:block",
+  "title": "Model picker",
+  "description": "A native select of the allowed models, grouped into fast and stronger ones, with each one's price per million tokens beside it.",
+  "category": "AI chat",
+  "files": [
+    "blocks/chat/model-picker.tsx"
+  ],
+  "examples": [
+    "chat-model-picker-demo"
+  ]
+}

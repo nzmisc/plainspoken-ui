@@ -1777,6 +1777,351 @@ export const registry: RegistryEntry[] = [
     "hidden": true
   },
   {
+    "name": "chat-app",
+    "type": "registry:block",
+    "title": "Chat app",
+    "description": "A working chat with language models through OpenRouter: conversations kept in the browser, a model picker, streamed Markdown answers, Stop, Regenerate and Edit. Installs the route that holds the key, too.",
+    "category": "AI chat",
+    "files": [
+      {
+        "path": "registry/plainspoken/blocks/chat/chat-app.tsx",
+        "type": "registry:component",
+        "target": "components/blocks/chat/chat-app.tsx"
+      }
+    ],
+    "examples": [
+      "chat-app-demo"
+    ],
+    "registryDependencies": [
+      "alert",
+      "app-shell",
+      "button",
+      "chat-composer",
+      "chat-conversations",
+      "chat-data",
+      "chat-model-picker",
+      "chat-models",
+      "chat-route",
+      "chat-thread",
+      "dates",
+      "dropdown-menu",
+      "foundation",
+      "icons",
+      "toggle",
+      "use-stored-state",
+      "utils"
+    ],
+    "dependencies": [
+      "@ai-sdk/react",
+      "ai",
+      "zod"
+    ],
+    "hidden": false
+  },
+  {
+    "name": "chat-composer",
+    "type": "registry:block",
+    "title": "Composer",
+    "description": "The box a message is written in: grows as you type, Enter sends and Shift+Enter starts a line, tools on the left, and a send button that turns into Stop in place.",
+    "category": "AI chat",
+    "files": [
+      {
+        "path": "registry/plainspoken/blocks/chat/composer.tsx",
+        "type": "registry:component",
+        "target": "components/blocks/chat/composer.tsx"
+      }
+    ],
+    "examples": [
+      "chat-composer-demo",
+      "chat-composer-streaming"
+    ],
+    "registryDependencies": [
+      "button",
+      "foundation",
+      "icons",
+      "kbd",
+      "textarea",
+      "utils"
+    ],
+    "dependencies": [],
+    "hidden": false
+  },
+  {
+    "name": "chat-conversations",
+    "type": "registry:block",
+    "title": "Conversations",
+    "description": "Conversations as sidebar sections, newest first under Today, Yesterday and older headings, with the dialogs that rename and delete one.",
+    "category": "AI chat",
+    "files": [
+      {
+        "path": "registry/plainspoken/blocks/chat/conversations.tsx",
+        "type": "registry:component",
+        "target": "components/blocks/chat/conversations.tsx"
+      }
+    ],
+    "examples": [
+      "chat-conversations-demo"
+    ],
+    "registryDependencies": [
+      "alert-dialog",
+      "button",
+      "chat-data",
+      "dates",
+      "dialog",
+      "field",
+      "foundation",
+      "input",
+      "sidebar"
+    ],
+    "dependencies": [],
+    "hidden": false
+  },
+  {
+    "name": "chat-data",
+    "type": "registry:block",
+    "title": "Chat data",
+    "description": "The chat blocks' message and conversation types, the demo's conversations (a long showcase that uses everything the chat draws, and fourteen short ones), starting prompts, and the helpers that title, group and explain them.",
+    "category": "AI chat",
+    "files": [
+      {
+        "path": "registry/plainspoken/blocks/chat/data.ts",
+        "type": "registry:component",
+        "target": "components/blocks/chat/data.ts"
+      },
+      {
+        "path": "registry/plainspoken/blocks/chat/format.ts",
+        "type": "registry:component",
+        "target": "components/blocks/chat/format.ts"
+      },
+      {
+        "path": "registry/plainspoken/blocks/chat/showcase.ts",
+        "type": "registry:component",
+        "target": "components/blocks/chat/showcase.ts"
+      }
+    ],
+    "examples": [],
+    "registryDependencies": [
+      "dates",
+      "foundation"
+    ],
+    "dependencies": [],
+    "hidden": true
+  },
+  {
+    "name": "chat-markdown",
+    "type": "registry:block",
+    "title": "Markdown",
+    "description": "Markdown from a model, drawn as it streams in: Streamdown restyled through its component map, with Prose type, the library's tables and links, highlighted code with Copy, KaTeX math and Mermaid diagrams in the theme's colours.",
+    "category": "AI chat",
+    "files": [
+      {
+        "path": "registry/plainspoken/blocks/chat/markdown.tsx",
+        "type": "registry:component",
+        "target": "components/blocks/chat/markdown.tsx"
+      },
+      {
+        "path": "registry/plainspoken/blocks/chat/math.ts",
+        "type": "registry:component",
+        "target": "components/blocks/chat/math.ts"
+      },
+      {
+        "path": "registry/plainspoken/blocks/chat/mermaid.tsx",
+        "type": "registry:component",
+        "target": "components/blocks/chat/mermaid.tsx"
+      }
+    ],
+    "examples": [
+      "chat-markdown-demo",
+      "chat-markdown-math",
+      "chat-markdown-diagram",
+      "chat-markdown-streaming"
+    ],
+    "registryDependencies": [
+      "copy-button",
+      "foundation",
+      "icon",
+      "icons",
+      "prose",
+      "table",
+      "text-link",
+      "utils"
+    ],
+    "dependencies": [
+      "@streamdown/code",
+      "@streamdown/math",
+      "@streamdown/mermaid",
+      "katex",
+      "streamdown"
+    ],
+    "hidden": false
+  },
+  {
+    "name": "chat-message",
+    "type": "registry:block",
+    "title": "Message",
+    "description": "One message: a question in a gray box on the right, or an answer in Markdown under its model's name, with reasoning, notes for stopped or cut-off answers, and Copy, Regenerate and Edit.",
+    "category": "AI chat",
+    "files": [
+      {
+        "path": "registry/plainspoken/blocks/chat/message.tsx",
+        "type": "registry:component",
+        "target": "components/blocks/chat/message.tsx"
+      }
+    ],
+    "examples": [
+      "chat-message-demo",
+      "chat-message-notes"
+    ],
+    "registryDependencies": [
+      "button",
+      "chat-composer",
+      "chat-data",
+      "chat-markdown",
+      "chat-models",
+      "chat-reasoning",
+      "copy-button",
+      "foundation",
+      "icon",
+      "icons",
+      "spinner",
+      "utils"
+    ],
+    "dependencies": [],
+    "hidden": false
+  },
+  {
+    "name": "chat-model-picker",
+    "type": "registry:block",
+    "title": "Model picker",
+    "description": "A native select of the allowed models, grouped into fast and stronger ones, with each one's price per million tokens beside it.",
+    "category": "AI chat",
+    "files": [
+      {
+        "path": "registry/plainspoken/blocks/chat/model-picker.tsx",
+        "type": "registry:component",
+        "target": "components/blocks/chat/model-picker.tsx"
+      }
+    ],
+    "examples": [
+      "chat-model-picker-demo"
+    ],
+    "registryDependencies": [
+      "chat-models",
+      "foundation",
+      "select",
+      "utils"
+    ],
+    "dependencies": [],
+    "hidden": false
+  },
+  {
+    "name": "chat-models",
+    "type": "registry:block",
+    "title": "Chat models",
+    "description": "The models the chat may use, with their prices, and the limits on a request: the allow-list the route checks against.",
+    "category": "AI chat",
+    "files": [
+      {
+        "path": "registry/plainspoken/blocks/chat/models.ts",
+        "type": "registry:component",
+        "target": "components/blocks/chat/models.ts"
+      }
+    ],
+    "examples": [],
+    "registryDependencies": [
+      "foundation"
+    ],
+    "dependencies": [],
+    "hidden": true
+  },
+  {
+    "name": "chat-reasoning",
+    "type": "registry:block",
+    "title": "Reasoning",
+    "description": "The model's reasoning folded into a native <details>: “Thinking…” with a spinner while it streams, “Thought for 4 s” after, the text as a muted aside.",
+    "category": "AI chat",
+    "files": [
+      {
+        "path": "registry/plainspoken/blocks/chat/reasoning.tsx",
+        "type": "registry:component",
+        "target": "components/blocks/chat/reasoning.tsx"
+      }
+    ],
+    "examples": [
+      "chat-reasoning-demo"
+    ],
+    "registryDependencies": [
+      "chat-data",
+      "chat-markdown",
+      "foundation",
+      "icon",
+      "icons",
+      "spinner",
+      "utils"
+    ],
+    "dependencies": [],
+    "hidden": false
+  },
+  {
+    "name": "chat-route",
+    "type": "registry:block",
+    "title": "Chat route",
+    "description": "The route handler at app/api/chat: reads OPENROUTER_API_KEY on the server, lets through only the allowed models, caps messages, input and answer length, and streams the answer with reasoning and metadata.",
+    "category": "AI chat",
+    "files": [
+      {
+        "path": "registry/plainspoken/blocks/chat/route.ts",
+        "type": "registry:file",
+        "target": "app/api/chat/route.ts"
+      }
+    ],
+    "examples": [],
+    "registryDependencies": [
+      "chat-data",
+      "chat-models",
+      "foundation"
+    ],
+    "dependencies": [
+      "@openrouter/ai-sdk-provider",
+      "ai",
+      "zod"
+    ],
+    "hidden": true
+  },
+  {
+    "name": "chat-thread",
+    "type": "registry:block",
+    "title": "Thread",
+    "description": "A conversation that scrolls on its own: it follows a streaming answer until you scroll up, then offers Jump to latest; prompts when empty, failures with Retry, and status in a live region.",
+    "category": "AI chat",
+    "files": [
+      {
+        "path": "registry/plainspoken/blocks/chat/thread.tsx",
+        "type": "registry:component",
+        "target": "components/blocks/chat/thread.tsx"
+      }
+    ],
+    "examples": [
+      "chat-thread-demo",
+      "chat-thread-empty",
+      "chat-thread-error"
+    ],
+    "registryDependencies": [
+      "alert",
+      "button",
+      "chat-data",
+      "chat-message",
+      "chat-models",
+      "empty-state",
+      "foundation",
+      "icons",
+      "spinner",
+      "utils"
+    ],
+    "dependencies": [],
+    "hidden": false
+  },
+  {
     "name": "checkbox",
     "type": "registry:ui",
     "title": "Checkbox",

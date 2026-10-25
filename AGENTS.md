@@ -66,7 +66,9 @@ Plain HTML, made consistent. When unsure, ask "what would a well-made page from 
 2. **Native first.** `<dialog>` for modals and drawers, the Popover API or a small positioning helper for floating
    things, `<details>` for disclosure, native inputs and selects. No Radix, Base UI, React Aria, Headless UI, cmdk,
    date libraries or icon packages. **Do not add npm dependencies.** If something truly needs one, stop and say so in
-   your report instead.
+   your report instead. The one exception is the AI chat demo (`blocks/chat/`), which the owner asked to be a working
+   chat: `streamdown` with its code, math and mermaid plugins (and `katex` for the math CSS) for streamed Markdown,
+   and the AI SDK (`ai`, `@ai-sdk/react`, `@openrouter/ai-sdk-provider`, `zod`).
 3. **Accessible**: follow the ARIA Authoring Practices pattern for the widget (keyboard, roles, focus). Every control
    reachable and operable by keyboard, visible focus (`FOCUS_RING`), labels on everything, `aria-live` for things
    that change on their own. Respect `prefers-reduced-motion`.

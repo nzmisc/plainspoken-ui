@@ -1,0 +1,14 @@
+{
+  "name": "chat-composer",
+  "type": "registry:block",
+  "title": "Composer",
+  "description": "The box a message is written in: grows as you type, Enter sends and Shift+Enter starts a line, tools on the left, and a send button that turns into Stop in place.",
+  "category": "AI chat",
+  "files": [
+    "blocks/chat/composer.tsx"
+  ],
+  "examples": [
+    "chat-composer-demo",
+    "chat-composer-streaming"
+  ]
+}

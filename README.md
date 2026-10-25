@@ -29,6 +29,11 @@ Both dev servers only answer to localhost. To reach them by another name (a tunn
 `.env.local`: `DEV_HOSTS=dev-box.example.ts.net`. For production builds served elsewhere, set `NEXT_PUBLIC_SITE_URL`
 so install commands and registry links point there.
 
+The AI chat demo (`/demos/chat`) answers for real, through [OpenRouter](https://openrouter.ai): set
+`OPENROUTER_API_KEY` in the server's environment (for example in `.env.local`, which git ignores). Without it the chat
+says it isn't set up and everything else works. The server only accepts the few models listed in the demo and caps
+each answer's length, so a key can't be spent on anything else through it.
+
 How the code is organised and the rules every component follows are in [AGENTS.md](AGENTS.md). Design notes are in
 [docs/concepts](docs/concepts/README.md).
 

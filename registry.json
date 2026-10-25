@@ -1618,6 +1618,331 @@
       ]
     },
     {
+      "name": "chat-app",
+      "type": "registry:block",
+      "title": "Chat app",
+      "description": "A working chat with language models through OpenRouter: conversations kept in the browser, a model picker, streamed Markdown answers, Stop, Regenerate and Edit. Installs the route that holds the key, too.",
+      "author": "plainspoken-ui <https://github.com/nzmisc/plainspoken-ui>",
+      "dependencies": [
+        "@ai-sdk/react",
+        "ai",
+        "zod"
+      ],
+      "registryDependencies": [
+        "@plainspoken/alert",
+        "@plainspoken/app-shell",
+        "@plainspoken/button",
+        "@plainspoken/chat-composer",
+        "@plainspoken/chat-conversations",
+        "@plainspoken/chat-data",
+        "@plainspoken/chat-model-picker",
+        "@plainspoken/chat-models",
+        "@plainspoken/chat-route",
+        "@plainspoken/chat-thread",
+        "@plainspoken/dates",
+        "@plainspoken/dropdown-menu",
+        "@plainspoken/foundation",
+        "@plainspoken/icons",
+        "@plainspoken/toggle",
+        "@plainspoken/use-stored-state",
+        "utils"
+      ],
+      "files": [
+        {
+          "path": "registry/plainspoken/blocks/chat/chat-app.tsx",
+          "type": "registry:component",
+          "target": "components/blocks/chat/chat-app.tsx"
+        }
+      ],
+      "categories": [
+        "ai-chat"
+      ]
+    },
+    {
+      "name": "chat-composer",
+      "type": "registry:block",
+      "title": "Composer",
+      "description": "The box a message is written in: grows as you type, Enter sends and Shift+Enter starts a line, tools on the left, and a send button that turns into Stop in place.",
+      "author": "plainspoken-ui <https://github.com/nzmisc/plainspoken-ui>",
+      "registryDependencies": [
+        "@plainspoken/button",
+        "@plainspoken/foundation",
+        "@plainspoken/icons",
+        "@plainspoken/kbd",
+        "@plainspoken/textarea",
+        "utils"
+      ],
+      "files": [
+        {
+          "path": "registry/plainspoken/blocks/chat/composer.tsx",
+          "type": "registry:component",
+          "target": "components/blocks/chat/composer.tsx"
+        }
+      ],
+      "categories": [
+        "ai-chat"
+      ]
+    },
+    {
+      "name": "chat-conversations",
+      "type": "registry:block",
+      "title": "Conversations",
+      "description": "Conversations as sidebar sections, newest first under Today, Yesterday and older headings, with the dialogs that rename and delete one.",
+      "author": "plainspoken-ui <https://github.com/nzmisc/plainspoken-ui>",
+      "registryDependencies": [
+        "@plainspoken/alert-dialog",
+        "@plainspoken/button",
+        "@plainspoken/chat-data",
+        "@plainspoken/dates",
+        "@plainspoken/dialog",
+        "@plainspoken/field",
+        "@plainspoken/foundation",
+        "@plainspoken/input",
+        "@plainspoken/sidebar"
+      ],
+      "files": [
+        {
+          "path": "registry/plainspoken/blocks/chat/conversations.tsx",
+          "type": "registry:component",
+          "target": "components/blocks/chat/conversations.tsx"
+        }
+      ],
+      "categories": [
+        "ai-chat"
+      ]
+    },
+    {
+      "name": "chat-data",
+      "type": "registry:block",
+      "title": "Chat data",
+      "description": "The chat blocks' message and conversation types, the demo's conversations (a long showcase that uses everything the chat draws, and fourteen short ones), starting prompts, and the helpers that title, group and explain them.",
+      "author": "plainspoken-ui <https://github.com/nzmisc/plainspoken-ui>",
+      "registryDependencies": [
+        "@plainspoken/dates",
+        "@plainspoken/foundation"
+      ],
+      "files": [
+        {
+          "path": "registry/plainspoken/blocks/chat/data.ts",
+          "type": "registry:component",
+          "target": "components/blocks/chat/data.ts"
+        },
+        {
+          "path": "registry/plainspoken/blocks/chat/format.ts",
+          "type": "registry:component",
+          "target": "components/blocks/chat/format.ts"
+        },
+        {
+          "path": "registry/plainspoken/blocks/chat/showcase.ts",
+          "type": "registry:component",
+          "target": "components/blocks/chat/showcase.ts"
+        }
+      ],
+      "categories": [
+        "ai-chat"
+      ]
+    },
+    {
+      "name": "chat-markdown",
+      "type": "registry:block",
+      "title": "Markdown",
+      "description": "Markdown from a model, drawn as it streams in: Streamdown restyled through its component map, with Prose type, the library's tables and links, highlighted code with Copy, KaTeX math and Mermaid diagrams in the theme's colours.",
+      "author": "plainspoken-ui <https://github.com/nzmisc/plainspoken-ui>",
+      "dependencies": [
+        "@streamdown/code",
+        "@streamdown/math",
+        "@streamdown/mermaid",
+        "katex",
+        "streamdown"
+      ],
+      "registryDependencies": [
+        "@plainspoken/copy-button",
+        "@plainspoken/foundation",
+        "@plainspoken/icon",
+        "@plainspoken/icons",
+        "@plainspoken/prose",
+        "@plainspoken/table",
+        "@plainspoken/text-link",
+        "utils"
+      ],
+      "files": [
+        {
+          "path": "registry/plainspoken/blocks/chat/markdown.tsx",
+          "type": "registry:component",
+          "target": "components/blocks/chat/markdown.tsx"
+        },
+        {
+          "path": "registry/plainspoken/blocks/chat/math.ts",
+          "type": "registry:component",
+          "target": "components/blocks/chat/math.ts"
+        },
+        {
+          "path": "registry/plainspoken/blocks/chat/mermaid.tsx",
+          "type": "registry:component",
+          "target": "components/blocks/chat/mermaid.tsx"
+        }
+      ],
+      "categories": [
+        "ai-chat"
+      ]
+    },
+    {
+      "name": "chat-message",
+      "type": "registry:block",
+      "title": "Message",
+      "description": "One message: a question in a gray box on the right, or an answer in Markdown under its model's name, with reasoning, notes for stopped or cut-off answers, and Copy, Regenerate and Edit.",
+      "author": "plainspoken-ui <https://github.com/nzmisc/plainspoken-ui>",
+      "registryDependencies": [
+        "@plainspoken/button",
+        "@plainspoken/chat-composer",
+        "@plainspoken/chat-data",
+        "@plainspoken/chat-markdown",
+        "@plainspoken/chat-models",
+        "@plainspoken/chat-reasoning",
+        "@plainspoken/copy-button",
+        "@plainspoken/foundation",
+        "@plainspoken/icon",
+        "@plainspoken/icons",
+        "@plainspoken/spinner",
+        "utils"
+      ],
+      "files": [
+        {
+          "path": "registry/plainspoken/blocks/chat/message.tsx",
+          "type": "registry:component",
+          "target": "components/blocks/chat/message.tsx"
+        }
+      ],
+      "categories": [
+        "ai-chat"
+      ]
+    },
+    {
+      "name": "chat-model-picker",
+      "type": "registry:block",
+      "title": "Model picker",
+      "description": "A native select of the allowed models, grouped into fast and stronger ones, with each one's price per million tokens beside it.",
+      "author": "plainspoken-ui <https://github.com/nzmisc/plainspoken-ui>",
+      "registryDependencies": [
+        "@plainspoken/chat-models",
+        "@plainspoken/foundation",
+        "@plainspoken/select",
+        "utils"
+      ],
+      "files": [
+        {
+          "path": "registry/plainspoken/blocks/chat/model-picker.tsx",
+          "type": "registry:component",
+          "target": "components/blocks/chat/model-picker.tsx"
+        }
+      ],
+      "categories": [
+        "ai-chat"
+      ]
+    },
+    {
+      "name": "chat-models",
+      "type": "registry:block",
+      "title": "Chat models",
+      "description": "The models the chat may use, with their prices, and the limits on a request: the allow-list the route checks against.",
+      "author": "plainspoken-ui <https://github.com/nzmisc/plainspoken-ui>",
+      "registryDependencies": [
+        "@plainspoken/foundation"
+      ],
+      "files": [
+        {
+          "path": "registry/plainspoken/blocks/chat/models.ts",
+          "type": "registry:component",
+          "target": "components/blocks/chat/models.ts"
+        }
+      ],
+      "categories": [
+        "ai-chat"
+      ]
+    },
+    {
+      "name": "chat-reasoning",
+      "type": "registry:block",
+      "title": "Reasoning",
+      "description": "The model's reasoning folded into a native <details>: “Thinking…” with a spinner while it streams, “Thought for 4 s” after, the text as a muted aside.",
+      "author": "plainspoken-ui <https://github.com/nzmisc/plainspoken-ui>",
+      "registryDependencies": [
+        "@plainspoken/chat-data",
+        "@plainspoken/chat-markdown",
+        "@plainspoken/foundation",
+        "@plainspoken/icon",
+        "@plainspoken/icons",
+        "@plainspoken/spinner",
+        "utils"
+      ],
+      "files": [
+        {
+          "path": "registry/plainspoken/blocks/chat/reasoning.tsx",
+          "type": "registry:component",
+          "target": "components/blocks/chat/reasoning.tsx"
+        }
+      ],
+      "categories": [
+        "ai-chat"
+      ]
+    },
+    {
+      "name": "chat-route",
+      "type": "registry:block",
+      "title": "Chat route",
+      "description": "The route handler at app/api/chat: reads OPENROUTER_API_KEY on the server, lets through only the allowed models, caps messages, input and answer length, and streams the answer with reasoning and metadata.",
+      "author": "plainspoken-ui <https://github.com/nzmisc/plainspoken-ui>",
+      "dependencies": [
+        "@openrouter/ai-sdk-provider",
+        "ai",
+        "zod"
+      ],
+      "registryDependencies": [
+        "@plainspoken/chat-data",
+        "@plainspoken/chat-models",
+        "@plainspoken/foundation"
+      ],
+      "files": [
+        {
+          "path": "registry/plainspoken/blocks/chat/route.ts",
+          "type": "registry:file",
+          "target": "app/api/chat/route.ts"
+        }
+      ],
+      "categories": [
+        "ai-chat"
+      ]
+    },
+    {
+      "name": "chat-thread",
+      "type": "registry:block",
+      "title": "Thread",
+      "description": "A conversation that scrolls on its own: it follows a streaming answer until you scroll up, then offers Jump to latest; prompts when empty, failures with Retry, and status in a live region.",
+      "author": "plainspoken-ui <https://github.com/nzmisc/plainspoken-ui>",
+      "registryDependencies": [
+        "@plainspoken/alert",
+        "@plainspoken/button",
+        "@plainspoken/chat-data",
+        "@plainspoken/chat-message",
+        "@plainspoken/chat-models",
+        "@plainspoken/empty-state",
+        "@plainspoken/foundation",
+        "@plainspoken/icons",
+        "@plainspoken/spinner",
+        "utils"
+      ],
+      "files": [
+        {
+          "path": "registry/plainspoken/blocks/chat/thread.tsx",
+          "type": "registry:component",
+          "target": "components/blocks/chat/thread.tsx"
+        }
+      ],
+      "categories": [
+        "ai-chat"
+      ]
+    },
+    {
       "name": "checkbox",
       "type": "registry:ui",
       "title": "Checkbox",

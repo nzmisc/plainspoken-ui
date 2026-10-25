@@ -21,11 +21,20 @@
     "icons": "node scripts/copy-lucide.mjs"
   },
   "dependencies": {
+    "@ai-sdk/react": "^4.0.157",
+    "@openrouter/ai-sdk-provider": "^3.1.0",
+    "@streamdown/code": "^2.0.0",
+    "@streamdown/math": "^1.0.3",
+    "@streamdown/mermaid": "^1.0.3",
+    "ai": "^7.0.153",
     "clsx": "^2.1.1",
+    "katex": "^0.16.47",
     "next": "16.4.3",
     "react": "19.3.1",
     "react-dom": "19.3.1",
-    "tailwind-merge": "^3.7.0"
+    "streamdown": "^2.7.1",
+    "tailwind-merge": "^3.7.0",
+    "zod": "^4.6.7"
   },
   "devDependencies": {
     "@storybook/addon-a11y": "^10.6.3",

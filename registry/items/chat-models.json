@@ -1,0 +1,11 @@
+{
+  "name": "chat-models",
+  "type": "registry:block",
+  "title": "Chat models",
+  "description": "The models the chat may use, with their prices, and the limits on a request: the allow-list the route checks against.",
+  "category": "AI chat",
+  "files": [
+    "blocks/chat/models.ts"
+  ],
+  "hidden": true
+}

@@ -1,0 +1,13 @@
+{
+  "name": "chat-conversations",
+  "type": "registry:block",
+  "title": "Conversations",
+  "description": "Conversations as sidebar sections, newest first under Today, Yesterday and older headings, with the dialogs that rename and delete one.",
+  "category": "AI chat",
+  "files": [
+    "blocks/chat/conversations.tsx"
+  ],
+  "examples": [
+    "chat-conversations-demo"
+  ]
+}

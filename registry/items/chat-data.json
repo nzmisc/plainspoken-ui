@@ -1,0 +1,13 @@
+{
+  "name": "chat-data",
+  "type": "registry:block",
+  "title": "Chat data",
+  "description": "The chat blocks' message and conversation types, the demo's conversations (a long showcase that uses everything the chat draws, and fourteen short ones), starting prompts, and the helpers that title, group and explain them.",
+  "category": "AI chat",
+  "files": [
+    "blocks/chat/data.ts",
+    "blocks/chat/format.ts",
+    "blocks/chat/showcase.ts"
+  ],
+  "hidden": true
+}
