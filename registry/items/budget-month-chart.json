@@ -1,0 +1,13 @@
+{
+  "name": "budget-month-chart",
+  "type": "registry:block",
+  "title": "Spend per month",
+  "description": "Planned spend per month as grouped columns, approved lines beside those still waiting, drawn from the lines so it follows the sheet.",
+  "category": "Budget",
+  "files": [
+    "blocks/budget/month-chart.tsx"
+  ],
+  "examples": [
+    "budget-month-chart-demo"
+  ]
+}

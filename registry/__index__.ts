@@ -1657,6 +1657,154 @@ export const registry: RegistryEntry[] = [
     "hidden": false
   },
   {
+    "name": "budget-app",
+    "type": "registry:block",
+    "title": "Budget app",
+    "description": "The whole budget page: headline figures, the editable sheet with its save bar, and a monthly chart and category summary that follow every edit.",
+    "category": "Budget",
+    "files": [
+      {
+        "path": "registry/plainspoken/blocks/budget/budget-app.tsx",
+        "type": "registry:component",
+        "target": "components/blocks/budget/budget-app.tsx"
+      }
+    ],
+    "examples": [
+      "budget-app-demo"
+    ],
+    "registryDependencies": [
+      "budget-category-summary",
+      "budget-data",
+      "budget-month-chart",
+      "budget-sheet",
+      "budget-stats",
+      "foundation",
+      "utils"
+    ],
+    "dependencies": [],
+    "hidden": false
+  },
+  {
+    "name": "budget-category-summary",
+    "type": "registry:block",
+    "title": "Category summary",
+    "description": "The budget per category against last year, with the change in euros and per cent and each category's months as a sparkline.",
+    "category": "Budget",
+    "files": [
+      {
+        "path": "registry/plainspoken/blocks/budget/category-summary.tsx",
+        "type": "registry:component",
+        "target": "components/blocks/budget/category-summary.tsx"
+      }
+    ],
+    "examples": [
+      "budget-category-summary-demo"
+    ],
+    "registryDependencies": [
+      "budget-data",
+      "foundation",
+      "panel",
+      "sparkline",
+      "table"
+    ],
+    "dependencies": [],
+    "hidden": false
+  },
+  {
+    "name": "budget-data",
+    "type": "registry:block",
+    "title": "Budget data",
+    "description": "The demo budget (a design team's 2027 line items with last year's spend) and the sums the budget blocks show: per line, per month and per category.",
+    "category": "Budget",
+    "files": [
+      {
+        "path": "registry/plainspoken/blocks/budget/data.ts",
+        "type": "registry:component",
+        "target": "components/blocks/budget/data.ts"
+      }
+    ],
+    "examples": [],
+    "registryDependencies": [
+      "foundation"
+    ],
+    "dependencies": [],
+    "hidden": true
+  },
+  {
+    "name": "budget-month-chart",
+    "type": "registry:block",
+    "title": "Spend per month",
+    "description": "Planned spend per month as grouped columns, approved lines beside those still waiting, drawn from the lines so it follows the sheet.",
+    "category": "Budget",
+    "files": [
+      {
+        "path": "registry/plainspoken/blocks/budget/month-chart.tsx",
+        "type": "registry:component",
+        "target": "components/blocks/budget/month-chart.tsx"
+      }
+    ],
+    "examples": [
+      "budget-month-chart-demo"
+    ],
+    "registryDependencies": [
+      "bar-chart",
+      "budget-data",
+      "foundation",
+      "panel"
+    ],
+    "dependencies": [],
+    "hidden": false
+  },
+  {
+    "name": "budget-sheet",
+    "type": "registry:block",
+    "title": "Budget sheet",
+    "description": "The year's budget as an editable table: line items with category and owner, an amount per month, the worked-out total, last year and the change, approval and notes, with a totals row.",
+    "category": "Budget",
+    "files": [
+      {
+        "path": "registry/plainspoken/blocks/budget/budget-sheet.tsx",
+        "type": "registry:component",
+        "target": "components/blocks/budget/budget-sheet.tsx"
+      }
+    ],
+    "examples": [
+      "budget-sheet-demo"
+    ],
+    "registryDependencies": [
+      "budget-data",
+      "editable-table",
+      "foundation"
+    ],
+    "dependencies": [],
+    "hidden": false
+  },
+  {
+    "name": "budget-stats",
+    "type": "registry:block",
+    "title": "Budget figures",
+    "description": "The plan's headline figures: the total against last year, what waits for approval, the busiest month with a sparkline, and the monthly average.",
+    "category": "Budget",
+    "files": [
+      {
+        "path": "registry/plainspoken/blocks/budget/budget-stats.tsx",
+        "type": "registry:component",
+        "target": "components/blocks/budget/budget-stats.tsx"
+      }
+    ],
+    "examples": [
+      "budget-stats-demo"
+    ],
+    "registryDependencies": [
+      "budget-data",
+      "foundation",
+      "sparkline",
+      "stat"
+    ],
+    "dependencies": [],
+    "hidden": false
+  },
+  {
     "name": "button",
     "type": "registry:ui",
     "title": "Button",
@@ -2499,6 +2647,49 @@ export const registry: RegistryEntry[] = [
       "foundation",
       "menu-list",
       "position",
+      "utils"
+    ],
+    "dependencies": [],
+    "hidden": false
+  },
+  {
+    "name": "editable-table",
+    "type": "registry:ui",
+    "title": "Editable table",
+    "description": "A spreadsheet-like table edited in place: the ARIA grid keyboard model, typed columns with the library's editors, validation that keeps bad values with their message, change marks with Save and Discard, undo, and copy and paste of ranges to and from Excel or Google Sheets.",
+    "category": "Data display",
+    "files": [
+      {
+        "path": "registry/plainspoken/ui/editable-table.tsx",
+        "type": "registry:ui"
+      },
+      {
+        "path": "registry/plainspoken/lib/editable-table.ts",
+        "type": "registry:lib"
+      }
+    ],
+    "examples": [
+      "editable-table-demo",
+      "editable-table-validation",
+      "editable-table-paste",
+      "editable-table-save-bar"
+    ],
+    "registryDependencies": [
+      "button",
+      "checkbox",
+      "context-menu",
+      "date-picker",
+      "dates",
+      "floating",
+      "foundation",
+      "icon",
+      "icons",
+      "input",
+      "kbd",
+      "select",
+      "textarea",
+      "tooltip",
+      "use-element-width",
       "utils"
     ],
     "dependencies": [],

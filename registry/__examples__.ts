@@ -76,6 +76,11 @@ import E_blog_tags_demo from "@/registry/plainspoken/examples/blog-tags-demo";
 import E_blog_toc_demo from "@/registry/plainspoken/examples/blog-toc-demo";
 import E_breadcrumb_demo from "@/registry/plainspoken/examples/breadcrumb-demo";
 import E_breadcrumb_long from "@/registry/plainspoken/examples/breadcrumb-long";
+import E_budget_app_demo from "@/registry/plainspoken/examples/budget-app-demo";
+import E_budget_category_summary_demo from "@/registry/plainspoken/examples/budget-category-summary-demo";
+import E_budget_month_chart_demo from "@/registry/plainspoken/examples/budget-month-chart-demo";
+import E_budget_sheet_demo from "@/registry/plainspoken/examples/budget-sheet-demo";
+import E_budget_stats_demo from "@/registry/plainspoken/examples/budget-stats-demo";
 import E_button_as_link from "@/registry/plainspoken/examples/button-as-link";
 import E_button_demo from "@/registry/plainspoken/examples/button-demo";
 import E_button_group from "@/registry/plainspoken/examples/button-group";
@@ -136,6 +141,10 @@ import E_dropdown_menu_checkboxes from "@/registry/plainspoken/examples/dropdown
 import E_dropdown_menu_demo from "@/registry/plainspoken/examples/dropdown-menu-demo";
 import E_dropdown_menu_row_actions from "@/registry/plainspoken/examples/dropdown-menu-row-actions";
 import E_dropdown_menu_user from "@/registry/plainspoken/examples/dropdown-menu-user";
+import E_editable_table_demo from "@/registry/plainspoken/examples/editable-table-demo";
+import E_editable_table_paste from "@/registry/plainspoken/examples/editable-table-paste";
+import E_editable_table_save_bar from "@/registry/plainspoken/examples/editable-table-save-bar";
+import E_editable_table_validation from "@/registry/plainspoken/examples/editable-table-validation";
 import E_empty_state_demo from "@/registry/plainspoken/examples/empty-state-demo";
 import E_empty_state_search from "@/registry/plainspoken/examples/empty-state-search";
 import E_field_demo from "@/registry/plainspoken/examples/field-demo";
@@ -395,6 +404,11 @@ export const examples: Record<string, ComponentType> = {
   "blog-toc-demo": E_blog_toc_demo,
   "breadcrumb-demo": E_breadcrumb_demo,
   "breadcrumb-long": E_breadcrumb_long,
+  "budget-app-demo": E_budget_app_demo,
+  "budget-category-summary-demo": E_budget_category_summary_demo,
+  "budget-month-chart-demo": E_budget_month_chart_demo,
+  "budget-sheet-demo": E_budget_sheet_demo,
+  "budget-stats-demo": E_budget_stats_demo,
   "button-as-link": E_button_as_link,
   "button-demo": E_button_demo,
   "button-group": E_button_group,
@@ -455,6 +469,10 @@ export const examples: Record<string, ComponentType> = {
   "dropdown-menu-demo": E_dropdown_menu_demo,
   "dropdown-menu-row-actions": E_dropdown_menu_row_actions,
   "dropdown-menu-user": E_dropdown_menu_user,
+  "editable-table-demo": E_editable_table_demo,
+  "editable-table-paste": E_editable_table_paste,
+  "editable-table-save-bar": E_editable_table_save_bar,
+  "editable-table-validation": E_editable_table_validation,
   "empty-state-demo": E_empty_state_demo,
   "empty-state-search": E_empty_state_search,
   "field-demo": E_field_demo,

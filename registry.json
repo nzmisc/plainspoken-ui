@@ -1513,6 +1513,144 @@
       ]
     },
     {
+      "name": "budget-app",
+      "type": "registry:block",
+      "title": "Budget app",
+      "description": "The whole budget page: headline figures, the editable sheet with its save bar, and a monthly chart and category summary that follow every edit.",
+      "author": "plainspoken-ui <https://github.com/nzmisc/plainspoken-ui>",
+      "registryDependencies": [
+        "@plainspoken/budget-category-summary",
+        "@plainspoken/budget-data",
+        "@plainspoken/budget-month-chart",
+        "@plainspoken/budget-sheet",
+        "@plainspoken/budget-stats",
+        "@plainspoken/foundation",
+        "utils"
+      ],
+      "files": [
+        {
+          "path": "registry/plainspoken/blocks/budget/budget-app.tsx",
+          "type": "registry:component",
+          "target": "components/blocks/budget/budget-app.tsx"
+        }
+      ],
+      "categories": [
+        "budget"
+      ]
+    },
+    {
+      "name": "budget-category-summary",
+      "type": "registry:block",
+      "title": "Category summary",
+      "description": "The budget per category against last year, with the change in euros and per cent and each category's months as a sparkline.",
+      "author": "plainspoken-ui <https://github.com/nzmisc/plainspoken-ui>",
+      "registryDependencies": [
+        "@plainspoken/budget-data",
+        "@plainspoken/foundation",
+        "@plainspoken/panel",
+        "@plainspoken/sparkline",
+        "@plainspoken/table"
+      ],
+      "files": [
+        {
+          "path": "registry/plainspoken/blocks/budget/category-summary.tsx",
+          "type": "registry:component",
+          "target": "components/blocks/budget/category-summary.tsx"
+        }
+      ],
+      "categories": [
+        "budget"
+      ]
+    },
+    {
+      "name": "budget-data",
+      "type": "registry:block",
+      "title": "Budget data",
+      "description": "The demo budget (a design team's 2027 line items with last year's spend) and the sums the budget blocks show: per line, per month and per category.",
+      "author": "plainspoken-ui <https://github.com/nzmisc/plainspoken-ui>",
+      "registryDependencies": [
+        "@plainspoken/foundation"
+      ],
+      "files": [
+        {
+          "path": "registry/plainspoken/blocks/budget/data.ts",
+          "type": "registry:component",
+          "target": "components/blocks/budget/data.ts"
+        }
+      ],
+      "categories": [
+        "budget"
+      ]
+    },
+    {
+      "name": "budget-month-chart",
+      "type": "registry:block",
+      "title": "Spend per month",
+      "description": "Planned spend per month as grouped columns, approved lines beside those still waiting, drawn from the lines so it follows the sheet.",
+      "author": "plainspoken-ui <https://github.com/nzmisc/plainspoken-ui>",
+      "registryDependencies": [
+        "@plainspoken/bar-chart",
+        "@plainspoken/budget-data",
+        "@plainspoken/foundation",
+        "@plainspoken/panel"
+      ],
+      "files": [
+        {
+          "path": "registry/plainspoken/blocks/budget/month-chart.tsx",
+          "type": "registry:component",
+          "target": "components/blocks/budget/month-chart.tsx"
+        }
+      ],
+      "categories": [
+        "budget"
+      ]
+    },
+    {
+      "name": "budget-sheet",
+      "type": "registry:block",
+      "title": "Budget sheet",
+      "description": "The year's budget as an editable table: line items with category and owner, an amount per month, the worked-out total, last year and the change, approval and notes, with a totals row.",
+      "author": "plainspoken-ui <https://github.com/nzmisc/plainspoken-ui>",
+      "registryDependencies": [
+        "@plainspoken/budget-data",
+        "@plainspoken/editable-table",
+        "@plainspoken/foundation"
+      ],
+      "files": [
+        {
+          "path": "registry/plainspoken/blocks/budget/budget-sheet.tsx",
+          "type": "registry:component",
+          "target": "components/blocks/budget/budget-sheet.tsx"
+        }
+      ],
+      "categories": [
+        "budget"
+      ]
+    },
+    {
+      "name": "budget-stats",
+      "type": "registry:block",
+      "title": "Budget figures",
+      "description": "The plan's headline figures: the total against last year, what waits for approval, the busiest month with a sparkline, and the monthly average.",
+      "author": "plainspoken-ui <https://github.com/nzmisc/plainspoken-ui>",
+      "registryDependencies": [
+        "@plainspoken/budget-data",
+        "@plainspoken/foundation",
+        "@plainspoken/sparkline",
+        "@plainspoken/stat"
+      ],
+      "files": [
+        {
+          "path": "registry/plainspoken/blocks/budget/budget-stats.tsx",
+          "type": "registry:component",
+          "target": "components/blocks/budget/budget-stats.tsx"
+        }
+      ],
+      "categories": [
+        "budget"
+      ]
+    },
+    {
       "name": "button",
       "type": "registry:ui",
       "title": "Button",
@@ -2277,6 +2415,44 @@
       ],
       "categories": [
         "overlays"
+      ]
+    },
+    {
+      "name": "editable-table",
+      "type": "registry:ui",
+      "title": "Editable table",
+      "description": "A spreadsheet-like table edited in place: the ARIA grid keyboard model, typed columns with the library's editors, validation that keeps bad values with their message, change marks with Save and Discard, undo, and copy and paste of ranges to and from Excel or Google Sheets.",
+      "author": "plainspoken-ui <https://github.com/nzmisc/plainspoken-ui>",
+      "registryDependencies": [
+        "@plainspoken/button",
+        "@plainspoken/checkbox",
+        "@plainspoken/context-menu",
+        "@plainspoken/date-picker",
+        "@plainspoken/dates",
+        "@plainspoken/floating",
+        "@plainspoken/foundation",
+        "@plainspoken/icon",
+        "@plainspoken/icons",
+        "@plainspoken/input",
+        "@plainspoken/kbd",
+        "@plainspoken/select",
+        "@plainspoken/textarea",
+        "@plainspoken/tooltip",
+        "@plainspoken/use-element-width",
+        "utils"
+      ],
+      "files": [
+        {
+          "path": "registry/plainspoken/ui/editable-table.tsx",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/plainspoken/lib/editable-table.ts",
+          "type": "registry:lib"
+        }
+      ],
+      "categories": [
+        "data-display"
       ]
     },
     {

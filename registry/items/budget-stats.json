@@ -1,0 +1,13 @@
+{
+  "name": "budget-stats",
+  "type": "registry:block",
+  "title": "Budget figures",
+  "description": "The plan's headline figures: the total against last year, what waits for approval, the busiest month with a sparkline, and the monthly average.",
+  "category": "Budget",
+  "files": [
+    "blocks/budget/budget-stats.tsx"
+  ],
+  "examples": [
+    "budget-stats-demo"
+  ]
+}

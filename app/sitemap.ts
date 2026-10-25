@@ -53,6 +53,7 @@ const STATIC = [
   "/demos/chat",
   "/demos/kanban",
   "/demos/grid",
+  "/demos/budget",
 ];
 
 /**
