@@ -3,6 +3,8 @@ import { AppWorkspaceSettings } from "@/registry/plainspoken/blocks/app/workspac
 
 const meta: Meta<typeof AppWorkspaceSettings> = {
   title: "Blocks/App skeleton/Workspace settings",
+  // A dialog or drawer open on load would cover the whole docs page: there, each story gets its own frame
+  parameters: { docs: { story: { inline: false, height: "640px" } } },
   component: AppWorkspaceSettings,
 };
 export default meta;

@@ -5,7 +5,8 @@ import { MailComposeDialog } from "@/registry/plainspoken/blocks/mail/compose";
 const meta: Meta<typeof MailComposeDialog> = {
   title: "Blocks/Mail/Compose dialog",
   component: MailComposeDialog,
-  parameters: { layout: "fullscreen" },
+  // A dialog or drawer open on load would cover the whole docs page: there, each story gets its own frame
+  parameters: { layout: "fullscreen", docs: { story: { inline: false, height: "640px" } } },
   args: { open: true, onClose: () => {}, contacts: CONTACTS },
   decorators: [(S) => <div className="min-h-[720px]">{S()}</div>],
 };

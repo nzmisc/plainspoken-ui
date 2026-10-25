@@ -5,6 +5,8 @@ import { demoPlayback } from "@/registry/plainspoken/blocks/music/data";
 
 const meta: Meta<typeof QueueList> = {
   title: "Blocks/Music/Queue",
+  // A dialog or drawer open on load would cover the whole docs page: there, each story gets its own frame
+  parameters: { docs: { story: { inline: false, height: "640px" } } },
   component: QueueList,
   decorators: [
     (S) => (

@@ -4,6 +4,8 @@ import { postById } from "@/registry/plainspoken/blocks/social/data";
 
 const meta: Meta<typeof Composer> = {
   title: "Blocks/Social/Composer",
+  // A dialog or drawer open on load would cover the whole docs page: there, each story gets its own frame
+  parameters: { docs: { story: { inline: false, height: "640px" } } },
   component: Composer,
   decorators: [(S) => <div className="max-w-[600px] border border-border">{S()}</div>],
 };

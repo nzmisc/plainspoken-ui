@@ -5,7 +5,8 @@ const meta: Meta<typeof AppCommandMenu> = {
   title: "Blocks/App skeleton/Command menu",
   component: AppCommandMenu,
   args: { open: true, onClose: () => {}, onNavigate: () => {}, onCreate: () => {} },
-  parameters: { layout: "fullscreen" },
+  // A dialog or drawer open on load would cover the whole docs page: there, each story gets its own frame
+  parameters: { layout: "fullscreen", docs: { story: { inline: false, height: "640px" } } },
   decorators: [(S) => <div className="min-h-[560px]">{S()}</div>],
 };
 export default meta;

@@ -6,7 +6,8 @@ const meta: Meta<typeof AppCustomerDrawer> = {
   title: "Blocks/App skeleton/Customer drawer",
   component: AppCustomerDrawer,
   args: { customer: customerById("harbor-coffee")!, onClose: () => {} },
-  parameters: { layout: "fullscreen" },
+  // A dialog or drawer open on load would cover the whole docs page: there, each story gets its own frame
+  parameters: { layout: "fullscreen", docs: { story: { inline: false, height: "640px" } } },
   decorators: [(S) => <div className="min-h-[720px]">{S()}</div>],
 };
 export default meta;

@@ -6,6 +6,8 @@ const hobbit = book("the-hobbit");
 
 const meta: Meta<typeof LibraryHoldDialog> = {
   title: "Blocks/Library/Hold dialog",
+  // A dialog or drawer open on load would cover the whole docs page: there, each story gets its own frame
+  parameters: { docs: { story: { inline: false, height: "640px" } } },
   component: LibraryHoldDialog,
   args: { book: hobbit, availability: availabilityOf(hobbit), branches: BRANCHES, defaultBranch: "riverside", today: TODAY },
   argTypes: { variant: { control: "inline-radio", options: ["default", "primary", "outline"] }, size: { control: "inline-radio", options: ["xs", "sm", "md", "lg"] } },

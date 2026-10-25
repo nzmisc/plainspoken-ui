@@ -5,7 +5,8 @@ const meta: Meta<typeof AppNewInvoiceDialog> = {
   title: "Blocks/App skeleton/New invoice dialog",
   component: AppNewInvoiceDialog,
   args: { open: true, onClose: () => {} },
-  parameters: { layout: "fullscreen" },
+  // A dialog or drawer open on load would cover the whole docs page: there, each story gets its own frame
+  parameters: { layout: "fullscreen", docs: { story: { inline: false, height: "640px" } } },
   decorators: [(S) => <div className="min-h-[760px]">{S()}</div>],
 };
 export default meta;

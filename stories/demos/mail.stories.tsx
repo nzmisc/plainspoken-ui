@@ -4,7 +4,8 @@ import { MailApp } from "@/registry/plainspoken/blocks/mail/mail-app";
 const meta: Meta<typeof MailApp> = {
   title: "Demos/Mail",
   component: MailApp,
-  parameters: { layout: "fullscreen" },
+  // A dialog or drawer open on load would cover the whole docs page: there, each story gets its own frame
+  parameters: { layout: "fullscreen", docs: { story: { inline: false, height: "760px" } } },
   args: { className: "h-dvh" },
 };
 export default meta;

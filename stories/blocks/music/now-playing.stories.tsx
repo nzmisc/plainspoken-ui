@@ -5,6 +5,8 @@ import { demoPlayback } from "@/registry/plainspoken/blocks/music/data";
 
 const meta: Meta<typeof NowPlayingView> = {
   title: "Blocks/Music/Now playing",
+  // A dialog or drawer open on load would cover the whole docs page: there, each story gets its own frame
+  parameters: { docs: { story: { inline: false, height: "640px" } } },
   component: NowPlayingView,
   decorators: [(S) => <MusicProvider initial={demoPlayback("rainy-day-indie", { track: 1, position: 131 })}>{S()}</MusicProvider>],
 };

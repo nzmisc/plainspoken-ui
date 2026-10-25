@@ -3,6 +3,8 @@ import { AppCustomerTable } from "@/registry/plainspoken/blocks/app/customer-tab
 
 const meta: Meta<typeof AppCustomerTable> = {
   title: "Blocks/App skeleton/Customer table",
+  // A dialog or drawer open on load would cover the whole docs page: there, each story gets its own frame
+  parameters: { docs: { story: { inline: false, height: "640px" } } },
   component: AppCustomerTable,
 };
 export default meta;
