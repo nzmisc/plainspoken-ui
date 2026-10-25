@@ -19,7 +19,7 @@ export interface CheckboxProps extends Omit<InputHTMLAttributes<HTMLInputElement
  * so "Auto-refresh" in a toolbar sits level with the buttons around it; with a description (or a
  * label that wraps) it grows and the box stays by the first line.
  */
-export function Checkbox({ label, description, indeterminate = false, size, className, disabled, ...rest }: CheckboxProps) {
+export function Checkbox({ label, description, indeterminate = false, size, className, disabled, "aria-describedby": describedBy, ...rest }: CheckboxProps) {
   const ref = useRef<HTMLInputElement>(null);
   const descId = useId();
   useEffect(() => {
@@ -40,7 +40,7 @@ export function Checkbox({ label, description, indeterminate = false, size, clas
         ref={ref}
         type="checkbox"
         disabled={disabled}
-        aria-describedby={description ? descId : undefined}
+        aria-describedby={[description ? descId : null, describedBy].filter(Boolean).join(" ") || undefined}
         className={cn(
           "m-0 size-[calc(var(--ctl-icon)-2px)] shrink-0 accent-primary focus-visible:outline-2 focus-visible:outline-offset-1 focus-visible:outline-ring",
           !!description && "mt-[0.2em]",

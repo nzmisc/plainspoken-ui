@@ -1,4 +1,4 @@
-import type { HTMLAttributes, ReactNode, TdHTMLAttributes, ThHTMLAttributes } from "react";
+import type { ComponentProps, ReactNode } from "react";
 import { cn } from "@/lib/utils";
 
 export type TableDensity = "compact" | "default" | "relaxed";
@@ -13,7 +13,7 @@ const DENSITY: Record<TableDensity, string> = {
   relaxed: "text-[14px] leading-normal [--cell-py:6px] [--cell-px:10px]",
 };
 
-export interface TableProps extends HTMLAttributes<HTMLTableElement> {
+export interface TableProps extends Omit<ComponentProps<"table">, "rules"> {
   density?: TableDensity;
   /** grid (default): a border round every cell, like a plain HTML table. rows: only lines between rows, for lists. */
   rules?: "grid" | "rows";
@@ -70,21 +70,21 @@ export function Table({
   );
 }
 
-export function TableHeader({ className, ...rest }: HTMLAttributes<HTMLTableSectionElement>) {
+export function TableHeader({ className, ...rest }: ComponentProps<"thead">) {
   return <thead data-slot="table-header" className={className} {...rest} />;
 }
 
-export function TableBody({ className, ...rest }: HTMLAttributes<HTMLTableSectionElement>) {
+export function TableBody({ className, ...rest }: ComponentProps<"tbody">) {
   return <tbody data-slot="table-body" className={className} {...rest} />;
 }
 
 /** Totals and summaries under the body: bold-ish on a gray band, like the header. */
-export function TableFooter({ className, ...rest }: HTMLAttributes<HTMLTableSectionElement>) {
+export function TableFooter({ className, ...rest }: ComponentProps<"tfoot">) {
   return <tfoot data-slot="table-footer" className={cn("bg-muted font-medium", className)} {...rest} />;
 }
 
 /** A row. Mark a chosen row with `data-state="selected"`: it gets the accent background. */
-export function TableRow({ className, ...rest }: HTMLAttributes<HTMLTableRowElement>) {
+export function TableRow({ className, ...rest }: ComponentProps<"tr">) {
   return <tr data-slot="table-row" className={cn("data-[state=selected]:bg-accent", className)} {...rest} />;
 }
 
@@ -92,7 +92,7 @@ export function TableRow({ className, ...rest }: HTMLAttributes<HTMLTableRowElem
  * A header cell: bold on gray, left-aligned and top-aligned, always, even over a column of
  * numbers (so the column titles read as one line). scope="col" unless you say otherwise.
  */
-export function TableHead({ className, scope = "col", ...rest }: ThHTMLAttributes<HTMLTableCellElement>) {
+export function TableHead({ className, scope = "col", ...rest }: ComponentProps<"th">) {
   return (
     <th
       data-slot="table-head"
@@ -103,7 +103,7 @@ export function TableHead({ className, scope = "col", ...rest }: ThHTMLAttribute
   );
 }
 
-export interface TableCellProps extends TdHTMLAttributes<HTMLTableCellElement> {
+export interface TableCellProps extends ComponentProps<"td"> {
   /** A number: right-aligned, tabular figures (so digits line up), never wrapped */
   numeric?: boolean;
 }
@@ -123,7 +123,7 @@ export function TableCell({ numeric = false, className, ...rest }: TableCellProp
 }
 
 /** What the table shows, under it in small print. It is the table's accessible name. */
-export function TableCaption({ className, ...rest }: HTMLAttributes<HTMLTableCaptionElement>) {
+export function TableCaption({ className, ...rest }: ComponentProps<"caption">) {
   return <caption data-slot="table-caption" className={cn("mt-1.5 caption-bottom text-left text-[13px] text-muted-foreground", className)} {...rest} />;
 }
 
