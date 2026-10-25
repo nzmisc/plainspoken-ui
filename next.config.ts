@@ -1,9 +1,12 @@
 import type { NextConfig } from "next";
 
+const devHosts = () => (process.env.DEV_HOSTS ?? "").split(",").map((h) => h.trim()).filter(Boolean);
+
 const nextConfig: NextConfig = {
   cacheComponents: true,
-  // The dev server is also previewed over the tailnet (tailscale serve); only matters in `next dev`
-  allowedDevOrigins: ["dev-box.example.ts.net"],
+  // Other hostnames the dev server is reached by (a tunnel, a tailnet name), comma-separated in
+  // DEV_HOSTS, e.g. in .env.local; only matters in `next dev`
+  allowedDevOrigins: devHosts(),
   partialPrefetching: true,
   turbopack: {
     rules: {

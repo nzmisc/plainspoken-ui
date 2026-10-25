@@ -1,6 +1,12 @@
 import type { StorybookConfig } from "@storybook/nextjs-vite";
 import remarkGfm from "remark-gfm";
 
+// The site's .env.local, for DEV_HOSTS (Next.js reads it by itself; Storybook doesn't)
+try {
+  process.loadEnvFile(".env.local");
+} catch {}
+const devHosts = () => (process.env.DEV_HOSTS ?? "").split(",").map((h) => h.trim()).filter(Boolean);
+
 const config: StorybookConfig = {
   stories: ["../stories/**/*.mdx", "../stories/**/*.stories.tsx"],
   addons: [
@@ -9,8 +15,8 @@ const config: StorybookConfig = {
     "@storybook/addon-a11y",
   ],
   framework: { name: "@storybook/nextjs-vite", options: {} },
-  // allowedHosts: the dev Storybook is also previewed over the tailnet (tailscale serve)
-  core: { disableTelemetry: true, allowedHosts: ["dev-box.example.ts.net"] },
+  // allowedHosts: other hostnames the dev Storybook is reached by, as for the site (DEV_HOSTS)
+  core: { disableTelemetry: true, allowedHosts: devHosts() },
   // The built Storybook is served by the site at /storybook/, so every URL in it is relative.
   async viteFinal(cfg) {
     const { default: tailwindcss } = await import("@tailwindcss/vite");

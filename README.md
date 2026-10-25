@@ -25,6 +25,10 @@ npm run storybook    # Storybook on http://127.0.0.1:6106
 npm run build        # registry, Storybook into public/storybook, then the site
 ```
 
+Both dev servers only answer to localhost. To reach them by another name (a tunnel, a tailnet name), list it in
+`.env.local`: `DEV_HOSTS=dev-box.example.ts.net`. For production builds served elsewhere, set `NEXT_PUBLIC_SITE_URL`
+so install commands and registry links point there.
+
 How the code is organised and the rules every component follows are in [AGENTS.md](AGENTS.md). Design notes are in
 [docs/concepts](docs/concepts/README.md).
 
