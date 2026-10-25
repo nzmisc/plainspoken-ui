@@ -82,21 +82,26 @@ export function Sparkline({
       </>
     );
   } else if (real.length) {
+    // Whole pixels only: bars at fractional positions blur by different amounts, so the gaps
+    // between them look uneven. Any width left over goes equally either side.
     const slot = width / n;
-    const bar = Math.max(1, slot - Math.min(2, slot * 0.25));
-    const base = y(Math.max(lo, Math.min(hi, 0)));
+    const gap = n > 1 ? (slot >= 6 ? 2 : slot >= 3 ? 1 : 0) : 0;
+    const bar = Math.max(1, Math.floor((width - gap * (n - 1)) / n));
+    const left = Math.floor((width - (bar * n + gap * (n - 1))) / 2);
+    const base = Math.round(y(Math.max(lo, Math.min(hi, 0))));
     body = values.map((v, i) => {
       if (v == null) return null;
-      const top = y(v);
+      const top = Math.round(y(v));
       return (
         <rect
           key={i}
-          x={i * slot + (slot - bar) / 2}
+          x={left + i * (bar + gap)}
           y={Math.min(top, base)}
           width={bar}
           height={Math.max(1, Math.abs(base - top))}
           fill={color}
           opacity={i === n - 1 ? 1 : 0.45}
+          shapeRendering="crispEdges"
         />
       );
     });

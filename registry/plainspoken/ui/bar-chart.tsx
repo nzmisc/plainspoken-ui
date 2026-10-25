@@ -141,7 +141,8 @@ export function BarChart({
   }
   const sv = (v: number) => (horizontal ? left + ((v - v0) / (v1 - v0 || 1)) * plotW : top + plotH - ((v - v0) / (v1 - v0 || 1)) * plotH);
   const base = sv(Math.max(v0, Math.min(v1, 0)));
-  const thick = horizontal ? (n === 1 ? 16 : 12) : Math.max(2, Math.min(MAX_BAR, (band * 0.72 - (n - 1) * GAP) / n));
+  // Bars sit on whole pixels (see below), so their width is whole too
+  const thick = horizontal ? (n === 1 ? 16 : 12) : Math.max(2, Math.floor(Math.min(MAX_BAR, (band * 0.72 - (n - 1) * GAP) / n)));
   const group = n * thick + (n - 1) * GAP;
   const bandStart = (i: number) => (horizontal ? top : left) + i * band;
   // Vertical labels that don't fit their column are thinned out: every k-th one is shown.
@@ -251,16 +252,19 @@ export function BarChart({
               ),
             )}
             {categories.map((c, i) => {
-              const start = bandStart(i) + (band - group) / 2;
+              // Whole pixels: at fractional positions bars blur by different amounts, so equal bars
+              // and gaps would look uneven
+              const start = Math.round(bandStart(i) + (band - group) / 2);
+              const zero = Math.round(base);
               return (
                 <g key={c + i}>
                   {styled.map((s, j) => {
                     const v = s.values[i];
                     if (v == null) return null;
                     const pos = start + j * (thick + GAP);
-                    const end = sv(Math.max(v0, Math.min(v1, v)));
-                    const lo = Math.min(base, end);
-                    const len = Math.max(v === 0 ? 0 : 1, Math.abs(end - base));
+                    const end = Math.round(sv(Math.max(v0, Math.min(v1, v))));
+                    const lo = Math.min(zero, end);
+                    const len = Math.max(v === 0 ? 0 : 1, Math.abs(end - zero));
                     const text = valueFormat(v);
                     return (
                       <g key={s.key}>
