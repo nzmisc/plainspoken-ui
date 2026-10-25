@@ -34,7 +34,7 @@ import {
   type SortKey,
 } from "@/registry/plainspoken/lib/data-table";
 import { Button, ButtonGroup, IconButton } from "@/registry/plainspoken/ui/button";
-import { Checkbox } from "@/registry/plainspoken/ui/checkbox";
+import { Checkbox, CheckboxBox } from "@/registry/plainspoken/ui/checkbox";
 import { Chip } from "@/registry/plainspoken/ui/chip";
 import { Icon } from "@/registry/plainspoken/ui/icon";
 import { Input } from "@/registry/plainspoken/ui/input";
@@ -203,10 +203,6 @@ export function DataTable<T>({
   const filteredKeys = useMemo(() => sorted.map(rowKey), [sorted, rowKey]);
   const selectedInView = filteredKeys.filter((k) => selected.has(k)).length;
   const allSelected = filteredKeys.length > 0 && selectedInView === filteredKeys.length;
-  const headerBox = useRef<HTMLInputElement>(null);
-  useEffect(() => {
-    if (headerBox.current) headerBox.current.indeterminate = selectedInView > 0 && !allSelected;
-  }, [selectedInView, allSelected]);
 
   const toggleRow = (key: string, shift: boolean) => {
     const on = !selected.has(key);
@@ -372,15 +368,14 @@ export function DataTable<T>({
             <tr>
               {selectable && (
                 <th className={cn(TH, "w-0 px-2 align-middle")}>
-                  <input
-                    ref={headerBox}
-                    type="checkbox"
+                  <CheckboxBox
                     checked={allSelected}
+                    indeterminate={selectedInView > 0 && !allSelected}
                     onChange={toggleAll}
                     disabled={filteredKeys.length === 0}
                     aria-label={allSelected ? "Deselect all matching rows" : `Select all ${filteredKeys.length} matching rows`}
                     title="Select all rows that match the filters (on every page)"
-                    className={cn("m-0 block size-3.5 accent-primary", FOCUS_RING)}
+                    className="grid"
                   />
                 </th>
               )}
@@ -441,12 +436,11 @@ export function DataTable<T>({
                 <tr key={k} className={cn(on ? "bg-accent" : "hover:bg-muted", clickable && "cursor-pointer")} onClick={clickable ? (e) => onRowMouse(e, r) : undefined}>
                   {selectable && (
                     <td className={cn(TD, pad, "w-0")}>
-                      <input
-                        type="checkbox"
+                      <CheckboxBox
                         checked={on}
                         onChange={(e) => toggleRow(k, (e.nativeEvent as MouseEvent).shiftKey)}
                         aria-label={`Select ${formatCell(visibleCols[0] ?? columns[0], r)}`}
-                        className={cn("m-0 block size-3.5 translate-y-[3px] accent-primary", FOCUS_RING)}
+                        className="mt-0.5 grid"
                       />
                     </td>
                   )}

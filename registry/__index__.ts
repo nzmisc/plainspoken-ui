@@ -1776,7 +1776,7 @@ export const registry: RegistryEntry[] = [
     "name": "checkbox",
     "type": "registry:ui",
     "title": "Checkbox",
-    "description": "Native checkbox in the main colour with a clickable label, a description and an indeterminate state; a control tall, so it sits level with buttons.",
+    "description": "A square checkbox, drawn the same in every browser, in the main colour with a clickable label, a description and an indeterminate state; a control tall, so it sits level with buttons. CheckboxBox is the box alone, for table rows.",
     "category": "Forms",
     "files": [
       {
@@ -1789,6 +1789,8 @@ export const registry: RegistryEntry[] = [
     ],
     "registryDependencies": [
       "foundation",
+      "icon",
+      "icons",
       "utils"
     ],
     "dependencies": [],
@@ -3612,6 +3614,7 @@ export const registry: RegistryEntry[] = [
     ],
     "registryDependencies": [
       "badge",
+      "checkbox",
       "context-menu",
       "dates",
       "empty-state",

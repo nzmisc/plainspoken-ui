@@ -8,6 +8,7 @@ import type { ISODate } from "@/registry/plainspoken/lib/dates";
 import { LABELS, type MailThread, type MailView } from "@/registry/plainspoken/blocks/mail/data";
 import { aheadTime, hasAttachments, latest, listTime, participants, snippet } from "@/registry/plainspoken/blocks/mail/format";
 import { Badge } from "@/registry/plainspoken/ui/badge";
+import { CheckboxBox } from "@/registry/plainspoken/ui/checkbox";
 import { ContextMenu, type MenuItem } from "@/registry/plainspoken/ui/context-menu";
 import { EmptyState } from "@/registry/plainspoken/ui/empty-state";
 import { Icon } from "@/registry/plainspoken/ui/icon";
@@ -99,13 +100,7 @@ export function MailMessageList({
             )}
           >
             <span className="flex h-5 w-5 shrink-0 items-center justify-center">
-              <input
-                type="checkbox"
-                tabIndex={tab}
-                defaultChecked={selected?.has(t.id)}
-                aria-label={`Select “${t.subject || "(no subject)"}”`}
-                className={cn("m-0 size-3.5 cursor-pointer accent-primary", FOCUS_RING)}
-              />
+              <CheckboxBox tabIndex={tab} defaultChecked={selected?.has(t.id)} aria-label={`Select “${t.subject || "(no subject)"}”`} />
             </span>
             <Toggle
               variant="ghost"

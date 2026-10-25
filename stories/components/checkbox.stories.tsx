@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/nextjs-vite";
 import { useState } from "react";
 import { Button } from "@/registry/plainspoken/ui/button";
-import { Checkbox } from "@/registry/plainspoken/ui/checkbox";
+import { Checkbox, CheckboxBox } from "@/registry/plainspoken/ui/checkbox";
 import { Measure } from "../support/measure";
 
 const meta = {
@@ -46,5 +46,23 @@ export const InAToolbar: Story = {
         ))}
       </div>
     </Measure>
+  ),
+};
+
+/** CheckboxBox, the box alone (named with aria-label), as in table rows: off, on, some, and disabled, at each size. It is drawn by us, so it is the same square in every browser (iOS would draw a small circle), and never smaller than 14px. */
+export const BoxAlone: Story = {
+  render: () => (
+    <div className="flex flex-col gap-2">
+      {(["xs", "sm", "md", "lg"] as const).map((size) => (
+        <p key={size} className={`ctl-${size} flex items-center gap-3`}>
+          <span className="w-6 text-muted-foreground">{size}</span>
+          <CheckboxBox aria-label="Off" />
+          <CheckboxBox aria-label="On" defaultChecked />
+          <CheckboxBox aria-label="Some" indeterminate />
+          <CheckboxBox aria-label="Disabled" disabled />
+          <CheckboxBox aria-label="Disabled, on" disabled defaultChecked />
+        </p>
+      ))}
+    </div>
   ),
 };
