@@ -1241,21 +1241,31 @@ export function blockFromActive(state: EditorState, active: ActiveNode): BlockAt
 /** Moves a block past its neighbour, keeping the caret in it */
 export function moveBlock(view: EditorView, dir: -1 | 1, at = blockAt(view.state)) {
   if (!at) return false;
-  const { state } = view;
-  const $pos = state.doc.resolve(at.pos);
-  const parent = $pos.parent;
+  const $pos = view.state.doc.resolve(at.pos);
   const index = $pos.index();
-  const other = dir < 0 ? (index > 0 ? parent.child(index - 1) : null) : index < parent.childCount - 1 ? parent.child(index + 1) : null;
-  if (!other) return false;
+  if (dir < 0 ? index === 0 : index === $pos.parent.childCount - 1) return false;
+  const other = $pos.parent.child(index + dir);
+  return moveBlockTo(view, at, dir < 0 ? at.pos - other.nodeSize : at.pos + at.node.nodeSize + other.nodeSize);
+}
+
+/**
+ * Moves a block to `to`, a position between two of its siblings in the current document, as one
+ * undo step. The selection goes with it: the block stays selected if it was, the caret stays where
+ * it was in it, and otherwise the caret goes to its start.
+ */
+export function moveBlockTo(view: EditorView, at: BlockAt, to: number) {
+  const { state } = view;
+  const end = at.pos + at.node.nodeSize;
+  if (to === at.pos || to === end || state.doc.nodeAt(at.pos) !== at.node) return false;
   const { selection } = state;
   const whole = selection instanceof NodeSelection && selection.from === at.pos;
-  const inside = selection.from > at.pos && selection.to < at.pos + at.node.nodeSize;
+  const inside = selection.from > at.pos && selection.to < end;
   const offset = inside ? selection.from - at.pos : 1;
-  const tr = state.tr.delete(at.pos, at.pos + at.node.nodeSize);
-  const to = dir < 0 ? at.pos - other.nodeSize : at.pos + other.nodeSize;
-  tr.insert(to, at.node);
-  if (whole || at.node.isAtom) tr.setSelection(NodeSelection.create(tr.doc, to));
-  else tr.setSelection(Selection.near(tr.doc.resolve(Math.min(to + offset, to + at.node.nodeSize - 1))));
+  const tr = state.tr.delete(at.pos, end);
+  const pos = tr.mapping.map(to);
+  tr.insert(pos, at.node);
+  if (whole || at.node.isAtom) tr.setSelection(NodeSelection.create(tr.doc, pos));
+  else tr.setSelection(Selection.near(tr.doc.resolve(Math.min(pos + offset, pos + at.node.nodeSize - 1))));
   view.dispatch(tr.scrollIntoView());
   return true;
 }
@@ -1292,12 +1302,14 @@ export function turnInto(view: EditorView, at: BlockAt, kind: TurnInto) {
   return setTextStyle(view, kind);
 }
 
-/** Starts a drag of a block from the handle: ProseMirror moves it where it's dropped */
+/**
+ * Starts a drag of a block from the handle, in its dragstart. The editor takes the drop itself
+ * (`blockDropAt`, `moveBlockTo`), wherever in it the pointer is, so ProseMirror's own drop isn't
+ * involved. Firefox only starts a drag that has data; the data also lets the block be dropped as
+ * text into other places.
+ */
 export function dragBlock(view: EditorView, at: BlockAt, e: DragEvent, image: Element | null) {
-  const sel = NodeSelection.create(view.state.doc, at.pos);
-  view.dispatch(view.state.tr.setSelection(sel));
-  const slice = sel.content();
-  const { dom, text } = view.serializeForClipboard(slice);
+  const { dom, text } = view.serializeForClipboard(NodeSelection.create(view.state.doc, at.pos).content());
   if (e.dataTransfer) {
     e.dataTransfer.clearData();
     e.dataTransfer.setData("text/html", dom.innerHTML);
@@ -1305,18 +1317,58 @@ export function dragBlock(view: EditorView, at: BlockAt, e: DragEvent, image: El
     e.dataTransfer.effectAllowed = "copyMove";
     if (image) e.dataTransfer.setDragImage(image, 0, 0);
   }
-  // node: the selection to delete on drop, as plugin-block's own handle does
-  (view as unknown as { dragging: unknown }).dragging = { slice, move: true, node: sel };
-  view.dom.dataset.dragging = "true";
+  // The block is selected to show what is moving, but only after dragstart: Chrome and Safari drop
+  // a drag whose handle isn't under the pointer when dragstart ends, and the selection changes the
+  // toolbar, which can move the text and the handle with it.
+  window.setTimeout(() => {
+    if (view.isDestroyed || view.state.doc.nodeAt(at.pos) !== at.node) return;
+    if (NodeSelection.isSelectable(at.node)) view.dispatch(view.state.tr.setSelection(NodeSelection.create(view.state.doc, at.pos)));
+  });
 }
 
-export function endDrag(view: EditorView) {
-  view.dom.dataset.dragging = "false";
-  const v = view as unknown as { dragging: unknown };
-  const d = v.dragging;
-  window.setTimeout(() => {
-    if (v.dragging === d) v.dragging = null;
-  }, 50);
+/** Where a dragged block would go, and the line that shows it (client coordinates) */
+export interface BlockDrop {
+  /** The position between two siblings, in the current document */
+  pos: number;
+  y: number;
+  left: number;
+  width: number;
+  /** Dropping here leaves the block where it is */
+  still: boolean;
+}
+
+/**
+ * Where a block being dragged would go with the pointer at `y`: the gap among its siblings (the
+ * other top-level blocks, or the other items of its list) nearest to it. Only the height counts,
+ * so the pointer can be anywhere beside the text, in the margin the handle is in or past either
+ * end. The empty paragraph kept at the end of the document stays last.
+ */
+export function blockDropAt(view: EditorView, at: BlockAt, y: number): BlockDrop | null {
+  const { doc } = view.state;
+  if (doc.nodeAt(at.pos) !== at.node) return null;
+  const $pos = doc.resolve(at.pos);
+  const parent = $pos.parent;
+  const index = $pos.index();
+  const rows: { pos: number; rect: DOMRect }[] = [];
+  let pos = $pos.start();
+  for (let i = 0; i < parent.childCount; i++) {
+    const el = view.nodeDOM(pos);
+    if (!(el instanceof HTMLElement)) return null;
+    rows.push({ pos, rect: el.getBoundingClientRect() });
+    pos += parent.child(i).nodeSize;
+  }
+  const n = rows.length;
+  if (!n) return null;
+  const last = parent.lastChild;
+  const trailing = $pos.depth === 0 && index !== n - 1 && last?.type.name === "paragraph" && last.content.size === 0 ? 1 : 0;
+  let gap = rows.filter((r) => r.rect.top + r.rect.height / 2 < y).length;
+  gap = Math.min(gap, n - trailing);
+  const above = rows[gap - 1]?.rect;
+  const below = rows[gap]?.rect;
+  const line = above && below ? (above.bottom + below.top) / 2 : above ? above.bottom + 2 : below ? below.top - 2 : y;
+  const left = Math.min(...rows.map((r) => r.rect.left));
+  const width = Math.max(...rows.map((r) => r.rect.right)) - left;
+  return { pos: gap < n ? rows[gap].pos : pos, y: line, left, width, still: gap === index || gap === index + 1 };
 }
 
 // ------------------------------------------------------------------------------------------

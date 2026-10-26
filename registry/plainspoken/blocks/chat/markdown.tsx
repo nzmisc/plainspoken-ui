@@ -312,8 +312,9 @@ const MATH = cn(
   "[&_.katex]:text-[1.1em]",
   // Fraction bars and root signs in the text colour, not the border colour every element gets
   "[&_.katex_*]:border-current",
-  // A wide formula scrolls sideways on its own, centred while it fits
-  "[&_.katex-display]:my-[0.75em] [&_.katex-display]:overflow-x-auto [&_.katex-display]:overflow-y-hidden [&_.katex-display]:py-[0.2em]",
+  // A wide formula scrolls sideways on its own, centred while it fits. The scroll box clips
+  // vertically too, so it has room above and below for tall delimiters, which reach past KaTeX's box.
+  "[&_.katex-display]:my-[0.45em] [&_.katex-display]:overflow-x-auto [&_.katex-display]:overflow-y-hidden [&_.katex-display]:py-[0.5em]",
 );
 
 export interface ChatMarkdownProps {

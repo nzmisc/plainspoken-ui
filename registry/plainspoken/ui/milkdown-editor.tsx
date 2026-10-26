@@ -765,9 +765,11 @@ const SURFACE = cn(
   // Code blocks: Prose's box, with the language picker as its header
   "[&_[data-code-block]]:mb-[0.75em] [&_[data-code-block]]:border [&_[data-code-block]]:border-border [&_[data-code-block]]:bg-muted",
   "[&_[data-code-header]]:border-b [&_[data-code-header]]:border-border/60 [&_[data-code-block]>pre]:m-0 [&_[data-code-block]>pre]:border-0 [&_[data-code-block]>pre]:bg-transparent",
-  // Math: KaTeX, its rules in the text colour rather than the border colour
+  // Math: KaTeX, its rules in the text colour rather than the border colour. A wide formula
+  // scrolls sideways; that makes its box clip vertically too, and tall delimiters reach a little
+  // outside KaTeX's own line box, so the box gets padding to draw into, taken back by a margin.
   "[&_.katex_*]:border-current [&_.katex]:text-[1.05em] [&_.katex-display]:my-0! [&_[data-math]]:cursor-default [&_[data-math-render][data-empty]]:text-muted-foreground [&_[data-math-render][data-empty]]:italic",
-  "[&_[data-math=block]]:mb-[0.75em] [&_[data-math=block]]:flex [&_[data-math=block]]:flex-col [&_[data-math=block]]:gap-1.5 [&_[data-math=block]]:overflow-x-auto [&_[data-math=block]]:py-[0.2em] [&_[data-math=block]>[data-math-render]]:text-center [&_[data-math-source]:empty]:hidden [&_[data-math=block]>[data-math-source]]:order-first",
+  "[&_[data-math=block]]:mb-[0.75em] [&_[data-math=block]]:flex [&_[data-math=block]]:flex-col [&_[data-math=block]]:gap-1.5 [&_[data-math=block]]:py-[0.2em] [&_[data-math=block]>[data-math-render]]:text-center [&_[data-math=block]>[data-math-render]]:overflow-x-auto [&_[data-math=block]>[data-math-render]]:overflow-y-hidden [&_[data-math=block]>[data-math-render]]:-my-[0.5em] [&_[data-math=block]>[data-math-render]]:py-[0.5em] [&_[data-math-source]:empty]:hidden [&_[data-math=block]>[data-math-source]]:order-first",
   "[&_.ProseMirror[contenteditable=true]_[data-math=inline][data-selected]>[data-math-render]]:hidden [&_.ProseMirror[contenteditable=true]_[data-math].ProseMirror-selectednode]:outline-none",
   // Footnotes, like Prose's: references in brackets, definitions small under a rule
   "[&_sup[data-type$=reference]]:text-link [&_sup[data-type$=reference]]:before:content-['['] [&_sup[data-type$=reference]]:after:content-[']']",
@@ -799,8 +801,10 @@ const SURFACE = cn(
  *
  * "/" at the start of a line opens a menu of every block (↑/↓, Enter, Esc; type to filter).
  * Selecting words shows a bubble for inline formatting; the caret in a link shows its address
- * with Edit and Remove. Hovering a block shows a handle: drag it to move the block, or click it
- * for Turn into, Move, Duplicate and Delete (all also in the toolbar's ⋯ menu, for the keyboard).
+ * with Edit and Remove. Hovering a block shows a handle: drag it up or down to move the block (a
+ * line shows where it goes; the pointer can stay in the margin), or click it for Turn into, Move,
+ * Duplicate and Delete (all also in the toolbar's ⋯ menu, for the keyboard). Alt+Shift+↑/↓
+ * (⌥⇧↑/↓ on a Mac) moves the block the caret is in.
  * In a table a small toolbar adds and removes rows and columns and aligns columns; math ($…$ and
  * $$…$$, through remark-math) shows as KaTeX and opens its TeX source when selected.
  *
@@ -862,6 +866,8 @@ export function MilkdownEditor({
   const [slashDismissed, setSlashDismissed] = useState<number | null>(null);
   const [handle, setHandle] = useState<{ at: ActiveNode; top: number; left: number } | null>(null);
   const [handleMenu, setHandleMenu] = useState(false);
+  /** The line showing where a block being dragged would go (in the surface's coordinates) */
+  const [drop, setDrop] = useState<{ top: number; left: number; width: number } | null>(null);
   const [uploads, setUploads] = useState<Upload[]>([]);
   const [link, setLink] = useState<LinkDraft | null>(null);
   const [dialog, setDialog] = useState<{ open: boolean; key: number }>({ open: false, key: 0 });
@@ -886,6 +892,9 @@ export function MilkdownEditor({
   const lastTool = useRef<HTMLElement | null>(null);
   const pointerPick = useRef(false);
   const handleBlock = useRef<BlockAt | null>(null);
+  /** The block being dragged by the handle, while it is: the handle stays put until the drag ends */
+  const dragged = useRef<BlockAt | null>(null);
+  const dropHide = useRef(0);
   /** Which block the block menu acts on: the handle's, or the caret's (from the toolbar) */
   const menuSource = useRef<"handle" | "caret">("caret");
   const controllers = useRef(new Map<string, AbortController>());
@@ -961,7 +970,7 @@ export function MilkdownEditor({
   };
 
   const onBlock = (active: ActiveNode | null) => {
-    if (handleMenu) return;
+    if (handleMenu || dragged.current) return;
     if (!active) {
       setHandle(null);
       return;
@@ -1268,6 +1277,48 @@ export function MilkdownEditor({
     { type: "separator" },
     ...BLOCK_ACTIONS.map((a): MenuItem => ("action" in a ? { label: a.label, icon: a.icon, shortcut: apple ? a.mac : a.pc, destructive: a.destructive, onSelect: () => runBlock(a.action) } : a)),
   ];
+
+  // Dragging a block by its handle. The whole text area takes the drop, not just the text: the
+  // pointer goes straight up or down from the handle, in the margin beside the text, and below the
+  // last block. Only the height counts. ProseMirror never sees these drags (capture, stopped).
+  const dropTarget = (y: number) => {
+    const v = view();
+    const b = dragged.current;
+    return v && b && lib.current ? lib.current.blockDropAt(v, b, y) : null;
+  };
+  const endBlockDrag = () => {
+    dragged.current = null;
+    window.clearTimeout(dropHide.current);
+    setDrop(null);
+  };
+  const onBlockDragOver = (e: DragEvent<HTMLDivElement>) => {
+    if (!dragged.current) return;
+    e.preventDefault();
+    e.stopPropagation();
+    e.dataTransfer.dropEffect = "move";
+    window.clearTimeout(dropHide.current);
+    const t = dropTarget(e.clientY);
+    const wrap = surface.current;
+    if (!t || t.still || !wrap) return setDrop(null);
+    const r = wrap.getBoundingClientRect();
+    const next = { top: Math.round(t.y - r.top - 1), left: Math.round(t.left - r.left), width: Math.round(t.width) };
+    setDrop((d) => (d && d.top === next.top && d.left === next.left && d.width === next.width ? d : next));
+  };
+  const onBlockDragLeave = () => {
+    if (!dragged.current) return;
+    // A dragleave comes for every element the pointer crosses: only one with no dragover after it is real
+    window.clearTimeout(dropHide.current);
+    dropHide.current = window.setTimeout(() => setDrop(null), 60);
+  };
+  const onBlockDrop = (e: DragEvent<HTMLDivElement>) => {
+    const b = dragged.current;
+    if (!b) return;
+    e.preventDefault();
+    e.stopPropagation();
+    const t = dropTarget(e.clientY);
+    endBlockDrag();
+    if (t && !t.still) act((v, L) => L.moveBlockTo(v, b, t.pos));
+  };
 
   // ------------------------------------------------------------------------------------------
   // Keys, before anything else sees them
@@ -1622,7 +1673,12 @@ export function MilkdownEditor({
       <div
         ref={scroller}
         className={cn("relative flex min-h-40 flex-1 flex-col overflow-auto", disabled && "cursor-not-allowed bg-muted text-muted-foreground", contentClassName)}
-        onPointerLeave={() => !handleMenu && setHandle(null)}
+        // The drag itself makes the pointer "leave" (pointercancel): the handle, its source, has to stay
+        onPointerLeave={() => !handleMenu && !dragged.current && setHandle(null)}
+        onDragEnterCapture={onBlockDragOver}
+        onDragOverCapture={onBlockDragOver}
+        onDragLeaveCapture={onBlockDragLeave}
+        onDropCapture={onBlockDrop}
       >
         <div
           ref={surface}
@@ -1673,11 +1729,12 @@ export function MilkdownEditor({
                       const v = view();
                       const L = lib.current;
                       const b = v && L ? L.blockFromActive(v.state, handle.at) : null;
-                      if (v && L && b) L.dragBlock(v, b, e.nativeEvent, handle.at.el);
+                      if (!v || !L || !b) return e.preventDefault();
+                      dragged.current = b;
+                      L.dragBlock(v, b, e.nativeEvent, handle.at.el);
                     }}
                     onDragEnd={() => {
-                      const v = view();
-                      if (v) lib.current?.endDrag(v);
+                      endBlockDrag();
                       setHandle(null);
                     }}
                     className="flex size-5 cursor-grab items-center justify-center text-muted-foreground hover:bg-secondary hover:text-foreground focus-visible:outline-2 focus-visible:outline-offset-1 focus-visible:outline-ring active:cursor-grabbing aria-expanded:bg-accent"
@@ -1688,6 +1745,7 @@ export function MilkdownEditor({
               />
             </div>
           )}
+          {drop && <div aria-hidden data-block-drop="" className="pointer-events-none absolute z-10 h-0.5 bg-ring" style={drop} />}
         </div>
         {mode === "preview" && empty && <p className="px-3 py-2.5 text-muted-foreground">Nothing to preview yet.</p>}
 
