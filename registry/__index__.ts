@@ -6030,6 +6030,213 @@ export const registry: RegistryEntry[] = [
     "hidden": false
   },
   {
+    "name": "milkdown-data",
+    "type": "registry:block",
+    "title": "Notebook data",
+    "description": "Pennant's engineering notebook (eleven pages of RFCs, runbooks, incident reviews, on-call notes and a capacity plan, with people, templates and a pretend upload) and the helpers for outlines, word counts, search and labels.",
+    "category": "Editor (Milkdown)",
+    "files": [
+      {
+        "path": "registry/plainspoken/blocks/milkdown/data.ts",
+        "type": "registry:component",
+        "target": "components/blocks/milkdown/data.ts"
+      },
+      {
+        "path": "registry/plainspoken/blocks/milkdown/format.ts",
+        "type": "registry:component",
+        "target": "components/blocks/milkdown/format.ts"
+      }
+    ],
+    "examples": [],
+    "registryDependencies": [
+      "badge",
+      "foundation",
+      "icons",
+      "milkdown-editor"
+    ],
+    "dependencies": [],
+    "hidden": true
+  },
+  {
+    "name": "milkdown-document-header",
+    "type": "registry:block",
+    "title": "Page header",
+    "description": "The top of a notebook page: where it sits, the title as an input drawn like a heading, its status, authors, last edit and reading time, and a menu to set the status, duplicate or delete.",
+    "category": "Editor (Milkdown)",
+    "files": [
+      {
+        "path": "registry/plainspoken/blocks/milkdown/document-header.tsx",
+        "type": "registry:component",
+        "target": "components/blocks/milkdown/document-header.tsx"
+      }
+    ],
+    "examples": [
+      "milkdown-document-header-demo"
+    ],
+    "registryDependencies": [
+      "avatar",
+      "badge",
+      "dropdown-menu",
+      "foundation",
+      "icons",
+      "milkdown-data",
+      "relative-time",
+      "utils"
+    ],
+    "dependencies": [],
+    "hidden": false
+  },
+  {
+    "name": "milkdown-editor",
+    "type": "registry:ui",
+    "title": "Milkdown editor",
+    "description": "A Markdown editor on Milkdown (ProseMirror and remark), drawn with this library's components: three modes, a slash menu, a selection bubble, draggable blocks, tables, math and picture uploads. A drop-in alternative to the rich text editor.",
+    "category": "Forms",
+    "files": [
+      {
+        "path": "registry/plainspoken/ui/milkdown-editor.tsx",
+        "type": "registry:ui"
+      },
+      {
+        "path": "registry/plainspoken/lib/milkdown.ts",
+        "type": "registry:lib"
+      }
+    ],
+    "examples": [
+      "milkdown-editor-demo",
+      "milkdown-editor-modes",
+      "milkdown-editor-images",
+      "milkdown-editor-tables",
+      "milkdown-editor-math",
+      "milkdown-editor-controlled",
+      "milkdown-editor-read-only",
+      "milkdown-editor-field",
+      "milkdown-editor-kitchen-sink",
+      "milkdown-editor-compared"
+    ],
+    "registryDependencies": [
+      "button",
+      "copy-button",
+      "dialog",
+      "dropdown-menu",
+      "field",
+      "file-upload",
+      "floating",
+      "foundation",
+      "icon",
+      "icons",
+      "input",
+      "popover",
+      "progress",
+      "prose",
+      "segmented-control",
+      "select",
+      "separator",
+      "textarea",
+      "toggle",
+      "tooltip",
+      "utils"
+    ],
+    "dependencies": [
+      "@milkdown/kit",
+      "katex",
+      "remark-math"
+    ],
+    "hidden": false
+  },
+  {
+    "name": "milkdown-notebook-app",
+    "type": "registry:block",
+    "title": "Notebook app",
+    "description": "An engineering team's notebook on the Milkdown editor: a page tree with search and templates, a page header, the editor, and an outline that follows the reading, with the open page in the address and the pages kept in the browser.",
+    "category": "Editor (Milkdown)",
+    "files": [
+      {
+        "path": "registry/plainspoken/blocks/milkdown/notebook-app.tsx",
+        "type": "registry:component",
+        "target": "components/blocks/milkdown/notebook-app.tsx"
+      }
+    ],
+    "examples": [
+      "milkdown-notebook-app-demo"
+    ],
+    "registryDependencies": [
+      "alert-dialog",
+      "app-shell",
+      "avatar",
+      "button",
+      "dropdown-menu",
+      "empty-state",
+      "foundation",
+      "icons",
+      "milkdown-data",
+      "milkdown-document-header",
+      "milkdown-editor",
+      "milkdown-outline",
+      "milkdown-page-tree",
+      "sidebar",
+      "use-stored-state",
+      "utils"
+    ],
+    "dependencies": [],
+    "hidden": false
+  },
+  {
+    "name": "milkdown-outline",
+    "type": "registry:block",
+    "title": "Outline",
+    "description": "\"On this page\" for a page in the Milkdown editor: its headings by level with the one being read marked, as a rail or a menu, and helpers to follow the scrolling and jump to a heading.",
+    "category": "Editor (Milkdown)",
+    "files": [
+      {
+        "path": "registry/plainspoken/blocks/milkdown/outline.tsx",
+        "type": "registry:component",
+        "target": "components/blocks/milkdown/outline.tsx"
+      }
+    ],
+    "examples": [
+      "milkdown-outline-demo"
+    ],
+    "registryDependencies": [
+      "dropdown-menu",
+      "foundation",
+      "icons",
+      "milkdown-data",
+      "utils"
+    ],
+    "dependencies": [],
+    "hidden": false
+  },
+  {
+    "name": "milkdown-page-tree",
+    "type": "registry:block",
+    "title": "Page tree",
+    "description": "The notebook's pages as Sidebar sections, by part and folder with an icon for each kind of page, with New page from templates and a search that turns the tree into a list of matches with counts.",
+    "category": "Editor (Milkdown)",
+    "files": [
+      {
+        "path": "registry/plainspoken/blocks/milkdown/page-tree.tsx",
+        "type": "registry:component",
+        "target": "components/blocks/milkdown/page-tree.tsx"
+      }
+    ],
+    "examples": [
+      "milkdown-page-tree-demo"
+    ],
+    "registryDependencies": [
+      "button",
+      "dropdown-menu",
+      "foundation",
+      "icons",
+      "input",
+      "milkdown-data",
+      "sidebar",
+      "utils"
+    ],
+    "dependencies": [],
+    "hidden": false
+  },
+  {
     "name": "music-app-shell",
     "type": "registry:block",
     "title": "Music app frame",

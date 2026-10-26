@@ -283,6 +283,20 @@ import E_menu_button_view_options from "@/registry/plainspoken/examples/menu-but
 import E_merge_conflict_demo from "@/registry/plainspoken/examples/merge-conflict-demo";
 import E_merge_conflict_inline from "@/registry/plainspoken/examples/merge-conflict-inline";
 import E_merge_conflict_merged_text from "@/registry/plainspoken/examples/merge-conflict-merged-text";
+import E_milkdown_document_header_demo from "@/registry/plainspoken/examples/milkdown-document-header-demo";
+import E_milkdown_editor_compared from "@/registry/plainspoken/examples/milkdown-editor-compared";
+import E_milkdown_editor_controlled from "@/registry/plainspoken/examples/milkdown-editor-controlled";
+import E_milkdown_editor_demo from "@/registry/plainspoken/examples/milkdown-editor-demo";
+import E_milkdown_editor_field from "@/registry/plainspoken/examples/milkdown-editor-field";
+import E_milkdown_editor_images from "@/registry/plainspoken/examples/milkdown-editor-images";
+import E_milkdown_editor_kitchen_sink from "@/registry/plainspoken/examples/milkdown-editor-kitchen-sink";
+import E_milkdown_editor_math from "@/registry/plainspoken/examples/milkdown-editor-math";
+import E_milkdown_editor_modes from "@/registry/plainspoken/examples/milkdown-editor-modes";
+import E_milkdown_editor_read_only from "@/registry/plainspoken/examples/milkdown-editor-read-only";
+import E_milkdown_editor_tables from "@/registry/plainspoken/examples/milkdown-editor-tables";
+import E_milkdown_notebook_app_demo from "@/registry/plainspoken/examples/milkdown-notebook-app-demo";
+import E_milkdown_outline_demo from "@/registry/plainspoken/examples/milkdown-outline-demo";
+import E_milkdown_page_tree_demo from "@/registry/plainspoken/examples/milkdown-page-tree-demo";
 import E_music_app_shell_demo from "@/registry/plainspoken/examples/music-app-shell-demo";
 import E_music_artist_demo from "@/registry/plainspoken/examples/music-artist-demo";
 import E_music_artist_discography from "@/registry/plainspoken/examples/music-artist-discography";
@@ -664,6 +678,20 @@ export const examples: Record<string, ComponentType> = {
   "merge-conflict-demo": E_merge_conflict_demo,
   "merge-conflict-inline": E_merge_conflict_inline,
   "merge-conflict-merged-text": E_merge_conflict_merged_text,
+  "milkdown-document-header-demo": E_milkdown_document_header_demo,
+  "milkdown-editor-compared": E_milkdown_editor_compared,
+  "milkdown-editor-controlled": E_milkdown_editor_controlled,
+  "milkdown-editor-demo": E_milkdown_editor_demo,
+  "milkdown-editor-field": E_milkdown_editor_field,
+  "milkdown-editor-images": E_milkdown_editor_images,
+  "milkdown-editor-kitchen-sink": E_milkdown_editor_kitchen_sink,
+  "milkdown-editor-math": E_milkdown_editor_math,
+  "milkdown-editor-modes": E_milkdown_editor_modes,
+  "milkdown-editor-read-only": E_milkdown_editor_read_only,
+  "milkdown-editor-tables": E_milkdown_editor_tables,
+  "milkdown-notebook-app-demo": E_milkdown_notebook_app_demo,
+  "milkdown-outline-demo": E_milkdown_outline_demo,
+  "milkdown-page-tree-demo": E_milkdown_page_tree_demo,
   "music-app-shell-demo": E_music_app_shell_demo,
   "music-artist-demo": E_music_artist_demo,
   "music-artist-discography": E_music_artist_discography,

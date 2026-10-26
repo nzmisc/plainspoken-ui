@@ -1,0 +1,13 @@
+{
+  "name": "milkdown-outline",
+  "type": "registry:block",
+  "title": "Outline",
+  "description": "\"On this page\" for a page in the Milkdown editor: its headings by level with the one being read marked, as a rail or a menu, and helpers to follow the scrolling and jump to a heading.",
+  "category": "Editor (Milkdown)",
+  "files": [
+    "blocks/milkdown/outline.tsx"
+  ],
+  "examples": [
+    "milkdown-outline-demo"
+  ]
+}

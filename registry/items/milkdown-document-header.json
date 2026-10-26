@@ -1,0 +1,13 @@
+{
+  "name": "milkdown-document-header",
+  "type": "registry:block",
+  "title": "Page header",
+  "description": "The top of a notebook page: where it sits, the title as an input drawn like a heading, its status, authors, last edit and reading time, and a menu to set the status, duplicate or delete.",
+  "category": "Editor (Milkdown)",
+  "files": [
+    "blocks/milkdown/document-header.tsx"
+  ],
+  "examples": [
+    "milkdown-document-header-demo"
+  ]
+}

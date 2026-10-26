@@ -11,7 +11,7 @@ into your project with the shadcn CLI, and they are your code from then on.
 npx shadcn@latest add https://<site>/r/button.json
 ```
 
-- **Docs and demos**: the Next.js site in this repo (`app/`): every component with examples and install commands, eight
+- **Docs and demos**: the Next.js site in this repo (`app/`): every component with examples and install commands, sixteen
   demo apps built only from these components, and a theme customizer.
 - **Storybook**: every component, state and size, at `/storybook/` on the same site.
 - **Registry**: `registry/items/*.json` describe the items; `scripts/build-registry.ts` turns them into `public/r/*.json`.

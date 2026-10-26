@@ -73,8 +73,8 @@ export default function Introduction() {
           Browse the <A href="/docs/components">components</A>, or the same in <A href="/storybook/index.html">Storybook</A>.
         </li>
         <li>
-          See them used in <A href="/demos">eight demo apps</A>: an email client, a music player, a social feed, a library
-          catalogue, a Bible reader and more.
+          See them used in <A href="/demos">sixteen demo apps</A>: an email client, a music player, a working AI chat, a
+          Kanban board, a data grid, two rich text editors, an entity-relationship diagram and more.
         </li>
         <li>
           Make it yours in the <A href="/customize">customizer</A>: base gray, main colour, link colours and fonts.

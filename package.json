@@ -22,6 +22,7 @@
   },
   "dependencies": {
     "@ai-sdk/react": "^4.0.157",
+    "@milkdown/kit": "^7.22.3",
     "@openrouter/ai-sdk-provider": "^3.1.0",
     "@streamdown/code": "^2.0.0",
     "@streamdown/math": "^1.0.3",
@@ -32,6 +33,7 @@
     "next": "16.4.3",
     "react": "19.3.1",
     "react-dom": "19.3.1",
+    "remark-math": "^6.0.0",
     "streamdown": "^2.7.1",
     "tailwind-merge": "^3.7.0",
     "zod": "^4.6.7"

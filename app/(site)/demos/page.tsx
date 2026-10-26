@@ -5,7 +5,7 @@ import { DocsPage } from "@/components/site/docs";
 
 export const metadata: Metadata = {
   title: "Demos",
-  description: "Eight apps built only from plainspoken-ui components: mail, an app skeleton, music, social, a blog, a landing page, a library catalogue and a Bible reader.",
+  description: "Sixteen apps built only from plainspoken-ui components: mail, music, a social feed, a blog, a library catalogue, a Bible reader, a working AI chat, a Kanban board, two rich text editors, a data grid, a budget, an entity-relationship diagram and more.",
 };
 
 export default function DemosIndex() {
