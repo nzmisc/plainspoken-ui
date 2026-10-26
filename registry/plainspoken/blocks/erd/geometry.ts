@@ -8,7 +8,7 @@ import { cardinality, keyColumns, tableById, type EndKind, type ErdModel, type E
 export const NODE_BORDER = 1;
 export const HEADER_H = 32;
 export const ROW_H = 22;
-/** Room at each end of a line for its crow's foot */
+/** Room at each end of a line for its crow's foot: no bend or turn comes closer to a table than this */
 export const STUB = 26;
 
 export interface Size {
@@ -51,13 +51,23 @@ export function rowCentre(m: ErdModel, t: ErdTable, columns: string[], collapsed
 export type Side = "left" | "right";
 
 export interface Route {
-  /** SVG path data */
+  /**
+   * SVG path data, from table edge to table edge: straight out of each table at right angles for
+   * as long as its end mark (`reach`), and bending only past that, so the mark sits on a straight
+   * stub and the curve or the corners start at the mark's outer tip
+   */
   d: string;
   /** The ends: where they touch the tables, and which way they leave them */
   child: ErdPoint & { side: Side };
   parent: ErdPoint & { side: Side };
   /** A point half way along, for a label */
   mid: ErdPoint;
+}
+
+/** How long the straight stub at each end is: the reach of the mark drawn there (`endMark(kind).reach`), 0 for none */
+export interface RouteReach {
+  child?: number;
+  parent?: number;
 }
 
 const dirOf = (s: Side) => (s === "left" ? -1 : 1);
@@ -81,11 +91,16 @@ function crossings(pts: ErdPoint[], boxes: Box[]) {
   return n;
 }
 
-/** A polyline with its corners rounded off */
-function rounded(points: ErdPoint[], radius: number) {
+/** A polyline with its corners rounded off; points on a straight run are kept as plain line ends */
+function rounded(all: ErdPoint[], radius: number) {
+  const points = all.filter((q, i) => i === 0 || q.x !== all[i - 1].x || q.y !== all[i - 1].y);
   let d = `M${points[0].x},${points[0].y}`;
   for (let i = 1; i < points.length - 1; i++) {
     const [a, b, c] = [points[i - 1], points[i], points[i + 1]];
+    if ((a.x === b.x && b.x === c.x) || (a.y === b.y && b.y === c.y)) {
+      d += ` L${b.x},${b.y}`;
+      continue;
+    }
     const r = Math.min(radius, Math.hypot(b.x - a.x, b.y - a.y) / 2, Math.hypot(c.x - b.x, c.y - b.y) / 2);
     if (r < 0.5) {
       d += ` L${b.x},${b.y}`;
@@ -104,7 +119,8 @@ function rounded(points: ErdPoint[], radius: number) {
  * parent): out of facing sides when the tables stand apart, round the outside of both when they
  * overlap side to side, and in a loop for a table that references itself. "orthogonal" draws
  * right angles with rounded corners, "curved" a smooth S. `lane` shifts the middle a few pixels,
- * so lines that run side by side don't lie on top of each other.
+ * so lines that run side by side don't lie on top of each other. `reach` keeps each end straight
+ * for the length of its end mark, so the line bends only past the mark's tip.
  */
 export function route(
   child: Box,
@@ -115,6 +131,7 @@ export function route(
   lane = 0,
   self = false,
   obstacles: Box[] = [],
+  reach: RouteReach = {},
 ): Route {
   const cy = child.y + childY;
   const py = parent.y + parentY;
@@ -133,54 +150,66 @@ export function route(
   const p = { x: ps === "left" ? parent.x : parent.x + parent.width, y: py, side: ps };
   const dc = dirOf(cs);
   const dp = dirOf(ps);
+  // The tips of the end marks: the straight stubs end here, and the bends start here
+  const ct = { x: c.x + dc * (reach.child ?? 0), y: c.y };
+  const pt = { x: p.x + dp * (reach.parent ?? 0), y: p.y };
 
   if (style === "curved") {
-    const k = cs === ps ? 60 + Math.abs(cy - py) * 0.2 + (self ? 20 : 0) : Math.max(50, Math.abs(c.x - p.x) / 2);
-    const d = `M${c.x},${c.y} C${c.x + dc * k},${c.y + lane} ${p.x + dp * k},${p.y + lane} ${p.x},${p.y}`;
+    // Both handles stay level with the ends, so the curve leaves each tip in line with its stub;
+    // the lane lengthens or shortens them instead, which still parts lines that share their ends
+    const k = (cs === ps ? 60 + Math.abs(cy - py) * 0.2 + (self ? 20 : 0) : Math.max(50, Math.abs(ct.x - pt.x) / 2)) + lane;
+    const [h1, h2] = [{ x: ct.x + dc * k, y: ct.y }, { x: pt.x + dp * k, y: pt.y }];
+    const d = `M${c.x},${c.y} L${ct.x},${ct.y} C${h1.x},${h1.y} ${h2.x},${h2.y} ${pt.x},${pt.y} L${p.x},${p.y}`;
     // The bezier's own midpoint
-    const mid = { x: (c.x + 3 * (c.x + dc * k) + 3 * (p.x + dp * k) + p.x) / 8, y: (c.y + 3 * (c.y + lane) + 3 * (p.y + lane) + p.y) / 8 };
+    const mid = { x: (ct.x + 3 * h1.x + 3 * h2.x + pt.x) / 8, y: (ct.y + 3 * h1.y + 3 * h2.y + pt.y) / 8 };
     return { d, child: c, parent: p, mid };
   }
 
   let pts: ErdPoint[];
   if (cs !== ps) {
-    // Z: out, across in the middle of the gap, in
+    // Z: out, across in the middle of the gap, in; never turning before a mark's tip
+    const [l, r] = c.x < p.x ? [ct, pt] : [pt, ct];
     const lo = Math.min(c.x, p.x) + STUB;
     const hi = Math.max(c.x, p.x) - STUB;
-    const fit = (x: number) => Math.max(lo, Math.min(hi, x));
+    const fit = (x: number) => Math.max(Math.max(lo, l.x), Math.min(Math.min(hi, r.x), x));
     // The middle of the gap, or just beside either table: whichever runs through fewest other tables
     const options = [fit((c.x + p.x) / 2 + lane), fit(c.x + dc * (STUB + 10) + lane), fit(p.x + dp * (STUB + 10) + lane)];
     const cost = (mx: number) => crossings([c, { x: mx, y: c.y }, { x: mx, y: p.y }, p], obstacles);
     const mx = options.reduce((best, x) => (cost(x) < cost(best) ? x : best), options[0]);
-    pts = [c, { x: mx, y: c.y }, { x: mx, y: p.y }, p];
+    pts = [c, ct, { x: mx, y: c.y }, { x: mx, y: p.y }, pt, p];
   } else {
-    // C: out past whichever table sticks out further, along, and back in
-    const lx = cs === "right" ? Math.max(c.x, p.x) + STUB + 8 + Math.abs(lane) : Math.min(c.x, p.x) - STUB - 8 - Math.abs(lane);
-    pts = [c, { x: lx, y: c.y }, { x: lx, y: p.y }, p];
+    // C: out past whichever table (or mark) sticks out further, along, and back in
+    const out = (xs: number[]) => (cs === "right" ? Math.max(...xs) : Math.min(...xs));
+    const lx = out([out([c.x, p.x]) + dc * (STUB + 8), out([ct.x, pt.x]) + dc * 8]) + dc * Math.abs(lane);
+    pts = [c, ct, { x: lx, y: c.y }, { x: lx, y: p.y }, pt, p];
   }
-  const mid = { x: (pts[1].x + pts[2].x) / 2, y: (pts[1].y + pts[2].y) / 2 };
+  const mid = { x: (pts[2].x + pts[3].x) / 2, y: (pts[2].y + pts[3].y) / 2 };
   return { d: rounded(pts, 8), child: c, parent: p, mid };
 }
 
 /** What the 1 / N notation writes at an end */
 export const END_LABEL: Record<EndKind, string> = { one: "1", "zero-or-one": "0..1", many: "1..N", "zero-or-many": "N" };
 
+/** The radius of the circle that means zero (optional) */
+export const MARK_R = 3.5;
+
 /**
  * The crow's foot mark for one end, drawn pointing along +x from the table edge at 0,0; place it
  * with `translate(x, y) scale(±1, 1)`. Bars mean one, a circle zero (optional), the three-toed
- * foot many.
+ * foot many. `reach` is how far out its outer tip is (the far bar, or the far side of the
+ * circle): the line runs straight that far, through the mark, before it bends.
  */
-export function endMark(kind: EndKind): { lines: string; circle?: ErdPoint } {
+export function endMark(kind: EndKind): { lines: string; circle?: ErdPoint; reach: number } {
   const foot = "M12,0 L0,-6 M12,0 L0,0 M12,0 L0,6";
   switch (kind) {
     case "one":
-      return { lines: "M8,-6 V6 M13,-6 V6" };
+      return { lines: "M8,-6 V6 M13,-6 V6", reach: 13 };
     case "zero-or-one":
-      return { lines: "M8,-6 V6", circle: { x: 17, y: 0 } };
+      return { lines: "M8,-6 V6", circle: { x: 17, y: 0 }, reach: 17 + MARK_R };
     case "many":
-      return { lines: `${foot} M15,-6 V6` };
+      return { lines: `${foot} M15,-6 V6`, reach: 15 };
     case "zero-or-many":
-      return { lines: foot, circle: { x: 18, y: 0 } };
+      return { lines: foot, circle: { x: 18, y: 0 }, reach: 18 + MARK_R };
   }
 }
 
@@ -190,35 +219,57 @@ export interface RoutedRelation {
   ends: { parent: EndKind; child: EndKind };
 }
 
-/** Every relation whose tables have a place, routed */
+/**
+ * Every relation whose tables have a place, routed. With crow's foot marks (the default) each end
+ * runs straight for its mark's reach; where several ends meet at one port they all run as far as
+ * the longest mark there, so no line bends inside another's mark. With 1 / N labels the lines bend
+ * right from the tables.
+ */
 export function routeAll(
   m: ErdModel,
   boxes: Record<string, Box>,
   collapsed: ReadonlySet<string>,
   style: "orthogonal" | "curved",
+  notation: "crow" | "labels" = "crow",
 ): RoutedRelation[] {
-  const out: RoutedRelation[] = [];
-  m.relations.forEach((r, i) => {
+  const jobs = m.relations.flatMap((r, i) => {
     const ct = tableById(m, r.from.table);
     const pt = tableById(m, r.to.table);
     const cb = boxes[r.from.table];
     const pb = boxes[r.to.table];
-    if (!ct || !pt || !cb || !pb) return;
-    const route_ = route(
-      cb,
-      rowCentre(m, ct, r.from.columns, collapsed.has(ct.id)),
-      pb,
-      rowCentre(m, pt, r.to.columns, collapsed.has(pt.id)),
-      style,
-      ((i % 5) - 2) * 6,
-      ct.id === pt.id,
-      Object.entries(boxes)
-        .filter(([id]) => id !== ct.id && id !== pt.id)
-        .map(([, b]) => b),
-    );
-    out.push({ relation: r, route: route_, ends: cardinality(m, r) });
+    if (!ct || !pt || !cb || !pb) return [];
+    const ends = cardinality(m, r);
+    const reach: RouteReach =
+      notation === "crow" ? { child: endMark(ends.child).reach, parent: endMark(ends.parent).reach } : {};
+    const run = (rc: RouteReach) =>
+      route(
+        cb,
+        rowCentre(m, ct, r.from.columns, collapsed.has(ct.id)),
+        pb,
+        rowCentre(m, pt, r.to.columns, collapsed.has(pt.id)),
+        style,
+        ((i % 5) - 2) * 6,
+        ct.id === pt.id,
+        Object.entries(boxes)
+          .filter(([id]) => id !== ct.id && id !== pt.id)
+          .map(([, b]) => b),
+        rc,
+      );
+    return [{ relation: r, ends, reach, run, route: run(reach) }];
   });
-  return out;
+  // The longest reach at each port (a point on a table's edge, facing one way)
+  const port = (q: Route["child"]) => `${q.x},${q.y},${q.side}`;
+  const longest = new Map<string, number>();
+  const note = (q: Route["child"], n = 0) => longest.set(port(q), Math.max(longest.get(port(q)) ?? 0, n));
+  for (const j of jobs) {
+    note(j.route.child, j.reach.child);
+    note(j.route.parent, j.reach.parent);
+  }
+  return jobs.map(({ relation, ends, reach, run, route: first }) => {
+    const shared = { child: longest.get(port(first.child)), parent: longest.get(port(first.parent)) };
+    const same = shared.child === (reach.child ?? 0) && shared.parent === (reach.parent ?? 0);
+    return { relation, ends, route: same ? first : run(shared) };
+  });
 }
 
 /** The frame round each schema's tables: their bounds, padded, with room for the name on top */

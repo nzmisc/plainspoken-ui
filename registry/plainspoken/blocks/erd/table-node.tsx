@@ -34,7 +34,7 @@ export interface ErdTableCardProps {
   highlightColumns?: readonly string[];
   /** Faded back, while other tables are highlighted */
   dimmed?: boolean;
-  /** Selected on the canvas: on touch screens (no hover) its connection handles show */
+  /** Selected on the canvas: its connection handles show, on the selection frame */
   selected?: boolean;
   /** A connection drag starts on a column's handle (the square at the row's right end) */
   onConnectStart?: (column: string, e: PointerEvent<HTMLElement>) => void;
@@ -51,6 +51,7 @@ function ColumnRow({
   showNullability,
   highlighted,
   drop,
+  handles,
   onConnectStart,
 }: {
   model: ErdModel;
@@ -60,6 +61,8 @@ function ColumnRow({
   showNullability: boolean;
   highlighted: boolean;
   drop: boolean;
+  /** Show the handle without hovering: the table is selected */
+  handles: "selected" | "hover" | "never";
   onConnectStart?: ErdTableCardProps["onConnectStart"];
 }) {
   const f = columnFlags(model, table, column);
@@ -105,8 +108,12 @@ function ColumnRow({
             onConnectStart(column.name, e);
           }}
           className={cn(
-            "absolute top-1/2 -right-[6px] size-[11px] -translate-y-1/2 cursor-crosshair touch-none border border-foreground bg-background",
-            "opacity-0 group-hover/card:opacity-60 group-hover/row:opacity-100 hover:bg-foreground pointer-coarse:size-[15px] pointer-coarse:group-data-[selected]/card:opacity-80",
+            // Centred on the table's edge, the 2px selection frame's middle, and drawn over it
+            "absolute top-1/2 -right-1 z-[1] size-2.5 -translate-y-1/2 cursor-crosshair touch-none border bg-background pointer-coarse:-right-1.5 pointer-coarse:size-3.5",
+            "group-hover/row:border-foreground hover:bg-foreground",
+            handles === "selected" ? "border-ring" : "border-muted-foreground",
+            handles === "hover" && "opacity-0 group-hover/card:opacity-100",
+            handles === "never" && "opacity-0",
           )}
         />
       )}
@@ -121,7 +128,8 @@ function ColumnRow({
  * (nullable), each spelled out on hover. Column and table comments show on hover too. Folded, it
  * shows only the keys. Header and rows have fixed heights (geometry.ts), so the relation lines
  * can find a column's row without measuring it. A square at the right end of each row starts a
- * connection drag when `onConnectStart` is given.
+ * connection drag when `onConnectStart` is given; the squares show on hover, and on the selection
+ * frame while the table is selected.
  */
 export const ErdTableCard = memo(function ErdTableCard({
   model,
@@ -180,6 +188,7 @@ export const ErdTableCard = memo(function ErdTableCard({
           showNullability={showNullability}
           highlighted={!!highlightColumns?.includes(c.name)}
           drop={dropColumn === c.name}
+          handles={dimmed ? "never" : selected ? "selected" : "hover"}
           onConnectStart={onConnectStart}
         />
       ))}

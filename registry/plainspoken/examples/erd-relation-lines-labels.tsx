@@ -18,7 +18,7 @@ export default function ErdRelationLinesLabels() {
   return (
     <div className="overflow-x-auto">
       <div className="relative h-[230px] w-[620px]">
-        <ErdRelationLines routes={routeAll(model, boxes, new Set(), "curved")} notation="labels" highlighted={new Set(model.relations.map((r) => r.id))} />
+        <ErdRelationLines routes={routeAll(model, boxes, new Set(), "curved", "labels")} notation="labels" highlighted={new Set(model.relations.map((r) => r.id))} />
         {Object.entries(PLACES).map(([id, p]) => (
           <div key={id} className="absolute w-[260px]" style={{ left: p.x, top: p.y }}>
             <ErdTableCard model={model} table={tableById(model, id)!} className="w-full" />

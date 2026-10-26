@@ -133,7 +133,7 @@ function DiagramContent({
     }
     return out;
   }, [model, positions, rects, collapsedSet, display.types]);
-  const routes = useMemo(() => routeAll(model, boxes, collapsedSet, display.lines), [model, boxes, collapsedSet, display.lines]);
+  const routes = useMemo(() => routeAll(model, boxes, collapsedSet, display.lines, display.notation), [model, boxes, collapsedSet, display.lines, display.notation]);
   const frames = useMemo(() => (display.frames ? schemaFrames(model, boxes) : []), [display.frames, model, boxes]);
 
   // What stands out: the hovered (or keyboard-focused) table, else the selection, else the open relation
@@ -221,61 +221,58 @@ function DiagramContent({
           </div>
         </div>
       ))}
-      <ErdRelationLines
-        routes={routes}
-        notation={display.notation}
-        highlighted={dimming ? lit : null}
-        active={active}
-        onRelationClick={onRelationClick}
-        draft={conn && { from: conn.start, to: conn.to }}
-      />
-      <CanvasNodes
-        positions={positions}
-        onPositionsChange={onPositions}
-        selected={selected}
-        onSelectedChange={onSelected}
-        snap={display.snap ? 20 : 0}
-        keyboardStep={display.snap ? 20 : 10}
-        onOpen={onOpenTable}
-        onDelete={onDeleteTables}
-        roleDescription="table"
-        keyHelp="F folds it to its keys and back."
-      >
-        {model.tables.map((t) =>
-          positions[t.id] ? (
-            <CanvasNode
-              key={t.id}
-              id={t.id}
-              label={tableLabel(model, t)}
-              name={t.name}
-              onPointerEnter={(e) => e.buttons === 0 && setHovered(t.id)}
-              onPointerLeave={() => setHovered((h) => (h === t.id ? null : h))}
-              onFocus={(e) => e.target === e.currentTarget && e.currentTarget.matches(":focus-visible") && setHovered(t.id)}
-              onBlur={() => setHovered((h) => (h === t.id ? null : h))}
-              onKeyDown={(e) => {
-                if (e.target !== e.currentTarget || e.key.toLowerCase() !== "f" || e.ctrlKey || e.metaKey || e.altKey) return;
-                e.preventDefault();
-                onCollapsed(t.id, !collapsedSet.has(t.id));
-              }}
-            >
-              <ErdTableCard
-                model={model}
-                table={t}
-                collapsed={collapsedSet.has(t.id)}
-                onCollapsedChange={(on) => onCollapsed(t.id, on)}
-                foldUntabbable
-                showTypes={display.types}
-                showNullability={display.nullability}
-                highlightColumns={rowsByTable.get(t.id)}
-                dimmed={dimming && !related.has(t.id)}
-                selected={selected.includes(t.id)}
-                onConnectStart={onConnect ? connectFrom : undefined}
-                dropColumn={conn?.over?.table === t.id ? conn.over.column : null}
-              />
-            </CanvasNode>
-          ) : null,
-        )}
-      </CanvasNodes>
+      {/* Bottom to top: schema frames, the lines, the tables (in their own stacking order), a line being dragged out */}
+      <ErdRelationLines routes={routes} notation={display.notation} highlighted={dimming ? lit : null} active={active} onRelationClick={onRelationClick} />
+      <div className="isolate">
+        <CanvasNodes
+          positions={positions}
+          onPositionsChange={onPositions}
+          selected={selected}
+          onSelectedChange={onSelected}
+          snap={display.snap ? 20 : 0}
+          keyboardStep={display.snap ? 20 : 10}
+          onOpen={onOpenTable}
+          onDelete={onDeleteTables}
+          roleDescription="table"
+          keyHelp="F folds it to its keys and back."
+        >
+          {model.tables.map((t) =>
+            positions[t.id] ? (
+              <CanvasNode
+                key={t.id}
+                id={t.id}
+                label={tableLabel(model, t)}
+                name={t.name}
+                onPointerEnter={(e) => e.buttons === 0 && setHovered(t.id)}
+                onPointerLeave={() => setHovered((h) => (h === t.id ? null : h))}
+                onFocus={(e) => e.target === e.currentTarget && e.currentTarget.matches(":focus-visible") && setHovered(t.id)}
+                onBlur={() => setHovered((h) => (h === t.id ? null : h))}
+                onKeyDown={(e) => {
+                  if (e.target !== e.currentTarget || e.key.toLowerCase() !== "f" || e.ctrlKey || e.metaKey || e.altKey) return;
+                  e.preventDefault();
+                  onCollapsed(t.id, !collapsedSet.has(t.id));
+                }}
+              >
+                <ErdTableCard
+                  model={model}
+                  table={t}
+                  collapsed={collapsedSet.has(t.id)}
+                  onCollapsedChange={(on) => onCollapsed(t.id, on)}
+                  foldUntabbable
+                  showTypes={display.types}
+                  showNullability={display.nullability}
+                  highlightColumns={rowsByTable.get(t.id)}
+                  dimmed={dimming && !related.has(t.id)}
+                  selected={selected.includes(t.id)}
+                  onConnectStart={onConnect ? connectFrom : undefined}
+                  dropColumn={conn?.over?.table === t.id ? conn.over.column : null}
+                />
+              </CanvasNode>
+            ) : null,
+          )}
+        </CanvasNodes>
+      </div>
+      {conn && <ErdRelationLines routes={[]} draft={{ from: conn.start, to: conn.to }} />}
     </>
   );
 }

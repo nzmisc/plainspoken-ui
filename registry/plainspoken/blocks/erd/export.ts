@@ -3,7 +3,7 @@
 // from the page's theme tokens and written as plain hex, which every SVG viewer understands.
 
 import { Key, Link, type Glyph } from "@/registry/plainspoken/lib/icons";
-import { END_LABEL, HEADER_H, NODE_BORDER, ROW_H, endMark, routeAll, schemaFrames, visibleColumns, type Box } from "@/registry/plainspoken/blocks/erd/geometry";
+import { END_LABEL, HEADER_H, MARK_R, NODE_BORDER, ROW_H, endMark, routeAll, schemaFrames, visibleColumns, type Box } from "@/registry/plainspoken/blocks/erd/geometry";
 import { columnFlags, type ErdDisplay, type ErdDocument, type ErdModel } from "@/registry/plainspoken/blocks/erd/model";
 
 /** The colours an exported diagram uses, as hex */
@@ -85,7 +85,7 @@ export function diagramSvg(model: ErdModel, boxes: Record<string, Box>, o: SvgOp
       `<text x="${f.box.x + 24}" y="${f.box.y + 18}" font-family="${SANS}" font-size="14" font-weight="700" fill="${c.foreground}">${esc(f.schema)}${comment ? `<tspan dx="8" font-size="12" font-weight="400" fill="${c.mutedForeground}">${esc(comment)}</tspan>` : ""}</text>`,
     );
   }
-  for (const { route, ends } of routeAll(model, boxes, collapsed, display.lines)) {
+  for (const { route, ends } of routeAll(model, boxes, collapsed, display.lines, display.notation)) {
     parts.push(`<path d="${route.d}" fill="none" stroke="${c.mutedForeground}" stroke-width="1.25"/>`);
     for (const [kind, end] of [
       [ends.parent, route.parent],
@@ -94,7 +94,7 @@ export function diagramSvg(model: ErdModel, boxes: Record<string, Box>, o: SvgOp
       if (display.notation === "crow") {
         const m = endMark(kind);
         parts.push(
-          `<g transform="translate(${end.x},${end.y}) scale(${end.side === "left" ? -1 : 1},1)" fill="none" stroke="${c.mutedForeground}" stroke-width="1.25" stroke-linecap="round"><path d="${m.lines}"/>${m.circle ? `<circle cx="${m.circle.x}" cy="0" r="3.5" fill="${c.background}"/>` : ""}</g>`,
+          `<g transform="translate(${end.x},${end.y}) scale(${end.side === "left" ? -1 : 1},1)" fill="none" stroke="${c.mutedForeground}" stroke-width="1.25" stroke-linecap="round"><path d="${m.lines}"/>${m.circle ? `<circle cx="${m.circle.x}" cy="0" r="${MARK_R}" fill="${c.background}"/>` : ""}</g>`,
         );
       } else {
         const x = end.x + (end.side === "left" ? -6 : 6);

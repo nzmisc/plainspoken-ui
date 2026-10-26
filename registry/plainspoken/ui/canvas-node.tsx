@@ -9,6 +9,7 @@ import {
   useMemo,
   useRef,
   useState,
+  type CSSProperties,
   type HTMLAttributes,
   type KeyboardEvent,
   type PointerEvent,
@@ -60,6 +61,8 @@ interface NodesContext {
   positions: Record<string, CanvasPoint>;
   selected: ReadonlySet<string>;
   z: ReadonlyMap<string, number>;
+  /** Above every node: for the one with keyboard focus */
+  zTop: number;
   snap: number;
   step: number;
   autoPan: boolean;
@@ -100,7 +103,13 @@ const defaultDescribe = (names: string[], positions: CanvasPoint[]) =>
  * focused node: arrow keys move it (and the rest of the selection), Shift for 10× steps; Space
  * selects or deselects it; Enter opens it (`onOpen`); Escape clears the selection; Ctrl or ⌘ + A
  * selects every node; Delete removes them if `onDelete` is set. Moves are announced politely.
- * The nodes last selected are drawn on top.
+ *
+ * Stacking: a node comes to the front when it is selected (or pressed to drag it) and stays in
+ * front of the ones never picked after it is deselected, as in most drawing tools. The selected
+ * nodes are above all the others, and a node with keyboard focus is above everything while it
+ * has it, so its focus ring shows. This is done with z-index, not by moving nodes in the DOM, so
+ * the Tab order stays the order of the children. Wrap CanvasNodes in an `isolate` element to
+ * draw something (a line being dragged out) above every node.
  */
 export function CanvasNodes({
   positions,
@@ -124,16 +133,17 @@ export function CanvasNodes({
   const selected = selectedProp ?? own;
   const [message, setMessage] = useState("");
 
-  // Newly selected nodes come to the front, in the order they were picked
+  // Newly selected nodes come to the front, in the order they were picked, and stay there
   const [order, setOrder] = useState<string[]>(selected);
   const [prevSelected, setPrevSelected] = useState(selected);
   if (prevSelected !== selected) {
     setPrevSelected(selected);
     const added = selected.filter((x) => !prevSelected.includes(x));
-    if (added.length) setOrder((o) => [...o.filter((x) => !added.includes(x)), ...added]);
+    if (added.length) setOrder((o) => [...o.filter((x) => !added.includes(x) && x in positions), ...added]);
   }
-  const z = useMemo(() => new Map(order.map((x, i) => [x, i + 1])), [order]);
   const selectedSet = useMemo(() => new Set(selected), [selected]);
+  // Never picked 0 (in DOM order), then picked ones from 1, then the selected ones above those
+  const z = useMemo(() => new Map(order.map((x, i) => [x, i + 1 + (selectedSet.has(x) ? order.length : 0)])), [order, selectedSet]);
 
   const latest = useRef({ positions, selected, onPositionsChange, onSelectedChange, describeMove, controlled: selectedProp != null });
   useLayoutEffect(() => {
@@ -182,6 +192,7 @@ export function CanvasNodes({
     positions,
     selected: selectedSet,
     z,
+    zTop: order.length * 2 + 1,
     snap,
     step: keyboardStep ?? (snap || 10),
     autoPan,
@@ -247,7 +258,9 @@ export interface CanvasNodeProps extends Omit<HTMLAttributes<HTMLDivElement>, "i
 
 /**
  * One draggable thing on a Canvas, inside CanvasNodes: positioned at its entry in `positions`, a
- * tab stop with a name, selected with a 2px frame (and `data-selected`, for your own styling).
+ * tab stop with a name, selected with a 2px frame (and `data-selected`, for your own styling). The
+ * frame lies on the node's own edge, over a 1px border if it has one, so selecting it doesn't
+ * make it any bigger.
  * Its size comes from its content (`w-max`; give it a width to wrap text) and is measured, so fit
  * and the minimap know it. Controls inside
  * (buttons, inputs, and anything marked `data-canvas-nodrag`) work as usual and don't start a drag.
@@ -362,8 +375,8 @@ export function CanvasNode({
       aria-label={label}
       aria-describedby={isSelected ? `${n.selId} ${n.descId}` : n.descId}
       tabIndex={0}
-      className={cn("absolute w-max touch-none", !locked && "cursor-move", FOCUS_RING, "focus-visible:outline-offset-3", className)}
-      style={{ left: pos.x, top: pos.y, zIndex: n.z.get(id), ...style }}
+      className={cn("absolute z-(--canvas-node-z) w-max touch-none focus-visible:z-(--canvas-node-z-top)", !locked && "cursor-move", FOCUS_RING, className)}
+      style={{ left: pos.x, top: pos.y, "--canvas-node-z": n.z.get(id) ?? 0, "--canvas-node-z-top": n.zTop, ...style } as CSSProperties}
       onPointerDown={(e) => {
         onPointerDown?.(e);
         if (e.defaultPrevented || e.button !== 0 || canvas.spaceHeld()) return;
@@ -474,7 +487,7 @@ export function CanvasNode({
       {...rest}
     >
       {children}
-      {isSelected && <span aria-hidden data-slot="canvas-node-selection" className="pointer-events-none absolute -inset-[3px] border-2 border-ring" />}
+      {isSelected && <span aria-hidden data-slot="canvas-node-selection" className="pointer-events-none absolute inset-0 border-2 border-ring" />}
     </div>
   );
 }

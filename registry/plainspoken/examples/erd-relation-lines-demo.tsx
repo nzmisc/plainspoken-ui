@@ -14,7 +14,8 @@ const WIDTH = 290;
 /**
  * Lines from foreign key rows to the keys they reference, routed with right angles: one bar and a
  * second bar for "exactly one" at the referenced end, a circle and the crow's foot for "zero or
- * many" at the other. The tables here are fixed in place and fixed in width, so no canvas is needed.
+ * many" at the other. Each line leaves its table straight, through its mark, and turns only past
+ * the mark's tip. The tables here are fixed in place and fixed in width, so no canvas is needed.
  */
 export default function ErdRelationLinesDemo() {
   const model = { ...ORDERS_MODEL, relations: ORDERS_MODEL.relations.filter((r) => r.from.table in PLACES && r.to.table in PLACES) };
