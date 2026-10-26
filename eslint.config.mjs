@@ -12,6 +12,9 @@ const eslintConfig = defineConfig([
     "out/**",
     "build/**",
     "next-env.d.ts",
+    // Build output: Storybook is built into the site's public folder (see .gitignore)
+    "public/storybook/**",
+    "storybook-static/**",
   ]),
 ]);
 
