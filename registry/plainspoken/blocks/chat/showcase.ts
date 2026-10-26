@@ -1,9 +1,13 @@
-import type { ChatConversation, ChatMessage, ChatMetadata } from "@/registry/plainspoken/blocks/chat/data";
+import type { ChatArtifact, ChatConversation, ChatMessage, ChatMetadata, ChatPart, ChatWeather } from "@/registry/plainspoken/blocks/chat/data";
+import { chatCost } from "@/registry/plainspoken/blocks/chat/models";
 
 // The demo's showcase: one long, invented conversation (two people launching a tide-times app for
 // sea kayakers) whose answers use everything the chat can draw: headings, lists, task lists,
-// quotes, tables, code in several languages, math, Mermaid diagrams, footnotes and a picture.
-// Dated for CHAT_TODAY like the other demo conversations.
+// quotes, tables, code in several languages, math, Mermaid diagrams, footnotes and a picture,
+// then files attached to a question (a picture, a PDF, a CSV), the weather tool, documents the
+// model wrote (text with two versions and open suggestions, TypeScript that was run, a sheet) and
+// a picture it made. Everything is in the conversation, so it draws without the network. Dated
+// for CHAT_TODAY like the other demo conversations.
 
 const F = "```";
 const at = (h: number, m: number) => Date.UTC(2026, 9, 24, h, m);
@@ -465,12 +469,289 @@ const SUMMARY = `1. **Launch:** Saturday 5 December, to the waitlist first.
 const SONNET = "anthropic/claude-sonnet-5.5";
 const HAIKU = "anthropic/claude-haiku-5.5";
 
+// 12 -----------------------------------------------------------------------------------------
+// Files attached to a question
+
+const FILES_ANSWER = `**The page** says what Tidewater is in one look, and the phone with Saturday's tides does more than any sentence could. Three changes:
+
+1. **The headline.** Your sticky note is right: at 39 characters it fits two lines here but wraps to four on a phone. *Tides for where you paddle* says the same in 26.
+2. **Pricing.** The menu links to Pricing, but the brief still has the price as an open question (£2.99 a month, or yearly too). Hide the link until it's settled.
+3. **Where.** "UK and Ireland" is in the paragraph; put it under the button too, so nobody in Maine signs up and is let down.
+
+**The brief** is clear. The only thing it doesn't say is who replies to the launch-day email: name one of you.
+
+**The test page:**
+
+| Week | Visits | Sign-ups | Rate | Confirmed |
+| ---: | ---: | ---: | ---: | ---: |
+| 1 | 310 | 14 | 4.5% | 11 |
+| 2 | 880 | 31 | 3.5% | 26 |
+| 3 | 1,240 | 38 | 3.1% | 33 |
+| **All** | **2,430** | **83** | **3.4%** | **70** |
+
+At 3.4%, 300 sign-ups takes about **8,800 visits**, more than twice the 4,000 you planned for. Either aim for 120 to 150 by week 4, or find twice the reach: the club letters are the place to start, since the forum traffic is already in these numbers.`;
+
+const FILES_THOUGHT = `Three files: a screenshot of the landing page with a sticky note, the one-page brief, and a CSV of a test page's weekly visits and sign-ups. Check the page against the brief, then work out the rate: 83 / 2430 = 3.4%. For 300 they need 300 / 0.034 ≈ 8,800 visits.`;
+
+// 13 -----------------------------------------------------------------------------------------
+// The weather tool
+
+const BRIGHTON: ChatWeather = {
+  place: { name: "Brighton", region: "England", country: "United Kingdom", latitude: 50.8284, longitude: -0.1395 },
+  current: { time: "2026-10-24T09:45", temperature: 12.4, feelsLike: 9.8, humidity: 78, wind: 24, code: 3, isDay: true },
+  daily: [
+    { date: "2026-10-24", code: 3, max: 14, min: 9, rain: 20 },
+    { date: "2026-10-25", code: 61, max: 13, min: 10, rain: 70 },
+    { date: "2026-10-26", code: 2, max: 13, min: 8, rain: 10 },
+    { date: "2026-10-27", code: 80, max: 12, min: 7, rain: 45 },
+    { date: "2026-10-28", code: 1, max: 14, min: 8, rain: 5 },
+  ],
+  units: { temperature: "°C", wind: "km/h" },
+};
+
+const WEATHER_ANSWER = `**Today** is the better day of the weekend: overcast, 9 to 14 °C and a 20% chance of rain. But the wind is 24 km/h now, which makes for a choppy sea off the marina on a test run.
+
+**Sunday** brings rain most of the day (70%).
+
+If the test can wait, **Monday** looks calmer and dry. This is the weather on land: check the inshore waters forecast before you go out.`;
+
+// 14 -----------------------------------------------------------------------------------------
+// Documents: text with two versions and suggestions, TypeScript that was run, a sheet
+
+const STORE_V1 = `# Tidewater: tide times for sea kayakers
+
+**Know the water before you launch.**
+
+Tidewater shows tide times, tidal streams and wind for more than 2,400 launch spots around the UK and Ireland, so you can plan a paddle around the sea rather than the clock.
+
+## What it does
+
+- High and low water for every launch spot, with heights, for the next 30 days
+- Tidal streams and wind, hour by hour, on one chart
+- Works offline once you've opened a spot, so it keeps working where the signal stops
+- A launch window for each day: the hours with the calmest water in daylight
+
+## Who it's for
+
+Sea kayakers, paddleboarders and anyone who launches from a beach and needs to know when the water will be there.
+
+## Price
+
+Free for three spots. Tidewater Plus is £2.99 a month for every spot, with a 14-day free trial.
+
+Made by two paddlers in Brighton.`;
+
+const STORE_V2 = `# Tidewater: tide times for sea kayakers
+
+**Know the water before you launch.**
+
+Tide times, tidal streams and wind for 2,400 launch spots around the UK and Ireland.
+
+- High and low water for the next 30 days
+- Streams and wind, hour by hour, on one chart
+- Works offline once you've opened a spot
+- A daily launch window: the calmest water in daylight
+
+Free for three spots. Tidewater Plus is £2.99 a month for every spot, with a 14-day free trial.
+
+Made by two paddlers in Brighton.`;
+
+const STORE_SUGGESTIONS = [
+  { original: "Know the water before you launch.", replacement: "Plan your paddle around the sea, not the clock.", reason: "Names what the app is for, in a paddler's words." },
+  { original: "Works offline once you've opened a spot", replacement: "Works offline, out where the signal stops", reason: "Says why offline matters on the water." },
+  { original: "Made by two paddlers in Brighton.", replacement: "Made by two sea kayakers in Brighton, who use it every weekend.", reason: "A little more trust, at the end where it costs nothing." },
+];
+
+const WINDOW_TS = `type Tide = { time: string; height: number; kind: "high" | "low" };
+
+interface LaunchWindow {
+  start: string;
+  end: string;
+  reason: string;
+}
+
+const toMinutes = (t: string): number => {
+  const [h, m] = t.split(":").map(Number);
+  return h * 60 + m;
+};
+
+const toTime = (minutes: number): string => {
+  const h = Math.floor(minutes / 60) % 24;
+  const m = minutes % 60;
+  return \`\${String(h).padStart(2, "0")}:\${String(m).padStart(2, "0")}\`;
+};
+
+/** The calmest water is around high tide: go 90 minutes before it, be back 90 minutes after. */
+function bestWindow(tides: Tide[], daylight: [string, string]): LaunchWindow | null {
+  const [sunrise, sunset] = daylight.map(toMinutes);
+  const highs = tides.filter((t) => t.kind === "high").sort((a, b) => b.height - a.height);
+  for (const high of highs) {
+    const start = toMinutes(high.time) - 90;
+    const end = toMinutes(high.time) + 90;
+    if (start >= sunrise && end <= sunset) {
+      return { start: toTime(start), end: toTime(end), reason: \`High water at \${high.time}, \${high.height} m\` };
+    }
+  }
+  return null;
+}
+
+const saturday: Tide[] = [
+  { time: "05:21", height: 0.8, kind: "low" },
+  { time: "11:42", height: 6.1, kind: "high" },
+  { time: "17:58", height: 0.9, kind: "low" },
+  { time: "23:59", height: 5.9, kind: "high" },
+];
+const sunday: Tide[] = [
+  { time: "06:02", height: 0.7, kind: "low" },
+  { time: "12:20", height: 6.2, kind: "high" },
+  { time: "18:37", height: 0.8, kind: "low" },
+];
+
+console.log("Saturday:", bestWindow(saturday, ["07:41", "17:52"]));
+console.log("Sunday:", bestWindow(sunday, ["07:43", "17:50"]));
+console.log("High water at dawn:", bestWindow([{ time: "06:10", height: 5.8, kind: "high" }], ["07:41", "17:52"]));`;
+
+const BUDGET_CSV = `Week,Dates,Focus,Owner,Hours,Ads ($),Tools ($),Total ($)
+1,26 Oct – 1 Nov,Product,Maren,30,0,0,0
+2,2 – 8 Nov,Site,Ilya,24,0,40,40
+3,9 – 15 Nov,Reach,Maren,16,0,0,0
+4,16 – 22 Nov,Reach,Ilya,20,0,120,120
+5,23 – 29 Nov,Stores,Maren,18,0,99,99
+6,30 Nov – 5 Dec,Launch,Both,30,0,0,0`;
+
+const GPT = "openai/gpt-6-luna";
+
+/** A tool call that has finished */
+const call = (name: string, id: string, input: unknown, output: unknown): ChatPart => ({ type: `tool-${name}`, toolCallId: id, state: "output-available", input, output });
+const said = (text: string): ChatPart => ({ type: "text", text, state: "done" });
+const file = (filename: string, mediaType: string): ChatPart => ({ type: "file", filename, mediaType, url: `/demos/chat/${filename}` });
+
+/** An answer made of parts (text, tool calls, files), with what it took */
+const turn = (id: string, model: string, minute: number, parts: ChatPart[], usage: { input: number; output: number }, reasoning?: { text: string; ms: number }): ChatMessage => ({
+  id,
+  role: "assistant",
+  parts: [...(reasoning ? [{ type: "reasoning", text: reasoning.text, state: "done" }] : []), ...parts],
+  metadata: { model, createdAt: at(9, minute), finishReason: "stop", reasoningMs: reasoning?.ms, usage, cost: chatCost(model, usage.input, usage.output) },
+});
+
+/** The documents of the showcase, as the tool calls in it made them (the call ids match, so nothing is applied twice) */
+const SHOWCASE_ARTIFACTS: ChatArtifact[] = [
+  {
+    id: "doc-store",
+    kind: "text",
+    title: "App Store description",
+    versions: [
+      { content: STORE_V1, by: "model", createdAt: at(9, 53), callId: "call-store-1" },
+      { content: STORE_V2, by: "model", note: "Tighter: about 60 words shorter", createdAt: at(9, 54), callId: "call-store-2" },
+    ],
+    suggestions: STORE_SUGGESTIONS.map((x, i) => ({ ...x, id: `call-store-3:${i}` })),
+    suggestionsFor: 1,
+  },
+  {
+    id: "doc-window",
+    kind: "code",
+    title: "Best launch window",
+    language: "typescript",
+    versions: [{ content: WINDOW_TS, by: "model", createdAt: at(9, 55), callId: "call-window-1" }],
+    run: {
+      version: 0,
+      status: "ok",
+      ms: 4,
+      lines: [
+        { level: "log", text: 'Saturday: { start: "10:12", end: "13:12", reason: "High water at 11:42, 6.1 m" }' },
+        { level: "log", text: 'Sunday: { start: "10:50", end: "13:50", reason: "High water at 12:20, 6.2 m" }' },
+        { level: "log", text: "High water at dawn: null" },
+      ],
+    },
+  },
+  {
+    id: "doc-budget",
+    kind: "sheet",
+    title: "Launch budget",
+    versions: [{ content: BUDGET_CSV, by: "model", createdAt: at(9, 56), callId: "call-budget-1" }],
+  },
+];
+
+const SHOWCASE_TURNS: ChatMessage[] = [
+  {
+    id: "l23",
+    role: "user",
+    parts: [
+      file("landing-draft.png", "image/png"),
+      file("tidewater-brief.pdf", "application/pdf"),
+      file("test-page.csv", "text/csv"),
+      said("Here's the landing page draft, our one-page brief, and the numbers from the test page we ran over the last three weeks. Is the page clear, and does 300 sign-ups by week 4 look realistic?"),
+    ],
+    metadata: { sizes: { "landing-draft.png": 70879, "tidewater-brief.pdf": 1993, "test-page.csv": 109 } },
+  },
+  turn("l24", SONNET, 51, [said(FILES_ANSWER)], { input: 3184, output: 512 }, { text: FILES_THOUGHT, ms: 7400 }),
+  ask("l25", "We want a test paddle out of Brighton this weekend. What's the weather doing?"),
+  turn("l26", HAIKU, 52, [call("getWeather", "call-weather-1", { city: "Brighton, UK" }, BRIGHTON), said(WEATHER_ANSWER)], { input: 2210, output: 164 }),
+  ask("l27", "Write the App Store description as a document I can edit."),
+  turn(
+    "l28",
+    SONNET,
+    53,
+    [
+      call("createDocument", "call-store-1", { kind: "text", title: "App Store description", content: STORE_V1 }, { id: "doc-store", title: "App Store description", kind: "text", version: 1 }),
+      said("A first draft is in the document: a one-line hook, what it does, who it's for and the price. It's about 150 words; the store allows 4,000, but most people read only the first three lines."),
+    ],
+    { input: 2456, output: 318 },
+  ),
+  ask("l29", "Make it tighter, and suggest a few edits I can accept one by one."),
+  turn(
+    "l30",
+    SONNET,
+    54,
+    [
+      call("updateDocument", "call-store-2", { id: "doc-store", content: STORE_V2, note: "Tighter: about 60 words shorter" }, { id: "doc-store", version: 2 }),
+      call("requestSuggestions", "call-store-3", { id: "doc-store", suggestions: STORE_SUGGESTIONS }, { id: "doc-store", kept: 3 }),
+      said("Version 2 is about 60 words shorter: the headings went, and each line says one thing. I've left three suggestions on it; accept the ones you like. **Changes** under the document shows what went from version 1."),
+    ],
+    { input: 2981, output: 402 },
+  ),
+  ask("l31", "Write a small TypeScript function that picks the best launch window from a day's tides, and run it on this weekend's."),
+  turn(
+    "l32",
+    SONNET,
+    55,
+    [
+      call("createDocument", "call-window-1", { kind: "code", title: "Best launch window", language: "typescript", content: WINDOW_TS }, { id: "doc-window", title: "Best launch window", kind: "code", version: 1 }),
+      said("It's in the document with this weekend's tides, and it has been run: Saturday's window is **10:12 to 13:12**, around high water at 11:42, and Sunday's **10:50 to 13:50**. A day whose only high water is before sunrise gets `null`. Press **Run** to try it with your own tides."),
+    ],
+    { input: 2702, output: 690 },
+  ),
+  ask("l33", "Make the six-week budget a sheet I can edit."),
+  turn(
+    "l34",
+    HAIKU,
+    56,
+    [
+      call("createDocument", "call-budget-1", { kind: "sheet", title: "Launch budget", content: BUDGET_CSV }, { id: "doc-budget", title: "Launch budget", kind: "sheet", version: 1 }),
+      said("Done: a row a week, with the focus, the owner, the hours and the costs, which come to **$259**. Change any cell, and download it as CSV for a spreadsheet."),
+    ],
+    { input: 3020, output: 276 },
+  ),
+  ask("l35", "Sketch three icon ideas for the app."),
+  turn(
+    "l36",
+    GPT,
+    57,
+    [
+      call("generateImage", "call-icons-1", { prompt: "Three app icon concepts for Tidewater, a tide-times app for sea kayakers: flat, two colours plus yellow, side by side", size: "768x280" }, { url: "/demos/chat/icon-concepts.svg", note: "A stand-in: this demo doesn't generate pictures" }),
+      file("icon-concepts.svg", "image/svg+xml"),
+      said("Three directions: **A** keeps your sun and tide line, bolder; **B** is a paddle over a tide curve; **C** is the tide chart itself. A reads best at the smallest sizes; C says best what the app does."),
+    ],
+    { input: 1890, output: 140 },
+  ),
+];
+
 export const CHAT_SHOWCASE: ChatConversation = {
   id: "launch",
   title: "Launch plan for Tidewater",
   model: HAIKU,
   createdAt: at(9, 2),
-  updatedAt: at(9, 58),
+  updatedAt: at(9, 59),
   demo: true,
   messages: [
     ask("l1", "I'm launching Tidewater, a small tide-times app for sea kayakers, in six weeks. There are two of us and the budget is tiny. Can you help me plan the launch?"),
@@ -493,7 +774,25 @@ export const CHAT_SHOWCASE: ChatConversation = {
     answer("l18", HAIKU, 43, NO_WEB),
     ask("l19", "Fair enough. Before I write the landing page: show me everything Markdown can do here, so I know what to ask for."),
     answer("l20", SONNET, 50, SINK),
+    ...SHOWCASE_TURNS,
     ask("l21", "Last thing: sum the plan up in five lines I can paste into our team chat."),
-    answer("l22", HAIKU, 58, SUMMARY),
+    answer("l22", HAIKU, 59, SUMMARY),
   ],
+  artifacts: SHOWCASE_ARTIFACTS,
 };
+
+/** A tool call in the showcase, by its id ("call-weather-1", "call-store-1" to "call-store-3", "call-window-1", "call-budget-1", "call-icons-1") */
+export function showcaseToolPart(callId: string): ChatPart {
+  for (const m of CHAT_SHOWCASE.messages) for (const p of m.parts) if (p.toolCallId === callId) return p;
+  throw new Error(`The showcase has no tool call ${callId}`);
+}
+
+/** A document in the showcase: "doc-store" (text, with suggestions), "doc-window" (TypeScript, run once) or "doc-budget" (a sheet) */
+export function showcaseArtifact(id: string): ChatArtifact {
+  const a = SHOWCASE_ARTIFACTS.find((d) => d.id === id);
+  if (!a) throw new Error(`The showcase has no document ${id}`);
+  return a;
+}
+
+/** The weather in Brighton, as the showcase's weather call got it back */
+export const SHOWCASE_WEATHER: ChatWeather = BRIGHTON;

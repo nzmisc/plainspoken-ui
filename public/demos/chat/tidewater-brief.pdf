@@ -1,0 +1,53 @@
+%PDF-1.4
+1 0 obj
+<< /Type /Catalog /Pages 2 0 R >>
+endobj
+2 0 obj
+<< /Type /Pages /Kids [3 0 R] /Count 1 >>
+endobj
+3 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 4 0 R /F2 5 0 R >> >> /Contents 6 0 R >>
+endobj
+4 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica >>
+endobj
+5 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica-Bold >>
+endobj
+6 0 obj
+<< /Length 1297 >>
+stream
+BT
+/F2 20 Tf 1 0 0 1 56 764 Tm (Tidewater: launch brief) Tj
+/F1 11 Tf 1 0 0 1 56 747 Tm (One page, for the two of us and anyone who helps. Version 3, 20 October 2026.) Tj
+/F2 13 Tf 1 0 0 1 56 720 Tm (What it is) Tj
+/F1 11 Tf 1 0 0 1 56 703 Tm (Tide times, currents and wind for 2,400 launch spots in the UK and Ireland,) Tj
+/F1 11 Tf 1 0 0 1 56 686 Tm (offline once opened. iOS and Android. Free for three spots, then GBP 2.99 a month.) Tj
+/F2 13 Tf 1 0 0 1 56 659 Tm (Who it is for) Tj
+/F1 11 Tf 1 0 0 1 56 642 Tm (Sea kayakers and paddleboarders who plan around the water, not the clock.) Tj
+/F2 13 Tf 1 0 0 1 56 615 Tm (Goals for launch day, Saturday 5 December) Tj
+/F1 11 Tf 1 0 0 1 56 598 Tm (- 300 people on the waitlist by the end of week 4) Tj
+/F1 11 Tf 1 0 0 1 56 581 Tm (- 1,000 installs in the first month; 4.5 stars or better) Tj
+/F1 11 Tf 1 0 0 1 56 564 Tm (- No paid ads: clubs, forums and two paddling podcasts) Tj
+/F2 13 Tf 1 0 0 1 56 537 Tm (Budget) Tj
+/F1 11 Tf 1 0 0 1 56 520 Tm (USD 259 in all: domain and mail 40, a launch video 120, stickers for clubs 99.) Tj
+/F2 13 Tf 1 0 0 1 56 493 Tm (Open questions) Tj
+/F1 11 Tf 1 0 0 1 56 476 Tm (- Is GBP 2.99 right, or should there be a yearly price?) Tj
+/F1 11 Tf 1 0 0 1 56 459 Tm (- Do we launch in Ireland on the same day?) Tj
+ET
+endstream
+endobj
+xref
+0 7
+0000000000 65535 f 
+0000000009 00000 n 
+0000000058 00000 n 
+0000000115 00000 n 
+0000000251 00000 n 
+0000000321 00000 n 
+0000000396 00000 n 
+trailer
+<< /Size 7 /Root 1 0 R /Info << /Title (Tidewater launch brief) >> >>
+startxref
+1745
+%%EOF

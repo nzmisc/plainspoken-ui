@@ -1999,13 +1999,18 @@ export const registry: RegistryEntry[] = [
     "name": "chat-app",
     "type": "registry:block",
     "title": "Chat app",
-    "description": "A working chat with language models through OpenRouter: conversations kept in the browser, a model picker, streamed Markdown answers, Stop, Regenerate and Edit. Installs the route that holds the key, too.",
+    "description": "A working chat with language models through OpenRouter: conversations kept in the browser, with search, pins, export and import; files and pictures; documents and code written beside the chat, with versions and Run; the weather; branches from edits and regenerated answers; two models compared; saved prompts on /; share links; and a temporary chat. Installs the route that holds the key, too.",
     "category": "AI chat",
     "files": [
       {
         "path": "registry/plainspoken/blocks/chat/chat-app.tsx",
         "type": "registry:component",
         "target": "components/blocks/chat/chat-app.tsx"
+      },
+      {
+        "path": "registry/plainspoken/blocks/chat/shortcuts.tsx",
+        "type": "registry:component",
+        "target": "components/blocks/chat/shortcuts.tsx"
       }
     ],
     "examples": [
@@ -2015,17 +2020,31 @@ export const registry: RegistryEntry[] = [
       "alert",
       "app-shell",
       "button",
+      "chat-artifact-panel",
+      "chat-attachments",
+      "chat-compare",
       "chat-composer",
       "chat-conversations",
       "chat-data",
+      "chat-message",
       "chat-model-picker",
       "chat-models",
+      "chat-prompt-library",
       "chat-route",
+      "chat-share-dialog",
       "chat-thread",
+      "chat-transport",
       "dates",
+      "dialog",
       "dropdown-menu",
       "foundation",
+      "icon",
       "icons",
+      "input",
+      "kbd",
+      "sidebar",
+      "spinner",
+      "toast",
       "toggle",
       "use-stored-state",
       "utils"
@@ -2034,6 +2053,173 @@ export const registry: RegistryEntry[] = [
       "@ai-sdk/react",
       "ai",
       "zod"
+    ],
+    "hidden": false
+  },
+  {
+    "name": "chat-artifact-card",
+    "type": "registry:block",
+    "title": "Artifact card",
+    "description": "A document tool call in the conversation: the document it made, with a preview and Open (or Watch while it is written), or one line for each change, suggestion or failure.",
+    "category": "AI chat",
+    "files": [
+      {
+        "path": "registry/plainspoken/blocks/chat/artifact-card.tsx",
+        "type": "registry:component",
+        "target": "components/blocks/chat/artifact-card.tsx"
+      }
+    ],
+    "examples": [
+      "chat-artifact-card-demo"
+    ],
+    "registryDependencies": [
+      "button",
+      "chat-data",
+      "chat-tool-card",
+      "foundation",
+      "icon",
+      "icons",
+      "spinner",
+      "utils"
+    ],
+    "dependencies": [],
+    "hidden": false
+  },
+  {
+    "name": "chat-artifact-panel",
+    "type": "registry:block",
+    "title": "Artifact panel",
+    "description": "A document the model wrote, open beside the chat: Markdown, code or a sheet, filling in as it is written; its versions with the changes between them and Restore; suggestions to accept or reject; your own edits; Copy and Download; quick actions that ask the model; and Run for JavaScript and TypeScript, in a sandboxed frame with its console.",
+    "category": "AI chat",
+    "files": [
+      {
+        "path": "registry/plainspoken/blocks/chat/artifact-panel.tsx",
+        "type": "registry:component",
+        "target": "components/blocks/chat/artifact-panel.tsx"
+      },
+      {
+        "path": "registry/plainspoken/blocks/chat/code-runner.ts",
+        "type": "registry:component",
+        "target": "components/blocks/chat/code-runner.ts"
+      }
+    ],
+    "examples": [
+      "chat-artifact-panel-demo",
+      "chat-artifact-panel-code"
+    ],
+    "registryDependencies": [
+      "button",
+      "chat-artifact-card",
+      "chat-attachments",
+      "chat-data",
+      "chat-markdown",
+      "chat-version-footer",
+      "copy-button",
+      "diff",
+      "editable-table",
+      "foundation",
+      "icon",
+      "icons",
+      "spinner",
+      "textarea",
+      "utils"
+    ],
+    "dependencies": [],
+    "hidden": false
+  },
+  {
+    "name": "chat-attachments",
+    "type": "registry:block",
+    "title": "Attachment chips",
+    "description": "Files attached to a question: read and checked in the browser, pictures made smaller, kept in IndexedDB once sent; chips with a thumbnail, name, size and remove, and the file list of a sent message that opens each one full size.",
+    "category": "AI chat",
+    "files": [
+      {
+        "path": "registry/plainspoken/blocks/chat/attachments.ts",
+        "type": "registry:component",
+        "target": "components/blocks/chat/attachments.ts"
+      },
+      {
+        "path": "registry/plainspoken/blocks/chat/attachment-chips.tsx",
+        "type": "registry:component",
+        "target": "components/blocks/chat/attachment-chips.tsx"
+      }
+    ],
+    "examples": [
+      "chat-attachments-demo"
+    ],
+    "registryDependencies": [
+      "button",
+      "chat-data",
+      "chat-models",
+      "dialog",
+      "file-upload",
+      "foundation",
+      "icon",
+      "icons",
+      "spinner",
+      "table",
+      "utils"
+    ],
+    "dependencies": [],
+    "hidden": false
+  },
+  {
+    "name": "chat-branch-picker",
+    "type": "registry:block",
+    "title": "Branch picker",
+    "description": "‹ 2/3 ›: which version of a message is shown, after edits, regenerated answers and comparisons, with the one before and after.",
+    "category": "AI chat",
+    "files": [
+      {
+        "path": "registry/plainspoken/blocks/chat/branch-picker.tsx",
+        "type": "registry:component",
+        "target": "components/blocks/chat/branch-picker.tsx"
+      }
+    ],
+    "examples": [
+      "chat-branch-picker-demo"
+    ],
+    "registryDependencies": [
+      "button",
+      "foundation",
+      "icons",
+      "utils"
+    ],
+    "dependencies": [],
+    "hidden": false
+  },
+  {
+    "name": "chat-compare",
+    "type": "registry:block",
+    "title": "Compare view",
+    "description": "One question answered by two or three models side by side, each streaming and stoppable on its own; Use this answer keeps one, and the others stay as its other versions.",
+    "category": "AI chat",
+    "files": [
+      {
+        "path": "registry/plainspoken/blocks/chat/compare-view.tsx",
+        "type": "registry:component",
+        "target": "components/blocks/chat/compare-view.tsx"
+      }
+    ],
+    "examples": [
+      "chat-compare-demo"
+    ],
+    "registryDependencies": [
+      "alert",
+      "button",
+      "chat-data",
+      "chat-message",
+      "chat-models",
+      "chat-transport",
+      "foundation",
+      "icons",
+      "spinner",
+      "utils"
+    ],
+    "dependencies": [
+      "@ai-sdk/react",
+      "ai"
     ],
     "hidden": false
   },
@@ -2056,6 +2242,9 @@ export const registry: RegistryEntry[] = [
     ],
     "registryDependencies": [
       "button",
+      "chat-attachments",
+      "chat-models",
+      "chat-prompt-library",
       "foundation",
       "icons",
       "kbd",
@@ -2116,10 +2305,31 @@ export const registry: RegistryEntry[] = [
         "path": "registry/plainspoken/blocks/chat/showcase.ts",
         "type": "registry:component",
         "target": "components/blocks/chat/showcase.ts"
+      },
+      {
+        "path": "registry/plainspoken/blocks/chat/artifacts.ts",
+        "type": "registry:component",
+        "target": "components/blocks/chat/artifacts.ts"
+      },
+      {
+        "path": "registry/plainspoken/blocks/chat/branches.ts",
+        "type": "registry:component",
+        "target": "components/blocks/chat/branches.ts"
+      },
+      {
+        "path": "registry/plainspoken/blocks/chat/share.ts",
+        "type": "registry:component",
+        "target": "components/blocks/chat/share.ts"
+      },
+      {
+        "path": "registry/plainspoken/blocks/chat/export.ts",
+        "type": "registry:component",
+        "target": "components/blocks/chat/export.ts"
       }
     ],
     "examples": [],
     "registryDependencies": [
+      "chat-models",
       "dates",
       "foundation"
     ],
@@ -2147,6 +2357,16 @@ export const registry: RegistryEntry[] = [
         "path": "registry/plainspoken/blocks/chat/mermaid.tsx",
         "type": "registry:component",
         "target": "components/blocks/chat/mermaid.tsx"
+      },
+      {
+        "path": "registry/plainspoken/blocks/chat/block-bar.tsx",
+        "type": "registry:component",
+        "target": "components/blocks/chat/block-bar.tsx"
+      },
+      {
+        "path": "registry/plainspoken/blocks/chat/highlight.ts",
+        "type": "registry:component",
+        "target": "components/blocks/chat/highlight.ts"
       }
     ],
     "examples": [
@@ -2156,7 +2376,10 @@ export const registry: RegistryEntry[] = [
       "chat-markdown-streaming"
     ],
     "registryDependencies": [
+      "button",
+      "chat-attachments",
       "copy-button",
+      "dialog",
       "foundation",
       "icon",
       "icons",
@@ -2166,10 +2389,10 @@ export const registry: RegistryEntry[] = [
       "utils"
     ],
     "dependencies": [
-      "@streamdown/code",
       "@streamdown/math",
       "@streamdown/mermaid",
       "katex",
+      "shiki",
       "streamdown"
     ],
     "hidden": false
@@ -2193,16 +2416,22 @@ export const registry: RegistryEntry[] = [
     ],
     "registryDependencies": [
       "button",
+      "chat-artifact-card",
+      "chat-attachments",
+      "chat-branch-picker",
       "chat-composer",
       "chat-data",
       "chat-markdown",
       "chat-models",
       "chat-reasoning",
+      "chat-tool-card",
+      "chat-weather-card",
       "copy-button",
       "foundation",
       "icon",
       "icons",
       "spinner",
+      "toggle",
       "utils"
     ],
     "dependencies": [],
@@ -2252,6 +2481,37 @@ export const registry: RegistryEntry[] = [
     ],
     "dependencies": [],
     "hidden": true
+  },
+  {
+    "name": "chat-prompt-library",
+    "type": "registry:block",
+    "title": "Prompt library",
+    "description": "Saved prompts with /commands and {{blanks}}: the library dialog, the form that fills the blanks, and the slash menu above the message box.",
+    "category": "AI chat",
+    "files": [
+      {
+        "path": "registry/plainspoken/blocks/chat/prompt-library.tsx",
+        "type": "registry:component",
+        "target": "components/blocks/chat/prompt-library.tsx"
+      }
+    ],
+    "examples": [
+      "chat-prompt-library-demo"
+    ],
+    "registryDependencies": [
+      "button",
+      "chat-data",
+      "dialog",
+      "field",
+      "foundation",
+      "icons",
+      "input",
+      "kbd",
+      "textarea",
+      "utils"
+    ],
+    "dependencies": [],
+    "hidden": false
   },
   {
     "name": "chat-reasoning",
@@ -2308,6 +2568,37 @@ export const registry: RegistryEntry[] = [
     "hidden": true
   },
   {
+    "name": "chat-share-dialog",
+    "type": "registry:block",
+    "title": "Share dialog",
+    "description": "A conversation as a link, with no server: compressed into the address, read-only for whoever opens it, with or without its documents and reasoning, and a warning when it gets long.",
+    "category": "AI chat",
+    "files": [
+      {
+        "path": "registry/plainspoken/blocks/chat/share-dialog.tsx",
+        "type": "registry:component",
+        "target": "components/blocks/chat/share-dialog.tsx"
+      }
+    ],
+    "examples": [
+      "chat-share-dialog-demo"
+    ],
+    "registryDependencies": [
+      "alert",
+      "button",
+      "chat-data",
+      "checkbox",
+      "copy-button",
+      "dialog",
+      "file-upload",
+      "foundation",
+      "input",
+      "text-link"
+    ],
+    "dependencies": [],
+    "hidden": false
+  },
+  {
     "name": "chat-thread",
     "type": "registry:block",
     "title": "Thread",
@@ -2328,6 +2619,7 @@ export const registry: RegistryEntry[] = [
     "registryDependencies": [
       "alert",
       "button",
+      "chat-attachments",
       "chat-data",
       "chat-message",
       "chat-models",
@@ -2335,6 +2627,111 @@ export const registry: RegistryEntry[] = [
       "foundation",
       "icons",
       "spinner",
+      "utils"
+    ],
+    "dependencies": [],
+    "hidden": false
+  },
+  {
+    "name": "chat-tool-card",
+    "type": "registry:block",
+    "title": "Tool card",
+    "description": "A tool call in an answer: what it is, whether it is being prepared, running, done or failed, a result drawn properly when there is one, and Details with what went in and what came back.",
+    "category": "AI chat",
+    "files": [
+      {
+        "path": "registry/plainspoken/blocks/chat/tool-card.tsx",
+        "type": "registry:component",
+        "target": "components/blocks/chat/tool-card.tsx"
+      }
+    ],
+    "examples": [
+      "chat-tool-card-demo"
+    ],
+    "registryDependencies": [
+      "foundation",
+      "icon",
+      "icons",
+      "spinner",
+      "utils"
+    ],
+    "dependencies": [],
+    "hidden": false
+  },
+  {
+    "name": "chat-transport",
+    "type": "registry:block",
+    "title": "Chat transport",
+    "description": "Between useChat and the chat route: what a request carries (the last messages' text, their files read back from the browser within the limits, tool calls as short notes, the latest version of each document) and what is kept of a conversation once an answer is in.",
+    "category": "AI chat",
+    "files": [
+      {
+        "path": "registry/plainspoken/blocks/chat/transport.ts",
+        "type": "registry:component",
+        "target": "components/blocks/chat/transport.ts"
+      }
+    ],
+    "examples": [],
+    "registryDependencies": [
+      "chat-attachments",
+      "chat-data",
+      "chat-models",
+      "foundation"
+    ],
+    "dependencies": [
+      "ai"
+    ],
+    "hidden": true
+  },
+  {
+    "name": "chat-version-footer",
+    "type": "registry:block",
+    "title": "Version footer",
+    "description": "Under a document: which version is shown, the one before and after, Show changes, Restore and Back to latest.",
+    "category": "AI chat",
+    "files": [
+      {
+        "path": "registry/plainspoken/blocks/chat/version-footer.tsx",
+        "type": "registry:component",
+        "target": "components/blocks/chat/version-footer.tsx"
+      }
+    ],
+    "examples": [
+      "chat-version-footer-demo"
+    ],
+    "registryDependencies": [
+      "button",
+      "chat-data",
+      "foundation",
+      "icons",
+      "toggle",
+      "utils"
+    ],
+    "dependencies": [],
+    "hidden": false
+  },
+  {
+    "name": "chat-weather-card",
+    "type": "registry:block",
+    "title": "Weather card",
+    "description": "The weather tool's answer: the place, the weather now (temperature, feels like, wind, humidity) and the next days, with the tool card's states while it runs or when it fails.",
+    "category": "AI chat",
+    "files": [
+      {
+        "path": "registry/plainspoken/blocks/chat/weather-card.tsx",
+        "type": "registry:component",
+        "target": "components/blocks/chat/weather-card.tsx"
+      }
+    ],
+    "examples": [
+      "chat-weather-card-demo"
+    ],
+    "registryDependencies": [
+      "chat-data",
+      "chat-tool-card",
+      "foundation",
+      "icon",
+      "icons",
       "utils"
     ],
     "dependencies": [],

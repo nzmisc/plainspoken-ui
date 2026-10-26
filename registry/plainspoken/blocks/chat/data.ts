@@ -4,15 +4,41 @@ import type { ISODate } from "@/registry/plainspoken/lib/dates";
 // ChatMessage is the AI SDK's UIMessage as far as the blocks need it, so useChat's messages can be
 // passed straight in, and the blocks themselves don't depend on the SDK.
 
-/** One piece of a message. Only text and reasoning are drawn; the rest (tools, files) is skipped. */
+/**
+ * One piece of a message: text, reasoning, a file (attached to a question, or made by the model),
+ * or a tool call, whose type is "tool-" and the tool's name. Other kinds (step-start) are skipped.
+ */
 export interface ChatPart {
   type: string;
   text?: string;
-  /** "streaming" while it is coming in, "done" after */
+  /**
+   * Text and reasoning: "streaming" while it comes in, "done" after. A tool call: "input-streaming"
+   * while its input is written, "input-available" while it runs, then "output-available" or
+   * "output-error".
+   */
   state?: string;
+  /** A file's type ("image/png", "application/pdf"), name and address: a data: URL, a path, or attachment:<id> once it is kept in the browser */
+  mediaType?: string;
+  filename?: string;
+  url?: string;
+  /** A tool call's id, what it was given (partly, while it is written), and what it gave back */
+  toolCallId?: string;
+  input?: unknown;
+  output?: unknown;
+  errorText?: string;
 }
 
-/** What the route adds to an answer */
+/** Tokens an answer took, all its steps together */
+export interface ChatUsage {
+  input: number;
+  output: number;
+  /** Of the output, the tokens spent thinking */
+  reasoning?: number;
+  /** Of the input, the tokens read from the provider's cache */
+  cached?: number;
+}
+
+/** What the route adds to an answer, and what the app adds to a message */
 export interface ChatMetadata {
   /** The model that answered */
   model?: string;
@@ -20,12 +46,20 @@ export interface ChatMetadata {
   createdAt?: number;
   /** How long the model reasoned before answering */
   reasoningMs?: number;
-  /** Why it ended: "stop" (done), "length" (out of tokens), "content-filter" (refused) */
+  /** Why it ended: "stop" (done), "length" (out of tokens), "content-filter" (refused), "tool-calls" (out of steps) */
   finishReason?: string;
   /** Stopped by the person before it was done */
   stopped?: boolean;
   /** A question that was edited and sent again */
   edited?: boolean;
+  /** Tokens the answer took */
+  usage?: ChatUsage;
+  /** What it cost in US dollars: OpenRouter's figure, or worked out from the list prices */
+  cost?: number;
+  /** The reader's verdict on an answer */
+  feedback?: "up" | "down";
+  /** Bytes of each attached file, by file name (file parts don't carry a size) */
+  sizes?: Record<string, number>;
 }
 
 export interface ChatMessage {
@@ -33,6 +67,77 @@ export interface ChatMessage {
   role: "system" | "user" | "assistant";
   parts: ChatPart[];
   metadata?: ChatMetadata;
+}
+
+/**
+ * The other versions of a conversation, from edits, regenerated answers and comparisons: a tree of
+ * messages, of which the conversation's `messages` are the path that is open.
+ */
+export interface ChatTree {
+  /** Each message's follow-ups, by id, in the order they were made; "" holds the first messages */
+  children: Record<string, string[]>;
+  /** The follow-up open last under each message, so a branch opens again as it was left */
+  chosen: Record<string, string>;
+  /** The messages that aren't on the open path, by id */
+  stash: Record<string, ChatMessage>;
+}
+
+/** What a document is: writing (Markdown), code in one language, or a sheet (CSV) */
+export type ChatArtifactKind = "text" | "code" | "sheet";
+
+/** One version of a document */
+export interface ChatArtifactVersion {
+  content: string;
+  /** The model made it with a tool, or you did (an edit, an accepted suggestion, a restore) */
+  by: "model" | "you";
+  /** What changed, in a few words */
+  note?: string;
+  createdAt: number;
+  /** The tool call that made it, so each is applied once */
+  callId?: string;
+}
+
+/** A change the model proposes to a text document: one passage, replaced */
+export interface ChatEditSuggestion {
+  id: string;
+  /** The passage as it is, word for word */
+  original: string;
+  replacement: string;
+  /** Why, in one sentence */
+  reason: string;
+  status?: "accepted" | "rejected";
+}
+
+export interface ChatConsoleLine {
+  level: "log" | "info" | "warn" | "error" | "result";
+  text: string;
+}
+
+/** The last run of a code document */
+export interface ChatCodeRun {
+  /** Index of the version that ran */
+  version: number;
+  status: "ok" | "error" | "timeout";
+  lines: ChatConsoleLine[];
+  ms: number;
+}
+
+/**
+ * A document the model wrote with its tools and that lives beside the conversation: every
+ * version is kept, so they can be compared and an older one restored.
+ */
+export interface ChatArtifact {
+  id: string;
+  kind: ChatArtifactKind;
+  title: string;
+  /** Code: its language ("javascript", "python") */
+  language?: string;
+  versions: ChatArtifactVersion[];
+  /** Proposed changes to the version `suggestionsFor` */
+  suggestions?: ChatEditSuggestion[];
+  suggestionsFor?: number;
+  /** Code: the last run */
+  run?: ChatCodeRun;
 }
 
 export interface ChatConversation {
@@ -50,6 +155,20 @@ export interface ChatConversation {
    * once a message is sent in it.
    */
   demo?: boolean;
+  /** Kept at the top of the sidebar */
+  pinned?: boolean;
+  /** The other branches: earlier questions before an edit, other answers */
+  tree?: ChatTree;
+  /** The documents written in it */
+  artifacts?: ChatArtifact[];
+}
+
+/** The weather tool's answer: a place, the weather there now, and the next days */
+export interface ChatWeather {
+  place: { name: string; region?: string; country?: string; latitude: number; longitude: number };
+  current: { time: string; temperature: number; feelsLike: number; humidity: number; wind: number; code: number; isDay: boolean };
+  daily: { date: string; code: number; max: number; min: number; rain: number | null }[];
+  units: { temperature: string; wind: string };
 }
 
 export type ChatErrorCode =
@@ -60,6 +179,7 @@ export type ChatErrorCode =
   | "network"
   | "refused"
   | "too-long"
+  | "too-big"
   | "bad-model"
   | "bad-request"
   | "unavailable"
@@ -76,11 +196,57 @@ export interface ChatSuggestion {
   prompt: string;
 }
 
+/**
+ * A saved prompt, used from the box by typing / and its command. {{name}} in the text is a blank
+ * to fill in before it is sent.
+ */
+export interface ChatPrompt {
+  id: string;
+  /** Typed after the slash: "email" for /email */
+  command: string;
+  title: string;
+  text: string;
+}
+
 export const CHAT_SUGGESTIONS: ChatSuggestion[] = [
   { title: "Compare two things", prompt: "Compare TCP and UDP in a short table: speed, reliability and typical uses." },
   { title: "Write some code", prompt: "Write a Python function that checks whether a string is a palindrome, ignoring spaces and punctuation, with a few tests." },
   { title: "Plan a trip", prompt: "Plan three days in Lisbon on a modest budget: a short list for each day, with one line on why." },
   { title: "Explain an idea", prompt: "Explain what a Bloom filter is to someone who knows basic programming, in under 200 words." },
+];
+
+/** The prompt library to start with: each is used from the box as /command */
+export const CHAT_PROMPTS: ChatPrompt[] = [
+  {
+    id: "p-email",
+    command: "email",
+    title: "Write an email",
+    text: "Write a short, friendly email to {{recipient}} about {{topic}}. Plain words, no exclamation marks, and a subject line under 40 characters.",
+  },
+  {
+    id: "p-explain",
+    command: "explain",
+    title: "Explain simply",
+    text: "Explain {{idea}} to someone who is new to it, in under 200 words, with one everyday example.",
+  },
+  {
+    id: "p-review",
+    command: "review",
+    title: "Review code",
+    text: "Review this code for bugs and unclear names. List the problems first, most serious at the top, then show a fixed version.\n\n{{code}}",
+  },
+  {
+    id: "p-tldr",
+    command: "tldr",
+    title: "Sum up",
+    text: "Sum this up in three bullet points, each under 20 words:\n\n{{text}}",
+  },
+  {
+    id: "p-doc",
+    command: "doc",
+    title: "Start a document",
+    text: "Start a document titled “{{title}}”: {{what}}. Write it as a document I can edit, not in the chat.",
+  },
 ];
 
 // ---------------------------------------------------------------------------------------------

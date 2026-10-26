@@ -98,6 +98,12 @@ import E_canvas_node_demo from "@/registry/plainspoken/examples/canvas-node-demo
 import E_card_demo from "@/registry/plainspoken/examples/card-demo";
 import E_card_grid from "@/registry/plainspoken/examples/card-grid";
 import E_chat_app_demo from "@/registry/plainspoken/examples/chat-app-demo";
+import E_chat_artifact_card_demo from "@/registry/plainspoken/examples/chat-artifact-card-demo";
+import E_chat_artifact_panel_code from "@/registry/plainspoken/examples/chat-artifact-panel-code";
+import E_chat_artifact_panel_demo from "@/registry/plainspoken/examples/chat-artifact-panel-demo";
+import E_chat_attachments_demo from "@/registry/plainspoken/examples/chat-attachments-demo";
+import E_chat_branch_picker_demo from "@/registry/plainspoken/examples/chat-branch-picker-demo";
+import E_chat_compare_demo from "@/registry/plainspoken/examples/chat-compare-demo";
 import E_chat_composer_demo from "@/registry/plainspoken/examples/chat-composer-demo";
 import E_chat_composer_streaming from "@/registry/plainspoken/examples/chat-composer-streaming";
 import E_chat_conversations_demo from "@/registry/plainspoken/examples/chat-conversations-demo";
@@ -108,10 +114,15 @@ import E_chat_markdown_streaming from "@/registry/plainspoken/examples/chat-mark
 import E_chat_message_demo from "@/registry/plainspoken/examples/chat-message-demo";
 import E_chat_message_notes from "@/registry/plainspoken/examples/chat-message-notes";
 import E_chat_model_picker_demo from "@/registry/plainspoken/examples/chat-model-picker-demo";
+import E_chat_prompt_library_demo from "@/registry/plainspoken/examples/chat-prompt-library-demo";
 import E_chat_reasoning_demo from "@/registry/plainspoken/examples/chat-reasoning-demo";
+import E_chat_share_dialog_demo from "@/registry/plainspoken/examples/chat-share-dialog-demo";
 import E_chat_thread_demo from "@/registry/plainspoken/examples/chat-thread-demo";
 import E_chat_thread_empty from "@/registry/plainspoken/examples/chat-thread-empty";
 import E_chat_thread_error from "@/registry/plainspoken/examples/chat-thread-error";
+import E_chat_tool_card_demo from "@/registry/plainspoken/examples/chat-tool-card-demo";
+import E_chat_version_footer_demo from "@/registry/plainspoken/examples/chat-version-footer-demo";
+import E_chat_weather_card_demo from "@/registry/plainspoken/examples/chat-weather-card-demo";
 import E_checkbox_demo from "@/registry/plainspoken/examples/checkbox-demo";
 import E_chip_demo from "@/registry/plainspoken/examples/chip-demo";
 import E_combobox_demo from "@/registry/plainspoken/examples/combobox-demo";
@@ -493,6 +504,12 @@ export const examples: Record<string, ComponentType> = {
   "card-demo": E_card_demo,
   "card-grid": E_card_grid,
   "chat-app-demo": E_chat_app_demo,
+  "chat-artifact-card-demo": E_chat_artifact_card_demo,
+  "chat-artifact-panel-code": E_chat_artifact_panel_code,
+  "chat-artifact-panel-demo": E_chat_artifact_panel_demo,
+  "chat-attachments-demo": E_chat_attachments_demo,
+  "chat-branch-picker-demo": E_chat_branch_picker_demo,
+  "chat-compare-demo": E_chat_compare_demo,
   "chat-composer-demo": E_chat_composer_demo,
   "chat-composer-streaming": E_chat_composer_streaming,
   "chat-conversations-demo": E_chat_conversations_demo,
@@ -503,10 +520,15 @@ export const examples: Record<string, ComponentType> = {
   "chat-message-demo": E_chat_message_demo,
   "chat-message-notes": E_chat_message_notes,
   "chat-model-picker-demo": E_chat_model_picker_demo,
+  "chat-prompt-library-demo": E_chat_prompt_library_demo,
   "chat-reasoning-demo": E_chat_reasoning_demo,
+  "chat-share-dialog-demo": E_chat_share_dialog_demo,
   "chat-thread-demo": E_chat_thread_demo,
   "chat-thread-empty": E_chat_thread_empty,
   "chat-thread-error": E_chat_thread_error,
+  "chat-tool-card-demo": E_chat_tool_card_demo,
+  "chat-version-footer-demo": E_chat_version_footer_demo,
+  "chat-weather-card-demo": E_chat_weather_card_demo,
   "checkbox-demo": E_checkbox_demo,
   "chip-demo": E_chip_demo,
   "combobox-demo": E_combobox_demo,

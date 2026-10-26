@@ -1,0 +1,13 @@
+{
+  "name": "chat-share-dialog",
+  "type": "registry:block",
+  "title": "Share dialog",
+  "description": "A conversation as a link, with no server: compressed into the address, read-only for whoever opens it, with or without its documents and reasoning, and a warning when it gets long.",
+  "category": "AI chat",
+  "files": [
+    "blocks/chat/share-dialog.tsx"
+  ],
+  "examples": [
+    "chat-share-dialog-demo"
+  ]
+}

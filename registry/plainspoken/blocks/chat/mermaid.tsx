@@ -1,7 +1,10 @@
 "use client";
 
 import { useEffect, useId, useState, useSyncExternalStore } from "react";
-import { TriangleAlert } from "@/registry/plainspoken/lib/icons";
+import { Download, TriangleAlert } from "@/registry/plainspoken/lib/icons";
+import { download, downloadText } from "@/registry/plainspoken/blocks/chat/attachments";
+import { ChatBlockBar, ChatFullView } from "@/registry/plainspoken/blocks/chat/block-bar";
+import { Button } from "@/registry/plainspoken/ui/button";
 import { CopyButton } from "@/registry/plainspoken/ui/copy-button";
 import { Icon } from "@/registry/plainspoken/ui/icon";
 import { cn } from "@/lib/utils";
@@ -109,16 +112,48 @@ export interface ChatMermaidProps {
 }
 
 /**
- * A Mermaid diagram in an answer: a label bar with a copy button for the source, over the
+ * The diagram as a PNG at twice its size, on the page's background colour. Labels are SVG text
+ * (not HTML), so the picture can be drawn on a canvas; the page's web font isn't available there,
+ * so the system's sans-serif stands in.
+ */
+async function pngOf(svg: string): Promise<string> {
+  const doc = new DOMParser().parseFromString(svg, "image/svg+xml");
+  const el = doc.documentElement;
+  const box = el.getAttribute("viewBox")?.split(/[\s,]+/).map(Number);
+  const width = Number(el.getAttribute("width")) || box?.[2] || 800;
+  const height = box ? (box[3] / box[2]) * width : Number(el.getAttribute("height")) || 600;
+  el.setAttribute("width", String(width));
+  el.setAttribute("height", String(height));
+  const url = URL.createObjectURL(new Blob([new XMLSerializer().serializeToString(el)], { type: "image/svg+xml" }));
+  try {
+    const img = new Image();
+    img.src = url;
+    await img.decode();
+    const canvas = document.createElement("canvas");
+    canvas.width = Math.round(width * 2);
+    canvas.height = Math.round(height * 2);
+    const ctx = canvas.getContext("2d")!;
+    ctx.fillStyle = getComputedStyle(document.body).backgroundColor || "#fff";
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
+    ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
+    return canvas.toDataURL("image/png");
+  } finally {
+    URL.revokeObjectURL(url);
+  }
+}
+
+/**
+ * A Mermaid diagram in an answer: a label bar with Copy (the source) and Full screen, over the
  * diagram drawn in the theme's colours and font with square boxes, centred, and scrolling sideways
- * when it is wider than the column. Styles in the source may use the theme's tokens
- * (`classDef done stroke:var(--chart-2)`). Until it is drawn the source shows; if Mermaid can't
- * read it, the source stays with one line saying why.
+ * when it is wider than the column. Full screen shows it large, with downloads as SVG and PNG.
+ * Styles in the source may use the theme's tokens (`classDef done stroke:var(--chart-2)`). Until
+ * it is drawn the source shows; if Mermaid can't read it, the source stays with one line saying why.
  */
 export function ChatMermaid({ code, className }: ChatMermaidProps) {
   const id = `chat-mermaid-${useId().replace(/[^a-zA-Z0-9]/g, "")}`;
   const theme = useSyncExternalStore(subscribeTheme, themeKey, () => "");
   const [state, setState] = useState<State>(null);
+  const [full, setFull] = useState(false);
   const key = `${theme}\n${code}`;
 
   useEffect(() => {
@@ -150,13 +185,35 @@ export function ChatMermaid({ code, className }: ChatMermaidProps) {
   const error = state && "error" in state && state.key === key ? state.error : null;
   return (
     <figure data-slot="chat-mermaid" aria-label="Diagram" className={cn("mb-[0.75em] border border-border last:mb-0", className)}>
-      <div className="flex min-h-7 items-center justify-between gap-2 border-b border-border bg-muted pr-0.5 pl-2 font-sans">
-        <span className="truncate font-mono text-[12px] text-muted-foreground">mermaid</span>
+      <ChatBlockBar label="mermaid" onFullscreen={shown && !error ? () => setFull(true) : undefined}>
         <CopyButton text={code} name="diagram source" />
-      </div>
+      </ChatBlockBar>
       {shown && !error ? (
         <div className="overflow-x-auto p-3">
           <div className="mx-auto w-max" dangerouslySetInnerHTML={{ __html: shown }} />
+          <ChatFullView
+            open={full}
+            onClose={() => setFull(false)}
+            title="Diagram"
+            actions={
+              <>
+                <CopyButton text={code} label="Copy source" size="sm" variant="default" />
+                <Button icon={Download} onClick={() => downloadText(shown, "diagram.svg", "image/svg+xml")}>
+                  SVG
+                </Button>
+                <Button icon={Download} onClick={() => void pngOf(shown).then((png) => download(png, "diagram.png"))}>
+                  PNG
+                </Button>
+              </>
+            }
+          >
+            {/* As large as the window allows, keeping its shape */}
+            {/* Its ids (the SVG's, its styles' and its arrowheads') renamed, so they stay unique while both are on the page */}
+            <div
+              className="flex min-h-full items-center justify-center [&_svg]:h-auto [&_svg]:max-h-[calc(100dvh-10rem)] [&_svg]:w-full [&_svg]:max-w-none"
+              dangerouslySetInnerHTML={{ __html: full ? shown.replaceAll(id, `${id}-full`) : "" }}
+            />
+          </ChatFullView>
         </div>
       ) : (
         <>

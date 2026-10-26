@@ -3,10 +3,11 @@
 import { useEffect, useLayoutEffect, useRef, useState, type ReactNode } from "react";
 import { ArrowDown, MessageSquare, RotateCcw } from "@/registry/plainspoken/lib/icons";
 import { FOCUS_RING } from "@/registry/plainspoken/lib/controls";
-import type { ChatError, ChatMessage, ChatSuggestion } from "@/registry/plainspoken/blocks/chat/data";
+import type { ChatArtifact, ChatError, ChatMessage, ChatSuggestion } from "@/registry/plainspoken/blocks/chat/data";
 import { CHAT_ERRORS } from "@/registry/plainspoken/blocks/chat/format";
 import { chatModelName } from "@/registry/plainspoken/blocks/chat/models";
-import { ChatMessageView } from "@/registry/plainspoken/blocks/chat/message";
+import { ChatMessageView, type ChatMessageBranch, type ChatOpenArtifact } from "@/registry/plainspoken/blocks/chat/message";
+import type { ChatAttachment } from "@/registry/plainspoken/blocks/chat/attachments";
 import { Alert } from "@/registry/plainspoken/ui/alert";
 import { Button } from "@/registry/plainspoken/ui/button";
 import { EmptyState } from "@/registry/plainspoken/ui/empty-state";
@@ -23,10 +24,19 @@ export interface ChatThreadProps {
   error?: ChatError | null;
   /** Try the last request again */
   onRetry?: () => void;
-  /** Regenerate the last answer */
-  onRegenerate?: () => void;
-  /** Send a question again with new text, in place (everything after it goes) */
-  onEdit?: (messageId: string, text: string) => void;
+  /** Regenerate an answer (any of them: the old one is kept as another version) */
+  onRegenerate?: (messageId: string) => void;
+  /** Send a question again with new text and the files kept, in its place (what came after is kept as another version) */
+  onEdit?: (messageId: string, text: string, attachments: ChatAttachment[]) => void;
+  /** The versions of the message at an index of `messages`, for ‹ 1/2 › */
+  branchAt?: (index: number) => ChatMessageBranch | undefined;
+  /** Thumbs up or down on an answer */
+  onFeedback?: (messageId: string, feedback: "up" | "down" | undefined) => void;
+  /** The conversation's documents, for the cards of the tools that write them */
+  artifacts?: ChatArtifact[];
+  onOpenArtifact?: ChatOpenArtifact;
+  /** The document open beside the thread */
+  activeArtifact?: { id?: string; callId?: string } | null;
   /** The model being waited for, named while the request is out */
   pendingModel?: string;
   /** Prompts offered in an empty conversation */
@@ -36,6 +46,8 @@ export interface ChatThreadProps {
   intro?: ReactNode;
   /** Instead of the default empty state */
   empty?: ReactNode;
+  /** After the last message, in the scrolling column: a comparison of answers */
+  footer?: ReactNode;
   /** Start scrolled to the end (default), as a conversation opens */
   className?: string;
 }
@@ -44,9 +56,10 @@ export interface ChatThreadProps {
 const NEAR_END = 40;
 
 /**
- * A conversation: the messages in a column of reading width, scrolling on their own. While an
- * answer streams the view follows it down; scroll up and it stops following and offers "Jump to
- * latest". It opens scrolled to the end. An empty conversation shows a few prompts to start from.
+ * A conversation: the messages in a column of reading width, scrolling on their own. It opens
+ * at the end and stays there while answers stream and pictures, diagrams and code finish drawing;
+ * only scrolling away yourself stops it following (a change of height never does), and then it
+ * offers "Jump to latest". An empty conversation shows a few prompts to start from.
  * A failed request shows its reason after the last message, with Retry. What is happening
  * (waiting, answering, done) is said in a polite live region, not by reading the text as it
  * streams. The scrolling area takes keyboard focus, so arrow keys and Page Down scroll it.
@@ -58,11 +71,17 @@ export function ChatThread({
   onRetry,
   onRegenerate,
   onEdit,
+  branchAt,
+  onFeedback,
+  artifacts,
+  onOpenArtifact,
+  activeArtifact,
   pendingModel,
   suggestions = [],
   onSuggestion,
   intro,
   empty,
+  footer,
   className,
 }: ChatThreadProps) {
   const scroller = useRef<HTMLDivElement>(null);
@@ -70,12 +89,17 @@ export function ChatThread({
   const following = useRef(true);
   // While a smooth jump is under way its own scroll events must not switch following off
   const jumping = useRef<ReturnType<typeof setTimeout> | null>(null);
+  // Only the reader moves the view away from the end: these say they just did (or are)
+  const intentUntil = useRef(0);
+  const touching = useRef(false);
+  const dragging = useRef(false);
+  // The heights last seen: a scroll that comes with a change of height was caused by the layout
+  const size = useRef({ content: 0, view: 0 });
   const [away, setAway] = useState(false);
 
   const busy = status === "submitted" || status === "streaming";
   const last = messages.at(-1);
   const lastUser = messages.findLastIndex((m) => m.role === "user");
-  const lastAnswer = messages.findLastIndex((m) => m.role === "assistant");
 
   const toEnd = (smooth = false) => {
     const el = scroller.current;
@@ -90,8 +114,9 @@ export function ChatThread({
     el.scrollTo({ top: el.scrollHeight, behavior: glide ? "smooth" : "auto" });
   };
 
-  // Follow the content as it grows (a streaming answer, a code block highlighting), unless the
-  // reader has scrolled away from the end. An empty conversation (the suggestions) stays at the top.
+  // Follow the content as it grows or changes height (a streaming answer, a diagram drawn, a
+  // picture loaded, code highlighted), unless the reader has scrolled away from the end. An empty
+  // conversation (the suggestions) stays at the top.
   const hasMessages = useRef(messages.length > 0);
   useLayoutEffect(() => {
     hasMessages.current = messages.length > 0;
@@ -102,10 +127,46 @@ export function ChatThread({
     if (!el || !col) return;
     if (hasMessages.current) el.scrollTop = el.scrollHeight;
     const ro = new ResizeObserver(() => {
-      if (following.current && hasMessages.current) el.scrollTop = el.scrollHeight;
+      if (following.current && hasMessages.current && !jumping.current) el.scrollTop = el.scrollHeight;
+      size.current = { content: el.scrollHeight, view: el.clientHeight };
     });
     ro.observe(col);
-    return () => ro.disconnect();
+    ro.observe(el);
+    const mark = (ms = 300) => (intentUntil.current = Math.max(intentUntil.current, performance.now() + ms));
+    const onWheel = () => mark();
+    const onKey = (e: KeyboardEvent) => {
+      if (["ArrowUp", "ArrowDown", "PageUp", "PageDown", "Home", "End", " ", "Tab"].includes(e.key)) mark(600);
+    };
+    const onTouchStart = () => (touching.current = true);
+    const onTouchEnd = () => {
+      touching.current = false;
+      mark(1200); // the flick goes on after the finger lifts
+    };
+    // A press on the scrolling box itself, not on anything in it, is on its scroll bar
+    const onPointerDown = (e: PointerEvent) => {
+      if (e.target === el) dragging.current = true;
+    };
+    const onPointerUp = () => {
+      if (dragging.current) mark();
+      dragging.current = false;
+    };
+    el.addEventListener("wheel", onWheel, { passive: true });
+    el.addEventListener("keydown", onKey);
+    el.addEventListener("touchstart", onTouchStart, { passive: true });
+    el.addEventListener("touchend", onTouchEnd);
+    el.addEventListener("touchcancel", onTouchEnd);
+    el.addEventListener("pointerdown", onPointerDown);
+    window.addEventListener("pointerup", onPointerUp);
+    return () => {
+      ro.disconnect();
+      el.removeEventListener("wheel", onWheel);
+      el.removeEventListener("keydown", onKey);
+      el.removeEventListener("touchstart", onTouchStart);
+      el.removeEventListener("touchend", onTouchEnd);
+      el.removeEventListener("touchcancel", onTouchEnd);
+      el.removeEventListener("pointerdown", onPointerDown);
+      window.removeEventListener("pointerup", onPointerUp);
+    };
   }, []);
 
   // A new question always brings the end back into view
@@ -125,8 +186,21 @@ export function ChatThread({
       clearTimeout(jumping.current);
       jumping.current = null;
     }
-    following.current = atEnd;
-    setAway(!atEnd);
+    const resized = el.scrollHeight !== size.current.content || el.clientHeight !== size.current.view;
+    size.current = { content: el.scrollHeight, view: el.clientHeight };
+    if (atEnd) {
+      following.current = true;
+      setAway(false);
+      return;
+    }
+    // Scrolled by the reader (wheel, touch, keys, the scroll bar), or by something that isn't the
+    // layout (find in page, a screen reader): stop following. A scroll that came with a change of
+    // height (a diagram drawn above, a picture loaded) while following goes back to the end.
+    const byReader = touching.current || dragging.current || performance.now() < intentUntil.current;
+    if (byReader || !resized) {
+      following.current = false;
+      setAway(true);
+    } else if (following.current && hasMessages.current) el.scrollTop = el.scrollHeight;
   };
 
   const said =
@@ -187,17 +261,30 @@ export function ChatThread({
             : messages.map((m, i) => {
                 const isStreaming = status === "streaming" && i === messages.length - 1 && m.role === "assistant";
                 const after = messages.length - 1 - i;
+                const answer = m.role === "assistant";
                 return (
                   <ChatMessageView
                     key={m.id}
                     message={m}
                     streaming={isStreaming}
-                    onRegenerate={!busy && i === lastAnswer && i === messages.length - 1 ? onRegenerate : undefined}
-                    onEdit={!busy && onEdit && m.role === "user" ? (t) => onEdit(m.id, t) : undefined}
-                    editNote={after > 0 ? (i === lastUser ? "Sending replaces the answer below." : `Sending replaces the ${after} messages below.`) : undefined}
+                    onRegenerate={!busy && answer && onRegenerate ? () => onRegenerate(m.id) : undefined}
+                    onEdit={!busy && onEdit && m.role === "user" ? (t, files) => onEdit(m.id, t, files) : undefined}
+                    editNote={
+                      after > 0
+                        ? i === lastUser
+                          ? "Sending gives a new answer; this one stays as an earlier version."
+                          : `Sending starts again from here; the ${after} messages below stay as an earlier version.`
+                        : undefined
+                    }
+                    branch={busy ? undefined : branchAt?.(i)}
+                    onFeedback={answer && onFeedback && !isStreaming ? (f) => onFeedback(m.id, f) : undefined}
+                    artifacts={artifacts}
+                    onOpenArtifact={onOpenArtifact}
+                    activeArtifact={activeArtifact}
                   />
                 );
               })}
+          {footer}
           {status === "submitted" && (
             <div className="flex flex-col gap-1.5">
               <p className="text-[12px] font-semibold text-muted-foreground">{chatModelName(pendingModel)}</p>

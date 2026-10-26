@@ -7,7 +7,9 @@
   "files": [
     "blocks/chat/markdown.tsx",
     "blocks/chat/math.ts",
-    "blocks/chat/mermaid.tsx"
+    "blocks/chat/mermaid.tsx",
+    "blocks/chat/block-bar.tsx",
+    "blocks/chat/highlight.ts"
   ],
   "examples": [
     "chat-markdown-demo",

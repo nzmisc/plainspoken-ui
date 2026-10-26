@@ -1,0 +1,15 @@
+{
+  "name": "chat-artifact-panel",
+  "type": "registry:block",
+  "title": "Artifact panel",
+  "description": "A document the model wrote, open beside the chat: Markdown, code or a sheet, filling in as it is written; its versions with the changes between them and Restore; suggestions to accept or reject; your own edits; Copy and Download; quick actions that ask the model; and Run for JavaScript and TypeScript, in a sandboxed frame with its console.",
+  "category": "AI chat",
+  "files": [
+    "blocks/chat/artifact-panel.tsx",
+    "blocks/chat/code-runner.ts"
+  ],
+  "examples": [
+    "chat-artifact-panel-demo",
+    "chat-artifact-panel-code"
+  ]
+}

@@ -7,7 +7,7 @@ import { CHAT_SHOWCASE } from "@/registry/plainspoken/blocks/chat/showcase";
 export const metadata: Metadata = {
   title: "AI chat",
   description:
-    "A working chat with language models, built from plainspoken-ui: conversations kept in the browser, a model picker, and answers streamed in as Markdown with tables, highlighted code, math, diagrams and the model's reasoning.",
+    "A working chat with language models, built from plainspoken-ui: files and pictures, documents and code written beside the chat with versions and Run, the weather, branches, two models side by side, saved prompts and share links, all kept in the browser.",
 };
 
 export default function ChatPage() {

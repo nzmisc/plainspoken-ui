@@ -1,0 +1,13 @@
+{
+  "name": "chat-weather-card",
+  "type": "registry:block",
+  "title": "Weather card",
+  "description": "The weather tool's answer: the place, the weather now (temperature, feels like, wind, humidity) and the next days, with the tool card's states while it runs or when it fails.",
+  "category": "AI chat",
+  "files": [
+    "blocks/chat/weather-card.tsx"
+  ],
+  "examples": [
+    "chat-weather-card-demo"
+  ]
+}

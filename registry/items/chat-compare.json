@@ -1,0 +1,13 @@
+{
+  "name": "chat-compare",
+  "type": "registry:block",
+  "title": "Compare view",
+  "description": "One question answered by two or three models side by side, each streaming and stoppable on its own; Use this answer keeps one, and the others stay as its other versions.",
+  "category": "AI chat",
+  "files": [
+    "blocks/chat/compare-view.tsx"
+  ],
+  "examples": [
+    "chat-compare-demo"
+  ]
+}

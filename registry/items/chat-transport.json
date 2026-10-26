@@ -1,0 +1,11 @@
+{
+  "name": "chat-transport",
+  "type": "registry:block",
+  "title": "Chat transport",
+  "description": "Between useChat and the chat route: what a request carries (the last messages' text, their files read back from the browser within the limits, tool calls as short notes, the latest version of each document) and what is kept of a conversation once an answer is in.",
+  "category": "AI chat",
+  "files": [
+    "blocks/chat/transport.ts"
+  ],
+  "hidden": true
+}

@@ -2,12 +2,22 @@ import type { Meta, StoryObj } from "@storybook/nextjs-vite";
 import { ChatApp } from "@/registry/plainspoken/blocks/chat/chat-app";
 import { CHAT_CONVERSATIONS, CHAT_TODAY } from "@/registry/plainspoken/blocks/chat/data";
 import { CHAT_SHOWCASE } from "@/registry/plainspoken/blocks/chat/showcase";
+import { Toaster } from "@/registry/plainspoken/ui/toast";
 import { fakeTransport } from "../blocks/chat/fixtures";
 
 const meta: Meta<typeof ChatApp> = {
   title: "Demos/AI chat",
   component: ChatApp,
   parameters: { layout: "fullscreen", docs: { story: { inline: false, height: "760px" } } },
+  // Feedback, copying and sharing say so in a toast
+  decorators: [
+    (S) => (
+      <>
+        {S()}
+        <Toaster />
+      </>
+    ),
+  ],
   args: {
     transport: fakeTransport(),
     showcase: [CHAT_SHOWCASE],
