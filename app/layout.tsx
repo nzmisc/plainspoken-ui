@@ -1,6 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import localFont from "next/font/local";
-import { SITE_NAME, siteUrl } from "@/lib/site";
+import { INDEXABLE, SITE_NAME, siteUrl } from "@/lib/site";
 import { ThemeScript } from "@/components/site/theme";
 import "./globals.css";
 
@@ -28,6 +28,7 @@ export const metadata: Metadata = {
   description:
     "Plain, dense, accessible React components with square corners, real links and controls that line up. Copy them into your app with the shadcn CLI.",
   openGraph: { siteName: SITE_NAME, type: "website" },
+  robots: INDEXABLE ? undefined : { index: false, follow: false },
 };
 
 export const viewport: Viewport = {

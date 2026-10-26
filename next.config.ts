@@ -1,4 +1,5 @@
 import type { NextConfig } from "next";
+import { INDEXABLE } from "./lib/site";
 
 const devHosts = () => (process.env.DEV_HOSTS ?? "").split(",").map((h) => h.trim()).filter(Boolean);
 
@@ -24,8 +25,13 @@ const nextConfig: NextConfig = {
     ];
   },
   async headers() {
-    // The shadcn CLI and other registries' tooling fetch items cross-origin
-    return [{ source: "/r/:path*", headers: [{ key: "Access-Control-Allow-Origin", value: "*" }] }];
+    return [
+      // The shadcn CLI and other registries' tooling fetch items cross-origin
+      { source: "/r/:path*", headers: [{ key: "Access-Control-Allow-Origin", value: "*" }] },
+      // Kept out of search engines (see INDEXABLE): the header reaches what a meta tag can't, like
+      // Storybook's static files and the registry's JSON
+      ...(INDEXABLE ? [] : [{ source: "/:path*", headers: [{ key: "X-Robots-Tag", value: "noindex, nofollow" }] }]),
+    ];
   },
 };
 
