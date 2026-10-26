@@ -1,0 +1,13 @@
+{
+  "name": "music-player-provider",
+  "type": "registry:block",
+  "title": "Player state",
+  "description": "The music player and the listener's library in React context: a simulated clock, queue, shuffle, repeat, volume, likes and saves, the page-wide keyboard shortcuts, and the play and like buttons built on them.",
+  "category": "Music",
+  "files": [
+    "blocks/music/player-provider.tsx"
+  ],
+  "examples": [
+    "music-player-provider-demo"
+  ]
+}

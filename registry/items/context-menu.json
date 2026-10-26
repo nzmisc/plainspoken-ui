@@ -1,0 +1,9 @@
+{
+  "name": "context-menu",
+  "type": "registry:ui",
+  "title": "Context menu",
+  "description": "The right-click menu of an area, which also opens from Shift+F10, the Menu key and a long-press, at the pointer or the focused element. Items can depend on what was clicked.",
+  "category": "Overlays",
+  "files": ["ui/context-menu.tsx"],
+  "examples": ["context-menu-demo"]
+}

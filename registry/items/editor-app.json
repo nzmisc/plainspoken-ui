@@ -1,0 +1,9 @@
+{
+  "name": "editor-app",
+  "type": "registry:block",
+  "title": "Editor app",
+  "description": "Quire, a team handbook: pages by part in an app shell's sidebar, drafts marked, and the open page in the rich text editor with its title, status, word count and last save.",
+  "category": "Editor",
+  "files": ["blocks/editor/editor-app.tsx"],
+  "examples": ["editor-app-demo"]
+}

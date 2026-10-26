@@ -1,0 +1,13 @@
+{
+  "name": "music-collection-header",
+  "type": "registry:block",
+  "title": "Collection header",
+  "description": "The top of an album, playlist or artist page: big cover, kind, title, facts, and the action row with play, shuffle, save or follow, and a menu.",
+  "category": "Music",
+  "files": [
+    "blocks/music/collection-header.tsx"
+  ],
+  "examples": [
+    "music-collection-header-demo"
+  ]
+}

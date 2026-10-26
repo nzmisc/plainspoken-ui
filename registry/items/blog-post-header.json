@@ -1,0 +1,9 @@
+{
+  "name": "blog-post-header",
+  "type": "registry:block",
+  "title": "Post header",
+  "description": "The head of a post: breadcrumb, title as h1, standfirst, and date, reading time and tags as time elements and links.",
+  "category": "Blog",
+  "files": ["blocks/blog/post-header.tsx"],
+  "examples": ["blog-post-header-demo"]
+}

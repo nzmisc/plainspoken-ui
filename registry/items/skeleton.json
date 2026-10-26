@@ -1,0 +1,9 @@
+{
+  "name": "skeleton",
+  "type": "registry:ui",
+  "title": "Skeleton",
+  "description": "Gray placeholder blocks and text lines for content still loading, hidden from screen readers, still with reduced motion.",
+  "category": "Feedback",
+  "files": ["ui/skeleton.tsx"],
+  "examples": ["skeleton-demo"]
+}

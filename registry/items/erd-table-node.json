@@ -1,0 +1,14 @@
+{
+  "name": "erd-table-node",
+  "type": "registry:block",
+  "title": "Table node",
+  "description": "One table of a diagram: a header in its schema's colour, rows with key icons, types and UQ, DEF, ID, IDX and NULL marks, comments on hover, and a fold to show only the keys.",
+  "category": "ERD",
+  "files": [
+    "blocks/erd/table-node.tsx"
+  ],
+  "examples": [
+    "erd-table-node-demo",
+    "erd-table-node-collapsed"
+  ]
+}

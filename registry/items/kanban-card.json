@@ -1,0 +1,14 @@
+{
+  "name": "kanban-card",
+  "type": "registry:block",
+  "title": "Card",
+  "description": "A board card: cover picture, labels, title, key, priority, due date marked when overdue or due soon, checklist, file and comment counts and round avatars, all in words for screen readers too, with a ⋯ menu beside it.",
+  "category": "Kanban",
+  "files": [
+    "blocks/kanban/card.tsx"
+  ],
+  "examples": [
+    "kanban-card-demo",
+    "kanban-card-states"
+  ]
+}

@@ -1,0 +1,9 @@
+{
+  "name": "accordion",
+  "type": "registry:ui",
+  "title": "Accordion",
+  "description": "Stacked sections that open and close, built on native <details> so keyboard, screen readers and find-in-page work with no script; one-at-a-time with the native name attribute.",
+  "category": "Layout",
+  "files": ["ui/accordion.tsx"],
+  "examples": ["accordion-demo", "accordion-exclusive"]
+}

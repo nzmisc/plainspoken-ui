@@ -1,0 +1,16 @@
+{
+  "name": "presence",
+  "type": "registry:ui",
+  "title": "Presence",
+  "description": "Who else is here and where: round avatars in each person's colour, a ring and tag around a field someone is in, remote carets and selections over a textarea or HTML text, “is editing” marks beside blocks, and polite, throttled announcements.",
+  "category": "Data display",
+  "files": [
+    "ui/presence.tsx"
+  ],
+  "examples": [
+    "presence-demo",
+    "presence-frame",
+    "presence-cursors",
+    "presence-document"
+  ]
+}

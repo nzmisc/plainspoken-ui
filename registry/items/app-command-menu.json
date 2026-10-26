@@ -1,0 +1,13 @@
+{
+  "name": "app-command-menu",
+  "type": "registry:block",
+  "title": "Command menu",
+  "description": "The ⌘K palette of an app: go to a page or a customer, or create an invoice or a customer, in a command dialog.",
+  "category": "App skeleton",
+  "files": [
+    "blocks/app/command-menu.tsx"
+  ],
+  "examples": [
+    "app-command-menu-demo"
+  ]
+}

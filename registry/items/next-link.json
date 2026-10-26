@@ -1,0 +1,9 @@
+{
+  "name": "next-link",
+  "type": "registry:lib",
+  "title": "NextLink",
+  "description": "next/link's Link re-exported from a \"use client\" file, so server components can pass it as linkAs to Navbar, Sidebar, AppShell, Breadcrumb and Pagination.",
+  "category": "Navigation",
+  "files": ["lib/next-link.tsx"],
+  "hidden": true
+}

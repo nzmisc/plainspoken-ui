@@ -1,0 +1,13 @@
+{
+  "name": "kanban-attachments",
+  "type": "registry:block",
+  "title": "Attachments",
+  "description": "A card's files with thumbnails or file-type symbols, size, who added them and when, a preview dialog, a menu to make a picture the cover, download or remove (with a confirmation), and an upload that adds files with progress.",
+  "category": "Kanban",
+  "files": [
+    "blocks/kanban/attachments.tsx"
+  ],
+  "examples": [
+    "kanban-attachments-demo"
+  ]
+}

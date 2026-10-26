@@ -1,0 +1,14 @@
+{
+  "name": "mail-message-list",
+  "type": "registry:block",
+  "title": "Message list",
+  "description": "Conversations with sender, subject, snippet and time, unread in bold, checkboxes, star toggles, attachment and label marks, a roving tab stop and a right-click menu.",
+  "category": "Mail",
+  "files": [
+    "blocks/mail/message-list.tsx"
+  ],
+  "examples": [
+    "mail-message-list-demo",
+    "mail-message-list-folders"
+  ]
+}

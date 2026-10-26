@@ -1,0 +1,9 @@
+{
+  "name": "calendar",
+  "type": "registry:ui",
+  "title": "Calendar",
+  "description": "A month grid for picking a day or a range, or showing what happens when: the ARIA date grid keyboard, several months, week numbers, limits and unavailable days, and a large size with room for content.",
+  "category": "Data display",
+  "files": ["ui/calendar.tsx"],
+  "examples": ["calendar-demo", "calendar-range", "calendar-availability", "calendar-large"]
+}

@@ -1,0 +1,13 @@
+{
+  "name": "bible-book-intro",
+  "type": "registry:block",
+  "title": "Bible book intro",
+  "description": "The top of a book's page: its name, its own KJV title, a description, the facts and a link to chapter 1.",
+  "category": "Bible",
+  "files": [
+    "blocks/bible/book-intro.tsx"
+  ],
+  "examples": [
+    "bible-book-intro-demo"
+  ]
+}

@@ -1,0 +1,13 @@
+{
+  "name": "conflicts-textbox-warn",
+  "type": "registry:block",
+  "title": "Text box: warn while typing",
+  "description": "A text box saved by hand that hears about other saves at once: “Jonas changed this 20s ago” under the field, See changes with word diffs, and Use theirs, Keep mine or Merge.",
+  "category": "Edit conflicts",
+  "files": [
+    "blocks/conflicts/textbox-warn.tsx"
+  ],
+  "examples": [
+    "conflicts-textbox-warn-demo"
+  ]
+}

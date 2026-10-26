@@ -1,0 +1,14 @@
+{
+  "name": "kanban-column",
+  "type": "registry:block",
+  "title": "Column",
+  "description": "A board column: name, card count, an amber work-in-progress badge and line when over the limit, a ⋯ menu, a list that scrolls on its own, an empty state and an inline box to add a card.",
+  "category": "Kanban",
+  "files": [
+    "blocks/kanban/column.tsx"
+  ],
+  "examples": [
+    "kanban-column-demo",
+    "kanban-column-limits"
+  ]
+}

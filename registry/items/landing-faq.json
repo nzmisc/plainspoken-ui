@@ -1,0 +1,9 @@
+{
+  "name": "landing-faq",
+  "type": "registry:block",
+  "title": "FAQ",
+  "description": "Questions and answers as an Accordion of native details elements, plus the same list as FAQPage structured data.",
+  "category": "Landing page",
+  "files": ["blocks/landing/faq.tsx"],
+  "examples": ["landing-faq-demo"]
+}

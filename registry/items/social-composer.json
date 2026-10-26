@@ -1,0 +1,13 @@
+{
+  "name": "social-composer",
+  "type": "registry:block",
+  "title": "Composer",
+  "description": "Writing a post or a reply: a growing text box with a 280-character count, picture, poll, emoji, schedule and place tools, and Ctrl+Enter to post; also in a dialog, opened from anywhere with useCompose().",
+  "category": "Social",
+  "files": [
+    "blocks/social/composer.tsx"
+  ],
+  "examples": [
+    "social-composer-demo"
+  ]
+}

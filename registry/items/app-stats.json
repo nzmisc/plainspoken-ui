@@ -1,0 +1,13 @@
+{
+  "name": "app-stats",
+  "type": "registry:block",
+  "title": "Dashboard stats",
+  "description": "Four headline numbers with their change since last month, in words and colour, and a sparkline each.",
+  "category": "App skeleton",
+  "files": [
+    "blocks/app/stats.tsx"
+  ],
+  "examples": [
+    "app-stats-demo"
+  ]
+}

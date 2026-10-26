@@ -1,0 +1,9 @@
+{
+  "name": "position",
+  "type": "registry:lib",
+  "title": "Position",
+  "description": "Places a floating layer next to an anchor (an element or a point): preferred side, flip when it doesn't fit, shift into the viewport, and keep it placed on scroll and resize. No dependencies.",
+  "category": "Overlays",
+  "files": ["lib/position.ts"],
+  "hidden": true
+}

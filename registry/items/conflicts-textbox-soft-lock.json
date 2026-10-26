@@ -1,0 +1,13 @@
+{
+  "name": "conflicts-textbox-soft-lock",
+  "type": "registry:block",
+  "title": "Text box: soft lock",
+  "description": "A text box with presence: a ring and “Jonas is typing…” around the field, read-only for you while he has it, Edit anyway, and a blunt Keep mine / Use his when two edits meet regardless.",
+  "category": "Edit conflicts",
+  "files": [
+    "blocks/conflicts/textbox-soft-lock.tsx"
+  ],
+  "examples": [
+    "conflicts-textbox-soft-lock-demo"
+  ]
+}

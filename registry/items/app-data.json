@@ -1,0 +1,12 @@
+{
+  "name": "app-data",
+  "type": "registry:block",
+  "title": "App data",
+  "description": "The demo data for Tally, an invoicing app: customers, invoices, projects, team, activity and dashboard numbers, with helpers for money, dates and states.",
+  "category": "App skeleton",
+  "files": [
+    "blocks/app/data.ts",
+    "blocks/app/format.ts"
+  ],
+  "hidden": true
+}

@@ -1,0 +1,13 @@
+{
+  "name": "kanban-checklist",
+  "type": "registry:block",
+  "title": "Checklist",
+  "description": "A card's checklist: done count and progress bar, items as checkboxes struck through when ticked, remove buttons that keep focus, and a box to add items.",
+  "category": "Kanban",
+  "files": [
+    "blocks/kanban/checklist.tsx"
+  ],
+  "examples": [
+    "kanban-checklist-demo"
+  ]
+}

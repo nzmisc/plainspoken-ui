@@ -1,0 +1,9 @@
+{
+  "name": "editable-table",
+  "type": "registry:ui",
+  "title": "Editable table",
+  "description": "A spreadsheet-like table edited in place: the ARIA grid keyboard model, typed columns with the library's editors, validation that keeps bad values with their message, change marks with Save and Discard, undo, and copy and paste of ranges to and from Excel or Google Sheets.",
+  "category": "Data display",
+  "files": ["ui/editable-table.tsx", "lib/editable-table.ts"],
+  "examples": ["editable-table-demo", "editable-table-validation", "editable-table-paste", "editable-table-save-bar"]
+}

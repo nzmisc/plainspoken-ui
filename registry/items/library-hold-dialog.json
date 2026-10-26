@@ -1,0 +1,13 @@
+{
+  "name": "library-hold-dialog",
+  "type": "registry:block",
+  "title": "Hold dialog",
+  "description": "A Place hold button and its dialog: format with availability, pickup branch, a not-needed-after date, and the place in line once placed.",
+  "category": "Library",
+  "files": [
+    "blocks/library/hold-dialog.tsx"
+  ],
+  "examples": [
+    "library-hold-dialog-demo"
+  ]
+}

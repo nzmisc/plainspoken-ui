@@ -1,0 +1,13 @@
+{
+  "name": "app-customer-detail",
+  "type": "registry:block",
+  "title": "Customer detail",
+  "description": "The body of a customer's page: four numbers and tabs for the overview, invoices, projects and activity.",
+  "category": "App skeleton",
+  "files": [
+    "blocks/app/customer-detail.tsx"
+  ],
+  "examples": [
+    "app-customer-detail-demo"
+  ]
+}

@@ -1,0 +1,9 @@
+{
+  "name": "select",
+  "type": "registry:ui",
+  "title": "Select",
+  "description": "The browser's own select (system picker on phones, type-to-jump), invisible over a label drawn like a button so it lines up with everything else.",
+  "category": "Forms",
+  "files": ["ui/select.tsx"],
+  "examples": ["select-demo"]
+}

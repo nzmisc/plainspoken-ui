@@ -1,0 +1,13 @@
+{
+  "name": "app-new-invoice",
+  "type": "registry:block",
+  "title": "New invoice dialog",
+  "description": "Writing an invoice in a dialog: customer combobox, date picker, terms, lines with quantity and rate that add up, and a note.",
+  "category": "App skeleton",
+  "files": [
+    "blocks/app/new-invoice.tsx"
+  ],
+  "examples": [
+    "app-new-invoice-demo"
+  ]
+}

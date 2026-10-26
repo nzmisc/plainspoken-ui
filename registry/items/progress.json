@@ -1,0 +1,9 @@
+{
+  "name": "progress",
+  "type": "registry:ui",
+  "title": "Progress",
+  "description": "A task's progress bar, determinate or indeterminate (still with reduced motion), and a Meter for measurements that warns past a threshold in symbol and words.",
+  "category": "Feedback",
+  "files": ["ui/progress.tsx"],
+  "examples": ["progress-demo", "progress-meter"]
+}

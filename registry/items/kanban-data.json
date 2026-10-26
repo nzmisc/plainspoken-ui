@@ -1,0 +1,12 @@
+{
+  "name": "kanban-data",
+  "type": "registry:block",
+  "title": "Kanban data",
+  "description": "The demo board (a ferry company's app team and the forty people around it, some with drawn portraits; five labels, five columns, 28 cards with checklists, files, comments, watchers and activity) with the helpers that format dates, files and priorities, move cards and filter them.",
+  "category": "Kanban",
+  "files": [
+    "blocks/kanban/data.ts",
+    "blocks/kanban/format.ts"
+  ],
+  "hidden": true
+}

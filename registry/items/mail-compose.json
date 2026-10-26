@@ -1,0 +1,13 @@
+{
+  "name": "mail-compose",
+  "type": "registry:block",
+  "title": "Compose dialog",
+  "description": "A new message in a dialog (full screen on phones): From, To and Cc chips, Subject, the text, and attached files.",
+  "category": "Mail",
+  "files": [
+    "blocks/mail/compose.tsx"
+  ],
+  "examples": [
+    "mail-compose-demo"
+  ]
+}

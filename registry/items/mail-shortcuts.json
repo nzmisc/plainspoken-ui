@@ -1,0 +1,13 @@
+{
+  "name": "mail-shortcuts",
+  "type": "registry:block",
+  "title": "Shortcuts dialog",
+  "description": "The keyboard shortcuts of a mail app, grouped, as keycaps in a dialog.",
+  "category": "Mail",
+  "files": [
+    "blocks/mail/shortcuts.tsx"
+  ],
+  "examples": [
+    "mail-shortcuts-demo"
+  ]
+}

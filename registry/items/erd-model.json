@@ -1,0 +1,15 @@
+{
+  "name": "erd-model",
+  "type": "registry:block",
+  "title": "ERD model",
+  "description": "The ERD's data and logic: tables, columns, relations and the edits on them, node metrics and line routing, auto-layout, Postgres DDL out and in, and SVG, PNG and JSON export.",
+  "category": "ERD",
+  "files": [
+    "blocks/erd/model.ts",
+    "blocks/erd/geometry.ts",
+    "blocks/erd/layout.ts",
+    "blocks/erd/sql.ts",
+    "blocks/erd/export.ts"
+  ],
+  "hidden": true
+}

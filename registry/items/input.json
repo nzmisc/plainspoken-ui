@@ -1,0 +1,9 @@
+{
+  "name": "input",
+  "type": "registry:ui",
+  "title": "Input",
+  "description": "Single-line text input exactly as tall as a button of the same size, with icon, text or button prefixes and suffixes.",
+  "category": "Forms",
+  "files": ["ui/input.tsx"],
+  "examples": ["input-demo", "input-affixes", "input-sizes"]
+}

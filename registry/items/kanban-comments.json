@@ -1,0 +1,14 @@
+{
+  "name": "kanban-comments",
+  "type": "registry:block",
+  "title": "Comments",
+  "description": "A comment thread with round avatars, relative times and @mentions, long threads folded to the latest five, your own comments edited in place or deleted from a menu, and a box that suggests people as you type @.",
+  "category": "Kanban",
+  "files": [
+    "blocks/kanban/comments.tsx"
+  ],
+  "examples": [
+    "kanban-comments-demo",
+    "kanban-comments-mention"
+  ]
+}

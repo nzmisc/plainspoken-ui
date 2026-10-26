@@ -1,0 +1,17 @@
+{
+  "name": "diff",
+  "type": "registry:ui",
+  "title": "Diff",
+  "description": "What changed between two texts, inline or side by side, by characters, words or lines: insertions underlined and deletions struck through, said in words to screen readers; with lib/diff's Myers diff, three-way merge, caret mapping and Markdown block merge, no dependencies.",
+  "category": "Data display",
+  "files": [
+    "ui/diff.tsx",
+    "lib/diff.ts"
+  ],
+  "examples": [
+    "diff-demo",
+    "diff-split",
+    "diff-granularity",
+    "diff-merge"
+  ]
+}

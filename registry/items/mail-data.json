@@ -1,0 +1,12 @@
+{
+  "name": "mail-data",
+  "type": "registry:block",
+  "title": "Mail data",
+  "description": "The demo mailbox (folders, labels, contacts and about 35 conversations) with the helpers that format dates, names and sizes for the mail blocks.",
+  "category": "Mail",
+  "files": [
+    "blocks/mail/data.ts",
+    "blocks/mail/format.ts"
+  ],
+  "hidden": true
+}

@@ -1,0 +1,13 @@
+{
+  "name": "music-queue",
+  "type": "registry:block",
+  "title": "Queue",
+  "description": "What plays now and next: the current track, songs added to the queue (removable), and the rest of the album or playlist. In a drawer, or a sheet on phones.",
+  "category": "Music",
+  "files": [
+    "blocks/music/queue.tsx"
+  ],
+  "examples": [
+    "music-queue-demo"
+  ]
+}

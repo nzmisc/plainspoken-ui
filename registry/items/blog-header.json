@@ -1,0 +1,9 @@
+{
+  "name": "blog-header",
+  "type": "registry:block",
+  "title": "Blog header",
+  "description": "A personal site's top bar: the author's name, Home, Writing and About with the current section in bold (posts and tag pages count as Writing), and the RSS feed.",
+  "category": "Blog",
+  "files": ["blocks/blog/header.tsx"],
+  "examples": ["blog-header-demo"]
+}

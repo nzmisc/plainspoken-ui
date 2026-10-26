@@ -1,0 +1,15 @@
+{
+  "name": "mail-thread",
+  "type": "registry:block",
+  "title": "Reading pane",
+  "description": "A conversation: toolbar, subject and labels, earlier messages folded, quoted text behind a button, attachments, a contact card on hover, and the reply box in place.",
+  "category": "Mail",
+  "files": [
+    "blocks/mail/thread.tsx"
+  ],
+  "examples": [
+    "mail-thread-demo",
+    "mail-thread-reply",
+    "mail-thread-spam"
+  ]
+}

@@ -1,0 +1,9 @@
+{
+  "name": "empty-state",
+  "type": "registry:ui",
+  "title": "Empty state",
+  "description": "What to show where there is nothing yet: a muted symbol, a short title, a sentence, and the next step.",
+  "category": "Feedback",
+  "files": ["ui/empty-state.tsx"],
+  "examples": ["empty-state-demo", "empty-state-search"]
+}

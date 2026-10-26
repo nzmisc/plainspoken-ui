@@ -1,0 +1,9 @@
+{
+  "name": "status",
+  "type": "registry:ui",
+  "title": "Status",
+  "description": "A state as coloured words with a symbol, quieter than a badge, for lists and table cells; plus a one-line error box.",
+  "category": "Feedback",
+  "files": ["ui/status.tsx"],
+  "examples": ["status-demo", "status-error-line"]
+}

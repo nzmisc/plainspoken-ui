@@ -1,0 +1,11 @@
+{
+  "name": "erd-data",
+  "type": "registry:block",
+  "title": "ERD data",
+  "description": "The demo database, harbour_goods: an invented online shop with 28 tables in four schemas, 39 foreign keys, defaults, indexes and comments.",
+  "category": "ERD",
+  "files": [
+    "blocks/erd/data.ts"
+  ],
+  "hidden": true
+}

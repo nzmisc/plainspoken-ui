@@ -1,0 +1,14 @@
+{
+  "name": "erd-relation-lines",
+  "type": "registry:block",
+  "title": "Relationship lines",
+  "description": "Foreign keys as SVG lines from column row to column row, routed round tables at right angles or as curves, with crow's foot marks or 1 and N labels, highlighting and click targets.",
+  "category": "ERD",
+  "files": [
+    "blocks/erd/relation-lines.tsx"
+  ],
+  "examples": [
+    "erd-relation-lines-demo",
+    "erd-relation-lines-labels"
+  ]
+}

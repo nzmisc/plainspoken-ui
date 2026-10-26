@@ -1,0 +1,13 @@
+{
+  "name": "chat-prompt-library",
+  "type": "registry:block",
+  "title": "Prompt library",
+  "description": "Saved prompts with /commands and {{blanks}}: the library dialog, the form that fills the blanks, and the slash menu above the message box.",
+  "category": "AI chat",
+  "files": [
+    "blocks/chat/prompt-library.tsx"
+  ],
+  "examples": [
+    "chat-prompt-library-demo"
+  ]
+}

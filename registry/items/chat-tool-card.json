@@ -1,0 +1,13 @@
+{
+  "name": "chat-tool-card",
+  "type": "registry:block",
+  "title": "Tool card",
+  "description": "A tool call in an answer: what it is, whether it is being prepared, running, done or failed, a result drawn properly when there is one, and Details with what went in and what came back.",
+  "category": "AI chat",
+  "files": [
+    "blocks/chat/tool-card.tsx"
+  ],
+  "examples": [
+    "chat-tool-card-demo"
+  ]
+}

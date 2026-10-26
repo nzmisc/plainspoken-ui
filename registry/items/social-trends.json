@@ -1,0 +1,13 @@
+{
+  "name": "social-trends",
+  "type": "registry:block",
+  "title": "Trends",
+  "description": "What's trending: category, topic linked to a search, and post counts, with a menu to hide each; as a numbered list or a side panel.",
+  "category": "Social",
+  "files": [
+    "blocks/social/trends.tsx"
+  ],
+  "examples": [
+    "social-trends-demo"
+  ]
+}

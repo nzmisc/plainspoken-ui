@@ -1,0 +1,9 @@
+{
+  "name": "landing-product-shot",
+  "type": "registry:block",
+  "title": "Product screenshot",
+  "description": "A product screenshot made of the library's own components (navbar, stats, line chart, table with sparklines), inert and described in one sentence.",
+  "category": "Landing page",
+  "files": ["blocks/landing/product-shot.tsx"],
+  "examples": ["landing-product-shot-demo"]
+}

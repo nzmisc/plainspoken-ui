@@ -1,0 +1,13 @@
+{
+  "name": "music-player-bar",
+  "type": "registry:block",
+  "title": "Player bar",
+  "description": "The bar along the bottom of the music app: now playing with like, transport and seek, queue, big player and volume; a mini player with a progress line on phones.",
+  "category": "Music",
+  "files": [
+    "blocks/music/player-bar.tsx"
+  ],
+  "examples": [
+    "music-player-bar-demo"
+  ]
+}

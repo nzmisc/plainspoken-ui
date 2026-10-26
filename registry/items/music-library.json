@@ -1,0 +1,14 @@
+{
+  "name": "music-library",
+  "type": "registry:block",
+  "title": "Your Library",
+  "description": "Saved playlists, albums and artists with filter chips, four sort orders, and a list or grid view.",
+  "category": "Music",
+  "files": [
+    "blocks/music/library.tsx"
+  ],
+  "examples": [
+    "music-library-demo",
+    "music-library-grid"
+  ]
+}

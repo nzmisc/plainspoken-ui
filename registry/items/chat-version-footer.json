@@ -1,0 +1,13 @@
+{
+  "name": "chat-version-footer",
+  "type": "registry:block",
+  "title": "Version footer",
+  "description": "Under a document: which version is shown, the one before and after, Show changes, Restore and Back to latest.",
+  "category": "AI chat",
+  "files": [
+    "blocks/chat/version-footer.tsx"
+  ],
+  "examples": [
+    "chat-version-footer-demo"
+  ]
+}

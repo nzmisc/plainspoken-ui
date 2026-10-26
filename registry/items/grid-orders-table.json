@@ -1,0 +1,9 @@
+{
+  "name": "grid-orders-table",
+  "type": "registry:block",
+  "title": "Orders table",
+  "description": "Three thousand orders in a DataTable with everything on: Excel-style column filters, multi-column sort, resizable columns, totals, selection, and export to the clipboard, Excel and CSV.",
+  "category": "Data grid",
+  "files": ["blocks/grid/orders-table.tsx"],
+  "examples": ["grid-orders-table-demo", "grid-orders-table-filtered"]
+}

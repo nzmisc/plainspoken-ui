@@ -1,0 +1,13 @@
+{
+  "name": "milkdown-page-tree",
+  "type": "registry:block",
+  "title": "Page tree",
+  "description": "The notebook's pages as Sidebar sections, by part and folder with an icon for each kind of page, with New page from templates and a search that turns the tree into a list of matches with counts.",
+  "category": "Editor (Milkdown)",
+  "files": [
+    "blocks/milkdown/page-tree.tsx"
+  ],
+  "examples": [
+    "milkdown-page-tree-demo"
+  ]
+}

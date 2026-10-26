@@ -1,0 +1,9 @@
+{
+  "name": "alert",
+  "type": "registry:ui",
+  "title": "Alert",
+  "description": "A message box in the page flow with the state in a symbol and words as well as colour, optional actions and a dismiss button.",
+  "category": "Feedback",
+  "files": ["ui/alert.tsx"],
+  "examples": ["alert-demo", "alert-actions"]
+}

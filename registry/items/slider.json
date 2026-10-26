@@ -1,0 +1,9 @@
+{
+  "name": "slider",
+  "type": "registry:ui",
+  "title": "Slider",
+  "description": "A native range input redrawn thin, with a formatted value for screen readers, marks, and a control-height box that lines up with buttons.",
+  "category": "Forms",
+  "files": ["ui/slider.tsx"],
+  "examples": ["slider-demo", "slider-player"]
+}

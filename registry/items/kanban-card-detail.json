@@ -1,0 +1,13 @@
+{
+  "name": "kanban-card-detail",
+  "type": "registry:block",
+  "title": "Card dialog",
+  "description": "Everything on a card in a dialog (a full-height drawer on phones): status, priority, due date, assignees by name, participants as a facepile whose “+N” lists everyone, labels, description, checklist, attachments, and comments and activity in tabs, every change recorded.",
+  "category": "Kanban",
+  "files": [
+    "blocks/kanban/card-detail.tsx"
+  ],
+  "examples": [
+    "kanban-card-detail-demo"
+  ]
+}

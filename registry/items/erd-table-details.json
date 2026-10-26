@@ -1,0 +1,13 @@
+{
+  "name": "erd-table-details",
+  "type": "registry:block",
+  "title": "Table details",
+  "description": "One table in full: name, schema and comment, its columns in a table with a menu each, its indexes, and the relations it makes and receives; editable.",
+  "category": "ERD",
+  "files": [
+    "blocks/erd/table-details.tsx"
+  ],
+  "examples": [
+    "erd-table-details-demo"
+  ]
+}

@@ -1,0 +1,13 @@
+{
+  "name": "app-due-projects",
+  "type": "registry:block",
+  "title": "Due next",
+  "description": "The open projects due soonest, with progress bars and the near ones in amber.",
+  "category": "App skeleton",
+  "files": [
+    "blocks/app/due-projects.tsx"
+  ],
+  "examples": [
+    "app-due-projects-demo"
+  ]
+}

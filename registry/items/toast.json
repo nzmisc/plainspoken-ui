@@ -1,0 +1,9 @@
+{
+  "name": "toast",
+  "type": "registry:ui",
+  "title": "Toast",
+  "description": "Short-lived notifications from a toast() call anywhere, with an action such as Undo, timers that pause while you read, and a keyboard shortcut to reach them.",
+  "category": "Feedback",
+  "files": ["ui/toast.tsx"],
+  "examples": ["toast-demo"]
+}

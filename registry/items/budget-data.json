@@ -1,0 +1,11 @@
+{
+  "name": "budget-data",
+  "type": "registry:block",
+  "title": "Budget data",
+  "description": "The demo budget (a design team's 2027 line items with last year's spend) and the sums the budget blocks show: per line, per month and per category.",
+  "category": "Budget",
+  "files": [
+    "blocks/budget/data.ts"
+  ],
+  "hidden": true
+}

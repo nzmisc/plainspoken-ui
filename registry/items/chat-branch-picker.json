@@ -1,0 +1,13 @@
+{
+  "name": "chat-branch-picker",
+  "type": "registry:block",
+  "title": "Branch picker",
+  "description": "‹ 2/3 ›: which version of a message is shown, after edits, regenerated answers and comparisons, with the one before and after.",
+  "category": "AI chat",
+  "files": [
+    "blocks/chat/branch-picker.tsx"
+  ],
+  "examples": [
+    "chat-branch-picker-demo"
+  ]
+}

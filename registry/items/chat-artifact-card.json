@@ -1,0 +1,13 @@
+{
+  "name": "chat-artifact-card",
+  "type": "registry:block",
+  "title": "Artifact card",
+  "description": "A document tool call in the conversation: the document it made, with a preview and Open (or Watch while it is written), or one line for each change, suggestion or failure.",
+  "category": "AI chat",
+  "files": [
+    "blocks/chat/artifact-card.tsx"
+  ],
+  "examples": [
+    "chat-artifact-card-demo"
+  ]
+}

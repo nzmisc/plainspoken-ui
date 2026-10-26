@@ -1,0 +1,13 @@
+{
+  "name": "social-thread",
+  "type": "registry:block",
+  "title": "Thread",
+  "description": "A post's page: the conversation above it joined by a line, the post at full size with its counts, a reply box, and the replies with their first answers.",
+  "category": "Social",
+  "files": [
+    "blocks/social/thread.tsx"
+  ],
+  "examples": [
+    "social-thread-demo"
+  ]
+}

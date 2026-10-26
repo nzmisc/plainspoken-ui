@@ -1,0 +1,9 @@
+{
+  "name": "blog-intro",
+  "type": "registry:block",
+  "title": "Blog intro",
+  "description": "The top of a personal home page: a greeting as the h1, a paragraph or two, a portrait and a row of contact buttons.",
+  "category": "Blog",
+  "files": ["blocks/blog/intro.tsx"],
+  "examples": ["blog-intro-demo"]
+}

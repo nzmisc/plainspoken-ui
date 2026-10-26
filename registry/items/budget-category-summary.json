@@ -1,0 +1,13 @@
+{
+  "name": "budget-category-summary",
+  "type": "registry:block",
+  "title": "Category summary",
+  "description": "The budget per category against last year, with the change in euros and per cent and each category's months as a sparkline.",
+  "category": "Budget",
+  "files": [
+    "blocks/budget/category-summary.tsx"
+  ],
+  "examples": [
+    "budget-category-summary-demo"
+  ]
+}

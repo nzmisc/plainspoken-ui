@@ -1,0 +1,9 @@
+{
+  "name": "agenda",
+  "type": "registry:ui",
+  "title": "Agenda",
+  "description": "Events as a plain table grouped by day, the list view to go with a month calendar, plus the dots and labels that show the same events inside calendar days.",
+  "category": "Data display",
+  "files": ["ui/agenda.tsx"],
+  "examples": ["agenda-demo", "agenda-with-calendar"]
+}

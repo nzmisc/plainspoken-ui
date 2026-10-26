@@ -1,0 +1,13 @@
+{
+  "name": "app-workspace-settings",
+  "type": "registry:block",
+  "title": "Workspace settings",
+  "description": "Workspace name, address, logo, currency and numbering, then a danger zone whose delete asks you to type the name.",
+  "category": "App skeleton",
+  "files": [
+    "blocks/app/workspace-settings.tsx"
+  ],
+  "examples": [
+    "app-workspace-settings-demo"
+  ]
+}

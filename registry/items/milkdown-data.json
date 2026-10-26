@@ -1,0 +1,12 @@
+{
+  "name": "milkdown-data",
+  "type": "registry:block",
+  "title": "Notebook data",
+  "description": "Pennant's engineering notebook (eleven pages of RFCs, runbooks, incident reviews, on-call notes and a capacity plan, with people, templates and a pretend upload) and the helpers for outlines, word counts, search and labels.",
+  "category": "Editor (Milkdown)",
+  "files": [
+    "blocks/milkdown/data.ts",
+    "blocks/milkdown/format.ts"
+  ],
+  "hidden": true
+}

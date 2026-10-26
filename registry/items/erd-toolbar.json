@@ -1,0 +1,13 @@
+{
+  "name": "erd-toolbar",
+  "type": "registry:block",
+  "title": "Toolbar",
+  "description": "The ERD's tools in one row: undo and redo named after what they'd do, add table, pan or select, snap, Layout and View menus, Import and Export.",
+  "category": "ERD",
+  "files": [
+    "blocks/erd/toolbar.tsx"
+  ],
+  "examples": [
+    "erd-toolbar-demo"
+  ]
+}

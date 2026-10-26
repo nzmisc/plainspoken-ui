@@ -1,0 +1,20 @@
+{
+  "name": "chat-markdown",
+  "type": "registry:block",
+  "title": "Markdown",
+  "description": "Markdown from a model, drawn as it streams in: Streamdown restyled through its component map, with Prose type, the library's tables and links, highlighted code with Copy, KaTeX math and Mermaid diagrams in the theme's colours.",
+  "category": "AI chat",
+  "files": [
+    "blocks/chat/markdown.tsx",
+    "blocks/chat/math.ts",
+    "blocks/chat/mermaid.tsx",
+    "blocks/chat/block-bar.tsx",
+    "blocks/chat/highlight.ts"
+  ],
+  "examples": [
+    "chat-markdown-demo",
+    "chat-markdown-math",
+    "chat-markdown-diagram",
+    "chat-markdown-streaming"
+  ]
+}

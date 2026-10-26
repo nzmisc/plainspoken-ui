@@ -1,0 +1,9 @@
+{
+  "name": "editor-document-header",
+  "type": "registry:block",
+  "title": "Document header",
+  "description": "The top of a page being edited: its part of the handbook, the title as an input drawn like a heading, Publish or Unpublish, a menu, and a line with status, words, reading time and the last save.",
+  "category": "Editor",
+  "files": ["blocks/editor/document-header.tsx"],
+  "examples": ["editor-document-header-demo"]
+}

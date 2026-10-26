@@ -1,0 +1,9 @@
+{
+  "name": "textarea",
+  "type": "registry:ui",
+  "title": "Textarea",
+  "description": "Multi-line text that resizes vertically, with an optional character count.",
+  "category": "Forms",
+  "files": ["ui/textarea.tsx"],
+  "examples": ["textarea-demo"]
+}

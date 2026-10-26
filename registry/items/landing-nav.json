@@ -1,0 +1,9 @@
+{
+  "name": "landing-nav",
+  "type": "registry:block",
+  "title": "Landing nav",
+  "description": "A marketing site's sticky top bar: product name, links to sections and pages, and the sign-up button; a Menu panel on phones.",
+  "category": "Landing page",
+  "files": ["blocks/landing/nav.tsx"],
+  "examples": ["landing-nav-demo"]
+}

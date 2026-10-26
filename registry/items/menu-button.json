@@ -1,0 +1,9 @@
+{
+  "name": "menu-button",
+  "type": "registry:ui",
+  "title": "Menu button",
+  "description": "A button that opens a small panel of controls (filters, column choices, view settings) in a native popover that a scroll box can't clip.",
+  "category": "Controls",
+  "files": ["ui/menu-button.tsx"],
+  "examples": ["menu-button-demo", "menu-button-view-options"]
+}

@@ -1,0 +1,14 @@
+{
+  "name": "mail-search",
+  "type": "registry:block",
+  "title": "Mail search",
+  "description": "A search box with a / hint and filter chips under it: Unread, Has attachment, and From picked from a menu, shown as a removable chip.",
+  "category": "Mail",
+  "files": [
+    "blocks/mail/search.tsx"
+  ],
+  "examples": [
+    "mail-search-demo",
+    "mail-search-filtered"
+  ]
+}

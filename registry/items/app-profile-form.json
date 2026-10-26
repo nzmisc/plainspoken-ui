@@ -1,0 +1,13 @@
+{
+  "name": "app-profile-form",
+  "type": "registry:block",
+  "title": "Profile form",
+  "description": "Your own settings: photo upload, name, email, job, time zone combobox, language and date style.",
+  "category": "App skeleton",
+  "files": [
+    "blocks/app/profile-form.tsx"
+  ],
+  "examples": [
+    "app-profile-form-demo"
+  ]
+}

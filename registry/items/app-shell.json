@@ -1,0 +1,9 @@
+{
+  "name": "app-shell",
+  "type": "registry:ui",
+  "title": "App shell",
+  "description": "The frame of an app: navbar on top, a sidebar that hides or narrows to a rail (remembered), a drawer on phones, and a page that scrolls on its own.",
+  "category": "Layout",
+  "files": ["ui/app-shell.tsx"],
+  "examples": ["app-shell-demo", "app-shell-panes"]
+}

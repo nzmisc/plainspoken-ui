@@ -1,0 +1,9 @@
+{
+  "name": "landing-section",
+  "type": "registry:block",
+  "title": "Section",
+  "description": "A band of a marketing page (eyebrow, h2, lead, content) in plain or gray, plus the h1 header of an inner page and a list of checked claims.",
+  "category": "Landing page",
+  "files": ["blocks/landing/section.tsx"],
+  "examples": ["landing-section-demo", "landing-section-page-header"]
+}

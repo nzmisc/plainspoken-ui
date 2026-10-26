@@ -1,0 +1,13 @@
+{
+  "name": "library-branch-card",
+  "type": "registry:block",
+  "title": "Branch card",
+  "description": "One branch: address, phone, open or closed today, the week's hours with today marked, and its services.",
+  "category": "Library",
+  "files": [
+    "blocks/library/branch-card.tsx"
+  ],
+  "examples": [
+    "library-branch-card-demo"
+  ]
+}

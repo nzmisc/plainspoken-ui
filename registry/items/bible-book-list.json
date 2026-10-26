@@ -1,0 +1,13 @@
+{
+  "name": "bible-book-list",
+  "type": "registry:block",
+  "title": "Bible book list",
+  "description": "A Bible's table of contents: both testaments side by side, each book under its section with its number of chapters.",
+  "category": "Bible",
+  "files": [
+    "blocks/bible/book-list.tsx"
+  ],
+  "examples": [
+    "bible-book-list-demo"
+  ]
+}

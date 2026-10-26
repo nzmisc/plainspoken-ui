@@ -1,0 +1,9 @@
+{
+  "name": "panel",
+  "type": "registry:ui",
+  "title": "Panel",
+  "description": "A titled, bordered box with a gray title bar for meta text and small controls, the basic unit of a dashboard; panels side by side line up.",
+  "category": "Layout",
+  "files": ["ui/panel.tsx"],
+  "examples": ["panel-demo", "panel-flush"]
+}

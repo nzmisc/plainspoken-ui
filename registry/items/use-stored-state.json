@@ -1,0 +1,9 @@
+{
+  "name": "use-stored-state",
+  "type": "registry:hook",
+  "title": "useStoredState",
+  "description": "useState remembered in localStorage, hydration-safe and kept in step across components and tabs.",
+  "category": "Layout",
+  "files": ["hooks/use-stored-state.ts"],
+  "hidden": true
+}

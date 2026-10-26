@@ -1,0 +1,14 @@
+{
+  "name": "conflicts-playground",
+  "type": "registry:block",
+  "title": "Conflict playground",
+  "description": "The frame each prototype sits in: the approach's name, fit and trade-offs, Simulate buttons for the scenarios, your screen and Jonas's side by side, a log of saves, refusals and merges; with the synced text box the text box prototypes share.",
+  "category": "Edit conflicts",
+  "files": [
+    "blocks/conflicts/playground.tsx",
+    "blocks/conflicts/synced-field.tsx"
+  ],
+  "examples": [
+    "conflicts-playground-demo"
+  ]
+}

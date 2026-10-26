@@ -1,0 +1,13 @@
+{
+  "name": "app-invoice-tabs",
+  "type": "registry:block",
+  "title": "Invoice tabs",
+  "description": "Invoices in tabs by state, each with its count and totals, and page links under the table.",
+  "category": "App skeleton",
+  "files": [
+    "blocks/app/invoice-tabs.tsx"
+  ],
+  "examples": [
+    "app-invoice-tabs-demo"
+  ]
+}

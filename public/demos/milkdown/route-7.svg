@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="640" height="320" viewBox="0 0 640 320" font-family="Geist, system-ui, sans-serif" font-size="13">
+  <rect width="640" height="320" fill="#eef1ec"/>
+  <path d="M0 236 C 110 214, 190 268, 320 246 S 520 196, 640 222 L640 320 L0 320 Z" fill="#c9dbe6"/>
+  <g stroke="#ffffff" stroke-width="12" fill="none" stroke-linecap="round">
+    <path d="M30 70 L610 52"/>
+    <path d="M40 160 L620 142"/>
+    <path d="M150 0 L176 320"/>
+    <path d="M330 0 L344 236"/>
+    <path d="M500 0 L520 320"/>
+  </g>
+  <path d="M84 98 L166 96 L174 158 L338 150 L344 92 L508 82 L514 148 L580 146" fill="none" stroke="#1f5fa8" stroke-width="7" stroke-linejoin="round" stroke-linecap="round"/>
+  <g fill="#ffffff" stroke="#1f5fa8" stroke-width="3">
+    <circle cx="84" cy="98" r="7"/>
+    <circle cx="170" cy="128" r="5"/>
+    <circle cx="256" cy="154" r="5"/>
+    <circle cx="341" cy="121" r="5"/>
+    <circle cx="426" cy="87" r="5"/>
+    <circle cx="511" cy="115" r="5"/>
+    <circle cx="580" cy="146" r="7"/>
+  </g>
+  <rect x="66" y="80" width="36" height="36" fill="none" stroke="#1f5fa8" stroke-width="2" stroke-dasharray="4 3"/>
+  <g fill="#23303b">
+    <text x="60" y="134" font-weight="700">Millbrook depot</text>
+    <text x="226" y="176">Station Road</text>
+    <text x="396" y="70">Market Hall</text>
+    <text x="520" y="174" font-weight="700">Ashford Cross</text>
+  </g>
+  <g transform="translate(24 280)">
+    <rect width="214" height="28" fill="#ffffff" stroke="#c4cbc3"/>
+    <path d="M10 14 L46 14" stroke="#1f5fa8" stroke-width="7" stroke-linecap="round"/>
+    <text x="56" y="18" fill="#23303b">Route 7, 14 stops, 38 min</text>
+  </g>
+</svg>

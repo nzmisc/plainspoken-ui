@@ -1,0 +1,9 @@
+{
+  "name": "chart-data-table",
+  "type": "registry:ui",
+  "title": "Chart data table",
+  "description": "The numbers behind a chart as a plain table, hidden for screen readers or under a Data disclosure, so no value is only in a picture.",
+  "category": "Charts",
+  "files": ["ui/chart-data-table.tsx"],
+  "hidden": true
+}

@@ -1,0 +1,13 @@
+{
+  "name": "bible-header",
+  "type": "registry:block",
+  "title": "Bible header",
+  "description": "The reader's top bar: name, links to the books and search with the current one marked, and a search box that folds into the menu on phones.",
+  "category": "Bible",
+  "files": [
+    "blocks/bible/header.tsx"
+  ],
+  "examples": [
+    "bible-header-demo"
+  ]
+}

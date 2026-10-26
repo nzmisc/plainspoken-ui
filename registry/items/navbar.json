@@ -1,0 +1,9 @@
+{
+  "name": "navbar",
+  "type": "registry:ui",
+  "title": "Navbar",
+  "description": "The bar across the top of a site or app: brand, main links in the text colour with the current one bold, actions, and a Menu panel on phones. Works with any router.",
+  "category": "Navigation",
+  "files": ["ui/navbar.tsx"],
+  "examples": ["navbar-demo", "navbar-router"]
+}

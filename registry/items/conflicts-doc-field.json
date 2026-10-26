@@ -1,0 +1,13 @@
+{
+  "name": "conflicts-doc-field",
+  "type": "registry:block",
+  "title": "Synced editor",
+  "description": "The rich text editor bound to a simulated collaborator from the outside: your caret kept on your words when text arrives, other people's carets, selections and “is editing” marks over it, plus the block views the document prototypes share.",
+  "category": "Edit conflicts",
+  "files": [
+    "blocks/conflicts/doc-field.tsx"
+  ],
+  "examples": [
+    "conflicts-doc-field-demo"
+  ]
+}

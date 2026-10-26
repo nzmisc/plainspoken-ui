@@ -1,0 +1,9 @@
+{
+  "name": "blog-post-list",
+  "type": "registry:block",
+  "title": "Post list",
+  "description": "Posts newest first with date, title link, summary, reading time and tags; or the whole archive grouped under a heading per year.",
+  "category": "Blog",
+  "files": ["blocks/blog/post-list.tsx"],
+  "examples": ["blog-post-list-demo", "blog-post-list-archive"]
+}

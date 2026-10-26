@@ -1,0 +1,11 @@
+{
+  "name": "music-data",
+  "type": "registry:block",
+  "title": "Music data",
+  "description": "The Music demo's catalogue: twelve invented artists, 25 releases, about 200 tracks, a dozen playlists and the listener's library, with seeded randomness and the formatting helpers (times, counts, dates) the music blocks share.",
+  "category": "Music",
+  "files": [
+    "blocks/music/data.ts"
+  ],
+  "hidden": true
+}

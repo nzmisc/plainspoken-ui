@@ -1,0 +1,9 @@
+{
+  "name": "tabs",
+  "type": "registry:ui",
+  "title": "Tabs",
+  "description": "Tabs per the ARIA pattern, boxed or plain, with counts, disabled tabs, a strip that scrolls sideways, and a bold selected label that shifts nothing.",
+  "category": "Navigation",
+  "files": ["ui/tabs.tsx"],
+  "examples": ["tabs-demo", "tabs-plain"]
+}

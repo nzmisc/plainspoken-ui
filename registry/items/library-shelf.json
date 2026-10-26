@@ -1,0 +1,13 @@
+{
+  "name": "library-shelf",
+  "type": "registry:block",
+  "title": "Library shelf",
+  "description": "A sideways-scrolling row of covers with titles and authors, for new arrivals and similar titles.",
+  "category": "Library",
+  "files": [
+    "blocks/library/shelf.tsx"
+  ],
+  "examples": [
+    "library-shelf-demo"
+  ]
+}

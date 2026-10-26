@@ -1,0 +1,9 @@
+{
+  "name": "badge",
+  "type": "registry:ui",
+  "title": "Badge",
+  "description": "A small boxed label for a state or a category, outlined or solid, with a symbol on the coloured variants so colour is never the only signal.",
+  "category": "Feedback",
+  "files": ["ui/badge.tsx"],
+  "examples": ["badge-demo", "badge-solid"]
+}

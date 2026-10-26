@@ -1,0 +1,9 @@
+{
+  "name": "landing-visuals",
+  "type": "registry:block",
+  "title": "Product pictures",
+  "description": "Small pictures of the product built from components: an incident timeline, a public status page with 90 days of history, and a cron heartbeat table.",
+  "category": "Landing page",
+  "files": ["blocks/landing/visuals.tsx"],
+  "examples": ["landing-visuals-demo"]
+}

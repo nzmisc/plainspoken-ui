@@ -1,0 +1,9 @@
+{
+  "name": "description-list",
+  "type": "registry:ui",
+  "title": "Description list",
+  "description": "Term and description pairs in a real <dl>, side by side or stacked, optionally ruled off.",
+  "category": "Data display",
+  "files": ["ui/description-list.tsx"],
+  "examples": ["description-list-demo", "description-list-stacked"]
+}

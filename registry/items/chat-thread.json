@@ -1,0 +1,15 @@
+{
+  "name": "chat-thread",
+  "type": "registry:block",
+  "title": "Thread",
+  "description": "A conversation that scrolls on its own: it follows a streaming answer until you scroll up, then offers Jump to latest; prompts when empty, failures with Retry, and status in a live region.",
+  "category": "AI chat",
+  "files": [
+    "blocks/chat/thread.tsx"
+  ],
+  "examples": [
+    "chat-thread-demo",
+    "chat-thread-empty",
+    "chat-thread-error"
+  ]
+}

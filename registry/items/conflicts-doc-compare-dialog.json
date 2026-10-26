@@ -1,0 +1,13 @@
+{
+  "name": "conflicts-doc-compare-dialog",
+  "type": "registry:block",
+  "title": "Document: compare dialog",
+  "description": "When a document's save is refused: a full-screen dialog with the base, their version and yours side by side for each changed block, a choice per block (preset where only one changed it), and the result rendered underneath.",
+  "category": "Edit conflicts",
+  "files": [
+    "blocks/conflicts/doc-compare-dialog.tsx"
+  ],
+  "examples": [
+    "conflicts-doc-compare-dialog-demo"
+  ]
+}

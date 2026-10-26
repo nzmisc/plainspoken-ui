@@ -1,0 +1,13 @@
+{
+  "name": "music-now-playing",
+  "type": "registry:block",
+  "title": "Now playing",
+  "description": "The big player: a large cover, title and artists, like, a big seek bar, touch-size transport and volume. A full-screen dialog on phones.",
+  "category": "Music",
+  "files": [
+    "blocks/music/now-playing.tsx"
+  ],
+  "examples": [
+    "music-now-playing-demo"
+  ]
+}

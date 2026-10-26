@@ -1,0 +1,13 @@
+{
+  "name": "conflicts-doc-live-presence",
+  "type": "registry:block",
+  "title": "Document: live presence",
+  "description": "The rich text editor with everyone's carets and selections in their colours with names, “is editing” marks beside paragraphs, and changes flowing in a few times a second while your caret stays put.",
+  "category": "Edit conflicts",
+  "files": [
+    "blocks/conflicts/doc-live-presence.tsx"
+  ],
+  "examples": [
+    "conflicts-doc-live-presence-demo"
+  ]
+}

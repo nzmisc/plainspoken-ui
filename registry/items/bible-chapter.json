@@ -1,0 +1,14 @@
+{
+  "name": "bible-chapter",
+  "type": "registry:block",
+  "title": "Bible chapter",
+  "description": "One chapter set for reading: raised verse numbers that link to each verse, paragraphs or a verse per line, italics for supplied words, psalm titles, all following the reader settings without a flash.",
+  "category": "Bible",
+  "files": [
+    "blocks/bible/chapter.tsx"
+  ],
+  "examples": [
+    "bible-chapter-demo",
+    "bible-chapter-psalm"
+  ]
+}

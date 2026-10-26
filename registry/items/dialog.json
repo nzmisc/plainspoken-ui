@@ -1,0 +1,9 @@
+{
+  "name": "dialog",
+  "type": "registry:ui",
+  "title": "Dialog",
+  "description": "A modal on the native <dialog>: title bar, a body that scrolls on its own, a footer of buttons that stays put. Focus trap, Escape, backdrop click, scroll lock, stacking and a busy state that can't be closed; full screen on phones.",
+  "category": "Overlays",
+  "files": ["ui/dialog.tsx"],
+  "examples": ["dialog-demo", "dialog-form", "dialog-scrolling"]
+}

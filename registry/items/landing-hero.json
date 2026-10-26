@@ -1,0 +1,9 @@
+{
+  "name": "landing-hero",
+  "type": "registry:block",
+  "title": "Hero",
+  "description": "The opening of a marketing page: a news badge, the headline as h1, two sentences, two large calls to action, small print, and the product underneath.",
+  "category": "Landing page",
+  "files": ["blocks/landing/hero.tsx"],
+  "examples": ["landing-hero-demo"]
+}

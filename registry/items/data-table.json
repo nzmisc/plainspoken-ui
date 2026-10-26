@@ -1,0 +1,21 @@
+{
+  "name": "data-table",
+  "type": "registry:ui",
+  "title": "Data table",
+  "description": "A table for up to thousands of rows: Excel-style column filters (values with counts, or conditions), sorting by several columns, columns to show, hide, reorder and resize, selection, totals, windowed rendering, and export to the clipboard, Excel and CSV, each of which can be switched off.",
+  "category": "Data display",
+  "files": [
+    "ui/data-table.tsx",
+    "ui/data-table-filter.tsx",
+    "lib/data-table.ts"
+  ],
+  "examples": [
+    "data-table-demo",
+    "data-table-filters",
+    "data-table-resizing",
+    "data-table-export",
+    "data-table-windowed",
+    "data-table-plain",
+    "data-table-bulk-actions"
+  ]
+}

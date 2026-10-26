@@ -1,0 +1,13 @@
+{
+  "name": "social-explore",
+  "type": "registry:block",
+  "title": "Explore",
+  "description": "A search box over trending topics, popular posts and people to follow, or, with ?q=, the matching posts and people.",
+  "category": "Social",
+  "files": [
+    "blocks/social/explore.tsx"
+  ],
+  "examples": [
+    "social-explore-demo"
+  ]
+}

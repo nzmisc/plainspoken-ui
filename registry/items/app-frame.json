@@ -1,0 +1,13 @@
+{
+  "name": "app-frame",
+  "type": "registry:block",
+  "title": "App frame",
+  "description": "The frame of a web app: an app shell with a workspace switcher, pages with counts, a ⌘K search button, notifications, the account menu, and a sidebar that becomes a rail or a drawer.",
+  "category": "App skeleton",
+  "files": [
+    "blocks/app/frame.tsx"
+  ],
+  "examples": [
+    "app-frame-demo"
+  ]
+}

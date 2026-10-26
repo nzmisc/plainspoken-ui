@@ -1,0 +1,9 @@
+{
+  "name": "segmented-control",
+  "type": "registry:ui",
+  "title": "Segmented control",
+  "description": "Two to five mutually exclusive views or modes side by side, exactly a button's height, with native radios underneath.",
+  "category": "Controls",
+  "files": ["ui/segmented-control.tsx"],
+  "examples": ["segmented-control-demo"]
+}

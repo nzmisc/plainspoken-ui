@@ -1,0 +1,13 @@
+{
+  "name": "budget-sheet",
+  "type": "registry:block",
+  "title": "Budget sheet",
+  "description": "The year's budget as an editable table: line items with category and owner, an amount per month, the worked-out total, last year and the change, approval and notes, with a totals row.",
+  "category": "Budget",
+  "files": [
+    "blocks/budget/budget-sheet.tsx"
+  ],
+  "examples": [
+    "budget-sheet-demo"
+  ]
+}

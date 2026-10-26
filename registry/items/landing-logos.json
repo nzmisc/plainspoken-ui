@@ -1,0 +1,9 @@
+{
+  "name": "landing-logos",
+  "type": "registry:block",
+  "title": "Customer names",
+  "description": "A strip of customer names set in type, in a few weights and cases, instead of logo images.",
+  "category": "Landing page",
+  "files": ["blocks/landing/logos.tsx"],
+  "examples": ["landing-logos-demo"]
+}

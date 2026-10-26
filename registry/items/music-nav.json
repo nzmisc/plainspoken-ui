@@ -1,0 +1,13 @@
+{
+  "name": "music-nav",
+  "type": "registry:block",
+  "title": "Music navigation",
+  "description": "The music app's sidebar (Home, Search, Your Library, Liked Songs and your playlists with covers, the playing one marked) and the phone's bottom tab bar.",
+  "category": "Music",
+  "files": [
+    "blocks/music/nav.tsx"
+  ],
+  "examples": [
+    "music-nav-demo"
+  ]
+}

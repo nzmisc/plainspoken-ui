@@ -1,0 +1,14 @@
+{
+  "name": "music-artist",
+  "type": "registry:block",
+  "title": "Artist sections",
+  "description": "An artist page's parts: popular tracks with play counts, the discography filtered with chips, and the About box.",
+  "category": "Music",
+  "files": [
+    "blocks/music/artist.tsx"
+  ],
+  "examples": [
+    "music-artist-demo",
+    "music-artist-discography"
+  ]
+}

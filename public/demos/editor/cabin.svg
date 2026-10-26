@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 280" width="640" height="280" role="img" aria-label="A wooden cabin by a lake, with pine trees and hills behind">
+<rect width="640" height="280" fill="#dfe8ec"/>
+<path d="M0 170 L120 90 L230 160 L340 70 L470 150 L560 100 L640 140 V280 H0Z" fill="#b9c8b4"/>
+<rect y="200" width="640" height="80" fill="#9fbfcc"/>
+<g fill="#4f7350"><path d="M60 200l25-70 25 70z"/><path d="M95 200l20-55 20 55z"/><path d="M520 200l25-75 25 75z"/><path d="M560 200l18-50 18 50z"/></g>
+<rect x="250" y="140" width="150" height="65" fill="#8a5a3c"/>
+<path d="M235 142l90-55 90 55z" fill="#5c3b28"/>
+<rect x="305" y="165" width="34" height="40" fill="#3a2a20"/>
+<g fill="#f3e3b5"><rect x="265" y="160" width="26" height="20"/><rect x="355" y="160" width="26" height="20"/></g>
+<path d="M200 230h260" stroke="#c9dde5" stroke-width="3"/>
+</svg>

@@ -1,0 +1,13 @@
+{
+  "name": "milkdown-notebook-app",
+  "type": "registry:block",
+  "title": "Notebook app",
+  "description": "An engineering team's notebook on the Milkdown editor: a page tree with search and templates, a page header, the editor, and an outline that follows the reading, with the open page in the address and the pages kept in the browser.",
+  "category": "Editor (Milkdown)",
+  "files": [
+    "blocks/milkdown/notebook-app.tsx"
+  ],
+  "examples": [
+    "milkdown-notebook-app-demo"
+  ]
+}

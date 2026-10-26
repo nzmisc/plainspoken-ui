@@ -1,0 +1,14 @@
+{
+  "name": "music-track-table",
+  "type": "registry:block",
+  "title": "Track table",
+  "description": "Tracks as a table with number, title and artists, album, date added, like, length and a menu (also on right-click). Hover to play, double-click or Enter to play from a row, arrow keys between rows.",
+  "category": "Music",
+  "files": [
+    "blocks/music/track-table.tsx"
+  ],
+  "examples": [
+    "music-track-table-demo",
+    "music-track-table-playlist"
+  ]
+}

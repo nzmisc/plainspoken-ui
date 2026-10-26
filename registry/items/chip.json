@@ -1,0 +1,9 @@
+{
+  "name": "chip",
+  "type": "registry:ui",
+  "title": "Chip",
+  "description": "A filter token at control height: a toggle, a removable value, or a plain label.",
+  "category": "Controls",
+  "files": ["ui/chip.tsx"],
+  "examples": ["chip-demo"]
+}

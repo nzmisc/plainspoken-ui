@@ -1,0 +1,14 @@
+{
+  "name": "chat-message",
+  "type": "registry:block",
+  "title": "Message",
+  "description": "One message: a question in a gray box on the right, or an answer in Markdown under its model's name, with reasoning, notes for stopped or cut-off answers, and Copy, Regenerate and Edit.",
+  "category": "AI chat",
+  "files": [
+    "blocks/chat/message.tsx"
+  ],
+  "examples": [
+    "chat-message-demo",
+    "chat-message-notes"
+  ]
+}

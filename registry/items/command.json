@@ -1,0 +1,9 @@
+{
+  "name": "command",
+  "type": "registry:ui",
+  "title": "Command",
+  "description": "A command palette: a search box over a filtered, grouped list of commands with icons and shortcuts, inline or in a modal opened with ⌘K or Ctrl+K. Keyboard as the ARIA combobox pattern says.",
+  "category": "Overlays",
+  "files": ["ui/command.tsx"],
+  "examples": ["command-demo", "command-inline", "command-async"]
+}

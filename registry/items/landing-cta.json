@@ -1,0 +1,9 @@
+{
+  "name": "landing-cta",
+  "type": "registry:block",
+  "title": "Call to action",
+  "description": "The closing band of a marketing page: heading, sentence and an email signup (Field, Input, Button), with error and success states.",
+  "category": "Landing page",
+  "files": ["blocks/landing/cta.tsx"],
+  "examples": ["landing-cta-demo", "landing-cta-states"]
+}

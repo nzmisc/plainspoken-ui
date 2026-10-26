@@ -1,0 +1,13 @@
+{
+  "name": "kanban-activity",
+  "type": "registry:block",
+  "title": "Activity",
+  "description": "What happened to a card, newest first, as sentences: moved from To do to In progress, attached a file, ticked off an item, with who and how long ago.",
+  "category": "Kanban",
+  "files": [
+    "blocks/kanban/activity.tsx"
+  ],
+  "examples": [
+    "kanban-activity-demo"
+  ]
+}

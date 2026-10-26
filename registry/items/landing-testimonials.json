@@ -1,0 +1,9 @@
+{
+  "name": "landing-testimonials",
+  "type": "registry:block",
+  "title": "Testimonials",
+  "description": "Customer quotes in cards, each a figure with a blockquote and an attribution with an avatar.",
+  "category": "Landing page",
+  "files": ["blocks/landing/testimonials.tsx"],
+  "examples": ["landing-testimonials-demo"]
+}

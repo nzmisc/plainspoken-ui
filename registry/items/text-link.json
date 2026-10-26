@@ -1,0 +1,9 @@
+{
+  "name": "text-link",
+  "type": "registry:ui",
+  "title": "Text link",
+  "description": "A link in running text that looks like one, with an external-link mark option, and linkVariants() for your router's link.",
+  "category": "Typography",
+  "files": ["ui/text-link.tsx"],
+  "examples": ["text-link-demo", "text-link-router"]
+}

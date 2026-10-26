@@ -1,0 +1,13 @@
+{
+  "name": "app-team-table",
+  "type": "registry:block",
+  "title": "Team table",
+  "description": "The people in a workspace with roles as selects, last sign-in or Invited, a menu per row and an invite dialog.",
+  "category": "App skeleton",
+  "files": [
+    "blocks/app/team-table.tsx"
+  ],
+  "examples": [
+    "app-team-table-demo"
+  ]
+}

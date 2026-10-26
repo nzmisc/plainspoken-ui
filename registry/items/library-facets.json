@@ -1,0 +1,13 @@
+{
+  "name": "library-facets",
+  "type": "registry:block",
+  "title": "Library facets",
+  "description": "Search filters with counts in sections that open and close, a year range and a branch, moving into a drawer on phones.",
+  "category": "Library",
+  "files": [
+    "blocks/library/facets.tsx"
+  ],
+  "examples": [
+    "library-facets-demo"
+  ]
+}

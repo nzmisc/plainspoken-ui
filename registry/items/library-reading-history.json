@@ -1,0 +1,13 @@
+{
+  "name": "library-reading-history",
+  "type": "registry:block",
+  "title": "Reading history",
+  "description": "Everything a patron has borrowed in a data table with filters, multi-column sorting and CSV export.",
+  "category": "Library",
+  "files": [
+    "blocks/library/reading-history.tsx"
+  ],
+  "examples": [
+    "library-reading-history-demo"
+  ]
+}

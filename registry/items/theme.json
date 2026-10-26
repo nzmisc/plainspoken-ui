@@ -1,0 +1,9 @@
+{
+  "name": "theme",
+  "type": "registry:theme",
+  "title": "Default theme",
+  "description": "The default plainspoken-ui theme as shadcn/ui CSS variables: white and black, plain HTML grays, classic blue and purple links, Geist, no corner radius. Make your own on the Customize page.",
+  "category": "Foundations",
+  "files": [],
+  "hidden": true
+}

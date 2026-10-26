@@ -1,0 +1,13 @@
+{
+  "name": "library-holds",
+  "type": "registry:block",
+  "title": "Holds",
+  "description": "A patron's holds: pickup branch, place in line as words and a bar, state, and a menu to pause, move or cancel each.",
+  "category": "Library",
+  "files": [
+    "blocks/library/holds.tsx"
+  ],
+  "examples": [
+    "library-holds-demo"
+  ]
+}

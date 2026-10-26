@@ -1,0 +1,9 @@
+{
+  "name": "foundation",
+  "type": "registry:lib",
+  "title": "Foundation",
+  "description": "The control height scale (ctl-xs to ctl-lg, 20/24/28/36px) and the link, visited-link, success and warning colours every plainspoken-ui component uses. Installed automatically with any component.",
+  "category": "Foundations",
+  "files": ["lib/controls.ts"],
+  "hidden": true
+}

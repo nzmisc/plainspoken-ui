@@ -1,0 +1,13 @@
+{
+  "name": "social-app-shell",
+  "type": "registry:block",
+  "title": "Social app frame",
+  "description": "Three columns on wide screens (nav, a 600px page, search with trends and suggestions), one column with a bottom bar and a post button on phones, the compose dialog and toasts.",
+  "category": "Social",
+  "files": [
+    "blocks/social/app-shell.tsx"
+  ],
+  "examples": [
+    "social-app-shell-demo"
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "name": "chat-attachments",
+  "type": "registry:block",
+  "title": "Attachment chips",
+  "description": "Files attached to a question: read and checked in the browser, pictures made smaller, kept in IndexedDB once sent; chips with a thumbnail, name, size and remove, and the file list of a sent message that opens each one full size.",
+  "category": "AI chat",
+  "files": [
+    "blocks/chat/attachments.ts",
+    "blocks/chat/attachment-chips.tsx"
+  ],
+  "examples": [
+    "chat-attachments-demo"
+  ]
+}

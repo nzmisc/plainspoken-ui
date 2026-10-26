@@ -1,0 +1,13 @@
+{
+  "name": "chat-reasoning",
+  "type": "registry:block",
+  "title": "Reasoning",
+  "description": "The model's reasoning folded into a native <details>: “Thinking…” with a spinner while it streams, “Thought for 4 s” after, the text as a muted aside.",
+  "category": "AI chat",
+  "files": [
+    "blocks/chat/reasoning.tsx"
+  ],
+  "examples": [
+    "chat-reasoning-demo"
+  ]
+}

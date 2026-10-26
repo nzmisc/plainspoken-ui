@@ -1,0 +1,13 @@
+{
+  "name": "bible-chapter-grid",
+  "type": "registry:block",
+  "title": "Bible chapter grid",
+  "description": "Every chapter of a book as a grid of numbered squares, large enough to tap, with the current one marked.",
+  "category": "Bible",
+  "files": [
+    "blocks/bible/chapter-grid.tsx"
+  ],
+  "examples": [
+    "bible-chapter-grid-demo"
+  ]
+}

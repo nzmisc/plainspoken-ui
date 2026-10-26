@@ -1,0 +1,13 @@
+{
+  "name": "conflicts-doc-history",
+  "type": "registry:block",
+  "title": "Document: version history",
+  "description": "Live editing with the version history beside it as a safety net: saves grouped by person, any version compared with now, and Restore, which is itself a new version.",
+  "category": "Edit conflicts",
+  "files": [
+    "blocks/conflicts/doc-history.tsx"
+  ],
+  "examples": [
+    "conflicts-doc-history-demo"
+  ]
+}

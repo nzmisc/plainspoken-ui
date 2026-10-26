@@ -1,0 +1,18 @@
+{
+  "name": "chat-route",
+  "type": "registry:block",
+  "title": "Chat route",
+  "description": "The route handler at app/api/chat: reads OPENROUTER_API_KEY on the server, lets through only the allowed models, caps messages, input and answer length, and streams the answer with reasoning and metadata.",
+  "category": "AI chat",
+  "files": [
+    {
+      "path": "blocks/chat/route.ts",
+      "type": "registry:file",
+      "target": "app/api/chat/route.ts"
+    }
+  ],
+  "hidden": true,
+  "dependencies": [
+    "zod"
+  ]
+}

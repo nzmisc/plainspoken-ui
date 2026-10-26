@@ -1,0 +1,13 @@
+{
+  "name": "music-artwork",
+  "type": "registry:block",
+  "title": "Generated artwork",
+  "description": "Square cover art drawn from a seed: eight geometric patterns in eighteen palettes, the title in small type or an artist's initials big. Flat SVG, renders on the server.",
+  "category": "Music",
+  "files": [
+    "blocks/music/artwork.tsx"
+  ],
+  "examples": [
+    "music-artwork-demo"
+  ]
+}

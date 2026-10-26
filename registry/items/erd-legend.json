@@ -1,0 +1,13 @@
+{
+  "name": "erd-legend",
+  "type": "registry:block",
+  "title": "Legend",
+  "description": "What the marks of a diagram mean: crow's foot ends or 1 and N labels, the column marks, and the schema colours.",
+  "category": "ERD",
+  "files": [
+    "blocks/erd/legend.tsx"
+  ],
+  "examples": [
+    "erd-legend-demo"
+  ]
+}

@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 300" width="640" height="300" role="img" aria-label="The studio: a long room with a window wall, two desks and a plant">
+<rect width="640" height="300" fill="#efe9df"/>
+<rect x="0" y="230" width="640" height="70" fill="#d9cdbb"/>
+<g fill="#c5d6dc" stroke="#7b8a90" stroke-width="3"><rect x="60" y="40" width="150" height="150"/><rect x="245" y="40" width="150" height="150"/><rect x="430" y="40" width="150" height="150"/></g>
+<g stroke="#7b8a90" stroke-width="2"><path d="M135 40v150M60 115h150M320 40v150M245 115h150M505 40v150M430 115h150"/></g>
+<g fill="#8a6a4f"><rect x="90" y="200" width="190" height="10"/><rect x="100" y="210" width="8" height="45"/><rect x="262" y="210" width="8" height="45"/><rect x="360" y="200" width="190" height="10"/><rect x="370" y="210" width="8" height="45"/><rect x="532" y="210" width="8" height="45"/></g>
+<g fill="#3d4a52"><rect x="150" y="165" width="56" height="35"/><rect x="420" y="165" width="56" height="35"/></g>
+<rect x="590" y="215" width="34" height="40" fill="#b5653f"/>
+<g fill="#5f8a5a"><circle cx="600" cy="200" r="16"/><circle cx="616" cy="190" r="14"/><circle cx="604" cy="178" r="12"/></g>
+</svg>

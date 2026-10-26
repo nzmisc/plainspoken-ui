@@ -1,0 +1,13 @@
+{
+  "name": "library-loans",
+  "type": "registry:block",
+  "title": "Loans",
+  "description": "A patron's loans: due dates with overdue ones marked in words and colour, renewals used, and renewing one or several.",
+  "category": "Library",
+  "files": [
+    "blocks/library/loans.tsx"
+  ],
+  "examples": [
+    "library-loans-demo"
+  ]
+}

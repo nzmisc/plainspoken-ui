@@ -1,0 +1,23 @@
+{
+  "name": "milkdown-editor",
+  "type": "registry:ui",
+  "title": "Milkdown editor",
+  "description": "A Markdown editor on Milkdown (ProseMirror and remark), drawn with this library's components: three modes, a slash menu, a selection bubble, draggable blocks, tables, math and picture uploads. A drop-in alternative to the rich text editor.",
+  "category": "Forms",
+  "files": [
+    "ui/milkdown-editor.tsx",
+    "lib/milkdown.ts"
+  ],
+  "examples": [
+    "milkdown-editor-demo",
+    "milkdown-editor-modes",
+    "milkdown-editor-images",
+    "milkdown-editor-tables",
+    "milkdown-editor-math",
+    "milkdown-editor-controlled",
+    "milkdown-editor-read-only",
+    "milkdown-editor-field",
+    "milkdown-editor-kitchen-sink",
+    "milkdown-editor-compared"
+  ]
+}

@@ -1,0 +1,13 @@
+{
+  "name": "library-hours-today",
+  "type": "registry:block",
+  "title": "Hours today",
+  "description": "Every branch's hours for one day in a titled panel, with open or closed said in words and a symbol.",
+  "category": "Library",
+  "files": [
+    "blocks/library/hours-today.tsx"
+  ],
+  "examples": [
+    "library-hours-today-demo"
+  ]
+}

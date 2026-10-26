@@ -1,0 +1,13 @@
+{
+  "name": "library-results-bar",
+  "type": "registry:block",
+  "title": "Results bar",
+  "description": "The line over search results: how many matched, the filters in force as removable chips, and the sort order.",
+  "category": "Library",
+  "files": [
+    "blocks/library/results-bar.tsx"
+  ],
+  "examples": [
+    "library-results-bar-demo"
+  ]
+}

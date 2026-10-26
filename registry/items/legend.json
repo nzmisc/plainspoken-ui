@@ -1,0 +1,9 @@
+{
+  "name": "legend",
+  "type": "registry:ui",
+  "title": "Legend",
+  "description": "A chart's key: swatches that repeat each series' colour, dash pattern and marker, the label in text colour, and an optional value.",
+  "category": "Charts",
+  "files": ["ui/legend.tsx"],
+  "examples": ["legend-demo"]
+}

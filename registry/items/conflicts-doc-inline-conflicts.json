@@ -1,0 +1,13 @@
+{
+  "name": "conflicts-doc-inline-conflicts",
+  "type": "registry:block",
+  "title": "Document: inline conflict blocks",
+  "description": "A document that merges by paragraphs (and words within one), saying where; a real clash shows in place as both versions stacked, tagged by author, with Keep mine, Keep theirs, Keep both or Edit.",
+  "category": "Edit conflicts",
+  "files": [
+    "blocks/conflicts/doc-inline-conflicts.tsx"
+  ],
+  "examples": [
+    "conflicts-doc-inline-conflicts-demo"
+  ]
+}

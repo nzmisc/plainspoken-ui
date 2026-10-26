@@ -1,0 +1,13 @@
+{
+  "name": "app-invoice-status-chart",
+  "type": "registry:block",
+  "title": "Invoices by state",
+  "description": "A donut of invoice amounts by state, the amount owed in the hole and every part written out in the legend.",
+  "category": "App skeleton",
+  "files": [
+    "blocks/app/invoice-status-chart.tsx"
+  ],
+  "examples": [
+    "app-invoice-status-chart-demo"
+  ]
+}

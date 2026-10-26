@@ -1,0 +1,13 @@
+{
+  "name": "budget-app",
+  "type": "registry:block",
+  "title": "Budget app",
+  "description": "The whole budget page: headline figures, the editable sheet with its save bar, and a monthly chart and category summary that follow every edit.",
+  "category": "Budget",
+  "files": [
+    "blocks/budget/budget-app.tsx"
+  ],
+  "examples": [
+    "budget-app-demo"
+  ]
+}

@@ -1,0 +1,9 @@
+{
+  "name": "canvas-node",
+  "type": "registry:ui",
+  "title": "Canvas node",
+  "description": "Draggable, selectable things on a Canvas: snap to the grid, Shift + click and box selection, arrow keys to move (Shift for 10×), the last selected on top, and moves announced to screen readers.",
+  "category": "Layout",
+  "files": ["ui/canvas-node.tsx"],
+  "examples": ["canvas-node-demo"]
+}

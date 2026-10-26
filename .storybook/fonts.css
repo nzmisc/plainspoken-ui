@@ -1,0 +1,5 @@
+/* Geist for Storybook, which doesn't run app/layout.tsx (where next/font loads it for the site). */
+@font-face { font-family: "Geist"; src: url("../app/fonts/Geist.woff2") format("woff2"); font-weight: 100 900; font-style: normal; font-display: swap; }
+@font-face { font-family: "Geist"; src: url("../app/fonts/Geist-Italic.woff2") format("woff2"); font-weight: 100 900; font-style: italic; font-display: swap; }
+@font-face { font-family: "Geist Mono"; src: url("../app/fonts/GeistMono.woff2") format("woff2"); font-weight: 100 900; font-style: normal; font-display: swap; }
+@font-face { font-family: "Geist Mono"; src: url("../app/fonts/GeistMono-Italic.woff2") format("woff2"); font-weight: 100 900; font-style: italic; font-display: swap; }

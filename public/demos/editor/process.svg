@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 140" width="640" height="140" role="img" aria-label="Our process: listen, sketch, build, review, and back to listen" font-family="Helvetica, Arial, sans-serif" font-size="18" text-anchor="middle">
+<rect width="640" height="140" fill="#f4f2ee"/>
+<g fill="#fff" stroke="#55606a" stroke-width="2"><rect x="20" y="40" width="120" height="50"/><rect x="180" y="40" width="120" height="50"/><rect x="340" y="40" width="120" height="50"/><rect x="500" y="40" width="120" height="50"/></g>
+<g fill="#2b3238"><text x="80" y="71">Listen</text><text x="240" y="71">Sketch</text><text x="400" y="71">Build</text><text x="560" y="71">Review</text></g>
+<g stroke="#b5653f" stroke-width="3" fill="none"><path d="M142 65h34M302 65h34M462 65h34"/><path d="M560 92v26H80V94"/></g>
+<g fill="#b5653f"><path d="M176 59l10 6-10 6zM336 59l10 6-10 6zM496 59l10 6-10 6zM74 98l6-10 6 10z"/></g>
+</svg>

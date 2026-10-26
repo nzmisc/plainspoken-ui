@@ -1,0 +1,13 @@
+{
+  "name": "mail-reply-box",
+  "type": "registry:block",
+  "title": "Reply box",
+  "description": "The inline reply under a conversation: recipients as chips, a text box, Send and Discard; Reply all adds Cc, Forward lists the files that go along.",
+  "category": "Mail",
+  "files": [
+    "blocks/mail/reply-box.tsx"
+  ],
+  "examples": [
+    "mail-reply-box-demo"
+  ]
+}
